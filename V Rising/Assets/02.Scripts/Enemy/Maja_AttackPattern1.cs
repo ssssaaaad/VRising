@@ -27,6 +27,8 @@ public class Maja_AttackPattern1 : MonoBehaviour
     private Projectile parentProjectile;
     private Projectile childProjectile;
 
+    private List<Projectile> childProjectiles;
+
     public void ActivePattern(Vector3 firstDirection, bool secondDirection_Right)
     {
         parentProjectile = Instantiate(parentProjectile_Prefab);
@@ -52,14 +54,14 @@ public class Maja_AttackPattern1 : MonoBehaviour
         }
 
         childProjectile.InitAttack(parentDamage, true);
-        //parentProjectile.Fire(firstDirection, parentDistance, parentActiveTime);
+        childProjectiles.Add(childProjectile);
     }
 
-    //IEnumerator SpawnChileProjectilet()
-    //{
-    //    for (int i = 0; i < childBulletCount; i++)
-    //    {
+    IEnumerator SpawnChileProjectilet()
+    {
+        for (int i = 0; i < childBulletCount; i++)
+        {
 
-    //    }
-    //}
+        }
+    }
 }

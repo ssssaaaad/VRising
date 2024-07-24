@@ -6,7 +6,6 @@ public class Projectile : AttackCollision
 {
     private Vector3 direction;
     private float distance;
-    private bool activeAfterHit;
     private bool fire = false;
 
     private float currentTime = 0;
