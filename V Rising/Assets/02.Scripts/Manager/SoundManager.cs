@@ -115,8 +115,7 @@ public class SoundManager : MonoBehaviour
         // 풀에 오브젝트가 없으면 생성
         if (inactiveSFXAudioSources.Count == 0)
         {
-            source = new GameObject().AddComponent<SFXAudioSource>();
-            source.transform.SetParent(transform);
+            source = Instantiate(prefab_SFXAudioSource, transform);
             source.SetVolume(sfxVolume);
             sfxAudioSources.Enqueue(source);
         }
@@ -142,14 +141,6 @@ public class SoundManager : MonoBehaviour
         sfxAudioSource.transform.SetParent(transform);
         sfxAudioSource.gameObject.SetActive(false);
         inactiveSFXAudioSources.Enqueue(sfxAudioSource);
-
-        if(inactiveSFXAudioSources.Count > 100)
-        {
-            for (int i = 0; i < 50; i++)
-            {
-                Destroy(inactiveSFXAudioSources.Dequeue().gameObject);
-            }
-        }
     }
 
 }

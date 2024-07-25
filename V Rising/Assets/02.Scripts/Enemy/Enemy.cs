@@ -6,21 +6,14 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    #region NavMesh
+
     public NavMeshAgent navMeshAgent;
     public Transform target;
 
-    #endregion
-
-    #region status
-    protected bool alive = false;
     public float hp_Max;
     public float hp_Current;
-    #endregion
 
-    #region Animation
-    public Animator animator;
-    #endregion
+    protected bool alive = false;
 
     protected void InitEnemy()
     {
@@ -55,11 +48,6 @@ public class Enemy : MonoBehaviour
     {
         this.target = target;
         navMeshAgent.SetDestination(target.position);
-    }
-    protected void MovePosition(Vector3 position)
-    {
-        this.target = null;
-        navMeshAgent.SetDestination(position);
     }
 
     protected void StopMoveTarget()
