@@ -9,6 +9,9 @@ public class Maja : Enemy
 
     public Transform normalAttack;
     private bool check_NormalAttck = true;
+    private Vector3 movementPosition;
+    private float mapRadius = 10;
+    private float enemyDistance;
 
     void Awake()
     {
@@ -18,7 +21,8 @@ public class Maja : Enemy
     // Update is called once per frame
     void Update()
     {
-        
+        print(1);
+        Runaway();
     }
 
     protected new void InitEnemy()
@@ -31,5 +35,22 @@ public class Maja : Enemy
     {
 
         check_NormalAttck = false;
+    }
+
+    private void Runaway()
+    {
+        if(target == null)
+            return;
+        enemyDistance = Vector3.Distance(mapOriginPosition.position, transform.position);
+        if (enemyDistance < mapRadius)
+        {
+            movementPosition = transform.position + (transform.position - target.position).normalized * (mapRadius - enemyDistance);
+        }
+        //else
+        //{
+        //    Mathf.Atan2(transform.z, transform.x);
+        //}
+
+        navMeshAgent.SetDestination(movementPosition);
     }
 }

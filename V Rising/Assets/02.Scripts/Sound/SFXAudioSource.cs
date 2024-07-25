@@ -6,10 +6,11 @@ public class SFXAudioSource : MonoBehaviour
     public AudioSource audioSource;
     private Sound sound;
     private Transform target;
-    
-    private void Start()
+    private Coroutine playCheck;
+    private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.loop = false;
     }
 
     private void Update()
@@ -28,6 +29,7 @@ public class SFXAudioSource : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
+        playCheck = null;
     }
 
     public void SetVolume(float volume)
@@ -37,13 +39,18 @@ public class SFXAudioSource : MonoBehaviour
 
     public void ActiveSound(Sound sound, Transform target)
     {
-        this.target = target;
+        if (playCheck != null)
+        {
+            StopCoroutine(playCheck);
+            playCheck = null;
+        }
 
+        this.target = target;
         this.sound = sound;
         audioSource.clip = sound.audioClip;
         audioSource.Play();
 
-        StartCoroutine(InactiveSFXSound());
+        playCheck = StartCoroutine(InactiveSFXSound());
     }
 
 
@@ -61,5 +68,6 @@ public class SFXAudioSource : MonoBehaviour
     {
         yield return new WaitForSeconds(audioSource.clip.length);
         SoundManager.instance.InactiveSFXSound(this);
+        playCheck = null;
     }
 }
