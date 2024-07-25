@@ -7,15 +7,20 @@ public class PlayerMove : MonoBehaviour
     public float playerSpeed = 5f;
     Camera characterCamera;
     public GameObject go;
+    CharacterController cc;
+
+    public float gravity = -20f;
+    float yVelocity = 0;
+    
     void Start()
     {
-        
+        cc = GetComponent<CharacterController>();
     }
 
     
     private void Awake()
     {
-        characterCamera = GetComponentInChildren<Camera>();
+        characterCamera = Camera.main;
     }
     
     void Update()
@@ -29,12 +34,22 @@ public class PlayerMove : MonoBehaviour
         Vector3 dir = dirad + dirws;
         dir.Normalize();
         LookMouseCursor();
+        
 
-        transform.position += dir * playerSpeed * Time.deltaTime;
+        dir = Camera.main.transform.TransformDirection(dir);
 
+        yVelocity += gravity * Time.deltaTime;
+        dir.y = yVelocity;
+        cc.Move(dir * playerSpeed * Time.deltaTime);
 
+        
 
     }
+    
+        
+       
+        
+    
     public void LookMouseCursor()
     {
         var ray = characterCamera.ScreenPointToRay(Input.mousePosition);
@@ -43,6 +58,9 @@ public class PlayerMove : MonoBehaviour
         {
             Vector3 mouseDir = new Vector3(hitResult.point.x, transform.position.y, hitResult.point.z) - transform.position;
             go.transform.forward = mouseDir;
+
+            
+            
         }
     }
 }
