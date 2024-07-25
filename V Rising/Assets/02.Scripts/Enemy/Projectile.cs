@@ -23,12 +23,17 @@ public class Projectile : AttackCollision
         {
             currentTime += Time.deltaTime;
             transform.position = Vector3.Lerp(startPosition, startPosition + direction * distance, currentTime / activeTime);
+            if(currentTime >= activeTime)
+            {
+                // 제거 효과
+                Destroy(gameObject);
+            }
         }
     }
 
-    public new void InitAttack(float damage, bool activeAfterHit, float hitCooltime = 0)
+    public new void InitAttack(float damage, bool activeAfterHit, bool collision = true ,float hitCooltime = 0)
     {
-        base.InitAttack(damage, activeAfterHit, hitCooltime);
+        base.InitAttack(damage, activeAfterHit, collision, hitCooltime);
         fire = false;
         currentTime = 0;
     }
