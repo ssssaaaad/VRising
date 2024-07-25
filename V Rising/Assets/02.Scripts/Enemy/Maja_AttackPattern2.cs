@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Maja_AttackPattern2 : MonoBehaviour
 {
+    public Maja maja;
     private Transform player;
 
     public float coolTime = 5;
@@ -32,15 +33,11 @@ public class Maja_AttackPattern2 : MonoBehaviour
     private List<Projectile> childProjectiles = new List<Projectile>();
 
     public bool start = false;
-    public Vector3 firstDirection;
     public bool dir = false;
-    private void Update()
+
+    private void Awake()
     {
-        if (start)
-        {
-            start = false;
-            ActivePattern(firstDirection, dir);
-        }
+        maja = GetComponent<Maja>();
     }
 
     private void OnDestroy()
@@ -48,7 +45,7 @@ public class Maja_AttackPattern2 : MonoBehaviour
         StopAllCoroutines();
     }
 
-    public void ActivePattern(Vector3 firstDirection, bool secondDirection_Right)
+    public void ActivePattern(Vector3 direction)
     {
         if (!readyToStart)
         {
@@ -56,14 +53,32 @@ public class Maja_AttackPattern2 : MonoBehaviour
         }
         readyToStart = false;
         childProjectiles.Clear();
+
         parentProjectile = Instantiate(parentProjectile_Prefab);
-        parentProjectile.transform.position = transform.position + (-firstDirection * startPosition) + Vector3.up;
-        lookAtDirection = (transform.position + firstDirection);
+        parentProjectile.transform.position = transform.position + (-direction * startPosition) + Vector3.up;
+        lookAtDirection = (transform.position + direction);
         lookAtDirection.y = parentProjectile.transform.position.y;
         parentProjectile.transform.LookAt(lookAtDirection);
         parentProjectile.InitAttack(parentDamage, true, false);
-        this.secondDirection_Right = secondDirection_Right;
-        parentProjectile.Fire(firstDirection, parentDistance, parentActiveTime);
+
+        if(maja.target != null)
+        {
+            Vector3 enemy_Cross = Vector3.Cross(parentProjectile.transform.forward, (maja.target.position - parentProjectile.transform.position));
+
+            if (enemy_Cross.y > 0)
+            {
+                this.secondDirection_Right = true;
+            }
+            else
+            {
+                this.secondDirection_Right = false;
+            }
+        }
+        else
+        {
+
+        }
+        parentProjectile.Fire(direction, parentDistance, parentActiveTime);
         StartCoroutine(SpawnChileProjectilet());
         StartCoroutine(PatternCooltime());
     }

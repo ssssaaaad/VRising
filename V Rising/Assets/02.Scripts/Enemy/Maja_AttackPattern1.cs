@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Maja_AttackPattern3 : MonoBehaviour
+public class Maja_AttackPattern1 : MonoBehaviour
 {
     private Transform player;
 
@@ -25,20 +25,6 @@ public class Maja_AttackPattern3 : MonoBehaviour
 
     public bool start = false;
 
-    private void Update()
-    {
-        if (start)
-        {
-            start = false;
-            ActivePattern(transform.forward, transform.position);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        StopAllCoroutines();
-    }
-
     public void ActivePattern(Vector3 direction)
     {
         if (!readyToStart)
@@ -47,16 +33,12 @@ public class Maja_AttackPattern3 : MonoBehaviour
         }
         readyToStart = false;
         Vector3 right = Vector3.Cross(direction, Vector3.up);
-        for (int i = 0; i < bulletCount; i++)
-        {
-            projectile = Instantiate(projectile_Prefab);
-            spawnPosition = transform.position + (((right * width) / (bulletCount-1)) * i);
-            spawnPosition += -right * width / 2;
-            projectile.transform.position = spawnPosition + direction * startDistance;
-            projectile.transform.LookAt(projectile.transform.position + direction);
-            projectile.InitAttack(damage, true);
-            projectile.Fire(direction, attackDistance, attackActiveTime);
-        }
+        projectile = Instantiate(projectile_Prefab);
+        projectile.transform.position = transform.position + direction * startDistance;
+        projectile.transform.LookAt(projectile.transform.position + direction);
+        projectile.InitAttack(damage, false);
+        projectile.Fire(direction, attackDistance, attackActiveTime);
+        
         StartCoroutine(PatternCooltime());
     }
 
@@ -66,5 +48,4 @@ public class Maja_AttackPattern3 : MonoBehaviour
         yield return new WaitForSeconds(coolTime);
         readyToStart = true;
     }
-
 }
