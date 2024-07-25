@@ -11,8 +11,9 @@ public class MainCamera : MonoBehaviour
     float mx = 0;
     float my = 0;
 
-    public float camcurrentinterval = 10;
-    
+    public float camcurrentinterval = 30;
+    public float camcurrentinterval_Max = 100;
+
 
     private void Start()
     {
@@ -53,15 +54,15 @@ public class MainCamera : MonoBehaviour
 
         camcurrentinterval -= Input.GetAxis("Mouse ScrollWheel") * 3;
 
-        camcurrentinterval = Mathf.Clamp(camcurrentinterval, 4.5f, 12f);
+        camcurrentinterval = Mathf.Clamp(camcurrentinterval, 4.5f, camcurrentinterval_Max);
 
 
         Vector3 cameraDir =  -transform.forward * camcurrentinterval;
 
-        //Ä«¸Ş¶ó´Â ÇÃ·¹ÀÌ¾î À§Ä¡ + º¤ÅÍÀÇ À§Ä¡¿¡ ÀÖ´Ù
-        //Ä«¸Ş¶óÀÇ È¸ÀüÀº »çÀÌÀÇ º¤ÅÍ¸¦ Æ¯Á¤ ÃàÀ¸·Î È¸ÀüÇÑ º¤ÅÍ¸¦ ±¸ÇÏ°í 
-        //ÄõÅÍ´Ï¾ğ°ú º¤ÅÍÀÇ °ö¿¡¼­ ÈùÆ®
-        //´Ù½Ã Ä«¸Ş¶óÀÇ À§Ä¡¸¦ ÇÃ·¹ÀÌ¾î + ±¸ÇÑº¤ÅÍ À§Ä¡·Î
+        //ì¹´ë©”ë¼ëŠ” í”Œë ˆì´ì–´ ìœ„ì¹˜ + ë²¡í„°ì˜ ìœ„ì¹˜ì— ìˆë‹¤
+        //ì¹´ë©”ë¼ì˜ íšŒì „ì€ ì‚¬ì´ì˜ ë²¡í„°ë¥¼ íŠ¹ì • ì¶•ìœ¼ë¡œ íšŒì „í•œ ë²¡í„°ë¥¼ êµ¬í•˜ê³  
+        //ì¿¼í„°ë‹ˆì–¸ê³¼ ë²¡í„°ì˜ ê³±ì—ì„œ íŒíŠ¸
+        //ë‹¤ì‹œ ì¹´ë©”ë¼ì˜ ìœ„ì¹˜ë¥¼ í”Œë ˆì´ì–´ + êµ¬í•œë²¡í„° ìœ„ì¹˜ë¡œ
 
         transform.position = player.transform.position + cameraDir;
 

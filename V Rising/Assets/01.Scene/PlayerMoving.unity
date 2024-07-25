@@ -603,7 +603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1851887033}
   rotSpeed: 1000
-  camcurrentinterval: 10
+  camcurrentinterval: 30
+  camcurrentinterval_Max: 100
 --- !u!1 &1740879869
 GameObject:
   m_ObjectHideFlags: 0
