@@ -2,33 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MainCamera : MonoBehaviour
 {
     public GameObject player;
     public float rotSpeed = 1000f;
-    private bool rotate;
+    public bool rotate;
     float mx = 0;
     float my = 0;
 
     public float camcurrentinterval = 30;
     public float camcurrentinterval_Max = 100;
 
-
+    
     private void Start()
     {
         
     }
 
+    
     private void Update()
     {
         if(Input.GetMouseButtonDown(1))
         {
             rotate = true;
+            
+            
+            
+
+            
         }
-        if(Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1))
         {
             rotate = false;
+           
+
+
         }
 
         
@@ -48,10 +58,13 @@ public class MainCamera : MonoBehaviour
 
             my = Mathf.Clamp(my, 30f, 60f);
 
+            
+
+
             transform.localEulerAngles = new Vector3(my, mx, 0);
         }
 
-
+        
         camcurrentinterval -= Input.GetAxis("Mouse ScrollWheel") * 3;
 
         camcurrentinterval = Mathf.Clamp(camcurrentinterval, 4.5f, camcurrentinterval_Max);
@@ -69,5 +82,6 @@ public class MainCamera : MonoBehaviour
 
 
     }
+    
 
 }
