@@ -8,17 +8,18 @@ using Random = UnityEngine.Random;
 
 public interface Pattern
 {
-
+    public void InitPattern(Maja maja);
+    public void ActivePattern(Vector3 direction);
 }
 
 public class Maja : Enemy
 {
     public Transform mapOriginPosition;
-
-    public Transform normalAttack;
+    public Pattern[] attackPatterns;
+    public Pattern teleport;
     private bool check_NormalAttck = true;
     private Vector3 movementPosition;
-    private float mapRadius = 10;
+    public float mapRadius = 10;
     private float enemyDistance;
     private Vector3 enemyDirection;
     private Vector3 targetDirection;
@@ -40,13 +41,14 @@ public class Maja : Enemy
     void Awake()
     {
         InitEnemy();
+
+        for (int i = 0; i < attackPatterns.Length; i++)
+        {
+            attackPatterns[i].InitPattern(this);
+        }
+        teleport.InitPattern(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Runaway();
-    }
 
     protected new void InitEnemy()
     {
@@ -54,11 +56,32 @@ public class Maja : Enemy
 
     }
 
-    private void NormalAttack()
+    private void PatternCycle()
     {
-
-        check_NormalAttck = false;
+        if (state == State.Idle)
+        {
+            return;
+        }
+        else if (state == State.Move)
+        {
+            Move();
+        }
+        else if (state ==State.Runaway)
+        {
+            Runaway();
+        }
+        else if(state == State.Teleport)
+        {
+            teleport.ActivePattern(Vector3.zero);
+        }
     }
+
+
+    private void AttakPatter(int index)
+    {
+        attackPatterns[index].ActivePattern(target.position);
+    }
+
 
     private void Move()
     {
@@ -153,12 +176,5 @@ public class Maja : Enemy
         navMeshAgent.SetDestination(movementPosition);
     }
 
-    private void Teleport()
-    {
-        StopMoveTarget();
-        if (target == null)
-            return;
-        movementPosition = (mapOriginPosition.position - target.position).normalized * (mapRadius * 0.6f);
-        transform.position = movementPosition;
-    }
+
 }

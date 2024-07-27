@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Maja_AttackPattern2 : MonoBehaviour
+public class Maja_AttackPattern2 : MonoBehaviour, Pattern
 {
     public Maja maja;
-    private Transform player;
 
     public float coolTime = 5;
     public bool readyToStart = true;
@@ -44,6 +43,10 @@ public class Maja_AttackPattern2 : MonoBehaviour
     {
         StopAllCoroutines();
     }
+    public void InitPattern(Maja maja)
+    {
+        this.maja = maja;
+    }
 
     public void ActivePattern(Vector3 direction)
     {
@@ -76,7 +79,7 @@ public class Maja_AttackPattern2 : MonoBehaviour
         }
         else
         {
-
+            this.secondDirection_Right = false;
         }
         parentProjectile.Fire(direction, parentDistance, parentActiveTime);
         StartCoroutine(SpawnChileProjectilet());

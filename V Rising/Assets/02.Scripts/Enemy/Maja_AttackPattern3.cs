@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Maja_AttackPattern3 : MonoBehaviour
+public class Maja_AttackPattern3 : MonoBehaviour, Pattern
 {
-    private Transform player;
+    private Maja maja;
 
     public float coolTime = 5;
     public bool readyToStart = true;
@@ -25,18 +25,14 @@ public class Maja_AttackPattern3 : MonoBehaviour
 
     public bool start = false;
 
-    private void Update()
-    {
-        if (start)
-        {
-            start = false;
-            ActivePattern(transform.forward, transform.position);
-        }
-    }
-
     private void OnDestroy()
     {
         StopAllCoroutines();
+    }
+
+    public void InitPattern(Maja maja)
+    {
+        this.maja = maja;
     }
 
     public void ActivePattern(Vector3 direction)

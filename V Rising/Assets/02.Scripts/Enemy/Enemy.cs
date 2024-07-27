@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
         navMeshAgent.SetDestination(position);
     }
 
-    protected void StopMoveTarget()
+    public void StopMoveTarget()
     {
         navMeshAgent.ResetPath();
         target = null;
