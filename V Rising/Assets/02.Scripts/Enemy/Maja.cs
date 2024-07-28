@@ -18,7 +18,7 @@ public abstract class Pattern : MonoBehaviour
 
     public float delayTime;
     protected bool patterDelay;
-
+    public float distance;
     protected  abstract IEnumerator PatternDelayTime();
 }
 
@@ -36,6 +36,7 @@ public class Maja : Enemy
     private bool check_NormalAttck = true;
     private Vector3 movementPosition;
     private float enemyDistance;
+    private bool distanceCheck = false;
     private Vector3 enemyDirection;
     private Vector3 targetDirection;
     private Vector3 enemy_Cross;
@@ -105,6 +106,10 @@ public class Maja : Enemy
         {
             return;
         }
+        else if(target == null)
+        {
+            return;
+        }
 
         attackCooltime_Current += routineTime;
         if (PatternDelay != null)
@@ -122,7 +127,7 @@ public class Maja : Enemy
         }
         else if (state == State.Move)
         {
-            Move();
+            Move(Vector3.zero);
         }
         else if (state ==State.Runaway)
         {
@@ -150,26 +155,6 @@ public class Maja : Enemy
                 else if (attackPatterns[1].CooltimeCheck())
                 {
                     // 옆으로 7개
-                    angle = Mathf.Atan2(targetDirection.z, targetDirection.x) * Mathf.Rad2Deg;
-                    //enemyDirection = (transform.position - mapOriginPosition.position).normalized;
-                    //if(math.abs(enemyDirection.x) > math.abs(enemyDirection.z))
-                    //{
-                    //    if(enemyDirection.x > 0)
-                    //    {
-
-                    //    }
-                    //}
-                    if (Random.value > 0.5)
-                    {
-                        angle += 90;
-                    }
-                    else
-                    {
-                        angle -= 90;
-                    }
-                    angle *= Mathf.Deg2Rad;
-                    targetDirection = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
-
                     attackPatterns[1].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
                 }
@@ -207,7 +192,22 @@ public class Maja : Enemy
 
         if (attackCooltime_Current > attackCooltime_Max)
         {
-            state = State.Attack;
+            distanceCheck = false;
+            enemyDistance = Vector3.Distance(target.position, transform.position);
+            for (int i = 0; i < attackPatterns.Count; i++)
+            {
+                if(enemyDistance <= attackPatterns[i].distance && attackPatterns[i].CooltimeCheck())
+                {
+                    distanceCheck = true;
+                    state = State.Attack;
+                    break;
+                }
+            }
+            if (!distanceCheck)
+            {
+                state = State.Move;
+                Move(target.position);
+            }
         }
 
         if(state != State.Move)
@@ -227,39 +227,50 @@ public class Maja : Enemy
     }
 
 
-    private void Move()
+    private void Move(Vector3 position)
     {
-        if (setMovePosition)
+        if (position == Vector3.zero)
         {
-            if (Vector3.Distance(movementPosition, transform.position) < 0.5)
+            if (setMovePosition)
             {
-                setMovePosition = false;
+                if (Vector3.Distance(movementPosition, transform.position) < 0.5)
+                {
+                    setMovePosition = false;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+
+            enemyDirection = new Vector3(transform.position.x - mapOriginPosition.position.x, 0, transform.position.z - mapOriginPosition.position.z).normalized;
+            angle = Mathf.Atan2(enemyDirection.z, enemyDirection.x) * Mathf.Rad2Deg;
+
+            if (Random.value > 0.5)
+            {
+                angle += 70;
             }
             else
             {
-                return;
+                angle -= 70;
             }
-        }
+            angle *= Mathf.Deg2Rad;
+            movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius - 1);
+            movementPosition += mapOriginPosition.position;
 
-
-        enemyDirection = new Vector3(transform.position.x - mapOriginPosition.position.x, 0, transform.position.z - mapOriginPosition.position.z).normalized;
-        angle = Mathf.Atan2(enemyDirection.z, enemyDirection.x) * Mathf.Rad2Deg;
-
-        if(Random.value > 0.5)
-        {
-            angle += 70;
+            navMeshAgent.SetDestination(movementPosition);
+            setMovePosition = true;
         }
         else
         {
-            angle -= 70;
+            if(Vector3.Distance(mapOriginPosition.position, target.position) < mapRadius)
+            {
+                movementPosition = position;
+                navMeshAgent.SetDestination(movementPosition);
+                setMovePosition = true;
+            }
         }
-        angle *= Mathf.Deg2Rad;
-        movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius - 1);
-        movementPosition += mapOriginPosition.position;
-    
-        navMeshAgent.SetDestination(movementPosition);
-        setMovePosition = true;
-
     }
 
     private void Runaway()
@@ -269,8 +280,6 @@ public class Maja : Enemy
 
         if (teleport.CooltimeCheck())
         {
-            print(Vector3.Distance(transform.position, target.position));
-
             if (Vector3.Distance(transform.position, target.position) < teleportDistance)
             {
                 state = State.Teleport;

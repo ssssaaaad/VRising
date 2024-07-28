@@ -23,15 +23,13 @@ public class Maja_AttackPattern2 : Pattern
     public bool secondDirection_Right;
 
     private Vector3 lookAtDirection;
+    private Vector3 direction;
 
     public Projectile parentProjectile_Prefab;
     public Projectile childProjectile_Prefab;
     private Projectile childProjectile;
 
-    private List<Projectile> childProjectiles = new List<Projectile>();
 
-    public bool start = false;
-    public bool dir = false;
 
     private void Awake()
     {
@@ -57,7 +55,6 @@ public class Maja_AttackPattern2 : Pattern
             return;
         }
         readyToStart = false;
-        childProjectiles.Clear();
 
         StartCoroutine(Coroutine_ActivePattern(direction));
       
@@ -67,7 +64,7 @@ public class Maja_AttackPattern2 : Pattern
         StartCoroutine(PatternCooltime());
     }
 
-    private void ActiveChildProjectile(Projectile parentProjectile, bool secondDirection_Right)
+    private Projectile ActiveChildProjectile(Projectile parentProjectile, bool secondDirection_Right)
     {
         Projectile childProjectile = Instantiate(childProjectile_Prefab);
         childProjectile.transform.position = parentProjectile.transform.position;
@@ -82,7 +79,7 @@ public class Maja_AttackPattern2 : Pattern
         }
 
         childProjectile.InitAttack(parentDamage, true);
-        childProjectiles.Add(childProjectile);
+        return(childProjectile);
     }
 
     protected override bool GetPatternDelay()
@@ -99,24 +96,25 @@ public class Maja_AttackPattern2 : Pattern
 
     }
 
-    IEnumerator Coroutine_ActivePattern(Vector3 direction)
+    IEnumerator Coroutine_ActivePattern(Vector3 targetDirection)
     {
         
         for (int i = 0; i < 2; i++)
         {
             Projectile parentProjectile = Instantiate(parentProjectile_Prefab);
-            parentProjectile.transform.position = transform.position + (-direction * startPosition);
-            float angle = Mathf.Atan2(direction.z, direction.x);
+            float angle = Mathf.Atan2(targetDirection.z, targetDirection.x);
             if (i > 0)
             {
-                angle = -70 * Mathf.Deg2Rad;
+                angle += -70 * Mathf.Deg2Rad;
             }
             else
             {
-                angle = 70 * Mathf.Deg2Rad;
+                angle += 70 * Mathf.Deg2Rad;
             }
 
             direction = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+            parentProjectile.transform.position = transform.position + (-direction * startPosition);
+
             lookAtDirection = (transform.position + direction);
             lookAtDirection.y = parentProjectile.transform.position.y;
             parentProjectile.transform.LookAt(lookAtDirection);
@@ -128,16 +126,16 @@ public class Maja_AttackPattern2 : Pattern
 
                 if (enemy_Cross.y > 0)
                 {
-                    this.secondDirection_Right = true;
+                    secondDirection_Right = true;
                 }
                 else
                 {
-                    this.secondDirection_Right = false;
+                    secondDirection_Right = false;
                 }
             }
             else
             {
-                this.secondDirection_Right = false;
+                secondDirection_Right = false;
             }
             parentProjectile.Fire(direction, parentDistance, parentActiveTime);
             StartCoroutine(SpawnChileProjectilet(parentProjectile, secondDirection_Right));
@@ -149,9 +147,10 @@ public class Maja_AttackPattern2 : Pattern
 
     IEnumerator SpawnChileProjectilet(Projectile parentProjectile, bool secondDirection_Right)
     {
+        List<Projectile> childProjectiles = new List<Projectile>();
         for (int i = 0; i < childBulletCount; i++)
         {
-            ActiveChildProjectile(parentProjectile, secondDirection_Right);
+            childProjectiles.Add(ActiveChildProjectile(parentProjectile, secondDirection_Right));
             yield return new WaitForSeconds(parentActiveTime / childBulletCount);
         }
 
