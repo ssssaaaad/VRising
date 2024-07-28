@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Maja_AttackPattern3 : MonoBehaviour, Pattern
+public class Maja_AttackPattern3 : Pattern
 {
     private Maja maja;
 
@@ -23,19 +23,20 @@ public class Maja_AttackPattern3 : MonoBehaviour, Pattern
     public Projectile projectile_Prefab;
     private Projectile projectile;
 
-    public bool start = false;
-
     private void OnDestroy()
     {
         StopAllCoroutines();
     }
 
-    public void InitPattern(Maja maja)
+    public override void InitPattern(Maja maja)
     {
         this.maja = maja;
     }
-
-    public void ActivePattern(Vector3 direction)
+    public override bool CooltimeCheck()
+    {
+        return readyToStart;
+    }
+    public override void ActivePattern(Vector3 direction)
     {
         if (!readyToStart)
         {
@@ -53,7 +54,21 @@ public class Maja_AttackPattern3 : MonoBehaviour, Pattern
             projectile.InitAttack(damage, true);
             projectile.Fire(direction, attackDistance, attackActiveTime);
         }
+        StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
+    }
+    protected override bool GetPatternDelay()
+    {
+        return patterDelay;
+    }
+
+    protected override IEnumerator PatternDelayTime()
+    {
+        maja.PatternDelay = GetPatternDelay;
+        patterDelay = true;
+        yield return new WaitForSeconds(delayTime);
+        patterDelay = false;
+
     }
 
     IEnumerator PatternCooltime()
