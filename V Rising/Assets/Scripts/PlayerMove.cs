@@ -8,13 +8,15 @@ using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float playerSpeed = 5f;
+    public float playerSpeed = 5f; // 기본속도
+    
     public float dashSpeed = 20f; // 대쉬 이동속도
     public float dashDuration = 0.45f; // 대쉬 지속 시간
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
     Camera characterCamera;
     public GameObject go;
     CharacterController cc;
+    private Rskill Rskill;
     private bool isDashing = false;
     private Vector3 moveDirection;
     private Vector3 currentVelocity;
@@ -24,13 +26,14 @@ public class PlayerMove : MonoBehaviour
     private bool canDash = true; // 대쉬 가능 여부
     private float nextDashTime = 0f; // 다음 대쉬 가능 시간
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
-
+    
     public float gravity = -20f;
     float yVelocity = 0;
 
     void Start()
     {
         cc = GetComponent<CharacterController>();
+        Rskill = GetComponent<Rskill>();
     }
 
 
@@ -48,6 +51,7 @@ public class PlayerMove : MonoBehaviour
         Vector3 dirws = transform.forward * ws;
 
         Vector3 dir = dirad + dirws;
+        
         dir.Normalize();
 
 
@@ -62,8 +66,11 @@ public class PlayerMove : MonoBehaviour
         // 대쉬 처리
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
-            SetDashDirection();
-            StartDash();
+            
+             SetDashDirection();
+             StartDash();
+            
+            
         }
 
         // 대쉬 쿨타임 처리
@@ -123,6 +130,7 @@ public class PlayerMove : MonoBehaviour
 
     void StartDash()
     {
+
         isDashing = true;
         canDash = false; // 대쉬 사용 후 쿨타임 시작
         nextDashTime = Time.time + dashCooldown; // 다음 대쉬 가능 시간 설정
@@ -131,6 +139,12 @@ public class PlayerMove : MonoBehaviour
         // 대쉬 방향 설정 (캐릭터가 바라보는 방향)
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
+
+        if (Rskill != null)
+        {
+            Debug.Log("Dashing, cancelling skill casting.");
+            Rskill.CancelCasting(); // 시전 중인 스킬을 취소
+        }
     }
 
     void EndDash()
@@ -173,6 +187,13 @@ public class PlayerMove : MonoBehaviour
 
 
         }
+    }
+
+    public void SetSpeed(float newspeed)
+    {
+
+        playerSpeed = newspeed;
+        
     }
    /* void UpdateCooldownText()
     {
