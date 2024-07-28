@@ -33,7 +33,7 @@ public class Rskill : MonoBehaviour
         }
     }
 
-    IEnumerator CastSkill()
+    public IEnumerator CastSkill()
     {
         isCasting = true; //시전 상태로 설정
         isCoolingDown = true;
@@ -117,6 +117,10 @@ public class Rskill : MonoBehaviour
             // 발사 후 스킬을 자동으로 비활성화
             Destroy(skill, DestroyBullet); // 발사체를 5초 후에 파괴 (필요에 따라 조정)
         }
+    }
+    public bool IsCasting()
+    {
+        return isCasting; // 현재 스킬이 시전 중인지 여부 반환
     }
 }
 

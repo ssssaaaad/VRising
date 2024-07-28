@@ -17,7 +17,10 @@ public class PlayerMove : MonoBehaviour
     public GameObject go;
     CharacterController cc;
     private Rskill Rskill;
+    private Cskill Cskill;
     private bool isDashing = false;
+    private bool isCastingRSkill = false; // R 스킬 시전 중 여부
+    private bool isCastingCSkill = false; // C 스킬 시전 중 여부
     private Vector3 moveDirection;
     private Vector3 currentVelocity;
     private Vector3 dashDirection;
@@ -34,6 +37,7 @@ public class PlayerMove : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         Rskill = GetComponent<Rskill>();
+        Cskill = GetComponent<Cskill>();
     }
 
 
@@ -44,23 +48,26 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        float ad = Input.GetAxis("Horizontal");
-        float ws = Input.GetAxis("Vertical");
+        if (!isDashing && !isCastingRSkill && !isCastingCSkill)
+        { 
+            float ad = Input.GetAxis("Horizontal");
+            float ws = Input.GetAxis("Vertical");
 
-        Vector3 dirad = transform.right * ad;
-        Vector3 dirws = transform.forward * ws;
+            Vector3 dirad = transform.right * ad;
+            Vector3 dirws = transform.forward * ws;
 
-        Vector3 dir = dirad + dirws;
+            Vector3 dir = dirad + dirws;
         
-        dir.Normalize();
+            dir.Normalize();
 
 
-        dir = Camera.main.transform.TransformDirection(dir);
+            dir = Camera.main.transform.TransformDirection(dir);
 
-        yVelocity += gravity * Time.deltaTime;
-        dir.y = yVelocity;
-        cc.Move(dir * playerSpeed * Time.deltaTime);
+            yVelocity += gravity * Time.deltaTime;
+            dir.y = yVelocity;
+            cc.Move(dir * playerSpeed * Time.deltaTime);
 
+        }
         LookMouseCursor();
 
         // 대쉬 처리
@@ -94,13 +101,12 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (!isDashing)
+        if (!isDashing && !isCastingRSkill && !isCastingCSkill)
         {
             // 일반적인 이동 처리
             cc.Move(moveDirection * Time.deltaTime);
         }
-        // 쿨타임 텍스트 업데이트
-        //UpdateCooldownText();
+        
     }
     void SetDashDirection()
     {
@@ -140,10 +146,13 @@ public class PlayerMove : MonoBehaviour
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
 
-        if (Rskill != null)
+        if (Rskill != null && Rskill.IsCasting())
         {
-            Debug.Log("Dashing, cancelling skill casting.");
-            Rskill.CancelCasting(); // 시전 중인 스킬을 취소
+            Rskill.CancelCasting();
+        }
+        if (Cskill != null && Cskill.IsCasting())
+        {
+            Cskill.CancelCasting();
         }
     }
 
@@ -151,7 +160,7 @@ public class PlayerMove : MonoBehaviour
     {
         isDashing = false;
     }
-
+    
     System.Collections.IEnumerator DashCoroutine(Vector3 dashDirection)
     {
         float dashTime = 0f;
@@ -183,9 +192,6 @@ public class PlayerMove : MonoBehaviour
         {
             Vector3 mouseDir = new Vector3(hitResult.point.x, transform.position.y, hitResult.point.z) - transform.position;
             go.transform.forward = mouseDir;
-
-
-
         }
     }
 
@@ -195,14 +201,29 @@ public class PlayerMove : MonoBehaviour
         playerSpeed = newspeed;
         
     }
-   /* void UpdateCooldownText()
+    public bool IsDashing()
     {
-        if (!canDash)
-        {
-            float timeRemaining = nextDashTime - Time.time;
-            float cooldownProgress = Mathf.Clamp01((Time.time - (nextDashTime - dashCooldown)) / dashCooldown);
-            float displayCooldown = Mathf.Lerp(dashCooldown, 0f, cooldownProgress);
-            cooldownText.text = $"Dash Cooldown: {Mathf.Max(0f, timeRemaining):F1}s (Cooldown: {displayCooldown:F1}s)";
-        }
-    }*/
+        return isDashing;
+    }
+
+    public bool IsCastingRSkill()
+    {
+        return isCastingRSkill;
+    }
+
+    public bool IsCastingCSkill()
+    {
+        return isCastingCSkill;
+    }
+
+    public void SetCastingRSkill(bool value)
+    {
+        isCastingRSkill = value;
+    }
+
+    public void SetCastingCSkill(bool value)
+    {
+        isCastingCSkill = value;
+    }
+
 }
