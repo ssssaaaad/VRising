@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class AttackHitBox : MonoBehaviour
+{
+    float dmg =1f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public void SetDmg(float dmg)
+    {
+        this.dmg = dmg;
+        gameObject.SetActive(true);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        // 만약 히트박스에 닿은 대상의 레이어가 enemy라면
+        if (other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
+        {
+            // 만약 3타라면 hp를 damage * 1.1 만큼 감소
+            // other.GetComponent<>().hp -= damage * 1.1;
+            // 3타가 아니면 상대방의 hp 를 damage 만큼 감소
+            // other.GetComponent<>().hp -= damage;
+        }
+    }
+}

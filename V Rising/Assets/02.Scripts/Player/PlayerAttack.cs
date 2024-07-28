@@ -13,12 +13,17 @@ public class PlayerAttack : MonoBehaviour
     // 연속공격 유지시간
     public float comboTime = 2f;
 
+    public AttackHitBox attackHitBox;
     // 공격 이후 딜레이 시간 
     public float attack1Delay = 0.5f;
     public float attack2Delay = 0.5f;
     public float attack3Delay = 0.75f;
 
     float[] comboDelay;
+
+    public float attackDamage = 10f;
+
+    public GameObject HitBox;
 
     // Start is called before the first frame update
     void Start()
