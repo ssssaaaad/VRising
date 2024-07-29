@@ -21,8 +21,6 @@ public class PlayerAttack : MonoBehaviour
 
     float[] comboDelay;
 
-    public float attackDamage = 10f;
-
     public GameObject HitBox;
 
     // Start is called before the first frame update
@@ -53,6 +51,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (comboCount >= 3)
                     comboCount = 0;
+
+                // 히트박스 소환
+                GameObject hitBox = Instantiate(HitBox);
+                hitBox.transform.position = transform.position + transform.forward * 3;
+                hitBox.transform.forward = transform.forward;
 
                 switch (comboCount)
                 {

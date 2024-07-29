@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class AttackHitBox : MonoBehaviour
 {
-    float dmg =1f;
+    public float dmg =10f;
+    public float activeTime = 0.3f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Destroy(gameObject, activeTime);
     }
 
     // Update is called once per frame
@@ -17,9 +18,10 @@ public class AttackHitBox : MonoBehaviour
     {
         
     }
-    public void SetDmg(float dmg)
+    public void SetDmg(float dmg, float activeTime)
     {
         this.dmg = dmg;
+        this.activeTime = activeTime;
         gameObject.SetActive(true);
     }
     private void OnTriggerEnter(Collider other)
@@ -31,6 +33,8 @@ public class AttackHitBox : MonoBehaviour
             // other.GetComponent<>().hp -= damage * 1.1;
             // 3타가 아니면 상대방의 hp 를 damage 만큼 감소
             // other.GetComponent<>().hp -= damage;
+
+            
         }
     }
 }
