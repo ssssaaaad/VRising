@@ -604,6 +604,7 @@ MonoBehaviour:
   player: {fileID: 1740879869}
   rotSpeed: 1000
   rotate: 0
+  camDistance: 10
   camcurrentinterval: 10
   camcurrentinterval_Max: 20
 --- !u!1 &1740879869
