@@ -804,12 +804,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f089fc1e98b92d24694b5d2410241314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMove: {fileID: 0}
   comboTime: 2
-  attackHitBox: {fileID: 0}
+  attackPreDelay: 0.3
   attack1Delay: 0.5
   attack2Delay: 0.5
   attack3Delay: 0.75
+  minSpeed: 3
   HitBox: {fileID: 6836862729004524015, guid: 64b2c97e468e6b149a72dcc1faa626ca, type: 3}
+  player: {fileID: 1851887033}
 --- !u!1 &1745516831
 GameObject:
   m_ObjectHideFlags: 0

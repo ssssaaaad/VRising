@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    
+    public PlayerMove playerMove;
+
     int comboCount;
     // 마지막 공격시간
     float lastAttackTime;
@@ -13,21 +14,30 @@ public class PlayerAttack : MonoBehaviour
     // 연속공격 유지시간
     public float comboTime = 2f;
 
-    public AttackHitBox attackHitBox;
+    // 공격 전 딜레이 시간
+    public float attackPreDelay = 0.3f;
+
     // 공격 이후 딜레이 시간 
     public float attack1Delay = 0.5f;
     public float attack2Delay = 0.5f;
     public float attack3Delay = 0.75f;
 
+    public float minSpeed = 2f;
+
     float[] comboDelay;
 
     public GameObject HitBox;
+
+    public GameObject player;
+
+    public Coroutine attackCoroutain;
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("작동중");
         comboDelay = new float[] { attack1Delay, attack2Delay, attack3Delay };
+
     }
 
     // Update is called once per frame
@@ -38,44 +48,64 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            // 마지막 공격 이후 시간이 연속공격 유지시간 초과시 콤보 초기화
-            if (lastAttackTime > comboTime)
-            {
-                Debug.Log("콤보 초기화");
-                lastAttackTime = 0f;
+            attackCoroutain = StartCoroutine(Attack());
+        }
+
+        //내가 스페이스바를 누르면 코루틴를 멈춘다
+
+    }
+
+    private IEnumerator Attack()
+    {
+        // 마지막 공격 이후 시간이 연속공격 유지시간 초과시 콤보 초기화
+        if (lastAttackTime > comboTime)
+        {
+            Debug.Log("콤보 초기화");
+            lastAttackTime = 0f;
+            comboCount = 0;
+        }
+
+        PlayerMove playerMove = player.GetComponent<PlayerMove>();
+
+        playerMove.playerSpeed -= minSpeed;
+        // 클릭시 attackPreDelay 만큼 기다렸다 공격
+        yield return new WaitForSeconds(attackPreDelay);
+
+        playerMove.playerSpeed += minSpeed;
+
+        // 첫 공격일 경우 or 마지막 공격 이후 시간이 공격 딜레이 시간 이상일 경우에 공격
+        if (comboCount == 0 || lastAttackTime >= comboDelay[comboCount - 1])
+        {
+            if (comboCount >= 3)
                 comboCount = 0;
-            }
 
-            // 첫 공격일 경우 or 마지막 공격 이후 시간이 공격 딜레이 시간 이상일 경우에 공격
-            if (comboCount == 0 || lastAttackTime >= comboDelay[comboCount - 1])
+            // 히트박스 소환
+            GameObject hitBox = Instantiate(HitBox);
+            hitBox.transform.position = transform.position + transform.forward * 3;
+            hitBox.transform.forward = transform.forward;
+            // 히트박스를 Model의 자식으로 설정
+            hitBox.transform.SetParent(transform);
+
+
+            switch (comboCount)
             {
-                if (comboCount >= 3)
-                    comboCount = 0;
-
-                // 히트박스 소환
-                GameObject hitBox = Instantiate(HitBox);
-                hitBox.transform.position = transform.position + transform.forward * 3;
-                hitBox.transform.forward = transform.forward;
-
-                switch (comboCount)
-                {
-                    case 0:
-                        Debug.Log("1타");
-                        lastAttackTime = 0f;
-                        comboCount++;
-                        break;
-                    case 1:
-                        Debug.Log("2타");
-                        lastAttackTime = 0f;
-                        comboCount++;
-                        break;
-                    case 2:
-                        Debug.Log("3타");
-                        lastAttackTime = 0f;
-                        comboCount++;
-                        break;
-                }
+                case 0:
+                    Debug.Log("1타");
+                    lastAttackTime = 0f;
+                    comboCount++;
+                    break;
+                case 1:
+                    Debug.Log("2타");
+                    lastAttackTime = 0f;
+                    comboCount++;
+                    break;
+                case 2:
+                    Debug.Log("3타");
+                    lastAttackTime = 0f;
+                    comboCount++;
+                    break;
             }
         }
+
     }
 }
