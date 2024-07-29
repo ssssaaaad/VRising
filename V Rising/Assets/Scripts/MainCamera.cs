@@ -12,8 +12,8 @@ public class MainCamera : MonoBehaviour
     float mx = 0;
     float my = 0;
 
-    public float camcurrentinterval = 30;
-    public float camcurrentinterval_Max = 100;
+    public float camcurrentinterval = 10;
+    public float camcurrentinterval_Max = 20;
 
     
     private void Start()
