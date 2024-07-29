@@ -8,19 +8,14 @@ using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float playerSpeed = 5f; // 기본속도
-    
+    public float playerSpeed = 5f;
     public float dashSpeed = 20f; // 대쉬 이동속도
     public float dashDuration = 0.45f; // 대쉬 지속 시간
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
     Camera characterCamera;
     public GameObject go;
     CharacterController cc;
-    private Rskill Rskill;
-    private Cskill Cskill;
     private bool isDashing = false;
-    private bool isCastingRSkill = false; // R 스킬 시전 중 여부
-    private bool isCastingCSkill = false; // C 스킬 시전 중 여부
     private Vector3 moveDirection;
     private Vector3 currentVelocity;
     private Vector3 dashDirection;
@@ -29,15 +24,13 @@ public class PlayerMove : MonoBehaviour
     private bool canDash = true; // 대쉬 가능 여부
     private float nextDashTime = 0f; // 다음 대쉬 가능 시간
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
-    
+
     public float gravity = -20f;
     float yVelocity = 0;
 
     void Start()
     {
         cc = GetComponent<CharacterController>();
-        Rskill = GetComponent<Rskill>();
-        Cskill = GetComponent<Cskill>();
     }
 
 
@@ -48,16 +41,29 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        PlayerMoving();
+        float ad = Input.GetAxis("Horizontal");
+        float ws = Input.GetAxis("Vertical");
+
+        Vector3 dirad = transform.right * ad;
+        Vector3 dirws = transform.forward * ws;
+
+        Vector3 dir = dirad + dirws;
+        dir.Normalize();
+
+
+        dir = Camera.main.transform.TransformDirection(dir);
+
+        yVelocity += gravity * Time.deltaTime;
+        dir.y = yVelocity;
+        cc.Move(dir * playerSpeed * Time.deltaTime);
+
         LookMouseCursor();
+
         // 대쉬 처리
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
-            
-             SetDashDirection();
-             StartDash();
-            
-            
+            SetDashDirection();
+            StartDash();
         }
 
         // 대쉬 쿨타임 처리
@@ -81,12 +87,13 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (!isDashing && !isCastingRSkill && !isCastingCSkill)
+        if (!isDashing)
         {
             // 일반적인 이동 처리
             cc.Move(moveDirection * Time.deltaTime);
         }
-        
+        // 쿨타임 텍스트 업데이트
+        //UpdateCooldownText();
     }
     void SetDashDirection()
     {
@@ -116,7 +123,6 @@ public class PlayerMove : MonoBehaviour
 
     void StartDash()
     {
-
         isDashing = true;
         canDash = false; // 대쉬 사용 후 쿨타임 시작
         nextDashTime = Time.time + dashCooldown; // 다음 대쉬 가능 시간 설정
@@ -125,22 +131,13 @@ public class PlayerMove : MonoBehaviour
         // 대쉬 방향 설정 (캐릭터가 바라보는 방향)
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
-
-        if (Rskill != null && Rskill.IsCasting())
-        {
-            Rskill.CancelRCasting();
-        }
-        if (Cskill != null && Cskill.IsCasting())
-        {
-            Cskill.CancelCasting();
-        }
     }
 
     void EndDash()
     {
         isDashing = false;
     }
-    
+
     System.Collections.IEnumerator DashCoroutine(Vector3 dashDirection)
     {
         float dashTime = 0f;
@@ -172,63 +169,19 @@ public class PlayerMove : MonoBehaviour
         {
             Vector3 mouseDir = new Vector3(hitResult.point.x, transform.position.y, hitResult.point.z) - transform.position;
             go.transform.forward = mouseDir;
+
+
+
         }
     }
-
-    public void SetSpeed(float newspeed)
+   /* void UpdateCooldownText()
     {
-
-        playerSpeed = newspeed;
-        
-    }
-    public bool IsDashing()
-    {
-        return isDashing;
-    }
-
-    public bool IsCastingRSkill()
-    {
-        return isCastingRSkill;
-    }
-
-    public bool IsCastingCSkill()
-    {
-        return isCastingCSkill;
-    }
-
-    public void SetCastingRSkill(bool value)
-    {
-        isCastingRSkill = value;
-    }
-
-    public void SetCastingCSkill(bool value)
-    {
-        isCastingCSkill = value;
-    }
-
-
-    public void PlayerMoving()
-    {
-        if (!isDashing && !isCastingRSkill && !isCastingCSkill)
+        if (!canDash)
         {
-            float ad = Input.GetAxis("Horizontal");
-            float ws = Input.GetAxis("Vertical");
-
-            Vector3 dirad = transform.right * ad;
-            Vector3 dirws = transform.forward * ws;
-
-            Vector3 dir = dirad + dirws;
-
-            dir.Normalize();
-
-
-            dir = Camera.main.transform.TransformDirection(dir);
-
-            yVelocity += gravity * Time.deltaTime;
-            dir.y = yVelocity;
-            cc.Move(dir * playerSpeed * Time.deltaTime);
-
+            float timeRemaining = nextDashTime - Time.time;
+            float cooldownProgress = Mathf.Clamp01((Time.time - (nextDashTime - dashCooldown)) / dashCooldown);
+            float displayCooldown = Mathf.Lerp(dashCooldown, 0f, cooldownProgress);
+            cooldownText.text = $"Dash Cooldown: {Mathf.Max(0f, timeRemaining):F1}s (Cooldown: {displayCooldown:F1}s)";
         }
-        
-    }
+    }*/
 }
