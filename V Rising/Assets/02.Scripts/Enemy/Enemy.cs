@@ -54,12 +54,13 @@ public class Enemy : MonoBehaviour
         if (state != State.Death)
             return;
         hp_Current = Mathf.Clamp(hp_Current + dmg, 0, hp_Max);
-        
-        if(hp_Current <= 0)
+
+        if (hp_Current <= 0)
         {
             StopMoveTarget();
             state = State.Death;
         }
+
     }
 
     protected void MoveTarget(Transform target)
