@@ -71,7 +71,7 @@ public class Rskill : MonoBehaviour
         isCasting = false;
     }
 
-    public void CancelCasting()
+    public void CancelRCasting()
     {
         if (isCasting)
         {

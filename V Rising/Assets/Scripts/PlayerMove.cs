@@ -48,28 +48,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (!isDashing && !isCastingRSkill && !isCastingCSkill)
-        { 
-            float ad = Input.GetAxis("Horizontal");
-            float ws = Input.GetAxis("Vertical");
-
-            Vector3 dirad = transform.right * ad;
-            Vector3 dirws = transform.forward * ws;
-
-            Vector3 dir = dirad + dirws;
-        
-            dir.Normalize();
-
-
-            dir = Camera.main.transform.TransformDirection(dir);
-
-            yVelocity += gravity * Time.deltaTime;
-            dir.y = yVelocity;
-            cc.Move(dir * playerSpeed * Time.deltaTime);
-
-        }
+        PlayerMoving();
         LookMouseCursor();
-
         // 대쉬 처리
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
@@ -148,7 +128,7 @@ public class PlayerMove : MonoBehaviour
 
         if (Rskill != null && Rskill.IsCasting())
         {
-            Rskill.CancelCasting();
+            Rskill.CancelRCasting();
         }
         if (Cskill != null && Cskill.IsCasting())
         {
@@ -226,4 +206,29 @@ public class PlayerMove : MonoBehaviour
         isCastingCSkill = value;
     }
 
+
+    public void PlayerMoving()
+    {
+        if (!isDashing && !isCastingRSkill && !isCastingCSkill)
+        {
+            float ad = Input.GetAxis("Horizontal");
+            float ws = Input.GetAxis("Vertical");
+
+            Vector3 dirad = transform.right * ad;
+            Vector3 dirws = transform.forward * ws;
+
+            Vector3 dir = dirad + dirws;
+
+            dir.Normalize();
+
+
+            dir = Camera.main.transform.TransformDirection(dir);
+
+            yVelocity += gravity * Time.deltaTime;
+            dir.y = yVelocity;
+            cc.Move(dir * playerSpeed * Time.deltaTime);
+
+        }
+        
+    }
 }

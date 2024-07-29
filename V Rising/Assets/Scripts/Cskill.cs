@@ -10,6 +10,8 @@ public class Cskill : MonoBehaviour
     public float pushBackForce = 5f; // 적 오브젝트를 밀어내는 힘
     public float playerSpeed = 5f;
 
+    private bool isCastingRSkill = false; // R 스킬 시전 중 여부
+    private Rskill Rskill;
     private bool isCasting = false;
     private bool isCoolingDown = false;
     private float cooldownEndTime;
@@ -19,6 +21,7 @@ public class Cskill : MonoBehaviour
     void Start()
     {
         playerMove = GetComponent<PlayerMove>();
+        Rskill = GetComponent<Rskill>();
     }
 
     void Update()
@@ -35,6 +38,10 @@ public class Cskill : MonoBehaviour
         isCasting = true;
         isCoolingDown = true;
 
+        if (Rskill != null && Rskill.IsCasting())
+        {
+            Rskill.CancelRCasting();
+        }
         // 시전 시간 동안 캐릭터 속도 감소
         if (playerMove != null)
         {
@@ -62,6 +69,8 @@ public class Cskill : MonoBehaviour
         // 쿨타임 종료
         isCoolingDown = false;
         isCasting = false;
+
+        
     }
 
     public void CancelCasting()
@@ -108,5 +117,13 @@ public class Cskill : MonoBehaviour
     public bool IsCasting()
     {
         return isCasting; // 현재 스킬이 시전 중인지 여부 반환
+    }
+    public bool IsCastingRSkill()
+    {
+        return isCastingRSkill;
+    }
+    public void SetCastingRSkill(bool value)
+    {
+        isCastingRSkill = value;
     }
 }
