@@ -7,6 +7,8 @@ public class AttackHitBox : MonoBehaviour
 {
     public float dmg =10f;
     public float activeTime = 0.3f;
+    private PlayerMove PlayerMove;
+
     // Start is called before the first frame update
     void Start()
     {
