@@ -76,17 +76,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 2967642142717032212}
   target: {fileID: 0}
+  model: {fileID: 4545604970173868242}
   hp_Max: 0
   hp_Current: 0
   state: 0
-  animator: {fileID: 0}
+  rotateSpeed: 200
+  animator: {fileID: 161733388955688420}
   mapOriginPosition: {fileID: 0}
   attackPatterns: []
   teleport: {fileID: 0}
   mapRadius: 25
   runawayDistance: 5
   teleportDistance: 2
-  attackCooltime_Max: 2
+  attackCooltime_Max: 2.5
 --- !u!114 &5309497011594136612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def3e5fde6ac2124485e1f80c6925230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 1
-  distance: 0
+  attackDelayTime: 0.3
+  delayTime: 1.5
+  distance: 15
   coolTime: 5
   readyToStart: 1
   startDistance: 2
@@ -124,10 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34df8c2bdcba7524ca2eb4f75ccf4ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 2
-  distance: 0
+  attackDelayTime: 0.3
+  delayTime: 3
+  distance: 15
   maja: {fileID: 0}
-  coolTime: 5
+  coolTime: 8
   readyToStart: 1
   startPosition: 2
   parentDistance: 10
@@ -154,8 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719268f9ccc3d3f4ea395ee91c06c353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 1
-  distance: 0
+  attackDelayTime: 0.3
+  delayTime: 1.8
+  distance: 15
   coolTime: 5
   readyToStart: 1
   startDistance: 2
@@ -178,9 +183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c921d35fba081245b074670108fea28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDelayTime: 0.2
   delayTime: 1
-  distance: 0
-  coolTime: 5
+  distance: 1
+  coolTime: 15
   readyToStart: 1
 --- !u!195 &2967642142717032212
 NavMeshAgent:

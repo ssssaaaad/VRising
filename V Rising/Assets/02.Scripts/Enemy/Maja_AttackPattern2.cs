@@ -56,12 +56,16 @@ public class Maja_AttackPattern2 : Pattern
         }
         readyToStart = false;
 
-        StartCoroutine(Coroutine_ActivePattern(direction));
-      
-
-
+        StartCoroutine(Coroutine_AttackDelayTime(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
+    }
+
+    protected override IEnumerator Coroutine_AttackDelayTime(Vector3 direction)
+    {
+        yield return new WaitForSeconds(attackDelayTime);
+
+        StartCoroutine(Coroutine_ActivePattern(direction));
     }
 
     private Projectile ActiveChildProjectile(Projectile parentProjectile, bool secondDirection_Right)

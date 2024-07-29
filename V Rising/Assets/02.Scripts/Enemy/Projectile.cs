@@ -25,8 +25,9 @@ public class Projectile : AttackCollision
             transform.position = Vector3.Lerp(startPosition, startPosition + direction * distance, currentTime / activeTime);
             if(currentTime >= activeTime)
             {
+                gameObject.SetActive(false);
                 // 제거 효과
-                Destroy(gameObject);
+                Destroy(gameObject,2);
             }
         }
     }

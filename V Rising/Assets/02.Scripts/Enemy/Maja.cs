@@ -16,10 +16,13 @@ public abstract class Pattern : MonoBehaviour
 
     protected abstract bool GetPatternDelay();
 
-    public float delayTime;
+    public float attackDelayTime;
+
+    public float delayTime = 0;
     protected bool patterDelay;
     public float distance;
     protected  abstract IEnumerator PatternDelayTime();
+    protected abstract IEnumerator Coroutine_AttackDelayTime(Vector3 direction);
 }
 
 
@@ -56,6 +59,14 @@ public class Maja : Enemy
     {
         InitEnemy();
     }
+    private void Update()
+    {
+        Rotate();
+    }
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 
     protected new void InitEnemy()
     {
@@ -86,10 +97,7 @@ public class Maja : Enemy
         patterCycle = StartCoroutine(CoroutinePatterCycle());
     }
 
-    private void OnDestroy()
-    {
-        StopAllCoroutines();
-    }
+
 
     private IEnumerator CoroutinePatterCycle()
     {
@@ -112,11 +120,19 @@ public class Maja : Enemy
         }
 
         attackCooltime_Current += routineTime;
+
+
         if (PatternDelay != null)
         {
             if (PatternDelay())
+            {
+
+                animator.SetBool("Walk", false);
                 return;
+            }
         }
+
+
         if (state == State.Idle)
         {
             if(target != null)
@@ -127,14 +143,18 @@ public class Maja : Enemy
         }
         else if (state == State.Move)
         {
+            animator.SetBool("Walk", true);
             Move(Vector3.zero);
         }
         else if (state ==State.Runaway)
         {
+            animator.SetBool("Walk", true);
             Runaway();
         }
         else if(state == State.Teleport)
         {
+            animator.SetBool("Walk", false);
+            animator.SetTrigger("Teleport");
             StopMoveTarget();
             teleport.ActivePattern(Vector3.zero);
             state = State.Attack;
@@ -145,27 +165,32 @@ public class Maja : Enemy
             if (attackCooltime_Current > attackCooltime_Max)
             {
                 targetDirection = new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z).normalized;
+                forward = new Vector3(target.position.x - model.position.x, model.position.y, target.position.z - model.position.z).normalized;
                 enemy_Cross = Vector3.Cross((target.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
                 if (enemy_Cross.y > -0.3f && enemy_Cross.y < 0.2f && attackPatterns[2].CooltimeCheck())
                 {
                     // 직선으로 4개
+                    animator.SetTrigger("AttackPattern3");
                     attackPatterns[2].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
                 }
                 else if (attackPatterns[1].CooltimeCheck())
                 {
                     // 옆으로 7개
+                    animator.SetTrigger("AttackPattern2");
                     attackPatterns[1].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
                 }
                 else if (attackPatterns[0].CooltimeCheck())
                 {
                     // 기본공격
+                    animator.SetTrigger("AttackPattern1");
                     attackPatterns[0].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
                 }
                 else
                 {
+                    forward = Vector3.zero;
                     if (Vector3.Distance(transform.position, target.position) < runawayDistance)
                     {
                         state = State.Runaway;
@@ -259,6 +284,7 @@ public class Maja : Enemy
             movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius - 1);
             movementPosition += mapOriginPosition.position;
 
+            forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
             navMeshAgent.SetDestination(movementPosition);
             setMovePosition = true;
         }
@@ -267,10 +293,12 @@ public class Maja : Enemy
             if(Vector3.Distance(mapOriginPosition.position, target.position) < mapRadius)
             {
                 movementPosition = position;
+                forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
                 navMeshAgent.SetDestination(movementPosition);
                 setMovePosition = true;
             }
         }
+
     }
 
     private void Runaway()
@@ -312,7 +340,6 @@ public class Maja : Enemy
             enemyDirection = new Vector3(transform.position.x - mapOriginPosition.position.x, 0 , transform.position.z - mapOriginPosition.position.z).normalized;
             targetDirection = new Vector3(target.position.x - mapOriginPosition.position.x, 0, target.position.z - mapOriginPosition.position.z).normalized;
             angle = Mathf.Atan2(enemyDirection.z, enemyDirection.x) * Mathf.Rad2Deg;
-
             // 이동 방향 구하기
             enemy_Cross = Vector3.Cross((mapOriginPosition.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
 
@@ -337,6 +364,7 @@ public class Maja : Enemy
             movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius - 1);
             movementPosition += mapOriginPosition.position;
         }
+        forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
         navMeshAgent.SetDestination(movementPosition);
     }
 

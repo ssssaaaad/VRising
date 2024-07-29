@@ -41,19 +41,23 @@ public class Maja_AttackPattern1 : Pattern
             return;
         }
         readyToStart = false;
-        Vector3 right = Vector3.Cross(direction, Vector3.up);
-        projectile = Instantiate(projectile_Prefab);
-        projectile.transform.position = transform.position + direction * startDistance;
-        projectile.transform.LookAt(projectile.transform.position + direction);
-        projectile.InitAttack(damage, false);
-        projectile.Fire(direction, attackDistance, attackActiveTime);
-
+        StartCoroutine(Coroutine_AttackDelayTime(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
     }
     protected override bool GetPatternDelay()
     {
         return patterDelay;
+    }
+    protected override IEnumerator Coroutine_AttackDelayTime(Vector3 direction)
+    {
+        yield return new WaitForSeconds(attackDelayTime);
+        Vector3 right = Vector3.Cross(direction, Vector3.up);
+        projectile = Instantiate(projectile_Prefab);
+        projectile.transform.position = transform.position + direction * startDistance;
+        projectile.transform.LookAt(projectile.transform.position + direction);
+        projectile.InitAttack(damage, false);
+        projectile.Fire(direction, attackDistance, attackActiveTime);
     }
 
     protected override IEnumerator PatternDelayTime()

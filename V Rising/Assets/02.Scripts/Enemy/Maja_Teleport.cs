@@ -23,8 +23,6 @@ public class Maja_Teleport : Pattern
     {
         if (maja.target == null)
             return;
-        direction = (maja.mapOriginPosition.position - maja.target.position).normalized * (maja.mapRadius * 0.6f);
-        transform.position = direction;
 
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
@@ -32,6 +30,14 @@ public class Maja_Teleport : Pattern
     protected override bool GetPatternDelay()
     {
         return patterDelay;
+    }
+
+    protected override IEnumerator Coroutine_AttackDelayTime(Vector3 direction)
+    {
+        yield return new WaitForSeconds(attackDelayTime);
+
+        direction = (maja.mapOriginPosition.position - maja.target.position).normalized * (maja.mapRadius * 0.6f);
+        transform.position = direction;
     }
 
     protected override IEnumerator PatternDelayTime()

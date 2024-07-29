@@ -43,23 +43,29 @@ public class Maja_AttackPattern3 : Pattern
             return;
         }
         readyToStart = false;
-        Vector3 right = Vector3.Cross(direction, Vector3.up);
-        for (int i = 0; i < bulletCount; i++)
-        {
-            projectile = Instantiate(projectile_Prefab);
-            spawnPosition = transform.position + (((right * width) / (bulletCount-1)) * i);
-            spawnPosition += -right * width / 2;
-            projectile.transform.position = spawnPosition + direction * startDistance;
-            projectile.transform.LookAt(projectile.transform.position + direction);
-            projectile.InitAttack(damage, true);
-            projectile.Fire(direction, attackDistance, attackActiveTime);
-        }
+        StartCoroutine(Coroutine_AttackDelayTime(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
     }
     protected override bool GetPatternDelay()
     {
         return patterDelay;
+    }
+
+    protected override IEnumerator Coroutine_AttackDelayTime(Vector3 direction)
+    {
+        yield return new WaitForSeconds(attackDelayTime);
+        Vector3 right = Vector3.Cross(direction, Vector3.up);
+        for (int i = 0; i < bulletCount; i++)
+        {
+            projectile = Instantiate(projectile_Prefab);
+            spawnPosition = transform.position + (((right * width) / (bulletCount - 1)) * i);
+            spawnPosition += -right * width / 2;
+            projectile.transform.position = spawnPosition + direction * startDistance;
+            projectile.transform.LookAt(projectile.transform.position + direction);
+            projectile.InitAttack(damage, true);
+            projectile.Fire(direction, attackDistance, attackActiveTime);
+        }
     }
 
     protected override IEnumerator PatternDelayTime()
