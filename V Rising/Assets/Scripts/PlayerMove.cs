@@ -28,6 +28,8 @@ public class PlayerMove : MonoBehaviour
     public float gravity = -20f;
     float yVelocity = 0;
 
+    public GameObject DashFX;
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -131,11 +133,20 @@ public class PlayerMove : MonoBehaviour
         // 대쉬 방향 설정 (캐릭터가 바라보는 방향)
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
+
+        DashFX.SetActive(true);
     }
 
     void EndDash()
     {
         isDashing = false;
+
+        Invoke("HideDashFX", 1.2f);
+    }
+
+    void HideDashFX()
+    {
+        DashFX.SetActive(false);
     }
 
     System.Collections.IEnumerator DashCoroutine(Vector3 dashDirection)
