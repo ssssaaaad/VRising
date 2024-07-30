@@ -46,9 +46,16 @@ public class MainCamera : MonoBehaviour
         }
 
         
-        Rotation();
         
     }
+
+
+    private void LateUpdate()
+    {
+        Rotation();
+
+    }
+
     public void Rotation()
     {
         if (rotate)

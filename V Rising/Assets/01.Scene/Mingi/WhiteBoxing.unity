@@ -6743,11 +6743,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104008504991462, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.73950124
+      value: -0.9823701
       objectReference: {fileID: 0}
     - target: {fileID: 4104008504991462, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6731553
+      value: 0.18694675
       objectReference: {fileID: 0}
     - target: {fileID: 4488968717229804, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7061,6 +7061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c70dcc141ae3248b6d234220529ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1680398415}
   playerSpeed: 5
   dashSpeed: 20
   dashDuration: 0.45
@@ -7145,7 +7146,7 @@ Transform:
   m_GameObject: {fileID: 1680398415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12255,6 +12256,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79eeb00494122344889687bcfa88f081, type: 2}
+    - target: {fileID: -4292154010595695564, guid: 07301144ea470234d89f2b1408fe8736,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -190.2
+      objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: 07301144ea470234d89f2b1408fe8736,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
