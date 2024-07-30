@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Cskill : MonoBehaviour
 {
+    private PlayerManager PM;
+
     public float slowDuration = 1.5f; // C스킬의 속도 감소 지속 시간
     public float slowSpeed = 1f; // C스킬 시속도 감소 값
     public float cooldownTime = 10f; // 쿨타임 (초)
     public float pushBackForce = 5f; // 적 오브젝트를 밀어내는 힘
     public float playerSpeed = 5f;
 
+    // 입력이 오면 Manager 에게 가능 여부를 물어봄
+    
     private bool isCastingRSkill = false; // R 스킬 시전 중 여부
     private Rskill Rskill;
     private bool isCasting = false;
@@ -22,11 +26,12 @@ public class Cskill : MonoBehaviour
     {
         playerMove = GetComponent<PlayerMove>();
         Rskill = GetComponent<Rskill>();
+        PM = GetComponent<PlayerManager>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && !isCoolingDown && !isCasting && !playerMove.IsDashing() && !playerMove.IsCastingRSkill())
+        if (Input.GetKeyDown(KeyCode.C) && !isCoolingDown && PM.CanCskill())
         {
             Debug.Log("Starting C skill casting.");
             StartCoroutine(CastSkill());
@@ -35,7 +40,7 @@ public class Cskill : MonoBehaviour
 
     public IEnumerator CastSkill()
     {
-        isCasting = true;
+        PM.cskilling = true;
         isCoolingDown = true;
 
         if (Rskill != null && Rskill.IsCasting())
@@ -68,14 +73,14 @@ public class Cskill : MonoBehaviour
 
         // 쿨타임 종료
         isCoolingDown = false;
-        isCasting = false;
+        PM.cskilling = false;
 
         
     }
 
     public void CancelCasting()
     {
-        if (isCasting)
+        if (PM.cskilling)
         {
             Debug.Log("Cancelling skill casting.");
             if (castingCoroutine != null)
@@ -83,7 +88,7 @@ public class Cskill : MonoBehaviour
                 StopCoroutine(castingCoroutine);
                 castingCoroutine = null;
             }
-            isCasting = false;
+            PM.cskilling = false;
 
             // 시전 중 속도 복원
             if (playerMove != null)
@@ -96,10 +101,10 @@ public class Cskill : MonoBehaviour
 
         }
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
-        if (isCasting && other.CompareTag("Enemy"))
+        if (PM.cskilling && other.CompareTag("Enemy"))
         {
             // 적에게 피해를 주고 밀어내는 로직
             Rigidbody enemyRb = other.GetComponent<Rigidbody>();
@@ -114,6 +119,8 @@ public class Cskill : MonoBehaviour
             // 이 부분은 적의 공격 구현에 따라 다를 수 있음
         }
     }
+    */
+
     public bool IsCasting()
     {
         return isCasting; // 현재 스킬이 시전 중인지 여부 반환

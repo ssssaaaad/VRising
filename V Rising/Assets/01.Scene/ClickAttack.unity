@@ -874,6 +874,7 @@ GameObject:
   - component: {fileID: 1851887039}
   - component: {fileID: 1851887038}
   - component: {fileID: 1851887040}
+  - component: {fileID: 1851887041}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -999,9 +1000,22 @@ MonoBehaviour:
   attack2Delay: 0.5
   attack3Delay: 0.75
   minSpeed: 2
-  speedDuration: 0.5
+  speedDuration: 0.75
   HitBox: {fileID: 6836862729004524015, guid: 64b2c97e468e6b149a72dcc1faa626ca, type: 3}
   attackPoint: {fileID: 1740879870}
+--- !u!114 &1851887041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851887033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c688b7ff12defb14288b519b99ac3170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
 --- !u!1 &1953850443
 GameObject:
   m_ObjectHideFlags: 0

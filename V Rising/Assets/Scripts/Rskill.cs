@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Rskill : MonoBehaviour
 {
+    private PlayerManager PM;
+
     public GameObject skillPrefab; // 발사할 스킬(발사체) 프리팹
     public Transform firePoint; // 스킬이 발사될 위치
     public float skillSpeed = 20f; // 발사체의 속도
@@ -22,12 +24,14 @@ public class Rskill : MonoBehaviour
     {
         // PlayerMove 컴포넌트 가져오기
         playerMove = GetComponent<PlayerMove>();
+        PM = GetComponent<PlayerManager>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && !isCasting)
+        if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && PM.CanRskill())
         {
+
             Debug.Log("Starting skill casting.");
             castingCoroutine = StartCoroutine(CastSkill());
         }
@@ -35,7 +39,7 @@ public class Rskill : MonoBehaviour
 
     public IEnumerator CastSkill()
     {
-        isCasting = true; //시전 상태로 설정
+        PM.rskilling = true; //시전 상태로 설정
         isCoolingDown = true;
 
         // 시전 시간 동안 캐릭터 속도 감소
@@ -68,12 +72,12 @@ public class Rskill : MonoBehaviour
 
         // 쿨타임 종료
         isCoolingDown = false;
-        isCasting = false;
+        PM.rskilling = false;
     }
 
     public void CancelRCasting()
     {
-        if (isCasting)
+        if (PM.rskilling)
         {
             Debug.Log("Cancelling skill casting.");
             if (castingCoroutine != null)
@@ -81,7 +85,7 @@ public class Rskill : MonoBehaviour
                 StopCoroutine(castingCoroutine);
                 castingCoroutine = null;
             }
-            isCasting = false;
+            PM.rskilling = false;
 
             // 시전 중 속도 복원
             if (playerMove != null)
@@ -120,7 +124,7 @@ public class Rskill : MonoBehaviour
     }
     public bool IsCasting()
     {
-        return isCasting; // 현재 스킬이 시전 중인지 여부 반환
+        return PM.rskilling; // 현재 스킬이 시전 중인지 여부 반환
     }
 }
 

@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class AttackHitBox : MonoBehaviour
 {
-    public float dmg =10f;
     public float activeTime = 0.3f;
+    public float dmg = 10;
+
     private PlayerMove PlayerMove;
+    private PlayerAttack PlayerAttack;
 
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, activeTime);
+        PlayerAttack = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
@@ -31,12 +34,10 @@ public class AttackHitBox : MonoBehaviour
         // 만약 히트박스에 닿은 대상의 레이어가 enemy라면
         if (other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
         {
-            // 만약 3타라면 hp를 damage * 1.1 만큼 감소
-            // other.GetComponent<>().hp -= damage * 1.1;
-            // 3타가 아니면 상대방의 hp 를 damage 만큼 감소
-            // other.GetComponent<>().hp -= damage;
-
-            
+            //if (PlayerAttack.Combo() == 2)  // 만약 3타라면 hp를 damage * 1.1 만큼 감소
+            //other.GetComponent<Enemy>().UpdateHp( -dmg * 1.1);
+            //else    // 3타가 아니면 상대방의 hp 를 damage 만큼 감소
+            // other.GetComponent<>().hp -= dmg;    
         }
     }
 }
