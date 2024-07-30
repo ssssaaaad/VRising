@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
     private float nextDashTime = 0f; // 다음 대쉬 가능 시간
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
     
-    public float gravity = -20f;
+    public float gravity = -9.8f;
     float yVelocity = 0;
 
     void Start()
