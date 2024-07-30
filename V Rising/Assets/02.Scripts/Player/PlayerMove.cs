@@ -9,6 +9,8 @@ using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
+    private PlayerManager PM;
+
     public GameObject player;
     public float playerSpeed = 5f; // 기본속도
     
@@ -40,6 +42,7 @@ public class PlayerMove : MonoBehaviour
         cc = GetComponent<CharacterController>();
         Rskill = GetComponent<Rskill>();
         Cskill = GetComponent<Cskill>();
+        PM = GetComponent<PlayerManager>();
     }
 
 
@@ -67,7 +70,7 @@ public class PlayerMove : MonoBehaviour
             canDash = true;
         }
 
-        if (isDashing)
+        if (PM.dashing)
         {
             if (Time.time > dashEndTime)
             {
@@ -80,12 +83,6 @@ public class PlayerMove : MonoBehaviour
                 // 대쉬 중 입력을 반영하여 방향 전환
                 SetDashDirection();
             }
-        }
-
-        if (!isDashing && !isCastingRSkill && !isCastingCSkill)
-        {
-            // 일반적인 이동 처리
-            //cc.Move(moveDirection * Time.deltaTime);
         }
         
     }
@@ -118,7 +115,7 @@ public class PlayerMove : MonoBehaviour
     void StartDash()
     {
 
-        isDashing = true;
+        PM.dashing = true;
         canDash = false; // 대쉬 사용 후 쿨타임 시작
         nextDashTime = Time.time + dashCooldown; // 다음 대쉬 가능 시간 설정
         dashEndTime = Time.time + dashDuration;  // 대쉬 종료 시간 설정
@@ -127,19 +124,19 @@ public class PlayerMove : MonoBehaviour
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
 
-        if (Rskill != null && Rskill.IsCasting())
-        {
-            Rskill.CancelRCasting();
-        }
-        if (Cskill != null && Cskill.IsCasting())
-        {
-            Cskill.CancelCasting();
-        }
+        //if (PM.rskilling)
+        //{
+        //    Rskill.CancelRCasting();
+        //}
+        //if (PM.cskilling )
+        //{
+        //    Cskill.CancelCasting();
+        //}
     }
 
     void EndDash()
     {
-        isDashing = false;
+        PM.dashing = false;
     }
     
     System.Collections.IEnumerator DashCoroutine(Vector3 dashDirection)
@@ -227,15 +224,9 @@ public class PlayerMove : MonoBehaviour
 
     public void SetSpeed(float newspeed)
     {
-
         playerSpeed = newspeed;
-        
     }
-    public bool IsDashing()
-    {
-        return isDashing;
-    }
-
+    
     public bool IsCastingRSkill()
     {
         return isCastingRSkill;
@@ -244,16 +235,6 @@ public class PlayerMove : MonoBehaviour
     public bool IsCastingCSkill()
     {
         return isCastingCSkill;
-    }
-
-    public void SetCastingRSkill(bool value)
-    {
-        isCastingRSkill = value;
-    }
-
-    public void SetCastingCSkill(bool value)
-    {
-        isCastingCSkill = value;
     }
 
 
@@ -280,10 +261,6 @@ public class PlayerMove : MonoBehaviour
             yVelocity += gravity * Time.deltaTime;
             dir.y = yVelocity;
 
-            Debug.Log("Input Direction (before transformation): " + new Vector3(ad, 0, ws));
-            Debug.Log("Direction (after transformation): " + dir);
-            Debug.Log("Camera Forward: " + characterCamera.transform.forward);
-            Debug.Log("Camera Right: " + characterCamera.transform.right);
             cc.Move(dir * playerSpeed * Time.deltaTime);
 
         }

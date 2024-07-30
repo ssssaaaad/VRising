@@ -12,10 +12,9 @@ public class Rskill : MonoBehaviour
     public float castTime = 1f; // 시전 시간 (초)
     public float cooldownTime = 8f; // 쿨타임 (초)
     public float slowSpeed = 0.5f; // 시전 시 캐릭터 속도 감소
-    public float playerSpeed = 5f; // 정상 캐릭터 속도
     public float DestroyBullet = 1f; // 불렛이 부셔지는 시간
 
-    private bool isCasting = false;
+    private float playerSpeed; // 정상 캐릭터 속도
     private PlayerMove playerMove; // PlayerMove 스크립트 참조
     private bool isCoolingDown = false; // 쿨타임 여부 확인
     private float cooldownEndTime; // 쿨타임 종료 시간
@@ -25,6 +24,7 @@ public class Rskill : MonoBehaviour
         // PlayerMove 컴포넌트 가져오기
         playerMove = GetComponent<PlayerMove>();
         PM = GetComponent<PlayerManager>();
+        playerSpeed = playerMove.playerSpeed;
     }
 
     void Update()
@@ -57,10 +57,10 @@ public class Rskill : MonoBehaviour
         ActivateSkill();
 
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
-        if (playerMove != null)
-        {
-            playerMove.SetSpeed(playerSpeed);
-        }
+        
+        playerMove.SetSpeed(playerSpeed);
+
+        PM.rskilling = false;
 
         // 쿨타임 설정
         cooldownEndTime = Time.time + cooldownTime;
@@ -72,7 +72,6 @@ public class Rskill : MonoBehaviour
 
         // 쿨타임 종료
         isCoolingDown = false;
-        PM.rskilling = false;
     }
 
     public void CancelRCasting()

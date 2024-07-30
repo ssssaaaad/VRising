@@ -14,11 +14,12 @@ public class PlayerAttack : MonoBehaviour
     public float attack1Delay = 0.5f;
     public float attack2Delay = 0.5f;
     public float attack3Delay = 0.75f;
-    public float minSpeed = 2f;     // 공격시 감소된 속도
+    public float minSpeed = 3f;     // 공격시 감소된 속도
     public float speedDuration = 0.75f;  // 속도 감소 지속시간
 
     public GameObject HitBox;
     public Coroutine attackCoroutain;
+    public Coroutine speedCoroutain;
     public Transform attackPoint;
 
     private PlayerMove PlayerMove;
@@ -36,27 +37,22 @@ public class PlayerAttack : MonoBehaviour
 
         PM = GetComponent<PlayerManager>();
     }
-
+    private bool canAttack = true;
     void Update()
     {
         lastAttackTime += Time.deltaTime;   // 마지막 공격 이후 시간 측정
 
-        if (Input.GetButton("Fire1") && PM.CanAttack())     // 다른 행동을 하지 않고 클릭을 누르면
+        if (Input.GetButton("Fire1") && PM.CanAttack() && canAttack)     // 다른 행동을 하지 않고 클릭을 누르면
         {
+            if(attackCoroutain != null)
+            {
+                StopCoroutine(attackCoroutain);
+            }
+            canAttack = false;
+            PM.attacking = true;
             attackCoroutain = StartCoroutine(Attack());
-        }
 
-        if (lastAttackTime > speedDuration && PlayerMove.playerSpeed == minSpeed)
-        {
-            Debug.Log("속도 정상화, 걸린시간 : " + lastAttackTime);
-            PlayerMove.SetSpeed(basicSpeed);
-        }
-
-        if (!PM.attacking)      //내가 다른 행동을 하면 코루틴를 멈춘다
-        {
-            StopCoroutine(Attack());
-            if (PlayerMove.playerSpeed == minSpeed)
-                PlayerMove.SetSpeed(basicSpeed);
+            //StopCoroutine(Slowing());
         }
     }
 
@@ -65,15 +61,17 @@ public class PlayerAttack : MonoBehaviour
         if (lastAttackTime > comboTime)     // 마지막 공격 이후 시간이 연속공격 유지시간 초과시 콤보 초기화
         {
             comboCount = 0;
-        }  
-        
+        }
+
+        Debug.Log("속도감소");
+        PlayerMove.SetSpeed(minSpeed);
+        speedCoroutain = StartCoroutine(Slowing());
+
         yield return new WaitForSeconds(attackPreDelay);    // 클릭시 attackPreDelay 만큼 기다렸다 공격
 
         // 첫 공격일 경우 or 마지막 공격 이후 시간이 공격 딜레이 시간 이상일 경우에 공격
         if (comboCount == 0 || lastAttackTime >= comboDelay[comboCount - 1])
         {
-            Debug.Log("속도감소");
-            PlayerMove.SetSpeed(minSpeed);
 
             if (comboCount >= 3)
                 comboCount = 0;
@@ -84,14 +82,39 @@ public class PlayerAttack : MonoBehaviour
             hitBox.transform.SetParent(attackPoint.transform);  // 히트박스를 Model의 자식으로 설정
 
             lastAttackTime = 0f;
-            Debug.Log("마지막 공격 시간 초기화 / " + lastAttackTime);
             comboCount++;
         }
+        canAttack = true;
+        PM.attacking = false;
+        yield return new WaitForSeconds(speedDuration - attackPreDelay);
+        PlayerMove.SetSpeed(basicSpeed);
+        attackCoroutain = null;
+    }
+
+    private IEnumerator Slowing()
+    {
+        yield return new WaitForSeconds(speedDuration);
+    }
+
+    public void CancelAttacking()
+    {
+        StopCoroutine(Attack());
+        StopCoroutine(Slowing());
+        if (PlayerMove.playerSpeed == minSpeed)
+            PlayerMove.SetSpeed(basicSpeed);
+
+        PM.attacking = false;
+        Debug.Log("attack cancel");
     }
 
     public int Combo()
     {
         return comboCount;
+    }
+
+    public bool Canattack()
+    { 
+        return canAttack; 
     }
 
 }

@@ -19,15 +19,6 @@ public class PlayerManager : MonoBehaviour
     public bool rskilling = false;
     public bool attacking = false;
 
-    public enum EAstate
-    {
-        DASH,
-        CSKILL,
-        RSKILL,
-        ATTACK
-    }
-
-    public EAstate CanI;
 
     // Start is called before the first frame update
     void Start()
@@ -47,30 +38,75 @@ public class PlayerManager : MonoBehaviour
             canCskill = false;
             canRskill = false;
             canAttack = false;
-        }
 
-        if (cskilling)
+
+            // 대쉬 사용시 캔슬
+            if (cskilling)
+            {
+                Cskill.CancelCasting();
+            }
+            if (rskilling)
+            {
+                Rskill.CancelRCasting();
+            }
+            if (attacking)
+            {
+                Attack.CancelAttacking();
+            }
+        }
+        else if (cskilling)
         {
             canDash = true;
             canCskill = false;
             canRskill = true;
             canAttack = true;
-        }
 
-        if (rskilling)
+            // C스킬 사용시 캔슬
+            if (rskilling)
+            {
+                Rskill.CancelRCasting();
+            }
+            if (attacking)
+            {
+                Attack.CancelAttacking();
+            }
+        }
+        else if (rskilling)
         {
             canDash = true;
             canCskill = true;
             canRskill = false;
             canAttack = false;
-        }
 
-        if (attacking)
+            // R스킬 사용시 캔슬
+            if (cskilling)
+            {
+                Cskill.CancelCasting();
+            }
+            if (attacking)
+            {
+                Attack.CancelAttacking();
+            }
+        }
+        else if (attacking)
         {
             canDash = true;
             canCskill = true;
             canRskill = true;
-            canAttack = false;
+            canAttack = true;
+
+            // 클릭 사용시 캔슬
+            if (cskilling)
+            {
+                Cskill.CancelCasting();
+            }
+        }
+        else
+        {
+            canDash = true;
+            canCskill = true;
+            canRskill = true;
+            canAttack = true;
         }
     }
 

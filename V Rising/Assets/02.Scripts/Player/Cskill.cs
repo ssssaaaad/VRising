@@ -10,7 +10,7 @@ public class Cskill : MonoBehaviour
     public float slowSpeed = 1f; // C스킬 시속도 감소 값
     public float cooldownTime = 10f; // 쿨타임 (초)
     public float pushBackForce = 5f; // 적 오브젝트를 밀어내는 힘
-    public float playerSpeed = 5f;
+    public float playerSpeed;
 
     // 입력이 오면 Manager 에게 가능 여부를 물어봄
     
@@ -27,6 +27,7 @@ public class Cskill : MonoBehaviour
         playerMove = GetComponent<PlayerMove>();
         Rskill = GetComponent<Rskill>();
         PM = GetComponent<PlayerManager>();
+        playerSpeed = playerMove.playerSpeed;
     }
 
     void Update()
@@ -43,7 +44,7 @@ public class Cskill : MonoBehaviour
         PM.cskilling = true;
         isCoolingDown = true;
 
-        if (Rskill != null && Rskill.IsCasting())
+        if (/*Rskill != null &&*/ PM.rskilling)
         {
             Rskill.CancelRCasting();
         }
@@ -95,8 +96,6 @@ public class Cskill : MonoBehaviour
             {
                 Debug.Log("Restoring normal speed after cancel."); // 속도 복원 로그
                 playerMove.SetSpeed(playerSpeed); // 속도 복원
-
-                
             }
 
         }
