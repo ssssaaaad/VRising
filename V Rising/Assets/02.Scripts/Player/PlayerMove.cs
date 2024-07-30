@@ -10,7 +10,9 @@ using UnityEngine.EventSystems;
 public class PlayerMove : MonoBehaviour
 {
     public GameObject player;
+    public float playerSpeed_Max = 5f; // 기본속도
     public float playerSpeed = 5f; // 기본속도
+    public Animator animator;
     
     public float dashSpeed = 20f; // 대쉬 이동속도
     public float dashDuration = 0.45f; // 대쉬 지속 시간
@@ -286,6 +288,10 @@ public class PlayerMove : MonoBehaviour
             Debug.Log("Camera Right: " + characterCamera.transform.right);
             cc.Move(dir * playerSpeed * Time.deltaTime);
 
+            Vector3 modeolDir = player.transform.InverseTransformDirection(dir);
+
+            animator.SetFloat("Horizontal", modeolDir.x * playerSpeed / playerSpeed_Max);
+            animator.SetFloat("Vertical", modeolDir.z * playerSpeed / playerSpeed_Max);
         }
         
     }
