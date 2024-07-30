@@ -705,6 +705,16 @@ PrefabInstance:
       propertyPath: LightCurve.m_RotationOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 198104227249865584, guid: a2717a2e8ff440c44b737591e4c8f7b8,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198971777195009028, guid: a2717a2e8ff440c44b737591e4c8f7b8,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
