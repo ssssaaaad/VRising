@@ -1,81 +1,97 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    
-    int comboCount;
-    // 마지막 공격시간
-    float lastAttackTime;
+    private PlayerManager PM;
 
-    // 연속공격 유지시간
-    public float comboTime = 2f;
-
-    public AttackHitBox attackHitBox;
+    public float comboTime = 2f;    // 연속공격 유지시간
+    public float attackPreDelay = 0.3f;     // 공격 전 딜레이 시간
     // 공격 이후 딜레이 시간 
     public float attack1Delay = 0.5f;
     public float attack2Delay = 0.5f;
     public float attack3Delay = 0.75f;
-
-    float[] comboDelay;
+    public float minSpeed = 2f;     // 공격시 감소된 속도
+    public float speedDuration = 0.75f;  // 속도 감소 지속시간
 
     public GameObject HitBox;
+    public Coroutine attackCoroutain;
+    public Transform attackPoint;
 
-    // Start is called before the first frame update
+    private PlayerMove PlayerMove;
+    private int comboCount;
+    private float lastAttackTime;   // 마지막 공격시간
+    private float[] comboDelay;
+    private float basicSpeed;
+
     void Start()
     {
         Debug.Log("작동중");
         comboDelay = new float[] { attack1Delay, attack2Delay, attack3Delay };
+        PlayerMove = GetComponent<PlayerMove>();
+        basicSpeed = PlayerMove.playerSpeed;
+
+        PM = GetComponent<PlayerManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // 마지막 공격 이후 시간 측정
-        lastAttackTime += Time.deltaTime;
+        lastAttackTime += Time.deltaTime;   // 마지막 공격 이후 시간 측정
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && PM.CanAttack())     // 다른 행동을 하지 않고 클릭을 누르면
         {
-            // 마지막 공격 이후 시간이 연속공격 유지시간 초과시 콤보 초기화
-            if (lastAttackTime > comboTime)
-            {
-                Debug.Log("콤보 초기화");
-                lastAttackTime = 0f;
-                comboCount = 0;
-            }
+            attackCoroutain = StartCoroutine(Attack());
+        }
 
-            // 첫 공격일 경우 or 마지막 공격 이후 시간이 공격 딜레이 시간 이상일 경우에 공격
-            if (comboCount == 0 || lastAttackTime >= comboDelay[comboCount - 1])
-            {
-                if (comboCount >= 3)
-                    comboCount = 0;
+        if (lastAttackTime > speedDuration && PlayerMove.playerSpeed == minSpeed)
+        {
+            Debug.Log("속도 정상화, 걸린시간 : " + lastAttackTime);
+            PlayerMove.SetSpeed(basicSpeed);
+        }
 
-                // 히트박스 소환
-                GameObject hitBox = Instantiate(HitBox);
-                hitBox.transform.position = transform.position + transform.forward * 3;
-                hitBox.transform.forward = transform.forward;
-
-                switch (comboCount)
-                {
-                    case 0:
-                        Debug.Log("1타");
-                        lastAttackTime = 0f;
-                        comboCount++;
-                        break;
-                    case 1:
-                        Debug.Log("2타");
-                        lastAttackTime = 0f;
-                        comboCount++;
-                        break;
-                    case 2:
-                        Debug.Log("3타");
-                        lastAttackTime = 0f;
-                        comboCount++;
-                        break;
-                }
-            }
+        if (!PM.attacking)      //내가 다른 행동을 하면 코루틴를 멈춘다
+        {
+            StopCoroutine(Attack());
+            if (PlayerMove.playerSpeed == minSpeed)
+                PlayerMove.SetSpeed(basicSpeed);
         }
     }
+
+    private IEnumerator Attack()
+    {
+        if (lastAttackTime > comboTime)     // 마지막 공격 이후 시간이 연속공격 유지시간 초과시 콤보 초기화
+        {
+            comboCount = 0;
+        }  
+        
+        yield return new WaitForSeconds(attackPreDelay);    // 클릭시 attackPreDelay 만큼 기다렸다 공격
+
+        // 첫 공격일 경우 or 마지막 공격 이후 시간이 공격 딜레이 시간 이상일 경우에 공격
+        if (comboCount == 0 || lastAttackTime >= comboDelay[comboCount - 1])
+        {
+            Debug.Log("속도감소");
+            PlayerMove.SetSpeed(minSpeed);
+
+            if (comboCount >= 3)
+                comboCount = 0;
+           
+            GameObject hitBox = Instantiate(HitBox);    // 히트박스 소환
+            hitBox.transform.position = attackPoint.transform.position + attackPoint.transform.forward * 3;
+            hitBox.transform.forward = attackPoint.transform.forward;            
+            hitBox.transform.SetParent(attackPoint.transform);  // 히트박스를 Model의 자식으로 설정
+
+            lastAttackTime = 0f;
+            Debug.Log("마지막 공격 시간 초기화 / " + lastAttackTime);
+            comboCount++;
+        }
+    }
+
+    public int Combo()
+    {
+        return comboCount;
+    }
+
 }
