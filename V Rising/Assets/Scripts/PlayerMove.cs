@@ -4,10 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
+    public GameObject player;
     public float playerSpeed = 5f; // 기본속도
     
     public float dashSpeed = 20f; // 대쉬 이동속도
@@ -84,7 +86,7 @@ public class PlayerMove : MonoBehaviour
         if (!isDashing && !isCastingRSkill && !isCastingCSkill)
         {
             // 일반적인 이동 처리
-            cc.Move(moveDirection * Time.deltaTime);
+            //cc.Move(moveDirection * Time.deltaTime);
         }
         
     }
@@ -162,17 +164,66 @@ public class PlayerMove : MonoBehaviour
         cc.Move(currentVelocity * Time.deltaTime);
     }
 
+    Plane m_plane;
+
     public void LookMouseCursor()
     {
+        m_plane = new Plane(Vector3.up, player.transform.position);
 
 
-        var ray = characterCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitResult;
-        if (Physics.Raycast(ray, out hitResult))
-        {
-            Vector3 mouseDir = new Vector3(hitResult.point.x, transform.position.y, hitResult.point.z) - transform.position;
-            go.transform.forward = mouseDir;
-        }
+        Ray ray = characterCamera.ScreenPointToRay(Input.mousePosition);
+
+        float zValue;
+
+        m_plane.Raycast(ray, out zValue);
+
+
+        Vector3 mouseScreenPosition = Input.mousePosition;
+
+        mouseScreenPosition.z = zValue;
+
+        Vector3 mouseWorldPosition = characterCamera.ScreenToWorldPoint(mouseScreenPosition);
+
+
+        Vector3 mouseDir = mouseWorldPosition - go.transform.position;
+        mouseDir.y = 0;
+
+        go.transform.forward = mouseDir;
+        //카메라 방향을 기준으로 캐릭터의 이동 방향을 설정
+
+        /////////
+        //Vector3 mouseScreenPosition = Input.mousePosition;
+        //mouseScreenPosition.z = characterCamera.nearClipPlane; // 카메라의 가까운 클리핑 평면과의 거리 설정
+
+        //// 화면 좌표를 월드 좌표로 변환
+        //Vector3 mouseWorldPosition = characterCamera.ScreenToWorldPoint(mouseScreenPosition);
+
+        //// 디버그 출력
+        //Debug.Log("Mouse Screen Position: " + mouseScreenPosition);
+        //Debug.Log("Mouse World Position: " + mouseWorldPosition);
+
+        //// 마우스 방향 계산
+        //Vector3 mouseDir = mouseWorldPosition - player.transform.position;
+        //mouseDir.y = 0; // Y축 회전만 고려
+
+        //// 디버그 출력
+        //Debug.Log("Mouse Direction: " + mouseDir);
+
+        //// 마우스 방향으로 회전
+        //if (mouseDir != Vector3.zero)
+        //{
+        //    Quaternion targetRotation = Quaternion.LookRotation(mouseDir);
+        //    player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, Time.deltaTime * 1000f); // 10f는 회전 속도 조절
+        //}
+
+        ////////
+        //var ray = charactercamera.screenpointtoray(input.mouseposition);
+        //raycasthit hitresult;
+        //if (physics.raycast(ray, out hitresult))
+        //{
+        //    vector3 mousedir = new vector3(hitresult.point.x, transform.position.y, hitresult.point.z) - transform.position;
+        //    go.transform.forward = mousedir;
+        //}
     }
 
     public void SetSpeed(float newspeed)
@@ -222,10 +273,18 @@ public class PlayerMove : MonoBehaviour
             dir.Normalize();
 
 
-            dir = Camera.main.transform.TransformDirection(dir);
+            dir = characterCamera.transform.TransformDirection(dir);
+            dir.y = 0; // Y축 회전만 고려
+
+            dir.Normalize();
 
             yVelocity += gravity * Time.deltaTime;
             dir.y = yVelocity;
+
+            Debug.Log("Input Direction (before transformation): " + new Vector3(ad, 0, ws));
+            Debug.Log("Direction (after transformation): " + dir);
+            Debug.Log("Camera Forward: " + characterCamera.transform.forward);
+            Debug.Log("Camera Right: " + characterCamera.transform.right);
             cc.Move(dir * playerSpeed * Time.deltaTime);
 
         }
