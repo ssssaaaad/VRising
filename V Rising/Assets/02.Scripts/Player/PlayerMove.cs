@@ -37,6 +37,7 @@ public class PlayerMove : MonoBehaviour
     public float gravity = -9.8f;
     float yVelocity = 0;
 
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -57,9 +58,22 @@ public class PlayerMove : MonoBehaviour
         // 대쉬 처리
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
-            
-             SetDashDirection();
-             StartDash();
+            SetDashDirection();
+            Vector3 modeolDir = player.transform.InverseTransformDirection(moveDirection);
+
+            animator.SetFloat("Horizontal", 0);
+            float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
+            if(dashDirection_z < 0)
+            {
+                dashDirection_z = -1;
+            }
+            else
+            {
+                dashDirection_z = 1;
+            }
+            animator.SetFloat("Vertical", dashDirection_z);
+            animator.SetTrigger("Dash");
+            StartDash();
             
         }
 
@@ -269,26 +283,23 @@ public class PlayerMove : MonoBehaviour
             Vector3 dirad = transform.right * ad;
             Vector3 dirws = transform.forward * ws;
 
-            Vector3 dir = dirad + dirws;
+            moveDirection = dirad + dirws;
 
-            dir.Normalize();
+            moveDirection.Normalize();
 
 
-            dir = characterCamera.transform.TransformDirection(dir);
-            dir.y = 0; // Y축 회전만 고려
+            moveDirection = characterCamera.transform.TransformDirection(moveDirection);
+            moveDirection.y = 0; // Y축 회전만 고려
 
-            dir.Normalize();
+            moveDirection.Normalize();
 
             yVelocity += gravity * Time.deltaTime;
-            dir.y = yVelocity;
+            moveDirection.y = yVelocity;
 
-            Debug.Log("Input Direction (before transformation): " + new Vector3(ad, 0, ws));
-            Debug.Log("Direction (after transformation): " + dir);
-            Debug.Log("Camera Forward: " + characterCamera.transform.forward);
-            Debug.Log("Camera Right: " + characterCamera.transform.right);
-            cc.Move(dir * playerSpeed * Time.deltaTime);
+           
+            cc.Move(moveDirection * playerSpeed * Time.deltaTime);
 
-            Vector3 modeolDir = player.transform.InverseTransformDirection(dir);
+            Vector3 modeolDir = player.transform.InverseTransformDirection(moveDirection);
 
             animator.SetFloat("Horizontal", modeolDir.x * playerSpeed / playerSpeed_Max);
             animator.SetFloat("Vertical", modeolDir.z * playerSpeed / playerSpeed_Max);
