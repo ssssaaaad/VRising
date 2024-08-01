@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
     private bool canDash = true; // 대쉬 가능 여부
     private float nextDashTime = 0f; // 다음 대쉬 가능 시간
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
-    
+    public GameObject DashUI;
     public float gravity = -9.8f;
     float yVelocity = 0;
 
@@ -91,6 +91,8 @@ public class PlayerMove : MonoBehaviour
             if (Time.time > dashEndTime)
             {
                 EndDash();
+
+                
             }
             else
             {
@@ -152,7 +154,8 @@ public class PlayerMove : MonoBehaviour
 
     void EndDash()
     {
-        PM.dashing = false;
+        isDashing = false;
+        DashUI.GetComponent<DashUI>().coolTimeImage();
     }
     
     System.Collections.IEnumerator DashCoroutine(Vector3 dashDirection)
