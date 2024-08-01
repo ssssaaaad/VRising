@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerAnimationTest : MonoBehaviour
 {
     public Animator animator;
+    public Transform model;
 
     bool cast = false;
     public bool cast_R = false;
@@ -109,17 +110,18 @@ public class PlayerAnimationTest : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            if (count > 1)
+            {
+                normalAttack = true;
+                animator.SetBool("NormalAttackCheck", normalAttack);
+            }
+
             animator.SetTrigger("NormalAttack");
             count++;
             if(count >= 3)
             {
                 count = 0;
                 normalAttack = false;
-                animator.SetBool("NormalAttackCheck", normalAttack);
-            }
-            else
-            {
-                normalAttack = true;
                 animator.SetBool("NormalAttackCheck", normalAttack);
             }
         }
@@ -131,6 +133,12 @@ public class PlayerAnimationTest : MonoBehaviour
         }
     }
     IEnumerator a()
+    {
+        yield return new WaitForSeconds(0.5f);
+        animator.SetTrigger("CancelSkill");
+    }
+
+    IEnumerator r()
     {
         yield return new WaitForSeconds(0.5f);
         animator.SetTrigger("CancelSkill");
