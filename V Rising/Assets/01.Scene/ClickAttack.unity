@@ -894,6 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c70dcc141ae3248b6d234220529ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1740879869}
   playerSpeed: 5
   dashSpeed: 20
   dashDuration: 0.45
@@ -963,7 +964,6 @@ MonoBehaviour:
   castTime: 1
   cooldownTime: 8
   slowSpeed: 0.5
-  playerSpeed: 5
   DestroyBullet: 1
 --- !u!114 &1851887039
 MonoBehaviour:
@@ -1015,7 +1015,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c688b7ff12defb14288b519b99ac3170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currState: 0
+  dashing: 0
+  cskilling: 0
+  rskilling: 0
+  attacking: 0
 --- !u!1 &1953850443
 GameObject:
   m_ObjectHideFlags: 0

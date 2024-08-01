@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AttackHitBox : MonoBehaviour
 {
-    public float activeTime = 0.3f;
+    public float activeTime = 0.1f;
     public float dmg = 10;
 
     private PlayerMove PlayerMove;
