@@ -284,10 +284,7 @@ public class PlayerMove : MonoBehaviour
             yVelocity += gravity * Time.deltaTime;
             dir.y = yVelocity;
 
-            Debug.Log("Input Direction (before transformation): " + new Vector3(ad, 0, ws));
-            Debug.Log("Direction (after transformation): " + dir);
-            Debug.Log("Camera Forward: " + characterCamera.transform.forward);
-            Debug.Log("Camera Right: " + characterCamera.transform.right);
+            
             cc.Move(dir * playerSpeed * Time.deltaTime);
 
         }
