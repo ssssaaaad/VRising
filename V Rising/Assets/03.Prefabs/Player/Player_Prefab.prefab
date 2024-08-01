@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2332829508246513735}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,17 +306,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c70dcc141ae3248b6d234220529ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8642143057005480987}
+  model: {fileID: 8642143057005480987}
   playerSpeed_Max: 5
   playerSpeed: 5
   animator: {fileID: 5982184372800280488}
   dashSpeed: 20
   dashDuration: 0.45
   dashFriction: 2
-  go: {fileID: 8642143057005480987}
   dashCooldown: 8
   DashUI: {fileID: 0}
   gravity: -20
+  canRotate: 1
 --- !u!143 &4780977219069297318
 CharacterController:
   m_ObjectHideFlags: 0
@@ -355,15 +355,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32379e7da6679e64ebfc282e62ccda74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMove: {fileID: 2066665828648625859}
   animator: {fileID: 5982184372800280488}
-  model: {fileID: 0}
+  model: {fileID: 7838088747486851913}
   cast_R: 0
   cast_T: 0
-  castingTime: 1
+  cast_C: 0
   castingTime_T: 2
   castingTime_R: 1
+  castingTime_C: 1
   normalAttack: 0
   count: 0
+  rotationStartTime: 0.2
 --- !u!114 &1845432646080066513
 MonoBehaviour:
   m_ObjectHideFlags: 0

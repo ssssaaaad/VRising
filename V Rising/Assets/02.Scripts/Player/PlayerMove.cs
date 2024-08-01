@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
 {
     private PlayerManager PM;
 
-    public GameObject player;
+    public GameObject model;
     public float playerSpeed_Max = 5f; // 기본속도
     public float playerSpeed = 5f; // 기본속도
     public Animator animator;
@@ -20,7 +20,6 @@ public class PlayerMove : MonoBehaviour
     public float dashDuration = 0.45f; // 대쉬 지속 시간
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
     Camera characterCamera;
-    public GameObject go;
     CharacterController cc;
     private Rskill Rskill;
     private Cskill Cskill;
@@ -62,7 +61,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             SetDashDirection();
-            Vector3 modeolDir = player.transform.InverseTransformDirection(moveDirection);
+            Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
 
             animator.SetFloat("Horizontal", 0);
             float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
@@ -154,6 +153,8 @@ public class PlayerMove : MonoBehaviour
 
     void EndDash()
     {
+        print("DashUI.GetComponent<DashUI>() 오류나서 임의로 뺌 수정 바람");
+        return;
         isDashing = false;
         DashUI.GetComponent<DashUI>().coolTimeImage();
     }
@@ -180,10 +181,11 @@ public class PlayerMove : MonoBehaviour
     }
 
     Plane m_plane;
+    public bool canRotate = true;
 
     public void LookMouseCursor()
     {
-        m_plane = new Plane(Vector3.up, player.transform.position);
+        m_plane = new Plane(Vector3.up, model.transform.position);
 
 
         Ray ray = characterCamera.ScreenPointToRay(Input.mousePosition);
@@ -200,10 +202,14 @@ public class PlayerMove : MonoBehaviour
         Vector3 mouseWorldPosition = characterCamera.ScreenToWorldPoint(mouseScreenPosition);
 
 
-        Vector3 mouseDir = mouseWorldPosition - go.transform.position;
+        Vector3 mouseDir = mouseWorldPosition - model.transform.position;
         mouseDir.y = 0;
 
-        go.transform.forward = mouseDir;
+        if (canRotate)
+        {
+            model.transform.forward = mouseDir;
+        }
+        
         //카메라 방향을 기준으로 캐릭터의 이동 방향을 설정
 
         /////////
@@ -283,7 +289,7 @@ public class PlayerMove : MonoBehaviour
            
             cc.Move(moveDirection * playerSpeed * Time.deltaTime);
 
-            Vector3 modeolDir = player.transform.InverseTransformDirection(moveDirection);
+            Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
 
             animator.SetFloat("Horizontal", modeolDir.x * playerSpeed / playerSpeed_Max);
             animator.SetFloat("Vertical", modeolDir.z * playerSpeed / playerSpeed_Max);
