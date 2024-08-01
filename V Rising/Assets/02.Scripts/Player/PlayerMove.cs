@@ -154,6 +154,8 @@ public class PlayerMove : MonoBehaviour
 
     void EndDash()
     {
+        print("DashUI.GetComponent<DashUI>() 임읠 ㅒㅃㅁ");
+        return;
         isDashing = false;
         DashUI.GetComponent<DashUI>().coolTimeImage();
     }
