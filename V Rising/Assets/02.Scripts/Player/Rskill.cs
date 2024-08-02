@@ -109,6 +109,7 @@ public class Rskill : MonoBehaviour
             // 스킬(발사체) 생성
             GameObject skill = Instantiate(skillPrefab, firePoint.position, firePoint.rotation);
 
+            print(1);
             // 발사체의 방향을 발사 방향으로 설정
             Vector3 fireDirection = firePoint.forward;
             skill.transform.forward = fireDirection;

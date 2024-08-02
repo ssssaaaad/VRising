@@ -592,6 +592,22 @@ MonoBehaviour:
   cooldownTime: 8
   hitFrequency: 0.5
   hitBox: {fileID: 7593261067777636990, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
+--- !u!114 &933471535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933471526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4687a9cc164cfbb43b6a41d1c1753ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillSpeed: 20
+  castTime: 1
+  cooldownTime: 8
+  reUseTime: 1
 --- !u!1 &1008820505
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1413502983
 AudioListener:
   m_ObjectHideFlags: 0
@@ -871,6 +887,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1845432646080066513, guid: 71ff7bf9bdd626141bdf122131c67ec0,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 11795787}
     - target: {fileID: 2066665828648625859, guid: 71ff7bf9bdd626141bdf122131c67ec0,
         type: 3}
       propertyPath: model
@@ -952,6 +973,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 5
       addedObject: {fileID: 933471534}
+    - targetCorrespondingSourceObject: {fileID: 6195726219425782283, guid: 71ff7bf9bdd626141bdf122131c67ec0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 933471535}
   m_SourcePrefab: {fileID: 100100000, guid: 71ff7bf9bdd626141bdf122131c67ec0, type: 3}
 --- !u!1 &1740879869
 GameObject:

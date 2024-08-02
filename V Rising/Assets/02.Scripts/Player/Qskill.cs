@@ -6,6 +6,7 @@ using UnityEngine;
 public class Qskill : MonoBehaviour
 {
     private PlayerManager PM;
+    private PlayerMove PlayerMove;
 
     public float spinDuration = 2f; // 회전 지속시간
     public float cooldownTime = 8f; // 쿨타임 (초)
@@ -21,6 +22,7 @@ public class Qskill : MonoBehaviour
     void Start()
     {
         PM = GetComponent<PlayerManager>();
+        PlayerMove = GetComponent<PlayerMove>();
     }
 
     void Update()
