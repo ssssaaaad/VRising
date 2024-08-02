@@ -50,6 +50,10 @@ public class PlayerManager : MonoBehaviour
             {
                 Cskill.CancelCasting();
             }
+            if (qskilling)
+            {
+                Qskill.CancelQSkill();
+            }
             if (rskilling)
             {
                 Rskill.CancelRCasting();
@@ -68,6 +72,10 @@ public class PlayerManager : MonoBehaviour
             canAttack = true;
 
             // C스킬 사용시 캔슬
+            if (qskilling)
+            {
+                Qskill.CancelQSkill();
+            }
             if (rskilling)
             {
                 Rskill.CancelRCasting();
@@ -85,7 +93,7 @@ public class PlayerManager : MonoBehaviour
             canRskill = false;
             canAttack = false;
 
-            // C스킬 사용시 캔슬
+            // Q스킬 사용시 캔슬
             if (rskilling)
             {
                 Rskill.CancelRCasting();
