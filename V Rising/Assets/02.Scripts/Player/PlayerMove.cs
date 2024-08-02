@@ -86,22 +86,21 @@ public class PlayerMove : MonoBehaviour
             canDash = true;
         }
 
-        if (PM.dashing)
+
+        if (Time.time > dashEndTime)
         {
-            if (Time.time > dashEndTime)
-            {
-                EndDash();
+            EndDash();
 
 
-            }
-            else
-            {
-                // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
-                ApplyDashFriction();
-                // 대쉬 중 입력을 반영하여 방향 전환
-                SetDashDirection();
-            }
         }
+        else
+        {
+            // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
+            ApplyDashFriction();
+            // 대쉬 중 입력을 반영하여 방향 전환
+            SetDashDirection();
+        }
+        
 
     }
     void SetDashDirection()
@@ -132,8 +131,10 @@ public class PlayerMove : MonoBehaviour
 
     void StartDash()
     {
-
-        PM.dashing = true;
+        if (PM != null)
+        {
+            PM.dashing = true;
+        }
         canDash = false; // 대쉬 사용 후 쿨타임 시작
         nextDashTime = Time.time + dashCooldown; // 다음 대쉬 가능 시간 설정
         dashEndTime = Time.time + dashDuration;  // 대쉬 종료 시간 설정
@@ -154,11 +155,13 @@ public class PlayerMove : MonoBehaviour
 
     void EndDash()
     {
-        
-        
+        if (PM != null)
+        {
+            PM.dashing = false;
+        }
+
         isDashing = false;
         skillUI.coolTimeImage();
-
 
     }
 
