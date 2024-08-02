@@ -13,7 +13,7 @@ public class Rskill : MonoBehaviour
     public float cooldownTime = 8f; // 쿨타임 (초)
     public float slowSpeed = 0.5f; // 시전 시 캐릭터 속도 감소
     public float DestroyBullet = 1f; // 불렛이 부셔지는 시간
-
+    public SkillUI skillUI;
     private float playerSpeed; // 정상 캐릭터 속도
     private PlayerMove playerMove; // PlayerMove 스크립트 참조
     private bool isCoolingDown = false; // 쿨타임 여부 확인
@@ -62,7 +62,7 @@ public class Rskill : MonoBehaviour
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         
         playerMove.SetSpeed(playerSpeed);
-
+        skillUI.coolTimeImage();
         PM.rskilling = false;
 
         // 쿨타임 설정
