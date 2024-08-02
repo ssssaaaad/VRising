@@ -21,7 +21,10 @@ public class Cskill : MonoBehaviour
     private float cooldownEndTime;
     private PlayerMove playerMove;
     private Coroutine castingCoroutine;
-   
+
+
+    public GameObject particle_Skill_C;
+
     void Start()
     {
         playerMove = GetComponent<PlayerMove>();
@@ -37,6 +40,7 @@ public class Cskill : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.C) && !isCoolingDown && PM.CanCskill())
             {
                 Debug.Log("Starting C skill casting.");
+                particle_Skill_C.SetActive(true);
                 StartCoroutine(CastSkill());
             }
         }
@@ -67,8 +71,12 @@ public class Cskill : MonoBehaviour
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         if (playerMove != null)
         {
+            particle_Skill_C.SetActive(false);
             playerMove.SetSpeed(playerSpeed); // 원래 속도로 복원
-            skillUI.coolTimeImage();
+            if (skillUI != null)
+            {
+                skillUI.coolTimeImage();
+            }
         }
 
         // 쿨타임 설정
@@ -90,6 +98,7 @@ public class Cskill : MonoBehaviour
     {
         if (PM.cskilling)
         {
+            particle_Skill_C.SetActive(false);
             Debug.Log("Cancelling skill casting.");
             if (castingCoroutine != null)
             {

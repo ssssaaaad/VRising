@@ -154,7 +154,7 @@ public class PlayerMove : MonoBehaviour
 
     void EndDash()
     {
-        print("DashUI.GetComponent<DashUI>() 오류나서 임의로 뺌 수정 바람");
+        
         
         isDashing = false;
         skillUI.coolTimeImage();

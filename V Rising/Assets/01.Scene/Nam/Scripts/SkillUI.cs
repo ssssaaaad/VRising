@@ -82,12 +82,13 @@ public class SkillUI : MonoBehaviour
     {
         if (!isEnded)
         {
-            Debug.LogError("Hold On");
+            
+
             return;
         }
 
         Reset_CoolTime();
-        Debug.LogError("Trigger_Skill!");
+       
     }
 
     private void Reset_CoolTime()
