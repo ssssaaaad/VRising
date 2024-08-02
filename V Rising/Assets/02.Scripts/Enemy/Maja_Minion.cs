@@ -3,58 +3,54 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Maja_Minion : Enemy
 {
-    public Transform _p1, _p2;
-    public Transform _p4, _p5;
+    public Maja maja;
     public float targetOriginDistance;
     public float targetEnemyDistance;
     public float speed;
     public float attackRange;
-    public Transform mapOrigin;
+    private float mapRadius;
+    private Transform mapOrigin;
+    private Vector3 randomDirection;
+    private Vector3 moveDirection;
+    private Vector3 moveposition;
+
+    public float tarceTime_Max = 5;
+    private float tarceTime = 0;
+    private float randomDistance;
+
     // Start is called before the first frame update
     void Awake()
     {
-        InitEnemy();
+        InitEnemy(maja);
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetMovePosition_BezierCurves();
+        SetMovePosition_Target();
     }
-    protected new void InitEnemy()
+    protected new void InitEnemy(Maja maja)
     {
         base.InitEnemy();
-        traceTime = traceMaxTime;
+        this.maja = maja;
+        mapRadius = maja.mapRadius;
+        mapOrigin = maja.mapOriginPosition;
+        ResetRandomDirection();
     }
-    public float traceMaxTime = 50;
-    public float traceTime;
-    private void SetMovePosition_BezierCurves()
+
+    private void ResetRandomDirection()
     {
-        //if (target != null)
-        //    targetDistance = Vector3.Distance(target.position, transform.position);
-        //else
-        //{
-        //    return;
-        //}
-        //time += Time.deltaTime * speed;
+        randomDirection = UnityEngine.Random.insideUnitCircle;
+        randomDistance = UnityEngine.Random.Range(5, 10);
+        tarceTime = 0;
+    }
 
-        //Vector3 p4 = Vector3.Lerp(_p1.position, _p2.position, time);
-        //Vector3 p5 = Vector3.Lerp(_p2.position, target.position, time);
-
-        //_p4.position = p4;
-        //_p5.position = p5;
-
-        //MovePosition(Vector3.Lerp(p4, p5, time));
-
-        //if(targetDistance < attackRange)
-        //{
-        //    _p1.position = transform.position;
-        //    time = 0;
-        //}
-
+    private void SetMovePosition_Target()
+    {
         if(target == null)
         {
             return;
@@ -62,18 +58,35 @@ public class Maja_Minion : Enemy
 
         targetEnemyDistance = Vector3.Distance(target.position, transform.position);
         targetOriginDistance = Vector3.Distance(mapOrigin.position, target.position);
-        Vector3 d = (target.position - mapOrigin.position).normalized;
-        float angle = Vector3.Angle(Vector3.forward, d);
-        angle += UnityEngine.Random.Range(-traceTime, traceTime) * Mathf.Deg2Rad;
-        d = new Vector3(math.cos(angle), math.sin(angle));
-        d += mapOrigin.position;
-        d *= targetOriginDistance;
-        MovePosition(d);
+        moveDirection = (target.position - mapOrigin.position);
+        moveDirection.y = 0;
+        moveDirection = moveDirection.normalized;
+        moveposition = moveDirection * targetOriginDistance;
+        moveposition += mapOrigin.position;
 
-        if(targetEnemyDistance <= attackRange)
+        tarceTime += Time.deltaTime; 
+        if (tarceTime >= tarceTime_Max)
         {
-            print("a");
-            traceTime = traceMaxTime;
+            ResetRandomDirection();
         }
+        moveposition += randomDirection * Mathf.Lerp(randomDistance, 0, tarceTime/tarceTime_Max);
+
+
+        if (Vector3.Distance(mapOrigin.position, moveposition) > mapRadius)
+        {
+            moveposition = (moveposition - mapOrigin.position).normalized;
+            moveposition *= mapRadius + Random.Range(-3,0);
+        }
+        MovePosition(moveposition);
+
+        if (targetEnemyDistance <= attackRange)
+        {
+            state = State.Attack;
+        }
+    }
+
+    private void Attack()
+    {
+        
     }
 }
