@@ -90,8 +90,8 @@ public class PlayerMove : MonoBehaviour
         {
             if (Time.time > dashEndTime)
             {
-                EndDash();
 
+                EndDash();
 
             }
             else
@@ -142,6 +142,9 @@ public class PlayerMove : MonoBehaviour
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
 
+        skillUI.coolTimeImage();
+
+
         //if (PM.rskilling)
         //{
         //    Rskill.CancelRCasting();
@@ -154,11 +157,10 @@ public class PlayerMove : MonoBehaviour
 
     void EndDash()
     {
-        
-        
-        isDashing = false;
-        skillUI.coolTimeImage();
 
+        isDashing = false;
+
+        
 
     }
 
@@ -174,6 +176,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         EndDash();
+        
     }
 
 

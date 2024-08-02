@@ -67,7 +67,7 @@ public class Cskill : MonoBehaviour
 
         // 시전 시간 동안 기다리기
         yield return new WaitForSeconds(slowDuration);
-
+        skillUI.coolTimeImage();
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         if (playerMove != null)
         {
@@ -75,7 +75,7 @@ public class Cskill : MonoBehaviour
             playerMove.SetSpeed(playerSpeed); // 원래 속도로 복원
             if (skillUI != null)
             {
-                skillUI.coolTimeImage();
+                
             }
         }
 
@@ -112,6 +112,8 @@ public class Cskill : MonoBehaviour
             {
                 Debug.Log("Restoring normal speed after cancel."); // 속도 복원 로그
                 playerMove.SetSpeed(playerSpeed); // 속도 복원
+                skillUI.coolTimeImage();
+
             }
 
         }

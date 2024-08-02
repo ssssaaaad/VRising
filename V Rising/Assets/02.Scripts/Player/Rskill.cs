@@ -62,7 +62,7 @@ public class Rskill : MonoBehaviour
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         
         playerMove.SetSpeed(playerSpeed);
-        skillUI.coolTimeImage();
+        
         PM.rskilling = false;
 
         // 쿨타임 설정
@@ -108,7 +108,7 @@ public class Rskill : MonoBehaviour
         {
             // 스킬(발사체) 생성
             GameObject skill = Instantiate(skillPrefab, firePoint.position, firePoint.rotation);
-
+            skillUI.coolTimeImage();
             // 발사체의 방향을 발사 방향으로 설정
             Vector3 fireDirection = firePoint.forward;
             skill.transform.forward = fireDirection;
