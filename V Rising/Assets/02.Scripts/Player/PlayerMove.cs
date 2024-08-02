@@ -63,7 +63,7 @@ public class PlayerMove : MonoBehaviour
             SetDashDirection();
             Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
 
-            animator.SetFloat("Horizontal", 0);
+            //animator.SetFloat("Horizontal", 0);
             float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
             if(dashDirection_z < 0)
             {
@@ -154,7 +154,7 @@ public class PlayerMove : MonoBehaviour
     void EndDash()
     {
         print("DashUI.GetComponent<DashUI>() 오류나서 임의로 뺌 수정 바람");
-        return;
+        
         isDashing = false;
         DashUI.GetComponent<DashUI>().coolTimeImage();
     }
