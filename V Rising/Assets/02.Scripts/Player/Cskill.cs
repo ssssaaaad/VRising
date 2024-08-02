@@ -11,7 +11,7 @@ public class Cskill : MonoBehaviour
     public float cooldownTime = 10f; // 쿨타임 (초)
     public float pushBackForce = 5f; // 적 오브젝트를 밀어내는 힘
     public float playerSpeed;
-
+    public SkillUI skillUI;
     // 입력이 오면 Manager 에게 가능 여부를 물어봄
     
     private bool isCastingRSkill = false; // R 스킬 시전 중 여부
@@ -21,7 +21,7 @@ public class Cskill : MonoBehaviour
     private float cooldownEndTime;
     private PlayerMove playerMove;
     private Coroutine castingCoroutine;
-
+   
     void Start()
     {
         playerMove = GetComponent<PlayerMove>();
@@ -68,6 +68,7 @@ public class Cskill : MonoBehaviour
         if (playerMove != null)
         {
             playerMove.SetSpeed(playerSpeed); // 원래 속도로 복원
+            skillUI.coolTimeImage();
         }
 
         // 쿨타임 설정

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DashUI : MonoBehaviour
+public class SkillUI : MonoBehaviour
 {
     public Text text_CoolTime;
     public Image image_fill;
@@ -33,7 +33,7 @@ public class DashUI : MonoBehaviour
     //isEnded : 쿨타임이 끝났을 때 true (bool)
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -74,6 +74,7 @@ public class DashUI : MonoBehaviour
         Set_FillAmount(0);
         isEnded = true;
         text_CoolTime.gameObject.SetActive(false);
+
         Debug.Log("Skills Available!");
     }
 
@@ -102,7 +103,8 @@ public class DashUI : MonoBehaviour
         image_fill.fillAmount = _value / time_cooltime;
         string txt = _value.ToString("0.0");
         text_CoolTime.text = txt;
-        
+
         Debug.Log(txt);
     }
 }
+
