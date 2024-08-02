@@ -3108,17 +3108,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c70dcc141ae3248b6d234220529ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1275961614}
+  model: {fileID: 0}
   playerSpeed_Max: 5
   playerSpeed: 5
   animator: {fileID: 0}
   dashSpeed: 20
   dashDuration: 0.45
   dashFriction: 2
-  go: {fileID: 1275961614}
   dashCooldown: 8
   DashUI: {fileID: 0}
   gravity: -20
+  canRotate: 1
 --- !u!4 &1491535665
 Transform:
   m_ObjectHideFlags: 0
@@ -13884,11 +13884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104008504991462, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8726833
+      value: 0.880328
       objectReference: {fileID: 0}
     - target: {fileID: 4104008504991462, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.48828676
+      value: 0.4743656
       objectReference: {fileID: 0}
     - target: {fileID: 4488968717229804, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14613,7 +14613,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1491535665}
+      objectReference: {fileID: 2126982427}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: mapOriginPosition
