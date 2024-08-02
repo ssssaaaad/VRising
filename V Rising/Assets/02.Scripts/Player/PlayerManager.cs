@@ -6,16 +6,19 @@ public class PlayerManager : MonoBehaviour
 {
     private PlayerMove Dash;
     private Cskill Cskill;
+    private Qskill Qskill;
     private Rskill Rskill;
     private PlayerAttack Attack;
 
     private bool canDash = false;
     private bool canCskill = false;
+    private bool canQskill = false;
     private bool canRskill = false;
     private bool canAttack = false;
 
     public bool dashing = false;
     public bool cskilling = false;
+    public bool qskilling = false;
     public bool rskilling = false;
     public bool attacking = false;
 
@@ -25,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     {
         Dash = GetComponent<PlayerMove>();
         Cskill = GetComponent<Cskill>();
+        Qskill = GetComponent<Qskill>();
         Rskill = GetComponent<Rskill>();
         Attack = GetComponent<PlayerAttack>();
     }
@@ -36,6 +40,7 @@ public class PlayerManager : MonoBehaviour
         {
             canDash = false;
             canCskill = false;
+            canQskill = false;
             canRskill = false;
             canAttack = false;
 
@@ -58,8 +63,27 @@ public class PlayerManager : MonoBehaviour
         {
             canDash = true;
             canCskill = false;
+            canQskill = true;
             canRskill = true;
             canAttack = true;
+
+            // C스킬 사용시 캔슬
+            if (rskilling)
+            {
+                Rskill.CancelRCasting();
+            }
+            if (attacking)
+            {
+                Attack.CancelAttacking();
+            }
+        }
+        else if (qskilling)
+        {
+            canDash = true;
+            canCskill = true;
+            canQskill = false;
+            canRskill = false;
+            canAttack = false;
 
             // C스킬 사용시 캔슬
             if (rskilling)
@@ -75,6 +99,7 @@ public class PlayerManager : MonoBehaviour
         {
             canDash = true;
             canCskill = true;
+            canQskill = false;
             canRskill = false;
             canAttack = false;
 
@@ -92,6 +117,7 @@ public class PlayerManager : MonoBehaviour
         {
             canDash = true;
             canCskill = true;
+            canQskill = true;
             canRskill = true;
             canAttack = true;
 
@@ -105,6 +131,7 @@ public class PlayerManager : MonoBehaviour
         {
             canDash = true;
             canCskill = true;
+            canQskill = true;
             canRskill = true;
             canAttack = true;
         }
@@ -117,6 +144,10 @@ public class PlayerManager : MonoBehaviour
     public bool CanCskill()
     {
         return canCskill;
+    }
+    public bool CanQskill()
+    {
+        return canQskill;
     }
     public bool CanRskill()
     {
