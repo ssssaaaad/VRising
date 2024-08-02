@@ -46,11 +46,6 @@ public class Enemy : MonoBehaviour
         state = State.Idle;
     }
 
-    private void Start()
-    {
-        InitEnemy();
-    }
-
 
     /// <summary>
     /// 음수는 데미지, 양수는 회복
@@ -77,7 +72,7 @@ public class Enemy : MonoBehaviour
     }
     protected void MovePosition(Vector3 position)
     {
-        this.target = null;
+        //this.target = null;
         navMeshAgent.SetDestination(position);
     }
 
