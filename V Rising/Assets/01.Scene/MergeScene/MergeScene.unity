@@ -2572,7 +2572,6 @@ GameObject:
   - component: {fileID: 1275961615}
   - component: {fileID: 1275961617}
   - component: {fileID: 1275961616}
-  - component: {fileID: 1275961618}
   m_Layer: 12
   m_Name: Model
   m_TagString: Untagged
@@ -2646,27 +2645,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275961614}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1275961618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275961614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f089fc1e98b92d24694b5d2410241314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comboTime: 2
-  attackPreDelay: 0.3
-  attack1Delay: 0.5
-  attack2Delay: 0.5
-  attack3Delay: 0.75
-  minSpeed: 2
-  speedDuration: 0.75
-  HitBox: {fileID: 6836862729004524015, guid: 64b2c97e468e6b149a72dcc1faa626ca, type: 3}
-  attackPoint: {fileID: 0}
 --- !u!1 &1310687020 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 07301144ea470234d89f2b1408fe8736,
@@ -2853,6 +2831,8 @@ GameObject:
   - component: {fileID: 1491535663}
   - component: {fileID: 1491535662}
   - component: {fileID: 1491535661}
+  - component: {fileID: 1491535667}
+  - component: {fileID: 1491535666}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -2896,7 +2876,6 @@ MonoBehaviour:
   castTime: 1
   cooldownTime: 8
   slowSpeed: 0.5
-  playerSpeed: 5
   DestroyBullet: 1
 --- !u!143 &1491535663
 CharacterController:
@@ -2963,6 +2942,43 @@ Transform:
   - {fileID: 274792325}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1491535666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491535660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c688b7ff12defb14288b519b99ac3170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashing: 0
+  cskilling: 0
+  rskilling: 0
+  attacking: 0
+--- !u!114 &1491535667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491535660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f089fc1e98b92d24694b5d2410241314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboTime: 2
+  attackPreDelay: 0.3
+  attack1Delay: 0.5
+  attack2Delay: 0.5
+  attack3Delay: 0.75
+  minSpeed: 3
+  speedDuration: 0.75
+  HitBox: {fileID: 6836862729004524015, guid: 64b2c97e468e6b149a72dcc1faa626ca, type: 3}
+  attackPoint: {fileID: 1275961615}
 --- !u!1 &1499440579 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c66ef0bb71036f4384652594e332d7c,
@@ -13699,11 +13715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104008504991462, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.86912733
+      value: 0.34043947
       objectReference: {fileID: 0}
     - target: {fileID: 4104008504991462, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.4945885
+      value: 0.94026643
       objectReference: {fileID: 0}
     - target: {fileID: 4488968717229804, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.w

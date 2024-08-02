@@ -26,14 +26,15 @@ public class PlayerAttack : MonoBehaviour
     private int comboCount;
     private float lastAttackTime;   // 마지막 공격시간
     private float[] comboDelay;
-    private float basicSpeed;
+    private float basicSpeed = 5f;
+
+    
 
     void Start()
     {
         Debug.Log("작동중");
         comboDelay = new float[] { attack1Delay, attack2Delay, attack3Delay };
         PlayerMove = GetComponent<PlayerMove>();
-        basicSpeed = PlayerMove.playerSpeed;
 
         PM = GetComponent<PlayerManager>();
     }
@@ -42,17 +43,20 @@ public class PlayerAttack : MonoBehaviour
     {
         lastAttackTime += Time.deltaTime;   // 마지막 공격 이후 시간 측정
 
-        if (Input.GetButton("Fire1") && PM.CanAttack() && canAttack)     // 다른 행동을 하지 않고 클릭을 누르면
+        if (PM != null)
         {
-            if(attackCoroutain != null)
+            if (Input.GetButton("Fire1") && PM.CanAttack() && canAttack)     // 다른 행동을 하지 않고 클릭을 누르면
             {
-                StopCoroutine(attackCoroutain);
-            }
-            canAttack = false;
-            PM.attacking = true;
-            attackCoroutain = StartCoroutine(Attack());
+                if (attackCoroutain != null)
+                {
+                    StopCoroutine(attackCoroutain);
+                }
+                canAttack = false;
+                PM.attacking = true;
+                attackCoroutain = StartCoroutine(Attack());
 
-            //StopCoroutine(Slowing());
+                //StopCoroutine(Slowing());
+            }
         }
     }
 
@@ -85,7 +89,11 @@ public class PlayerAttack : MonoBehaviour
             comboCount++;
         }
         canAttack = true;
-        PM.attacking = false;
+
+        if (PM != null)
+        {
+            PM.attacking = false;
+        }
         yield return new WaitForSeconds(speedDuration - attackPreDelay);
         PlayerMove.SetSpeed(basicSpeed);
         attackCoroutain = null;
@@ -103,7 +111,10 @@ public class PlayerAttack : MonoBehaviour
         if (PlayerMove.playerSpeed == minSpeed)
             PlayerMove.SetSpeed(basicSpeed);
 
-        PM.attacking = false;
+        if (PM != null)
+        {
+            PM.attacking = false;
+        }
         Debug.Log("attack cancel");
     }
 

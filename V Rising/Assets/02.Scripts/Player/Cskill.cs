@@ -32,16 +32,22 @@ public class Cskill : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && !isCoolingDown && PM.CanCskill())
+        if (PM != null)
         {
-            Debug.Log("Starting C skill casting.");
-            StartCoroutine(CastSkill());
+            if (Input.GetKeyDown(KeyCode.C) && !isCoolingDown && PM.CanCskill())
+            {
+                Debug.Log("Starting C skill casting.");
+                StartCoroutine(CastSkill());
+            }
         }
     }
 
     public IEnumerator CastSkill()
     {
-        PM.cskilling = true;
+        if (PM != null)
+        {
+            PM.cskilling = true;
+        }
         isCoolingDown = true;
 
         if (/*Rskill != null &&*/ PM.rskilling)
