@@ -11,14 +11,15 @@ public class PlayerMove : MonoBehaviour
 {
     private PlayerManager PM;
 
-    public GameObject player;
+    public GameObject model;
+    public float playerSpeed_Max = 5f; // 기본속도
     public float playerSpeed = 5f; // 기본속도
+    public Animator animator;
     
     public float dashSpeed = 20f; // 대쉬 이동속도
     public float dashDuration = 0.45f; // 대쉬 지속 시간
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
     Camera characterCamera;
-    public GameObject go;
     CharacterController cc;
     private Rskill Rskill;
     private Cskill Cskill;
@@ -33,9 +34,10 @@ public class PlayerMove : MonoBehaviour
     private bool canDash = true; // 대쉬 가능 여부
     private float nextDashTime = 0f; // 다음 대쉬 가능 시간
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
-    
+    public GameObject DashUI;
     public float gravity = -9.8f;
     float yVelocity = 0;
+
 
     void Start()
     {
@@ -58,9 +60,22 @@ public class PlayerMove : MonoBehaviour
         // 대쉬 처리
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
-            
-             SetDashDirection();
-             StartDash();
+            SetDashDirection();
+            Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
+
+            animator.SetFloat("Horizontal", 0);
+            float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
+            if(dashDirection_z < 0)
+            {
+                dashDirection_z = -1;
+            }
+            else
+            {
+                dashDirection_z = 1;
+            }
+            animator.SetFloat("Vertical", dashDirection_z);
+            animator.SetTrigger("Dash");
+            StartDash();
             
         }
 
@@ -74,17 +89,16 @@ public class PlayerMove : MonoBehaviour
         {
             if (PM.dashing)
             {
-                if (Time.time > dashEndTime)
-                {
-                    EndDash();
-                }
-                else
-                {
-                    // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
-                    ApplyDashFriction();
-                    // 대쉬 중 입력을 반영하여 방향 전환
-                    SetDashDirection();
-                }
+                EndDash();
+
+                
+            }
+            else
+            {
+                // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
+                ApplyDashFriction();
+                // 대쉬 중 입력을 반영하여 방향 전환
+                SetDashDirection();
             }
         }
         
@@ -141,10 +155,10 @@ public class PlayerMove : MonoBehaviour
 
     void EndDash()
     {
-        if (PM != null)
-        {
-            PM.dashing = false;
-        }
+        print("DashUI.GetComponent<DashUI>() 오류나서 임의로 뺌 수정 바람");
+        return;
+        isDashing = false;
+        DashUI.GetComponent<DashUI>().coolTimeImage();
     }
     
     System.Collections.IEnumerator DashCoroutine(Vector3 dashDirection)
@@ -169,10 +183,11 @@ public class PlayerMove : MonoBehaviour
     }
 
     Plane m_plane;
+    public bool canRotate = true;
 
     public void LookMouseCursor()
     {
-        m_plane = new Plane(Vector3.up, player.transform.position);
+        m_plane = new Plane(Vector3.up, model.transform.position);
 
 
         Ray ray = characterCamera.ScreenPointToRay(Input.mousePosition);
@@ -189,10 +204,14 @@ public class PlayerMove : MonoBehaviour
         Vector3 mouseWorldPosition = characterCamera.ScreenToWorldPoint(mouseScreenPosition);
 
 
-        Vector3 mouseDir = mouseWorldPosition - go.transform.position;
+        Vector3 mouseDir = mouseWorldPosition - model.transform.position;
         mouseDir.y = 0;
 
-        go.transform.forward = mouseDir;
+        if (canRotate)
+        {
+            model.transform.forward = mouseDir;
+        }
+        
         //카메라 방향을 기준으로 캐릭터의 이동 방향을 설정
 
         /////////
@@ -256,21 +275,26 @@ public class PlayerMove : MonoBehaviour
             Vector3 dirad = transform.right * ad;
             Vector3 dirws = transform.forward * ws;
 
-            Vector3 dir = dirad + dirws;
+            moveDirection = dirad + dirws;
 
-            dir.Normalize();
+            moveDirection.Normalize();
 
 
-            dir = characterCamera.transform.TransformDirection(dir);
-            dir.y = 0; // Y축 회전만 고려
+            moveDirection = characterCamera.transform.TransformDirection(moveDirection);
+            moveDirection.y = 0; // Y축 회전만 고려
 
-            dir.Normalize();
+            moveDirection.Normalize();
 
             yVelocity += gravity * Time.deltaTime;
-            dir.y = yVelocity;
+            moveDirection.y = yVelocity;
 
-            cc.Move(dir * playerSpeed * Time.deltaTime);
+           
+            cc.Move(moveDirection * playerSpeed * Time.deltaTime);
 
+            Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
+
+            animator.SetFloat("Horizontal", modeolDir.x * playerSpeed / playerSpeed_Max);
+            animator.SetFloat("Vertical", modeolDir.z * playerSpeed / playerSpeed_Max);
         }
         
     }

@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelayTime: 0.3
   delayTime: 1.5
-  distance: 15
+  range: 0
   coolTime: 5
   readyToStart: 1
   startDistance: 2
@@ -129,16 +129,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelayTime: 0.3
   delayTime: 3
-  distance: 15
+  range: 10
   maja: {fileID: 0}
   coolTime: 8
   readyToStart: 1
   startPosition: 2
-  parentDistance: 10
-  childDistanece: 10
+  parentDistance: 20
+  childDistanece: 30
   parentActiveTime: 1.5
-  childActiveTime: 1
-  childBulletCount: 8
+  childActiveTime: 2
+  childBulletCount: 7
   parentDamage: 10
   childDamage: 10
   secondDirection_Right: 0
@@ -160,13 +160,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelayTime: 0.3
   delayTime: 1.8
-  distance: 15
+  range: 10
   coolTime: 5
   readyToStart: 1
   startDistance: 2
   width: 5
-  attackDistance: 10
-  attackActiveTime: 1
+  attackDistance: 30
+  attackActiveTime: 2
   bulletCount: 4
   damage: 10
   projectile_Prefab: {fileID: 7635418392693607409, guid: 363e2c66092e9534892fc36017219a1e,
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelayTime: 0.2
   delayTime: 1
-  distance: 1
+  range: 0
   coolTime: 15
   readyToStart: 1
 --- !u!195 &2967642142717032212

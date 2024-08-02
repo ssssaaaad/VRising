@@ -20,7 +20,7 @@ public abstract class Pattern : MonoBehaviour
 
     public float delayTime = 0;
     protected bool patterDelay;
-    public float distance;
+    public float range;
     protected  abstract IEnumerator PatternDelayTime();
     protected abstract IEnumerator Coroutine_AttackDelayTime(Vector3 direction);
 }
@@ -221,7 +221,7 @@ public class Maja : Enemy
             enemyDistance = Vector3.Distance(target.position, transform.position);
             for (int i = 0; i < attackPatterns.Count; i++)
             {
-                if(enemyDistance <= attackPatterns[i].distance && attackPatterns[i].CooltimeCheck())
+                if(enemyDistance <= attackPatterns[i].range && attackPatterns[i].CooltimeCheck())
                 {
                     distanceCheck = true;
                     state = State.Attack;
