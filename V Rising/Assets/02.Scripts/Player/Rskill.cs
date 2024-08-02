@@ -29,11 +29,14 @@ public class Rskill : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && PM.CanRskill())
+        if (PM != null)
         {
+            if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && PM.CanRskill())
+            {
 
-            Debug.Log("Starting skill casting.");
-            castingCoroutine = StartCoroutine(CastSkill());
+                Debug.Log("Starting skill casting.");
+                castingCoroutine = StartCoroutine(CastSkill());
+            }
         }
     }
 

@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     public float playerSpeed_Max = 5f; // 기본속도
     public float playerSpeed = 5f; // 기본속도
     public Animator animator;
-    
+
     public float dashSpeed = 20f; // 대쉬 이동속도
     public float dashDuration = 0.45f; // 대쉬 지속 시간
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
@@ -63,9 +63,9 @@ public class PlayerMove : MonoBehaviour
             SetDashDirection();
             Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
 
-            animator.SetFloat("Horizontal", 0);
+            //animator.SetFloat("Horizontal", 0);
             float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
-            if(dashDirection_z < 0)
+            if (dashDirection_z < 0)
             {
                 dashDirection_z = -1;
             }
@@ -76,7 +76,7 @@ public class PlayerMove : MonoBehaviour
             animator.SetFloat("Vertical", dashDirection_z);
             animator.SetTrigger("Dash");
             StartDash();
-            
+
         }
 
         // 대쉬 쿨타임 처리
@@ -91,7 +91,7 @@ public class PlayerMove : MonoBehaviour
             {
                 EndDash();
 
-                
+
             }
             else
             {
@@ -101,7 +101,7 @@ public class PlayerMove : MonoBehaviour
                 SetDashDirection();
             }
         }
-        
+
     }
     void SetDashDirection()
     {
@@ -154,11 +154,11 @@ public class PlayerMove : MonoBehaviour
     void EndDash()
     {
         print("DashUI.GetComponent<DashUI>() 오류나서 임의로 뺌 수정 바람");
-        return;
+        
         isDashing = false;
         DashUI.GetComponent<DashUI>().coolTimeImage();
     }
-    
+
     System.Collections.IEnumerator DashCoroutine(Vector3 dashDirection)
     {
         float dashTime = 0f;
@@ -209,7 +209,7 @@ public class PlayerMove : MonoBehaviour
         {
             model.transform.forward = mouseDir;
         }
-        
+
         //카메라 방향을 기준으로 캐릭터의 이동 방향을 설정
 
         /////////
@@ -251,7 +251,7 @@ public class PlayerMove : MonoBehaviour
     {
         playerSpeed = newspeed;
     }
-    
+
     public bool IsCastingRSkill()
     {
         return isCastingRSkill;
@@ -286,7 +286,7 @@ public class PlayerMove : MonoBehaviour
             yVelocity += gravity * Time.deltaTime;
             moveDirection.y = yVelocity;
 
-           
+
             cc.Move(moveDirection * playerSpeed * Time.deltaTime);
 
             Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
@@ -294,6 +294,6 @@ public class PlayerMove : MonoBehaviour
             animator.SetFloat("Horizontal", modeolDir.x * playerSpeed / playerSpeed_Max);
             animator.SetFloat("Vertical", modeolDir.z * playerSpeed / playerSpeed_Max);
         }
-        
+
     }
 }
