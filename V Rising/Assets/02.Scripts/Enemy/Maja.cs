@@ -28,7 +28,7 @@ public abstract class Pattern : MonoBehaviour
 
 public class Maja : Enemy
 {
-    public Transform mapOriginPosition;
+    public Transform mapOrigin;
     public List<Pattern> attackPatterns;
     public Pattern teleport;
 
@@ -269,7 +269,7 @@ public class Maja : Enemy
             }
 
 
-            enemyDirection = new Vector3(transform.position.x - mapOriginPosition.position.x, 0, transform.position.z - mapOriginPosition.position.z).normalized;
+            enemyDirection = new Vector3(transform.position.x - mapOrigin.position.x, 0, transform.position.z - mapOrigin.position.z).normalized;
             angle = Mathf.Atan2(enemyDirection.z, enemyDirection.x) * Mathf.Rad2Deg;
 
             if (Random.value > 0.5)
@@ -282,7 +282,7 @@ public class Maja : Enemy
             }
             angle *= Mathf.Deg2Rad;
             movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius - 1);
-            movementPosition += mapOriginPosition.position;
+            movementPosition += mapOrigin.position;
 
             forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
             navMeshAgent.SetDestination(movementPosition);
@@ -290,7 +290,7 @@ public class Maja : Enemy
         }
         else
         {
-            if(Vector3.Distance(mapOriginPosition.position, target.position) < mapRadius)
+            if(Vector3.Distance(mapOrigin.position, target.position) < mapRadius)
             {
                 movementPosition = position;
                 forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
@@ -316,7 +316,7 @@ public class Maja : Enemy
 
         }
 
-        enemyDistance = Vector3.Distance(mapOriginPosition.position, transform.position);
+        enemyDistance = Vector3.Distance(mapOrigin.position, transform.position);
         if (enemyDistance < (mapRadius/4)*3 && !wall)
         {
             movementPosition = transform.position + (transform.position - target.position).normalized * (mapRadius - enemyDistance);
@@ -337,11 +337,11 @@ public class Maja : Enemy
             wall = true;
             
             // 각도 구하기
-            enemyDirection = new Vector3(transform.position.x - mapOriginPosition.position.x, 0 , transform.position.z - mapOriginPosition.position.z).normalized;
-            targetDirection = new Vector3(target.position.x - mapOriginPosition.position.x, 0, target.position.z - mapOriginPosition.position.z).normalized;
+            enemyDirection = new Vector3(transform.position.x - mapOrigin.position.x, 0 , transform.position.z - mapOrigin.position.z).normalized;
+            targetDirection = new Vector3(target.position.x - mapOrigin.position.x, 0, target.position.z - mapOrigin.position.z).normalized;
             angle = Mathf.Atan2(enemyDirection.z, enemyDirection.x) * Mathf.Rad2Deg;
             // 이동 방향 구하기
-            enemy_Cross = Vector3.Cross((mapOriginPosition.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
+            enemy_Cross = Vector3.Cross((mapOrigin.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
 
             if (enemy_Cross.y < -0.5)
             {
@@ -355,14 +355,14 @@ public class Maja : Enemy
             {
                 angle *= Mathf.Deg2Rad;
                 movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius * 0.6f);
-                movementPosition += mapOriginPosition.position;
+                movementPosition += mapOrigin.position;
                 navMeshAgent.SetDestination(movementPosition);
                 return;
             }
 
             angle *= Mathf.Deg2Rad;
             movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius - 1);
-            movementPosition += mapOriginPosition.position;
+            movementPosition += mapOrigin.position;
         }
         forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
         navMeshAgent.SetDestination(movementPosition);

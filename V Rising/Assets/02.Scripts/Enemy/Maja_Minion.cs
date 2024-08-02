@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class Maja_Minion : Enemy
@@ -11,16 +12,16 @@ public class Maja_Minion : Enemy
     public float targetOriginDistance;
     public float targetEnemyDistance;
     public float speed;
+    public float traceRange = 3;
     public float attackRange;
-    private float mapRadius;
-    private Transform mapOrigin;
-    private Vector3 randomDirection;
     private Vector3 moveDirection;
     private Vector3 moveposition;
 
-    public float tarceTime_Max = 5;
-    private float tarceTime = 0;
-    private float randomDistance;
+    public float randomDistance;
+    public float randomDirection;
+
+    public float traceTime_Max = 3;
+    public float traceTime = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -37,16 +38,14 @@ public class Maja_Minion : Enemy
     {
         base.InitEnemy();
         this.maja = maja;
-        mapRadius = maja.mapRadius;
-        mapOrigin = maja.mapOriginPosition;
         ResetRandomDirection();
     }
 
     private void ResetRandomDirection()
     {
-        randomDirection = UnityEngine.Random.insideUnitCircle;
-        randomDistance = UnityEngine.Random.Range(5, 10);
-        tarceTime = 0;
+        //randomDirection = UnityEngine.Random.insideUnitCircle;
+        randomDirection = Random.value > 0.5 ? -1 : 1;
+        randomDistance = Random.Range(maja.mapRadius/2, maja.mapRadius-1);
     }
 
     private void SetMovePosition_Target()
@@ -57,27 +56,30 @@ public class Maja_Minion : Enemy
         }
 
         targetEnemyDistance = Vector3.Distance(target.position, transform.position);
-        targetOriginDistance = Vector3.Distance(mapOrigin.position, target.position);
-        moveDirection = (target.position - mapOrigin.position);
-        moveDirection.y = 0;
-        moveDirection = moveDirection.normalized;
-        moveposition = moveDirection * targetOriginDistance;
-        moveposition += mapOrigin.position;
-
-        tarceTime += Time.deltaTime; 
-        if (tarceTime >= tarceTime_Max)
+        if (targetEnemyDistance > traceRange)
         {
-            ResetRandomDirection();
+            moveDirection = (transform.position - maja.mapOrigin.position);
+            moveDirection.y = 0;
+            moveDirection = moveDirection.normalized;
+            float angle = Mathf.Atan2(moveDirection.z, moveDirection.x);
+            angle += (70 * randomDirection) * Mathf.Deg2Rad;
+            moveposition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+            moveposition *= randomDistance;
+            moveposition += maja.mapOrigin.position;
+
+            traceTime += Time.deltaTime;
+            if (traceTime >= traceTime_Max)
+            {
+                traceTime = 0;
+                ResetRandomDirection();
+            }
+            MovePosition(moveposition);
+            aa.transform.position = moveposition;
         }
-        moveposition += randomDirection * Mathf.Lerp(randomDistance, 0, tarceTime/tarceTime_Max);
-
-
-        if (Vector3.Distance(mapOrigin.position, moveposition) > mapRadius)
+        else
         {
-            moveposition = (moveposition - mapOrigin.position).normalized;
-            moveposition *= mapRadius + Random.Range(-3,0);
+            MovePosition(target.position);
         }
-        MovePosition(moveposition);
 
         if (targetEnemyDistance <= attackRange)
         {
@@ -85,6 +87,7 @@ public class Maja_Minion : Enemy
         }
     }
 
+    public Transform aa;
     private void Attack()
     {
         
