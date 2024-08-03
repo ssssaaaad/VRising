@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     #endregion
 
 
-    protected void InitEnemy()
+    public void InitEnemy()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         state = State.Idle;
@@ -90,7 +90,6 @@ public class Enemy : MonoBehaviour
         float angle;
         angle = Vector3.Angle(model.forward, forward);
         Vector3 cross = Vector3.Cross(model.forward, forward);
-        print(cross.y);
         if (cross.y > 0.1)
             model.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
         else if (cross.y < -0.1)

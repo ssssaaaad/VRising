@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Maja_AttackPattern2 : Pattern
+public class Maja_MainSkillPattern1 : Pattern
 {
     public Maja maja;
 
@@ -164,7 +164,7 @@ public class Maja_AttackPattern2 : Pattern
         }
     }
 
-    IEnumerator PatternCooltime()
+    protected override IEnumerator PatternCooltime()
     {
         readyToStart = false;
         yield return new WaitForSeconds(coolTime);

@@ -49,7 +49,7 @@ public class Maja_Teleport : Pattern
 
     }
 
-    IEnumerator PatternCooltime()
+    protected override IEnumerator PatternCooltime()
     {
         readyToStart = false;
         yield return new WaitForSeconds(coolTime);
