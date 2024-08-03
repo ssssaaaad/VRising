@@ -23,6 +23,7 @@ public class PlayerMove : MonoBehaviour
     Camera characterCamera;
     CharacterController cc;
     private Rskill Rskill;
+    private Tskill Tskill;
     private Cskill Cskill;
     private bool isDashing = false;
     private bool isCastingRSkill = false; // R 스킬 시전 중 여부
@@ -44,6 +45,7 @@ public class PlayerMove : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         Rskill = GetComponent<Rskill>();
+        Tskill = GetComponent<Tskill>();
         Cskill = GetComponent<Cskill>();
         PM = GetComponent<PlayerManager>();
     }
@@ -51,13 +53,32 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
-        characterCamera = Camera.main;
+        InitPlayerMove();
     }
 
-    void Update()
+    public void InitPlayerMove()
     {
-        PlayerMoving();
-        LookMouseCursor();
+
+        characterCamera = Camera.main;
+
+    }
+
+    public void Move()
+    {
+        if (PM != null)
+        {
+            if (!PM.tskilling)
+            {
+                PlayerMoving();
+            }
+        }
+        if (Tskill != null)
+        {
+            if (!Tskill.ForwardLock())      // T스킬 대쉬중 방향고정
+            {
+                LookMouseCursor();
+            }
+        }
         // 대쉬 처리
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
@@ -100,7 +121,6 @@ public class PlayerMove : MonoBehaviour
             // 대쉬 중 입력을 반영하여 방향 전환
             SetDashDirection();
         }
-        
 
     }
     void SetDashDirection()

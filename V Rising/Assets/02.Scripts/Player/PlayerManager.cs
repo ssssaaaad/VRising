@@ -4,44 +4,54 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private PlayerMove Dash;
+    private PlayerMove Move;
     private Cskill Cskill;
     private Qskill Qskill;
     private Rskill Rskill;
+    private Tskill Tskill;
     private PlayerAttack Attack;
 
     private bool canDash = false;
     private bool canCskill = false;
     private bool canQskill = false;
     private bool canRskill = false;
+    private bool canTskill = false;
     private bool canAttack = false;
 
     public bool dashing = false;
     public bool cskilling = false;
     public bool qskilling = false;
     public bool rskilling = false;
+    public bool tskilling = false;
     public bool attacking = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Dash = GetComponent<PlayerMove>();
+        Move = GetComponent<PlayerMove>();
         Cskill = GetComponent<Cskill>();
         Qskill = GetComponent<Qskill>();
         Rskill = GetComponent<Rskill>();
+        Tskill = GetComponent<Tskill>();
         Attack = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Move != null)
+        {
+            Move.Move();
+        }
+        
         if (dashing)
         {
             canDash = false;
             canCskill = false;
             canQskill = false;
             canRskill = false;
+            canTskill = false;
             canAttack = false;
 
 
@@ -69,6 +79,7 @@ public class PlayerManager : MonoBehaviour
             canCskill = false;
             canQskill = true;
             canRskill = true;
+            canTskill = true;
             canAttack = true;
 
             // C스킬 사용시 캔슬
@@ -91,6 +102,7 @@ public class PlayerManager : MonoBehaviour
             canCskill = true;
             canQskill = false;
             canRskill = false;
+            canTskill = false;
             canAttack = false;
 
             // Q스킬 사용시 캔슬
@@ -109,6 +121,7 @@ public class PlayerManager : MonoBehaviour
             canCskill = true;
             canQskill = false;
             canRskill = false;
+            canTskill = false;
             canAttack = false;
 
             // R스킬 사용시 캔슬
@@ -127,6 +140,7 @@ public class PlayerManager : MonoBehaviour
             canCskill = true;
             canQskill = true;
             canRskill = true;
+            canTskill = true;
             canAttack = true;
 
             // 클릭 사용시 캔슬
@@ -141,13 +155,14 @@ public class PlayerManager : MonoBehaviour
             canCskill = true;
             canQskill = true;
             canRskill = true;
+            canTskill = true;
             canAttack = true;
         }
     }
 
     public bool CanDash()
     {
-        return canDash; 
+        return canDash;
     }
     public bool CanCskill()
     {
@@ -160,6 +175,10 @@ public class PlayerManager : MonoBehaviour
     public bool CanRskill()
     {
         return canRskill;
+    }
+    public bool CanTskill()
+    {
+        return canTskill;
     }
     public bool CanAttack()
     {
