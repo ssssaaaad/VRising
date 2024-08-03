@@ -67,7 +67,7 @@ public class PlayerAttack : MonoBehaviour
             comboCount = 0;
         }
 
-        Debug.Log("속도감소");
+        //Debug.Log("속도감소");
         PlayerMove.SetSpeed(minSpeed);
         speedCoroutain = StartCoroutine(Slowing());
 
