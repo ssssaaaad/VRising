@@ -8,17 +8,17 @@ public class Tskill : MonoBehaviour
     private PlayerMove PlayerMove;
     private Coroutine ghostTime;
 
-    public float dashReady = 0.5f;  // 시전 준비시간
-    public float ghostDashing = 1f; // 대쉬 지속시간
+    public float dashReady = 1f;  // 시전 준비시간
+    public float ghostDashing = 1.5f; // 대쉬 지속시간
     public float bustTime = 1.5f;   // 폭발 지연시간
     public float cooldownTime = 20f; // 쿨타임 (초)
-    public float highSpeed = 50f;   // 돌진 속도
+    public float highSpeed = 30f;   // 돌진 속도
     public float normalSpeed = 5f;  // 기본 속도
 
     private Vector3 head;       // 시전 방향
     private bool isCoolingDown = false;
     private float cooldownEndTime; // 쿨타임 종료 시간
-    private bool moveLock = false;
+    private bool headLock = false;
 
     List<Transform> hitObjects = new List<Transform>();
 
@@ -29,13 +29,10 @@ public class Tskill : MonoBehaviour
     }
 
 
-    void Update()
+    public void C()
     {
-        if (Input.GetKeyDown(KeyCode.T) && !isCoolingDown)
-        {
-            // 시전
-            ghostTime = StartCoroutine(Ghostdash());
-        }
+        Debug.Log("T스킬 시작");
+        ghostTime = StartCoroutine(Ghostdash());
     }
 
     public IEnumerator Ghostdash()
@@ -47,7 +44,7 @@ public class Tskill : MonoBehaviour
 
         isCoolingDown = true;
 
-        moveLock = true; // 방향 고정
+        headLock = true; // 방향 고정
 
         // 플레이어 충돌 판정 Trigger로 변경
 
@@ -63,7 +60,7 @@ public class Tskill : MonoBehaviour
         // 돌진 종료
         PM.tskilling = false;
         // 방향 고정 해제
-        moveLock = false;
+        headLock = false;
 
         // 쿨타임 계산
         cooldownEndTime = Time.time + cooldownTime;
@@ -103,9 +100,9 @@ public class Tskill : MonoBehaviour
         hitObjects.Remove(hitObject.transform);     // 폭발이 끝나면 리스트에서 제외
     }
 
-    public bool MoveLock()
+    public bool HeadLock()
     {
-        return moveLock;
+        return headLock;
     }
 
 }

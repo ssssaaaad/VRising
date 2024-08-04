@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     private Qskill Qskill;
     private Rskill Rskill;
     private Tskill Tskill;
+    private Eskill Eskill;
     private PlayerAttack Attack;
 
     private bool canDash = false;
@@ -16,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     private bool canQskill = false;
     private bool canRskill = false;
     private bool canTskill = false;
+    private bool canEskill = false;
     private bool canAttack = false;
 
     public bool dashing = false;
@@ -23,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     public bool qskilling = false;
     public bool rskilling = false;
     public bool tskilling = false;
+    public bool eskilling = false;
     public bool attacking = false;
 
 
@@ -34,6 +37,7 @@ public class PlayerManager : MonoBehaviour
         Qskill = GetComponent<Qskill>();
         Rskill = GetComponent<Rskill>();
         Tskill = GetComponent<Tskill>();
+        Eskill = GetComponent<Eskill>();
         Attack = GetComponent<PlayerAttack>();
     }
 
@@ -51,6 +55,10 @@ public class PlayerManager : MonoBehaviour
             Cskill.C();
         if (Input.GetKeyDown(KeyCode.R) && CanRskill())
             Rskill.R();
+        if (Input.GetKeyDown(KeyCode.E) && CanEskill())
+            Eskill.E();
+        if (Input.GetKeyDown(KeyCode.T) && CanTskill())
+            Tskill.T();
         if (Input.GetMouseButton(0) && CanAttack())
             Attack.Click();
 
@@ -150,6 +158,13 @@ public class PlayerManager : MonoBehaviour
         else
             return canTskill;
     }
+    public bool CanEskill()
+    {
+        if (Eskill.IsECoolTime())
+            return false;
+        else
+            return canEskill;
+    }
     public bool CanAttack()
     {
         if (Attack.Canattack())        // 공격입력을 받을 수 있나
@@ -214,6 +229,14 @@ public class PlayerManager : MonoBehaviour
         {
             Attack.CancelAttacking();
         }
+    }
+    public void TCancel()
+    {
+
+    }
+    public void ECancel()
+    {
+
     }
     public void ClickCancel()
     {

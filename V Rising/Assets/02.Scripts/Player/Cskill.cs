@@ -5,7 +5,6 @@ using UnityEngine;
 public class Cskill : MonoBehaviour
 {
     private PlayerManager PM;
-    private Rskill Rskill;
     private PlayerMove playerMove;
     private Coroutine castingCoroutine;
 
@@ -27,7 +26,6 @@ public class Cskill : MonoBehaviour
     void Start()
     {
         playerMove = GetComponent<PlayerMove>();
-        Rskill = GetComponent<Rskill>();
         PM = GetComponent<PlayerManager>();
         playerSpeed = playerMove.playerSpeed;
     }
@@ -48,10 +46,7 @@ public class Cskill : MonoBehaviour
         }
         isCoolingDown = true;
 
-        if (/*Rskill != null &&*/ PM.rskilling)
-        {
-            Rskill.CancelRCasting();
-        }
+        
         // 시전 시간 동안 캐릭터 속도 감소
         if (playerMove != null)
         {

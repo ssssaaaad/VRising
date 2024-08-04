@@ -978,10 +978,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f2c81122d3f46468a18f1163071f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBox: {fileID: 7593261067777636990, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
   spinDuration: 2
   cooldownTime: 8
   hitFrequency: 0.5
-  hitBox: {fileID: 7593261067777636990, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
 --- !u!1 &1002928124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,8 +1340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b105541a59f78ac478b882109d69dad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashReady: 0.5
-  ghostDashing: 1
+  dashReady: 1
+  ghostDashing: 1.5
   bustTime: 1.5
   cooldownTime: 20
   highSpeed: 30
@@ -1358,10 +1358,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f2c81122d3f46468a18f1163071f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBox: {fileID: 7593261067777636990, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
   spinDuration: 2
   cooldownTime: 8
   hitFrequency: 0.2
-  hitBox: {fileID: 7593261067777636990, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
+--- !u!114 &1426681833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426681805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3edaba583c3647409c974f9896b39b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1740879869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,14 +1561,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 1740879869}
+  animator: {fileID: 0}
+  skillUI: {fileID: 0}
   playerSpeed_Max: 5
   playerSpeed: 5
-  animator: {fileID: 0}
   dashSpeed: 20
   dashDuration: 0.45
   dashFriction: 2
   dashCooldown: 8
-  skillUI: {fileID: 0}
   gravity: -20
   canRotate: 1
 --- !u!4 &1851887035
@@ -1617,12 +1629,12 @@ MonoBehaviour:
   skillPrefab: {fileID: 1198427815685852516, guid: f512ba81bce797349b6d9e2fb9cd10ae,
     type: 3}
   firePoint: {fileID: 1740879870}
+  skillUI: {fileID: 0}
   skillSpeed: 20
   castTime: 1
   cooldownTime: 8
   slowSpeed: 0.5
   DestroyBullet: 1
-  skillUI: {fileID: 0}
 --- !u!114 &1851887039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1635,13 +1647,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2895a66c86afcf4aa30d68c205cae22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle_Skill_C: {fileID: 0}
+  skillUI: {fileID: 0}
   slowDuration: 1.5
   slowSpeed: 1
   cooldownTime: 10
   pushBackForce: 5
   playerSpeed: 5
-  skillUI: {fileID: 0}
-  particle_Skill_C: {fileID: 0}
 --- !u!114 &1851887040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1971,6 +1983,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1426681824}
+    - targetCorrespondingSourceObject: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1426681833}
   m_SourcePrefab: {fileID: 100100000, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
 --- !u!1 &2121531769
 GameObject:
@@ -2123,13 +2139,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2895a66c86afcf4aa30d68c205cae22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle_Skill_C: {fileID: 0}
+  skillUI: {fileID: 1954011510}
   slowDuration: 1.5
   slowSpeed: 1
   cooldownTime: 10
   pushBackForce: 5
   playerSpeed: 5
-  skillUI: {fileID: 1954011510}
-  particle_Skill_C: {fileID: 0}
 --- !u!1 &1778509808852348124
 GameObject:
   m_ObjectHideFlags: 0
@@ -2165,12 +2181,12 @@ MonoBehaviour:
   skillPrefab: {fileID: 1198427815685852516, guid: f512ba81bce797349b6d9e2fb9cd10ae,
     type: 3}
   firePoint: {fileID: 0}
+  skillUI: {fileID: 1954011511}
   skillSpeed: 20
   castTime: 1
   cooldownTime: 8
   slowSpeed: 0.5
   DestroyBullet: 1
-  skillUI: {fileID: 1954011511}
 --- !u!1001 &1957486332588651384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2287,14 +2303,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 11795786}
+  animator: {fileID: 11795788}
+  skillUI: {fileID: 1954011509}
   playerSpeed_Max: 5
   playerSpeed: 5
-  animator: {fileID: 11795788}
   dashSpeed: 20
   dashDuration: 0.45
   dashFriction: 2
   dashCooldown: 8
-  skillUI: {fileID: 1954011509}
   gravity: -20
   canRotate: 1
 --- !u!1 &2266005939065672881
