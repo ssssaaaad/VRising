@@ -1346,6 +1346,22 @@ MonoBehaviour:
   cooldownTime: 20
   highSpeed: 30
   normalSpeed: 5
+--- !u!114 &1426681824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426681805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f2c81122d3f46468a18f1163071f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinDuration: 2
+  cooldownTime: 8
+  hitFrequency: 0.2
+  hitBox: {fileID: 7593261067777636990, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
 --- !u!1 &1740879869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +1940,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Group
       objectReference: {fileID: 0}
+    - target: {fileID: 5291935929519565267, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: DestroyBullet
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685138536269232485, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8112148542134661494, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_IsActive
@@ -1941,6 +1967,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1426681815}
+    - targetCorrespondingSourceObject: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1426681824}
   m_SourcePrefab: {fileID: 100100000, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
 --- !u!1 &2121531769
 GameObject:

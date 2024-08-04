@@ -5,20 +5,22 @@ using UnityEngine;
 public class Rskill : MonoBehaviour
 {
     private PlayerManager PM;
+    private Coroutine castingCoroutine;
+    private PlayerMove playerMove; // PlayerMove 스크립트 참조
 
     public GameObject skillPrefab; // 발사할 스킬(발사체) 프리팹
     public Transform firePoint; // 스킬이 발사될 위치
+    public SkillUI skillUI;
     public float skillSpeed = 20f; // 발사체의 속도
     public float castTime = 1f; // 시전 시간 (초)
     public float cooldownTime = 8f; // 쿨타임 (초)
     public float slowSpeed = 0.5f; // 시전 시 캐릭터 속도 감소
     public float DestroyBullet = 1f; // 불렛이 부셔지는 시간
-    public SkillUI skillUI;
+
     private float playerSpeed; // 정상 캐릭터 속도
-    private PlayerMove playerMove; // PlayerMove 스크립트 참조
-    private bool isCoolingDown = false; // 쿨타임 여부 확인
     private float cooldownEndTime; // 쿨타임 종료 시간
-    private Coroutine castingCoroutine;
+    private bool isCoolingDown = false; // 쿨타임 여부 확인
+
     void Start()
     {
         // PlayerMove 컴포넌트 가져오기
@@ -27,17 +29,15 @@ public class Rskill : MonoBehaviour
         playerSpeed = playerMove.playerSpeed;
     }
 
-    void Update()
+    public void R()
     {
-        if (PM != null)
-        {
-            if (Input.GetKeyDown(KeyCode.R) && !isCoolingDown && PM.CanRskill())
-            {
+        Debug.Log("Starting skill casting.");
+        castingCoroutine = StartCoroutine(CastSkill());
+    }
 
-                Debug.Log("Starting skill casting.");
-                castingCoroutine = StartCoroutine(CastSkill());
-            }
-        }
+    public bool IsRCoolTime()
+    {
+        return isCoolingDown;
     }
 
     public IEnumerator CastSkill()
@@ -58,6 +58,7 @@ public class Rskill : MonoBehaviour
         // 발사체 발사
 
         ActivateSkill();
+        Debug.Log("발사");
 
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         

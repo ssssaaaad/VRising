@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Tskill : MonoBehaviour
 {
-    PlayerManager PM;
-    PlayerMove PlayerMove;
+    private PlayerManager PM;
+    private PlayerMove PlayerMove;
+    private Coroutine ghostTime;
 
     public float dashReady = 0.5f;  // 시전 준비시간
     public float ghostDashing = 1f; // 대쉬 지속시간
@@ -17,8 +18,7 @@ public class Tskill : MonoBehaviour
     private Vector3 head;       // 시전 방향
     private bool isCoolingDown = false;
     private float cooldownEndTime; // 쿨타임 종료 시간
-    private Coroutine ghostTime;
-    private bool forwardLock = false;
+    private bool moveLock = false;
 
     List<Transform> hitObjects = new List<Transform>();
 
@@ -36,7 +36,6 @@ public class Tskill : MonoBehaviour
             // 시전
             ghostTime = StartCoroutine(Ghostdash());
         }
-
     }
 
     public IEnumerator Ghostdash()
@@ -48,7 +47,7 @@ public class Tskill : MonoBehaviour
 
         isCoolingDown = true;
 
-        forwardLock = true; // 방향 고정
+        moveLock = true; // 방향 고정
 
         // 플레이어 충돌 판정 Trigger로 변경
 
@@ -64,7 +63,7 @@ public class Tskill : MonoBehaviour
         // 돌진 종료
         PM.tskilling = false;
         // 방향 고정 해제
-        forwardLock = false;
+        moveLock = false;
 
         // 쿨타임 계산
         cooldownEndTime = Time.time + cooldownTime;
@@ -76,6 +75,11 @@ public class Tskill : MonoBehaviour
 
         // 쿨타임 종료
         isCoolingDown = false;
+    }
+
+    public bool IsTCoolTime()
+    {
+        return isCoolingDown; 
     }
 
     public void CancelTSkill()
@@ -99,9 +103,9 @@ public class Tskill : MonoBehaviour
         hitObjects.Remove(hitObject.transform);     // 폭발이 끝나면 리스트에서 제외
     }
 
-    public bool ForwardLock()
+    public bool MoveLock()
     {
-        return forwardLock;
+        return moveLock;
     }
 
 }

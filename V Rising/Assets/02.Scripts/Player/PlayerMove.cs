@@ -11,33 +11,35 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     private PlayerManager PM;
+    
+    Camera characterCamera;
+    CharacterController cc;
 
     public GameObject model;
+    public Animator animator;
+    public SkillUI skillUI;
     public float playerSpeed_Max = 5f; // 기본속도
     public float playerSpeed = 5f; // 기본속도
-    public Animator animator;
-    
     public float dashSpeed = 20f; // 대쉬 이동속도
     public float dashDuration = 0.45f; // 대쉬 지속 시간
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
-    Camera characterCamera;
-    CharacterController cc;
+    public float dashCooldown = 8f; // 대쉬 쿨타임 (8초)
+    public float gravity = -9.8f;
+
     private Rskill Rskill;
     private Tskill Tskill;
     private Cskill Cskill;
     private bool isDashing = false;
     private bool isCastingRSkill = false; // R 스킬 시전 중 여부
     private bool isCastingCSkill = false; // C 스킬 시전 중 여부
+    private bool isCoolingDown = true;    // 대쉬 쿨타임 여부 확인
     private Vector3 moveDirection;
     private Vector3 currentVelocity;
     private Vector3 dashDirection;
     private float dashEndTime = 0f;
-    public float dashCooldown = 8f; // 대쉬 쿨타임 (8초)
-    private bool canDash = true; // 대쉬 가능 여부
     private float nextDashTime = 0f; // 다음 대쉬 가능 시간
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
-    public SkillUI skillUI;
-    public float gravity = -9.8f;
+
     float yVelocity = 0;
 
 
@@ -58,29 +60,18 @@ public class PlayerMove : MonoBehaviour
 
     public void InitPlayerMove()
     {
-
         characterCamera = Camera.main;
-
     }
 
     public void Move()
     {
-        if (PM != null)
-        {
-            if (!PM.tskilling)
-            {
-                PlayerMoving();
-            }
-        }
-        if (Tskill != null)
-        {
-            if (!Tskill.ForwardLock())      // T스킬 대쉬중 방향고정
-            {
-                LookMouseCursor();
-            }
-        }
+
+        PlayerMoving();
+
+        LookMouseCursor();
+
         // 대쉬 처리
-        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        if (Input.GetKeyDown(KeyCode.Space) && isCoolingDown)
         {
             SetDashDirection();
             Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
@@ -104,15 +95,13 @@ public class PlayerMove : MonoBehaviour
         // 대쉬 쿨타임 처리
         if (Time.time > nextDashTime)
         {
-            canDash = true;
+            isCoolingDown = true;
         }
 
 
         if (Time.time > dashEndTime)
         {
             EndDash();
-
-
         }
         else
         {
@@ -155,7 +144,7 @@ public class PlayerMove : MonoBehaviour
         {
             PM.dashing = true;
         }
-        canDash = false; // 대쉬 사용 후 쿨타임 시작
+        isCoolingDown = false; // 대쉬 사용 후 쿨타임 시작
         nextDashTime = Time.time + dashCooldown; // 다음 대쉬 가능 시간 설정
         dashEndTime = Time.time + dashDuration;  // 대쉬 종료 시간 설정
 
@@ -163,14 +152,6 @@ public class PlayerMove : MonoBehaviour
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
 
-        //if (PM.rskilling)
-        //{
-        //    Rskill.CancelRCasting();
-        //}
-        //if (PM.cskilling )
-        //{
-        //    Cskill.CancelCasting();
-        //}
     }
 
     void EndDash()
@@ -288,6 +269,10 @@ public class PlayerMove : MonoBehaviour
         return isCastingCSkill;
     }
 
+    public bool IsDashCoolTime()
+    { 
+        return isCoolingDown; 
+    }
 
     public void PlayerMoving()
     {

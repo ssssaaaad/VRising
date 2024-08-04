@@ -41,10 +41,23 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         if (Move != null)
-        {
             Move.Move();
-        }
-        
+
+        CanCheck();     // 사용 가능 여부 확인
+
+        if (Input.GetKeyDown(KeyCode.Q) && CanQskill())
+            Qskill.Q();
+        if (Input.GetKeyDown(KeyCode.C) && CanCskill())
+            Cskill.C();
+        if (Input.GetKeyDown(KeyCode.R) && CanRskill())
+            Rskill.R();
+        if (Input.GetMouseButton(0) && CanAttack())
+            Attack.Click();
+
+    }
+
+    public void CanCheck()
+    {
         if (dashing)
         {
             canDash = false;
@@ -53,25 +66,6 @@ public class PlayerManager : MonoBehaviour
             canRskill = false;
             canTskill = false;
             canAttack = false;
-
-
-            // 대쉬 사용시 캔슬
-            if (cskilling)
-            {
-                Cskill.CancelCasting();
-            }
-            if (qskilling)
-            {
-                Qskill.CancelQSkill();
-            }
-            if (rskilling)
-            {
-                Rskill.CancelRCasting();
-            }
-            if (attacking)
-            {
-                Attack.CancelAttacking();
-            }
         }
         else if (cskilling)
         {
@@ -81,20 +75,6 @@ public class PlayerManager : MonoBehaviour
             canRskill = true;
             canTskill = true;
             canAttack = true;
-
-            // C스킬 사용시 캔슬
-            if (qskilling)
-            {
-                Qskill.CancelQSkill();
-            }
-            if (rskilling)
-            {
-                Rskill.CancelRCasting();
-            }
-            if (attacking)
-            {
-                Attack.CancelAttacking();
-            }
         }
         else if (qskilling)
         {
@@ -104,16 +84,6 @@ public class PlayerManager : MonoBehaviour
             canRskill = false;
             canTskill = false;
             canAttack = false;
-
-            // Q스킬 사용시 캔슬
-            if (rskilling)
-            {
-                Rskill.CancelRCasting();
-            }
-            if (attacking)
-            {
-                Attack.CancelAttacking();
-            }
         }
         else if (rskilling)
         {
@@ -123,16 +93,6 @@ public class PlayerManager : MonoBehaviour
             canRskill = false;
             canTskill = false;
             canAttack = false;
-
-            // R스킬 사용시 캔슬
-            if (cskilling)
-            {
-                Cskill.CancelCasting();
-            }
-            if (attacking)
-            {
-                Attack.CancelAttacking();
-            }
         }
         else if (attacking)
         {
@@ -142,12 +102,6 @@ public class PlayerManager : MonoBehaviour
             canRskill = true;
             canTskill = true;
             canAttack = true;
-
-            // 클릭 사용시 캔슬
-            if (cskilling)
-            {
-                Cskill.CancelCasting();
-            }
         }
         else
         {
@@ -160,29 +114,112 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+
     public bool CanDash()
     {
-        return canDash;
+        if (Move.IsDashCoolTime())
+            return false;
+        else
+            return canDash;
     }
     public bool CanCskill()
     {
-        return canCskill;
+        if (Cskill.IsCCoolTime())       // 쿨타임중인가
+            return false;
+        else
+            return canCskill;
     }
     public bool CanQskill()
     {
-        return canQskill;
+        if (Qskill.IsQCoolTime())       // 쿨타임중인가
+            return false;
+        else
+            return canQskill;
     }
     public bool CanRskill()
     {
-        return canRskill;
+        if (Rskill.IsRCoolTime())       // 쿨타임중인가
+            return false;
+        else
+            return canRskill;
     }
     public bool CanTskill()
     {
-        return canTskill;
+        if (Tskill.IsTCoolTime())
+            return false;
+        else
+            return canTskill;
     }
     public bool CanAttack()
     {
-        return canAttack;
+        if (Attack.Canattack())        // 공격입력을 받을 수 있나
+            return canAttack;
+        else
+            return false;
     }
 
+
+    public void SpaceCancel()
+    {
+        if (cskilling)
+        {
+            Cskill.CancelCasting();
+        }
+        if (qskilling)
+        {
+            Qskill.CancelQSkill();
+        }
+        if (rskilling)
+        {
+            Rskill.CancelRCasting();
+        }
+        if (attacking)
+        {
+            Attack.CancelAttacking();
+        }
+    }
+    public void CCancel()
+    {
+        if (qskilling)
+        {
+            Qskill.CancelQSkill();
+        }
+        if (rskilling)
+        {
+            Rskill.CancelRCasting();
+        }
+        if (attacking)
+        {
+            Attack.CancelAttacking();
+        }
+    }
+    public void QCancel()
+    {
+        if (rskilling)
+        {
+            Rskill.CancelRCasting();
+        }
+        if (attacking)
+        {
+            Attack.CancelAttacking();
+        }
+    }
+    public void RCancel()
+    {
+        if (cskilling)
+        {
+            Cskill.CancelCasting();
+        }
+        if (attacking)
+        {
+            Attack.CancelAttacking();
+        }
+    }
+    public void ClickCancel()
+    {
+        if (cskilling)
+        {
+            Cskill.CancelCasting();
+        }
+    }
 }
