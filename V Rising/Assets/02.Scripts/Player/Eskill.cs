@@ -15,7 +15,8 @@ public class Eskill : MonoBehaviour
 
     void Start()
     {
-        
+        PM = GetComponent<PlayerManager>();
+
     }
 
     void Update()

@@ -49,19 +49,47 @@ public class PlayerManager : MonoBehaviour
 
         CanCheck();     // 사용 가능 여부 확인
 
-        if (Input.GetKeyDown(KeyCode.Q) && CanQskill())
-            Qskill.Q();
-        if (Input.GetKeyDown(KeyCode.C) && CanCskill())
-            Cskill.C();
-        if (Input.GetKeyDown(KeyCode.R) && CanRskill())
-            Rskill.R();
-        if (Input.GetKeyDown(KeyCode.E) && CanEskill())
-            Eskill.E();
-        if (Input.GetKeyDown(KeyCode.T) && CanTskill())
-            Tskill.T();
-        if (Input.GetMouseButton(0) && CanAttack())
-            Attack.Click();
+        InPut();        // 입력 처리
 
+    }
+
+    public void InPut()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && CanDash())
+        {
+            Move.Dash();
+            SpaceCancel();
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && CanQskill())
+        {
+            Qskill.Q();
+            QCancel();
+        }
+        if (Input.GetKeyDown(KeyCode.C) && CanCskill())
+        {
+            Cskill.C();
+            CCancel();
+        }
+        if (Input.GetKeyDown(KeyCode.R) && CanRskill())
+        {  
+            Rskill.R(); 
+            RCancel();
+        }
+        if (Input.GetKeyDown(KeyCode.E) && CanEskill())
+        {
+            Eskill.E();
+            ECancel();
+        }
+        if (Input.GetKeyDown(KeyCode.T) && CanTskill())
+        {
+            Tskill.T();
+            TCancel();
+        }
+        if (Input.GetMouseButton(0) && CanAttack())
+        {
+            Attack.Click();
+            ClickCancel();
+        }
     }
 
     public void CanCheck()
@@ -101,6 +129,27 @@ public class PlayerManager : MonoBehaviour
             canRskill = false;
             canTskill = false;
             canAttack = false;
+        }
+        else if (tskilling)
+        {
+            if (!Tskill.HeadLock())
+            {
+                canDash = true;
+                canCskill = true;
+                canQskill = false;
+                canRskill = false;
+                canTskill = false;
+                canAttack = false;
+            }
+            else
+            {
+                canDash = false;
+                canCskill = false;
+                canQskill = false;
+                canRskill = false;
+                canTskill = false;
+                canAttack = false;
+            }
         }
         else if (attacking)
         {
@@ -188,6 +237,10 @@ public class PlayerManager : MonoBehaviour
         {
             Rskill.CancelRCasting();
         }
+        if (tskilling)
+        {
+            Tskill.CancelTSkill();
+        }
         if (attacking)
         {
             Attack.CancelAttacking();
@@ -232,7 +285,14 @@ public class PlayerManager : MonoBehaviour
     }
     public void TCancel()
     {
-
+        if (rskilling)
+        {
+            Rskill.CancelRCasting();
+        }
+        if (attacking)
+        {
+            Attack.CancelAttacking();
+        }
     }
     public void ECancel()
     {

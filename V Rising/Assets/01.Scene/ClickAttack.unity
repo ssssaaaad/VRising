@@ -383,6 +383,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
+--- !u!1 &104502705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7837789611653233000, guid: 5e59e3fe9d25a6d44a337cceee864049,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101725394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &164479545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,13 +998,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1002928125}
   - component: {fileID: 1002928126}
+  - component: {fileID: 1002928127}
   m_Layer: 6
-  m_Name: EmeyCollision
-  m_TagString: Untagged
+  m_Name: EnemyCollision
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1002928125
 Transform:
   m_ObjectHideFlags: 0
@@ -1037,6 +1044,18 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &1002928127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002928124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78df6e10792d3c94189d506606ab2e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1008820505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,12 +1359,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b105541a59f78ac478b882109d69dad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Model: {fileID: 104502705}
   dashReady: 1
-  ghostDashing: 1.5
+  ghostDashing: 0.6
+  afterDashing: 0.3
   bustTime: 1.5
   cooldownTime: 20
-  highSpeed: 30
+  highSpeed: 50
   normalSpeed: 5
+  noHitPlayer: NoHitPlayer
+  EnemyCollsion: {fileID: 1002928124}
 --- !u!114 &1426681824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,6 +1397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3edaba583c3647409c974f9896b39b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 10
+  reUseTime: 1
+  reUseTimer: 1
 --- !u!1 &1740879869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +1718,7 @@ MonoBehaviour:
   qskilling: 0
   rskilling: 0
   tskilling: 0
+  eskilling: 0
   attacking: 0
 --- !u!1 &1953850443
 GameObject:
@@ -1945,7 +1972,12 @@ PrefabInstance:
     - target: {fileID: 2719347823016334679, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614577949851696185, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4980935947369197339, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
@@ -2126,6 +2158,7 @@ MonoBehaviour:
   qskilling: 0
   rskilling: 0
   tskilling: 0
+  eskilling: 0
   attacking: 0
 --- !u!114 &1635792640644940950
 MonoBehaviour:
