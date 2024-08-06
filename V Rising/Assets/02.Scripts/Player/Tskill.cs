@@ -50,7 +50,6 @@ public class Tskill : MonoBehaviour
     public IEnumerator Ghostdash()
     {
         PM.tskilling = true;
-        PlayerMove.SetSpeed(0);     // 위치고정
         
         yield return new WaitForSeconds(dashReady);         // 시전시간동안 대기 
 
@@ -115,6 +114,8 @@ public class Tskill : MonoBehaviour
         StopCoroutine(ghostTime);
         
         PM.tskilling = false;
+
+        Debug.Log("Tskill 캔슬");
     }
     
     private void OnTriggerEnter(Collider other)     

@@ -55,11 +55,7 @@ public class PlayerManager : MonoBehaviour
 
     public void InPut()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && CanDash())
-        {
-            Move.Dash();
-            SpaceCancel();
-        }
+        
         if (Input.GetKeyDown(KeyCode.Q) && CanQskill())
         {
             Qskill.Q();
@@ -174,7 +170,7 @@ public class PlayerManager : MonoBehaviour
 
     public bool CanDash()
     {
-        if (Move.IsDashCoolTime())
+        if (!Move.IsDashCoolTime())
             return false;
         else
             return canDash;
@@ -255,6 +251,10 @@ public class PlayerManager : MonoBehaviour
         if (rskilling)
         {
             Rskill.CancelRCasting();
+        }
+        if (tskilling)
+        {
+            Tskill.CancelTSkill();
         }
         if (attacking)
         {

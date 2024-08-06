@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     private PlayerManager PM;
-    
+
     Camera characterCamera;
     CharacterController cc;
 
@@ -57,59 +57,57 @@ public class PlayerMove : MonoBehaviour
 
     public void Move()
     {
-        PlayerMoving();
+        if (!PM.tskilling)
+            PlayerMoving();
 
         if (!Tskill.HeadLock())
         {
             LookMouseCursor();
+
+            // 대쉬 처리
+            if (Input.GetKeyDown(KeyCode.Space) && PM.CanDash())
+            {
+                PM.SpaceCancel();
+
+                SetDashDirection();
+                Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
+
+                //animator.SetFloat("Horizontal", 0);
+                float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
+                if (dashDirection_z < 0)
+                {
+                    dashDirection_z = -1;
+                }
+                else
+                {
+                    dashDirection_z = 1;
+                }
+                animator.SetFloat("Vertical", dashDirection_z);
+                animator.SetTrigger("Dash");
+                StartDash();
+
+            }
+
+            // 대쉬 쿨타임 처리
+            if (Time.time > nextDashTime)
+            {
+                isCoolingDown = true;
+            }
+
+
+            if (Time.time > dashEndTime)
+            {
+                EndDash();
+            }
+            else
+            {
+                // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
+                ApplyDashFriction();
+                // 대쉬 중 입력을 반영하여 방향 전환
+                SetDashDirection();
+            }
         }
     }
-
-    public void Dash()
-    {
-        // 대쉬 처리
-
-        SetDashDirection();
-        Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
-
-        //animator.SetFloat("Horizontal", 0);
-        float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
-        if (dashDirection_z < 0)
-        {
-            dashDirection_z = -1;
-        }
-        else
-        {
-            dashDirection_z = 1;
-        }
-        animator.SetFloat("Vertical", dashDirection_z);
-        animator.SetTrigger("Dash");
-        StartDash();
-
-
-
-        // 대쉬 쿨타임 처리
-        if (Time.time > nextDashTime)
-        {
-            isCoolingDown = true;
-        }
-
-
-        if (Time.time > dashEndTime)
-        {
-            EndDash();
-        }
-        else
-        {
-            // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
-            ApplyDashFriction();
-            // 대쉬 중 입력을 반영하여 방향 전환
-            SetDashDirection();
-        }
-
-    }
-        
-
     void SetDashDirection()
     {
         // 카메라의 방향을 기준으로 대쉬 방향 설정
@@ -258,8 +256,8 @@ public class PlayerMove : MonoBehaviour
     }
 
     public bool IsDashCoolTime()
-    { 
-        return isCoolingDown; 
+    {
+        return isCoolingDown;
     }
 
     public void PlayerMoving()
