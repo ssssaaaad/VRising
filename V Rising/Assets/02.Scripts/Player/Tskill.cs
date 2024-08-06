@@ -50,12 +50,13 @@ public class Tskill : MonoBehaviour
     public IEnumerator Ghostdash()
     {
         PM.tskilling = true;
-        
+        isCoolingDown = true;
+
         yield return new WaitForSeconds(dashReady);         // 시전시간동안 대기 
 
         headLock = true; // 방향 고정
 
-        isCoolingDown = true;
+        
 
         // 플레이어 Layer를 NoHitPlayer로 변경
         gameObject.layer = LayerMask.NameToLayer(noHitPlayer);
@@ -114,6 +115,8 @@ public class Tskill : MonoBehaviour
         StopCoroutine(ghostTime);
         
         PM.tskilling = false;
+
+        isCoolingDown = false;
 
         Debug.Log("Tskill 캔슬");
     }
