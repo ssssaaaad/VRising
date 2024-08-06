@@ -52,7 +52,7 @@ public class Maja_Minion : Enemy
         onTarget = false;
         respawn = true;
         navMeshAgent.speed = speed;
-
+        maja.AddMinion(this);
         ResetRandomDirection();
         StartCoroutine(ChangeAngle());
         StartCoroutine(InitTimeCheck());
@@ -66,6 +66,7 @@ public class Maja_Minion : Enemy
                 SetMovePosition();
                 break;
             case State.Death:
+                maja.RemoveMinion(this);
                 return;
                 break;
             case State.Attack:
@@ -173,12 +174,7 @@ public class Maja_Minion : Enemy
         }
         attackCheck = false;
 
-        //
-        targetEnemyDistance = Vector3.Distance(target.position, transform.position);
-        if (targetEnemyDistance > attackRange)
-        {
-            state = State.Move;
-        }
-
+        
+        state = State.Move;
     }
 }

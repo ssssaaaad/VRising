@@ -83,7 +83,7 @@ public class Maja : Enemy
         attackPatterns.Add(pattern);
         pattern = GetComponent<Maja_MainSkillPattern1>();
         attackPatterns.Add(pattern);
-        pattern = GetComponent<Maja_MainSkillPattern2>();
+        pattern = GetComponent<Maja_MainSkillPattern3>();
         attackPatterns.Add(pattern);
 
         for (int i = 0; i < attackPatterns.Count; i++)
@@ -102,7 +102,30 @@ public class Maja : Enemy
         patterCycle = StartCoroutine(CoroutinePatterCycle());
     }
 
+    public void AddMinion(Maja_Minion minion)
+    {
+        maja_Minions.Add(minion);
+        if(maja_Minions.Count > 6)
+        {
+            if (maja_Minions[0] != null)
+            {
+                maja_Minions[0].UpdateHP(-1000, false);
+            }
+        }
+    }
 
+    public void RemoveMinion(Maja_Minion minion)
+    {
+        if (maja_Minions.Contains(minion))
+        {
+            maja_Minions.Remove(minion);
+        }
+    }
+
+    public Maja_Minion GetMinion()
+    {
+        return maja_Minions[Random.Range(0, maja_Minions.Count)];
+    }
 
     private IEnumerator CoroutinePatterCycle()
     {

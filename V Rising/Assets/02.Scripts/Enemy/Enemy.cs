@@ -51,9 +51,9 @@ public class Enemy : MonoBehaviour
     /// 음수는 데미지, 양수는 회복
     /// </summary>
     /// <param name="dmg"></param>
-    public void UpdateHP(float dmg)
+    public void UpdateHP(float dmg, bool uiActvie = true)
     {
-        if (state != State.Death)
+        if (state == State.Death)
             return;
         hp_Current = Mathf.Clamp(hp_Current + dmg, 0, hp_Max);
 
