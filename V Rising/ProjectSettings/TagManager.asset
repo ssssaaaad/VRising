@@ -12,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - EnemyCollisiom
+  - Enemy
   - 
   - 
   - 
@@ -26,7 +26,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - NoHitPlayer
   - 
   - 
   - 

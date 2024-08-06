@@ -12,96 +12,101 @@ public class PlayerMove : MonoBehaviour
 {
     private PlayerManager PM;
 
+    Camera characterCamera;
+    CharacterController cc;
+
     public GameObject model;
+    public Animator animator;
+    public SkillUI skillUI;
     public float playerSpeed_Max = 5f; // 기본속도
     public float playerSpeed = 5f; // 기본속도
-    public Animator animator;
-    
     public float dashSpeed = 20f; // 대쉬 이동속도
     public float dashDuration = 0.45f; // 대쉬 지속 시간
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
-    Camera characterCamera;
-    CharacterController cc;
-    private Rskill Rskill;
-    private Cskill Cskill;
+    public float dashCooldown = 8f; // 대쉬 쿨타임 (8초)
+    public float gravity = -9.8f;
+
+    private Tskill Tskill;
     private bool isDashing = false;
-    private bool isCastingRSkill = false; // R 스킬 시전 중 여부
-    private bool isCastingCSkill = false; // C 스킬 시전 중 여부
+    private bool isCoolingDown = true;    // 대쉬 쿨타임 여부 확인
     private Vector3 moveDirection;
     private Vector3 currentVelocity;
     private Vector3 dashDirection;
     private float dashEndTime = 0f;
-    public float dashCooldown = 8f; // 대쉬 쿨타임 (8초)
-    private bool canDash = true; // 대쉬 가능 여부
     private float nextDashTime = 0f; // 다음 대쉬 가능 시간
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
-    public SkillUI skillUI;
-    public float gravity = -9.8f;
-    float yVelocity = 0;
 
+    float yVelocity = 0;
 
     void Start()
     {
         cc = GetComponent<CharacterController>();
-        Rskill = GetComponent<Rskill>();
-        Cskill = GetComponent<Cskill>();
+        Tskill = GetComponent<Tskill>();
         PM = GetComponent<PlayerManager>();
     }
 
-
     private void Awake()
+    {
+        InitPlayerMove();
+    }
+
+    public void InitPlayerMove()
     {
         characterCamera = Camera.main;
     }
 
-    void Update()
+    public void Move()
     {
-        PlayerMoving();
-        LookMouseCursor();
-        // 대쉬 처리
-        if (Input.GetKeyDown(KeyCode.Space) && canDash)
-        {
-            SetDashDirection();
-            Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
+        if (!PM.tskilling)
+            PlayerMoving();
 
-            //animator.SetFloat("Horizontal", 0);
-            float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
-            if (dashDirection_z < 0)
+        if (!Tskill.HeadLock())
+        {
+            LookMouseCursor();
+
+            // 대쉬 처리
+            if (Input.GetKeyDown(KeyCode.Space) && PM.CanDash())
             {
-                dashDirection_z = -1;
+                PM.SpaceCancel();
+
+                SetDashDirection();
+                Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
+
+                //animator.SetFloat("Horizontal", 0);
+                float dashDirection_z = modeolDir.z * playerSpeed / playerSpeed_Max;
+                if (dashDirection_z < 0)
+                {
+                    dashDirection_z = -1;
+                }
+                else
+                {
+                    dashDirection_z = 1;
+                }
+                animator.SetFloat("Vertical", dashDirection_z);
+                animator.SetTrigger("Dash");
+                StartDash();
+
+            }
+
+            // 대쉬 쿨타임 처리
+            if (Time.time > nextDashTime)
+            {
+                isCoolingDown = true;
+            }
+
+
+            if (Time.time > dashEndTime)
+            {
+                EndDash();
             }
             else
             {
-                dashDirection_z = 1;
+                // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
+                ApplyDashFriction();
+                // 대쉬 중 입력을 반영하여 방향 전환
+                SetDashDirection();
             }
-            animator.SetFloat("Vertical", dashDirection_z);
-            animator.SetTrigger("Dash");
-            StartDash();
-
         }
-
-        // 대쉬 쿨타임 처리
-        if (Time.time > nextDashTime)
-        {
-            canDash = true;
-        }
-
-
-        if (Time.time > dashEndTime)
-        {
-            EndDash();
-
-
-        }
-        else
-        {
-            // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
-            ApplyDashFriction();
-            // 대쉬 중 입력을 반영하여 방향 전환
-            SetDashDirection();
-        }
-        
-
     }
     void SetDashDirection()
     {
@@ -135,7 +140,7 @@ public class PlayerMove : MonoBehaviour
         {
             PM.dashing = true;
         }
-        canDash = false; // 대쉬 사용 후 쿨타임 시작
+        isCoolingDown = false; // 대쉬 사용 후 쿨타임 시작
         nextDashTime = Time.time + dashCooldown; // 다음 대쉬 가능 시간 설정
         dashEndTime = Time.time + dashDuration;  // 대쉬 종료 시간 설정
 
@@ -143,14 +148,6 @@ public class PlayerMove : MonoBehaviour
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
 
-        //if (PM.rskilling)
-        //{
-        //    Rskill.CancelRCasting();
-        //}
-        //if (PM.cskilling )
-        //{
-        //    Cskill.CancelCasting();
-        //}
     }
 
     void EndDash()
@@ -258,20 +255,14 @@ public class PlayerMove : MonoBehaviour
         playerSpeed = newspeed;
     }
 
-    public bool IsCastingRSkill()
+    public bool IsDashCoolTime()
     {
-        return isCastingRSkill;
+        return isCoolingDown;
     }
-
-    public bool IsCastingCSkill()
-    {
-        return isCastingCSkill;
-    }
-
 
     public void PlayerMoving()
     {
-        if (!isDashing && !isCastingRSkill && !isCastingCSkill)
+        if (!PM.tskilling)//!isDashing && !isCastingRSkill && !isCastingCSkill)
         {
             float ad = Input.GetAxis("Horizontal");
             float ws = Input.GetAxis("Vertical");

@@ -6,16 +6,15 @@ using UnityEngine;
 public class Qskill : MonoBehaviour
 {
     private PlayerManager PM;
+    private Coroutine spinTime;
 
+    public Transform hitBox;        // q스킬 히트박스
     public float spinDuration = 2f; // 회전 지속시간
     public float cooldownTime = 8f; // 쿨타임 (초)
     public float hitFrequency = 0.2f;   // 다단히트 적용시간
-    public Transform hitBox;        // q스킬 히트박스
-
 
     private bool isCoolingDown = false;
     private float cooldownEndTime; // 쿨타임 종료 시간
-    private Coroutine spinTime;
 
 
     void Start()
@@ -23,28 +22,22 @@ public class Qskill : MonoBehaviour
         PM = GetComponent<PlayerManager>();
     }
 
-    void Update()
-    {
 
-        if (PM != null)
-        {
-            if (Input.GetKeyDown(KeyCode.Q) && !isCoolingDown)
-            {
-                spinTime = StartCoroutine(Spining());
-                
-                Debug.Log("Starting Q skill casting.");
-            }
-        }
+    public void Q()
+    {
+        if(!isCoolingDown)
+            spinTime = StartCoroutine(Spining());
     }
-    
+
     public void ActiveSkill()
     {
-       
         StartCoroutine(Spining());
     }
 
     public IEnumerator Spining()
     {
+        Debug.Log("Starting Q skill casting");
+
         PM.qskilling = true;
         isCoolingDown = true;
 
@@ -67,6 +60,11 @@ public class Qskill : MonoBehaviour
         // 쿨타임 종료
         isCoolingDown = false;
 
+    }
+
+    public bool IsQCoolTime()
+    {
+        return isCoolingDown;
     }
 
     public void CancelQSkill()

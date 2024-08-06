@@ -11,14 +11,12 @@ public class AttackHitBox : MonoBehaviour
     private PlayerMove PlayerMove;
     private PlayerAttack PlayerAttack;
 
-    // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, activeTime);
         PlayerAttack = GetComponent<PlayerAttack>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

@@ -5,45 +5,37 @@ using UnityEngine;
 public class Cskill : MonoBehaviour
 {
     private PlayerManager PM;
+    private PlayerMove playerMove;
+    private Coroutine castingCoroutine;
 
+    public GameObject particle_Skill_C;
+    public SkillUI skillUI;
     public float slowDuration = 1.5f; // C스킬의 속도 감소 지속 시간
     public float slowSpeed = 1f; // C스킬 시속도 감소 값
     public float cooldownTime = 10f; // 쿨타임 (초)
     public float pushBackForce = 5f; // 적 오브젝트를 밀어내는 힘
     public float playerSpeed;
-    public SkillUI skillUI;
     // 입력이 오면 Manager 에게 가능 여부를 물어봄
     
     private bool isCastingRSkill = false; // R 스킬 시전 중 여부
-    private Rskill Rskill;
     private bool isCasting = false;
     private bool isCoolingDown = false;
     private float cooldownEndTime;
-    private PlayerMove playerMove;
-    private Coroutine castingCoroutine;
 
-
-    public GameObject particle_Skill_C;
 
     void Start()
     {
         playerMove = GetComponent<PlayerMove>();
-        Rskill = GetComponent<Rskill>();
         PM = GetComponent<PlayerManager>();
         playerSpeed = playerMove.playerSpeed;
     }
 
-    void Update()
+
+    public void C()
     {
-        if (PM != null)
-        {
-            if (Input.GetKeyDown(KeyCode.C) && !isCoolingDown && PM.CanCskill())
-            {
-                Debug.Log("C스킬 시작");
-                particle_Skill_C.SetActive(true);
-                StartCoroutine(CastSkill());
-            }
-        }
+        Debug.Log("C스킬 시작");
+        particle_Skill_C.SetActive(true);
+        StartCoroutine(CastSkill());
     }
 
     public IEnumerator CastSkill()
@@ -54,10 +46,7 @@ public class Cskill : MonoBehaviour
         }
         isCoolingDown = true;
 
-        if (/*Rskill != null &&*/ PM.rskilling)
-        {
-            Rskill.CancelRCasting();
-        }
+        
         // 시전 시간 동안 캐릭터 속도 감소
         if (playerMove != null)
         {
@@ -96,8 +85,11 @@ public class Cskill : MonoBehaviour
 
         // 쿨타임 종료
         isCoolingDown = false;
+    }
 
-        
+    public bool IsCCoolTime()
+    {
+        return isCoolingDown;
     }
 
     public void CancelCasting()

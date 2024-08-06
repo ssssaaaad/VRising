@@ -20,5 +20,6 @@ public class Rskillbullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        Debug.Log("발사체 충돌파괴");
     }
 }
