@@ -282,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 42237377}
   m_Layer: 5
-  m_Name: BasicAttackSlot (2)
+  m_Name: BasicAttackSlot_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,12 +422,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 123546086}
+  m_Father: {fileID: 1310016303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1090, y: -940}
-  m_SizeDelta: {x: 61, y: 61}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 53, y: 54}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &104087600
 MonoBehaviour:
@@ -552,7 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123546086}
   m_Layer: 5
-  m_Name: BasicAttackSlot (3)
+  m_Name: BasicAttackSlot_S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,8 +574,6 @@ RectTransform:
   - {fileID: 1310016303}
   - {fileID: 1121638442}
   - {fileID: 231481097}
-  - {fileID: 104087599}
-  - {fileID: 356724749}
   m_Father: {fileID: 729346879650175808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1217,12 +1215,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 123546086}
+  m_Father: {fileID: 1310016303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1090, y: -940}
-  m_SizeDelta: {x: 61, y: 61}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 53, y: 54}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &356724750
 MonoBehaviour:
@@ -2850,7 +2848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1113696008}
   m_Layer: 5
-  m_Name: BasicAttackSlot (4)
+  m_Name: BasicAttackSlot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3418,6 +3416,7 @@ GameObject:
   - component: {fileID: 1310016303}
   - component: {fileID: 1310016305}
   - component: {fileID: 1310016304}
+  - component: {fileID: 1310016306}
   m_Layer: 5
   m_Name: BasicAttackSlot (2)
   m_TagString: Untagged
@@ -3436,7 +3435,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 104087599}
+  - {fileID: 356724749}
   m_Father: {fileID: 123546086}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -3482,6 +3483,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310016302}
   m_CullTransparentMesh: 1
+--- !u!114 &1310016306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310016302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1d92cd9dc379f4bb942bcd318b6290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 356724750}
+  image_fill: {fileID: 104087600}
+  time_cooltime: 8
 --- !u!1 &1336724630
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,7 +3508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1336724631}
   m_Layer: 5
-  m_Name: BloodSkillSlot
+  m_Name: BloodSkillSlot_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3577,7 +3593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8b1c487fd5e53394095a283ea7708e56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ce0624ebdd63bb479030f7bc01961cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4245,7 +4261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1616134634}
   m_Layer: 5
-  m_Name: BasicAttackSlot (1)
+  m_Name: BasicAttackSlot_Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4436,7 +4452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1709043743}
   m_Layer: 5
-  m_Name: BasicAttackSlot (5)
+  m_Name: BasicAttackSlot_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4552,7 +4568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1764041662}
   m_Layer: 5
-  m_Name: BasicAttackSlot
+  m_Name: BasicAttackSlot_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4970,12 +4986,12 @@ GameObject:
   - component: {fileID: 1939898414}
   - component: {fileID: 1939898413}
   m_Layer: 5
-  m_Name: Veil of Blood (1)
+  m_Name: ShadowFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1939898412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5461,7 +5477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135599915}
   m_Layer: 5
-  m_Name: BasicAttackSlot (6)
+  m_Name: BasicAttackSlot_T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103632,7 +103648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 8203684410092119982}
   animator: {fileID: 1758085848724704533}
-  skillUI: {fileID: 3170559816715043372}
+  skillUI: {fileID: 1310016306}
   playerSpeed_Max: 5
   playerSpeed: 5
   dashSpeed: 30
