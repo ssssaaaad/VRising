@@ -79,28 +79,31 @@ public class Rskill : MonoBehaviour
 
     public void CancelRCasting()
     {
-        if (PM.rskilling)
+        
+            Debug.Log("R스킬 캔슬");
+        if (castingCoroutine != null)
         {
-            Debug.Log("Cancelling skill casting.");
-            if (castingCoroutine != null)
-            {
-                StopCoroutine(castingCoroutine);
-                castingCoroutine = null;
-            }
-            PM.rskilling = false;
-
-            // 시전 중 속도 복원
-            if (playerMove != null)
-            {
-                Debug.Log("Restoring normal speed after cancel."); // 속도 복원 로그
-                playerMove.SetSpeed(playerSpeed); // 속도 복원
-
-                // 쿨타임 리셋: 취소 시 쿨타임을 0으로 설정하여 즉시 사용 가능하게 함
-                cooldownEndTime = Time.time; // 즉시 사용 가능하게 설정
-                isCoolingDown = false;
-            }
-            
+            StopCoroutine(castingCoroutine);
+            castingCoroutine = null;
         }
+
+        if (PM != null)
+        {
+            PM.rskilling = false;
+        }
+
+        // 시전 중 속도 복원
+        if (playerMove != null)
+        {
+            Debug.Log("속도 정상화"); // 속도 복원 로그
+            playerMove.SetSpeed(playerSpeed); // 속도 복원
+
+            // 쿨타임 리셋: 취소 시 쿨타임을 0으로 설정하여 즉시 사용 가능하게 함
+            cooldownEndTime = Time.time; // 즉시 사용 가능하게 설정
+            isCoolingDown = false;
+        }
+            
+        
     }
         void ActivateSkill()
     {
@@ -119,6 +122,7 @@ public class Rskill : MonoBehaviour
             {
                 projectile.speed = skillSpeed; // 발사체의 속도 조정
             }
+            Debug.Log("R투사체 발사");
 
             // 발사 후 스킬을 자동으로 비활성화
             Destroy(skill, DestroyBullet); // 발사체를 5초 후에 파괴 (필요에 따라 조정)

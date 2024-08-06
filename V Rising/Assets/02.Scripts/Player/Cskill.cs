@@ -39,7 +39,7 @@ public class Cskill : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.C) && !isCoolingDown && PM.CanCskill())
             {
-                Debug.Log("Starting C skill casting.");
+                Debug.Log("C스킬 시작");
                 particle_Skill_C.SetActive(true);
                 StartCoroutine(CastSkill());
             }
@@ -61,7 +61,7 @@ public class Cskill : MonoBehaviour
         // 시전 시간 동안 캐릭터 속도 감소
         if (playerMove != null)
         {
-            Debug.Log("Applying slowed speed.");
+            Debug.Log("C스킬 속도 감소 적용");
             playerMove.SetSpeed(slowSpeed);
         }
 
@@ -73,10 +73,17 @@ public class Cskill : MonoBehaviour
         {
             particle_Skill_C.SetActive(false);
             playerMove.SetSpeed(playerSpeed); // 원래 속도로 복원
+            Debug.Log("C스킬 속도 정상화");
+
             if (skillUI != null)
             {
                 skillUI.coolTimeImage();
             }
+        }
+
+        if (PM != null)
+        {
+            PM.cskilling = false;
         }
 
         // 쿨타임 설정
@@ -89,7 +96,6 @@ public class Cskill : MonoBehaviour
 
         // 쿨타임 종료
         isCoolingDown = false;
-        PM.cskilling = false;
 
         
     }
@@ -99,7 +105,7 @@ public class Cskill : MonoBehaviour
         if (PM.cskilling)
         {
             particle_Skill_C.SetActive(false);
-            Debug.Log("Cancelling skill casting.");
+            Debug.Log("C스킬 캔슬");
             if (castingCoroutine != null)
             {
                 StopCoroutine(castingCoroutine);
@@ -110,7 +116,7 @@ public class Cskill : MonoBehaviour
             // 시전 중 속도 복원
             if (playerMove != null)
             {
-                Debug.Log("Restoring normal speed after cancel."); // 속도 복원 로그
+                Debug.Log("C스킬 속도 복원"); // 속도 복원 로그
                 playerMove.SetSpeed(playerSpeed); // 속도 복원
             }
 
