@@ -121,7 +121,6 @@ public class Maja_MainSkillPattern2 : Pattern
         a = a.normalized;
         minion.transform.forward = a;
 
-        print(maja != null);
         minion.InitEnemy(maja);
     }
 

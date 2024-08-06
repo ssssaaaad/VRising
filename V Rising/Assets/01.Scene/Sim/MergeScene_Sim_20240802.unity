@@ -1404,26 +1404,6 @@ PrefabInstance:
       propertyPath: mapOrigin
       value: 
       objectReference: {fileID: 1040280926}
-    - target: {fileID: 5709995837576373128, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
-        type: 3}
-      propertyPath: coolTime
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709995837576373128, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
-        type: 3}
-      propertyPath: delayTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709995837576373128, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
-        type: 3}
-      propertyPath: attackDelayTime
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709995837576373128, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
-        type: 3}
-      propertyPath: minionSpawnTime
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6739573421114516674, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalPosition.x

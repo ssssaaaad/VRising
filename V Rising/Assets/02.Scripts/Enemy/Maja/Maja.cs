@@ -175,30 +175,30 @@ public class Maja : Enemy
 
                 forward = new Vector3(target.position.x - model.position.x, model.position.y, target.position.z - model.position.z).normalized;
                 enemy_Cross = Vector3.Cross((target.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
-                //if (enemy_Cross.y > -0.3f && enemy_Cross.y < 0.2f && attackPatterns[1].CooltimeCheck())
-                //{
-                //    // 직선으로 4개
-                //    animator.SetTrigger("NormalSkillPattern");
-                //    attackPatterns[1].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                //else if (attackPatterns[2].CooltimeCheck())
-                //{
-                //    // 옆으로 7개
-                //    animator.SetTrigger("MainSkillPattern1");
-                //    attackPatterns[2].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                //else if (attackPatterns[0].CooltimeCheck())
-                //{
-                //    // 기본공격
-                //    animator.SetTrigger("AttackPattern1");
-                //    attackPatterns[0].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                if (attackPatterns[3].CooltimeCheck())
+                if (enemy_Cross.y > -0.3f && enemy_Cross.y < 0.2f && attackPatterns[1].CooltimeCheck())
+                {
+                    // 직선으로 4개
+                    animator.SetTrigger("NormalSkillPattern");
+                    attackPatterns[1].ActivePattern(targetDirection);
+                    attackCooltime_Current = 0;
+                }
+                else if (attackPatterns[2].CooltimeCheck())
+                {
+                    // 옆으로 7개
+                    animator.SetTrigger("MainSkillPattern1");
+                    attackPatterns[2].ActivePattern(targetDirection);
+                    attackCooltime_Current = 0;
+                }
+                else if (attackPatterns[3].CooltimeCheck())
                 {
                     attackPatterns[3].ActivePattern(targetDirection);
+                    attackCooltime_Current = 0;
+                }
+                else if (attackPatterns[0].CooltimeCheck())
+                {
+                    // 기본공격
+                    animator.SetTrigger("AttackPattern1");
+                    attackPatterns[0].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
                 }
                 else
@@ -231,18 +231,26 @@ public class Maja : Enemy
         // 쿨타임 체크 후 스킬을 쓸 수 있다면 사거리 만큼 이동
         if (attackCooltime_Current > attackCooltime_Max)
         {
-            distanceCheck = false;
             enemyDistance = Vector3.Distance(target.position, transform.position);
+            bool check = false;
             for (int i = 0; i < attackPatterns.Count; i++)
             {
-                if(enemyDistance <= attackPatterns[i].range && attackPatterns[i].CooltimeCheck())
+                if(attackPatterns[i].CooltimeCheck())
                 {
-                    distanceCheck = true;
-                    state = State.Attack;
-                    break;
+                    if (enemyDistance <= attackPatterns[i].range)
+                    {
+                        state = State.Attack;
+                        check = false;
+                        break;
+                    }
+                    else
+                    {
+                        check = true;
+                    }
                 }
             }
-            if (!distanceCheck)
+
+            if (check)
             {
                 state = State.Move;
                 Move(target.position);

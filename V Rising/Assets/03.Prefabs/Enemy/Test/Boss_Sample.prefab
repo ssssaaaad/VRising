@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5709995837576373128}
   - component: {fileID: 3688511073062308986}
   - component: {fileID: 2967642142717032212}
+  - component: {fileID: 7395371612103908230}
   m_Layer: 0
   m_Name: Boss_Sample
   m_TagString: Untagged
@@ -87,7 +88,7 @@ MonoBehaviour:
   attackPatterns: []
   teleport: {fileID: 0}
   mapRadius: 25
-  runawayDistance: 5
+  runawayDistance: 15
   teleportDistance: 2
   attackCooltime_Max: 2.5
   maja_Minions: []
@@ -106,7 +107,7 @@ MonoBehaviour:
   attackDelayTime: 0.3
   delayTime: 1.5
   range: 0
-  coolTime: 5
+  coolTime: 15
   readyToStart: 1
   startDistance: 2
   width: 5
@@ -132,7 +133,7 @@ MonoBehaviour:
   attackDelayTime: 0.3
   delayTime: 1.5
   range: 0
-  coolTime: 5
+  coolTime: 15
   readyToStart: 1
   startDistance: 2
   width: 5
@@ -158,7 +159,7 @@ MonoBehaviour:
   delayTime: 3
   range: 10
   maja: {fileID: 0}
-  coolTime: 8
+  coolTime: 15
   readyToStart: 1
   startPosition: 2
   parentDistance: 20
@@ -196,7 +197,7 @@ MonoBehaviour:
     type: 3}
   attackPsotionCircle_Prefab: {fileID: 8683111621055008356, guid: ff56a8fa34d87f04197a294c424bed35,
     type: 3}
-  coolTime: 10
+  coolTime: 15
   readyToStart: 1
   startDistance: 0
   width: 5
@@ -205,7 +206,7 @@ MonoBehaviour:
   bulletCount: 4
   damage: 10
   y: 10
-  minionSpawnTime: 1
+  minionSpawnTime: 0.5
   start: 0
 --- !u!114 &3688511073062308986
 MonoBehaviour:
@@ -246,6 +247,33 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &7395371612103908230
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599111131800705164}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4007896674361468572
 GameObject:
   m_ObjectHideFlags: 0
