@@ -37307,6 +37307,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9151342844384818463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1451571330865683712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6466134586553962343}
+  - component: {fileID: 94825017459844142}
+  - component: {fileID: 7106083452245859267}
+  m_Layer: 6
+  m_Name: EnemyCollision
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6466134586553962343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451571330865683712}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2066288651515212060}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &94825017459844142
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451571330865683712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &7106083452245859267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451571330865683712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78df6e10792d3c94189d506606ab2e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1457127818023535750
 GameObject:
   m_ObjectHideFlags: 0
@@ -87000,7 +87068,7 @@ Transform:
   m_GameObject: {fileID: 4991107744004722958}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0.5}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122647,7 +122715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6574626997278673132
 RectTransform:
   m_ObjectHideFlags: 0
@@ -132516,6 +132584,9 @@ GameObject:
   - component: {fileID: 9004534106012792138}
   - component: {fileID: 5674220048950176895}
   - component: {fileID: 7225509834765251605}
+  - component: {fileID: 8222373366295902142}
+  - component: {fileID: 1839513152214920996}
+  - component: {fileID: 1347066875705193728}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -132541,6 +132612,7 @@ Transform:
   - {fileID: 8022716447962701328}
   - {fileID: 8641316155758036538}
   - {fileID: 4638463271190811462}
+  - {fileID: 6466134586553962343}
   m_Father: {fileID: 960498988750863529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3614577949851696185
@@ -132556,14 +132628,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 7837789611653233000}
+  animator: {fileID: 5201270057826165467}
+  skillUI: {fileID: 3681518166479862233}
   playerSpeed_Max: 5
   playerSpeed: 5
-  animator: {fileID: 5201270057826165467}
-  dashSpeed: 20
+  dashSpeed: 30
   dashDuration: 0.45
   dashFriction: 2
   dashCooldown: 8
-  skillUI: {fileID: 3681518166479862233}
   gravity: -20
   canRotate: 1
 --- !u!143 &7132920985637654602
@@ -132607,12 +132679,12 @@ MonoBehaviour:
   skillPrefab: {fileID: 1198427815685852516, guid: f512ba81bce797349b6d9e2fb9cd10ae,
     type: 3}
   firePoint: {fileID: 5685138536269232485}
+  skillUI: {fileID: 1036118547817799667}
   skillSpeed: 20
   castTime: 1
   cooldownTime: 8
   slowSpeed: 2
-  DestroyBullet: 1
-  skillUI: {fileID: 1036118547817799667}
+  DestroyBullet: 5
 --- !u!114 &3358338793887673359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132625,13 +132697,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2895a66c86afcf4aa30d68c205cae22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle_Skill_C: {fileID: 3983964653567557884}
+  skillUI: {fileID: 5798821221489919446}
   slowDuration: 1.5
   slowSpeed: 1
   cooldownTime: 10
   pushBackForce: 5
   playerSpeed: 5
-  skillUI: {fileID: 5798821221489919446}
-  particle_Skill_C: {fileID: 3983964653567557884}
 --- !u!114 &3600387272431644602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132665,6 +132737,8 @@ MonoBehaviour:
   cskilling: 0
   qskilling: 0
   rskilling: 0
+  tskilling: 0
+  eskilling: 0
   attacking: 0
 --- !u!114 &5674220048950176895
 MonoBehaviour:
@@ -132711,6 +132785,64 @@ MonoBehaviour:
   normalAttack: 0
   count: 0
   rotationStartTime: 0.2
+--- !u!114 &8222373366295902142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975475624270569979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b105541a59f78ac478b882109d69dad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Model: {fileID: 7837789611653233000}
+  dashReady: 1
+  ghostDashing: 0.6
+  afterDashing: 0.3
+  bustTime: 1.5
+  cooldownTime: 20
+  highSpeed: 50
+  normalSpeed: 5
+  noHitPlayer: NoHitPlayer
+  EnemyCollsion: {fileID: 1451571330865683712}
+--- !u!114 &1839513152214920996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975475624270569979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f2c81122d3f46468a18f1163071f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBox: {fileID: 7593261067777636990, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
+  spinDuration: 2
+  cooldownTime: 8
+  hitFrequency: 0.2
+--- !u!114 &1347066875705193728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975475624270569979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3edaba583c3647409c974f9896b39b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  skillUI: {fileID: 0}
+  skillSpeed: 20
+  castTime: 1
+  cooldownTime: 10
+  slowSpeed: 0.5
+  DestroyBullet: 1
 --- !u!1 &8984050058959655970
 GameObject:
   m_ObjectHideFlags: 0
