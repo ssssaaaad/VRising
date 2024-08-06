@@ -1397,9 +1397,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3edaba583c3647409c974f9896b39b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrefab: {fileID: 1198427815685852516, guid: fc5f342cf27ce7c479f9a6a4df6fc7fa,
+    type: 3}
+  firePoint: {fileID: 0}
+  skillUI: {fileID: 0}
+  skillSpeed: 20
+  castTime: 1
   cooldownTime: 10
-  reUseTime: 1
-  reUseTimer: 1
+  slowSpeed: 0.5
+  DestroyBullet: 1
 --- !u!1 &1740879869
 GameObject:
   m_ObjectHideFlags: 0
