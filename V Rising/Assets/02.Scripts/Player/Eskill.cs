@@ -33,11 +33,12 @@ public class Eskill : MonoBehaviour
         
     }
 
-    //public void E()
-    //{
-    //    Debug.Log("Starting skill casting.");
-    //    castingCoroutine = StartCoroutine(CastSkill());
-    //}
+    public void E()
+    {
+        return;
+        Debug.Log("Starting skill casting.");
+        //castingCoroutine = StartCoroutine(CastSkill());
+    }
 
     //public IEnumerator CastSkill()
     //{
