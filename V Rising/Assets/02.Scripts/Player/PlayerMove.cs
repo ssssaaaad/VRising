@@ -59,7 +59,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (!PM.tskilling)
             PlayerMoving();
-
+        
         if (!Tskill.HeadLock())
         {
             LookMouseCursor();

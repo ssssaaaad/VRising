@@ -29,7 +29,6 @@ public class PlayerManager : MonoBehaviour
     public bool attacking = false;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         Move = GetComponent<PlayerMove>();
@@ -41,7 +40,6 @@ public class PlayerManager : MonoBehaviour
         Attack = GetComponent<PlayerAttack>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Move != null)

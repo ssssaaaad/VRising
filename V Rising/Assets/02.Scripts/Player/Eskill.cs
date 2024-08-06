@@ -20,6 +20,7 @@ public class Eskill : MonoBehaviour
     private float playerSpeed; // 정상 캐릭터 속도
     private float cooldownEndTime; // 쿨타임 종료 시간
     private bool isCoolingDown = false; // 쿨타임 여부 확인
+    private bool isHit = false;
 
     void Start()
     {
@@ -35,72 +36,41 @@ public class Eskill : MonoBehaviour
 
     public void E()
     {
-        return;
-        Debug.Log("Starting skill casting.");
-        //castingCoroutine = StartCoroutine(CastSkill());
+        Debug.Log("Eskill 시전");
+        castingCoroutine = StartCoroutine(CastSkill());
     }
 
-    //public IEnumerator CastSkill()
-    //{
-    //    PM.rskilling = true; //시전 상태로 설정
-    //    isCoolingDown = true;
+    public IEnumerator CastSkill()
+    {
+        PM.eskilling = true;
 
-    //    // 시전 시간 동안 캐릭터 속도 감소
-    //    if (playerMove != null)
-    //    {
-    //        Debug.Log("Applying slowed speed.");
-    //        playerMove.SetSpeed(slowSpeed);
-    //    }
+        // 이동속도 감소
+        // 캐스팅 시간동안 대기
+        // 투사체 발사
 
-    //    // 시전 시간 동안 기다리기
-    //    yield return new WaitForSeconds(castTime);
 
-    //    // 발사체 발사
+        // 쿨타임 설정
+        cooldownEndTime = Time.time + cooldownTime;
+        while (Time.time < cooldownEndTime)
+        {
+            // 쿨타임 동안 대기
+            yield return null;
+        }
 
-    //    ActivateSkill();
-    //    Debug.Log("발사");
+        // 쿨타임 종료
+        isCoolingDown = false;
+    }
 
-    //    // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
+    public void ComboE()
+    {
+        // 재시전 E 
+    }
 
-    //    playerMove.SetSpeed(playerSpeed);
-    //    skillUI.coolTimeImage();
-    //    PM.rskilling = false;
-
-    //    // 쿨타임 설정
-    //    cooldownEndTime = Time.time + cooldownTime;
-    //    while (Time.time < cooldownEndTime)
-    //    {
-    //        // 쿨타임 동안 대기
-    //        yield return null;
-    //    }
-
-    //    // 쿨타임 종료
-    //    isCoolingDown = false;
-    //}
-
-    //void ActivateSkill()
-    //{
-    //    if (skillPrefab != null && firePoint != null)
-    //    {
-    //        // 스킬(발사체) 생성
-    //        GameObject skill = Instantiate(skillPrefab, firePoint.position, firePoint.rotation);
-
-    //        // 발사체의 방향을 발사 방향으로 설정
-    //        Vector3 fireDirection = firePoint.forward;
-    //        skill.transform.forward = fireDirection;
-
-    //        // 발사체에 속도를 설정
-    //        Rskillbullet projectile = skill.GetComponent<Eskillbullet>();
-    //        if (projectile != null)
-    //        {
-    //            projectile.speed = skillSpeed; // 발사체의 속도 조정
-    //        }
-    //        Debug.Log("R투사체 발사");
-
-    //        // 발사 후 스킬을 자동으로 비활성화
-    //        Destroy(skill, DestroyBullet); // 발사체를 5초 후에 파괴 (필요에 따라 조정)
-    //    }
-    //}
+    void ActivateSkill()
+    {
+        
+        
+    }
 
 
     public bool IsECoolTime()
