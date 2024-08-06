@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Move()
     {
-        if (!PM.tskilling)
+        if (!PM.tskilling || !PM.comeskilling)
             PlayerMoving();
 
         if (!Tskill.HeadLock())

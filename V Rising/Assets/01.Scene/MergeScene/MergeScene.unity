@@ -4850,13 +4850,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2895a66c86afcf4aa30d68c205cae22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle_Skill_C: {fileID: 0}
+  skillUI: {fileID: 0}
   slowDuration: 1.5
   slowSpeed: 1
   cooldownTime: 10
   pushBackForce: 5
   playerSpeed: 5
-  skillUI: {fileID: 0}
-  particle_Skill_C: {fileID: 0}
 --- !u!114 &1491535662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4872,12 +4872,12 @@ MonoBehaviour:
   skillPrefab: {fileID: 1198427815685852516, guid: f512ba81bce797349b6d9e2fb9cd10ae,
     type: 3}
   firePoint: {fileID: 1275961615}
+  skillUI: {fileID: 0}
   skillSpeed: 20
   castTime: 1
   cooldownTime: 8
   slowSpeed: 0.5
   DestroyBullet: 1
-  skillUI: {fileID: 0}
 --- !u!143 &1491535663
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4917,14 +4917,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 0}
+  animator: {fileID: 0}
+  skillUI: {fileID: 0}
   playerSpeed_Max: 5
   playerSpeed: 5
-  animator: {fileID: 0}
   dashSpeed: 20
   dashDuration: 0.45
   dashFriction: 2
   dashCooldown: 8
-  skillUI: {fileID: 0}
   gravity: -20
   canRotate: 1
 --- !u!4 &1491535665
@@ -4961,6 +4961,8 @@ MonoBehaviour:
   cskilling: 0
   qskilling: 0
   rskilling: 0
+  tskilling: 0
+  eskilling: 0
   attacking: 0
 --- !u!1 &1499440579 stripped
 GameObject:
@@ -16244,11 +16246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104008504991462, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.91666675
+      value: -0.77122545
       objectReference: {fileID: 0}
     - target: {fileID: 4104008504991462, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.3996526
+      value: 0.63656205
       objectReference: {fileID: 0}
     - target: {fileID: 4488968717229804, guid: 170cd7184503c124895727d3348aa99a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17161,6 +17163,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 533236170}
+    - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
+        type: 3}
+      propertyPath: mapOrigin
+      value: 
+      objectReference: {fileID: 1040280926}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: mapOriginPosition
