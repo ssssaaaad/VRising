@@ -5,48 +5,28 @@ using UnityEngine.UI;
 
 public class SkillUI : MonoBehaviour
 {
-    public Text text_CoolTime;
-    public Image image_fill;
-    public float time_cooltime = 10;
-    private float time_current;
-    private float time_start;
-    private bool isEnded = true;
-
-    //    변수(variable)
-
-    //text_CoolTime : 남은 시간 표시(Text)
-    //image_fill : 남은 시간 시각적으로 표시(Image)
-
-    //time_cooltime : 쿨타임으로 사용할 시간(float)
-    //time_current : 스킬 재사용까지 남은 시간(float)
-    //time_start : time.Time과 비교해서 time_current를 만들기 위해 시간을 저장(float)
-    //isEnded : 쿨타임이 끝났을 때 true (bool)
-
-    //    변수(variable)
-
-    //text_CoolTime : 남은 시간 표시(Text)
-    //image_fill : 남은 시간 시각적으로 표시(Image)
-
-    //time_cooltime : 쿨타임으로 사용할 시간(float)
-    //time_current : 스킬 재사용까지 남은 시간(float)
-    //time_start : time.Time과 비교해서 time_current를 만들기 위해 시간을 저장(float)
-    //isEnded : 쿨타임이 끝났을 때 true (bool)
-    void Start()
-    {
-
-    }
+    public Text text_CoolTime;                 //text_CoolTime : 남은 시간 표시(Text)
+    public Image image_fill;                   //image_fill : 남은 시간 시각적으로 표시(Image)
+    public float time_cooltime = 10;           //time_cooltime : 쿨타임으로 사용할 시간(float)
+    private float time_current;                //time_current : 스킬 재사용까지 남은 시간(float)
+    private float time_start;                  //time_start : time.Time과 비교해서 time_current를 만들기 위해 시간을 저장(float)
+    private bool isEnded = true;               //isEnded : 쿨타임이 끝났을 때 true (bool)
 
     void Update()
     {
         if (isEnded)
             return;
+
         Check_CoolTime();
     }
-    public void coolTimeImage()
+
+    public void coolTimeImage(float cooltime)
     {
+        time_cooltime = cooltime;
         Init_UI();
         Trigger_Skill();
     }
+
     private void Init_UI()
     {
         image_fill.type = Image.Type.Filled;
@@ -82,13 +62,10 @@ public class SkillUI : MonoBehaviour
     {
         if (!isEnded)
         {
-            
-
             return;
         }
 
         Reset_CoolTime();
-       
     }
 
     private void Reset_CoolTime()
@@ -99,6 +76,7 @@ public class SkillUI : MonoBehaviour
         Set_FillAmount(time_cooltime);
         isEnded = false;
     }
+
     private void Set_FillAmount(float _value)
     {
         image_fill.fillAmount = _value / time_cooltime;

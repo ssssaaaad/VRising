@@ -303,8 +303,6 @@ RectTransform:
   - {fileID: 1960028086}
   - {fileID: 1463088781}
   - {fileID: 1375023392}
-  - {fileID: 2000326609}
-  - {fileID: 332571320}
   m_Father: {fileID: 729346879650175808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -684,11 +682,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1616134634}
+  m_Father: {fileID: 914493908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1154, y: -940}
+  m_AnchoredPosition: {x: -2, y: 3}
   m_SizeDelta: {x: 61, y: 61}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &175230990
@@ -891,6 +889,7 @@ GameObject:
   - component: {fileID: 220640220}
   - component: {fileID: 220640219}
   - component: {fileID: 220640221}
+  - component: {fileID: 220640222}
   m_Layer: 5
   m_Name: BasicAttackSlot (2)
   m_TagString: Untagged
@@ -970,6 +969,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 398223907}
+--- !u!114 &220640222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220640217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1d92cd9dc379f4bb942bcd318b6290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 1209035225}
+  image_fill: {fileID: 501297070}
+  time_cooltime: 10
 --- !u!1 &332571319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,11 +1014,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 42237377}
+  m_Father: {fileID: 1463088781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1217.1, y: -940}
+  m_AnchoredPosition: {x: -3.9001465, y: 3}
   m_SizeDelta: {x: 61, y: 61}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &332571321
@@ -2000,6 +2014,7 @@ GameObject:
   - component: {fileID: 810841631}
   - component: {fileID: 810841630}
   - component: {fileID: 810841632}
+  - component: {fileID: 810841633}
   m_Layer: 5
   m_Name: BasicAttackSlot (2)
   m_TagString: Untagged
@@ -2079,6 +2094,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1939898411}
+--- !u!114 &810841633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810841628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1d92cd9dc379f4bb942bcd318b6290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 52169078}
+  image_fill: {fileID: 445769908}
+  time_cooltime: 10
 --- !u!1 &817857763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,6 +2476,7 @@ GameObject:
   - component: {fileID: 914493910}
   - component: {fileID: 914493909}
   - component: {fileID: 914493911}
+  - component: {fileID: 914493912}
   m_Layer: 5
   m_Name: BasicAttackSlot (2)
   m_TagString: Untagged
@@ -2464,7 +2495,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 175230989}
+  - {fileID: 2055326023}
   m_Father: {fileID: 1616134634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -2523,6 +2556,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1986183419}
+--- !u!114 &914493912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914493907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1d92cd9dc379f4bb942bcd318b6290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 2055326024}
+  image_fill: {fileID: 175230990}
+  time_cooltime: 4
 --- !u!1 &917374767
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,6 +3334,7 @@ GameObject:
   - component: {fileID: 1253729731}
   - component: {fileID: 1253729730}
   - component: {fileID: 1253729732}
+  - component: {fileID: 1253729733}
   m_Layer: 5
   m_Name: BasicAttackSlot (2)
   m_TagString: Untagged
@@ -3365,6 +3414,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 424164509}
+--- !u!114 &1253729733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253729728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1d92cd9dc379f4bb942bcd318b6290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 537283384}
+  image_fill: {fileID: 403086486}
+  time_cooltime: 10
 --- !u!1 &1268501163
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,7 +3601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text_CoolTime: {fileID: 356724750}
   image_fill: {fileID: 104087600}
-  time_cooltime: 8
+  time_cooltime: 4
 --- !u!114 &1310016307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3941,6 +4005,7 @@ GameObject:
   - component: {fileID: 1463088783}
   - component: {fileID: 1463088782}
   - component: {fileID: 1463088784}
+  - component: {fileID: 1463088785}
   m_Layer: 5
   m_Name: BasicAttackSlot (2)
   m_TagString: Untagged
@@ -3959,7 +4024,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2000326609}
+  - {fileID: 332571320}
   m_Father: {fileID: 42237377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -4018,6 +4085,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1160800750}
+--- !u!114 &1463088785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463088780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1d92cd9dc379f4bb942bcd318b6290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_CoolTime: {fileID: 332571321}
+  image_fill: {fileID: 2000326610}
+  time_cooltime: 10
 --- !u!1 &1467959643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4349,8 +4431,6 @@ RectTransform:
   - {fileID: 855066304}
   - {fileID: 914493908}
   - {fileID: 1111309100}
-  - {fileID: 175230989}
-  - {fileID: 2055326023}
   m_Father: {fileID: 729346879650175808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -5181,11 +5261,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 42237377}
+  m_Father: {fileID: 1463088781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1217.6, y: -940}
+  m_AnchoredPosition: {x: -3.4001465, y: 3}
   m_SizeDelta: {x: 61, y: 61}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2000326610
@@ -5256,11 +5336,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1616134634}
+  m_Father: {fileID: 914493908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1154, y: -940}
+  m_AnchoredPosition: {x: -2, y: 3}
   m_SizeDelta: {x: 61, y: 61}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2055326024
@@ -37813,7 +37893,7 @@ MonoBehaviour:
   skillPrefab: {fileID: 1198427815685852516, guid: f512ba81bce797349b6d9e2fb9cd10ae,
     type: 3}
   firePoint: {fileID: 1068093817613480882}
-  skillUI: {fileID: 3732307562614463609}
+  skillUI: {fileID: 810841633}
   skillSpeed: 20
   castTime: 1
   cooldownTime: 8
@@ -76773,7 +76853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle_Skill_C: {fileID: 6521154012045439846}
-  skillUI: {fileID: 458749541853113420}
+  skillUI: {fileID: 1253729733}
   slowDuration: 1.5
   slowSpeed: 1
   cooldownTime: 10
@@ -76900,7 +76980,7 @@ MonoBehaviour:
   skillPrefab: {fileID: 1198427815685852516, guid: fc5f342cf27ce7c479f9a6a4df6fc7fa,
     type: 3}
   firePoint: {fileID: 0}
-  skillUI: {fileID: 0}
+  skillCoolTimeE: {fileID: 0}
   skillSpeed: 20
   castTime: 1
   cooldownTime: 10
@@ -115805,6 +115885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b105541a59f78ac478b882109d69dad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillCoolTimeE: {fileID: 220640222}
   Model: {fileID: 8203684410092119982}
   dashReady: 1
   ghostDashing: 0.6
@@ -117302,9 +117383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f2c81122d3f46468a18f1163071f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillCoolTimeQ: {fileID: 914493912}
   hitBox: {fileID: 7593261067777636990, guid: 2f59c940d28ddaf4981535450363557a, type: 3}
   spinDuration: 2
-  cooldownTime: 8
+  cooldownTime: 10
   hitFrequency: 0.2
 --- !u!4 &7607743523084568434
 Transform:
