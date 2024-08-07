@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 using DG.Tweening;
+using UnityEngine.AI;
 
 public class Maja_Minion : Enemy
 {
@@ -87,6 +88,13 @@ public class Maja_Minion : Enemy
             case State.Death:
                 animator.SetTrigger("Die");
                 maja.RemoveMinion(this);
+                Collider[] colliders = GetComponentsInChildren<Collider>();
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    colliders[i].isTrigger = true;
+                }
+                GetComponent<NavMeshAgent>().enabled = false;
+                transform.DOMoveY(transform.position.y - 3, 1).SetEase(Ease.InQuart);
                 return;
                 break;
             case State.Attack:

@@ -51,6 +51,7 @@ public class Maja_MainSkillPattern2 : Pattern
         minionPosition *= startDistance;
         minionPosition += maja.mapOrigin.position;
         minion.SetPosition_MajaMainSkill2(minionPosition);
+        maja.animator.SetTrigger("MainSkillPattern2");
 
         print(minion.gameObject.name);
         while (true)
@@ -58,11 +59,13 @@ public class Maja_MainSkillPattern2 : Pattern
             if (minion == null)
             {
                 patterDelay = false;
+                maja.animator.SetTrigger("Cancle");
                 yield break;
             }
             if (minion.state == Maja_Minion.State.Death)
             {
                 patterDelay = false;
+                maja.animator.SetTrigger("Cancle");
                 yield break;
             }
             if(Vector3.Distance(new Vector3(minion.transform.position.x , 0 , minion.transform.position.z), new Vector3(minionPosition.x, 0, minionPosition.z)) < 0.5f)
@@ -78,11 +81,13 @@ public class Maja_MainSkillPattern2 : Pattern
             if(minion == null)
             {
                 patterDelay = false;
+                maja.animator.SetTrigger("Cancle");
                 yield break;
             }
             if (minion.state == Maja_Minion.State.Death)
             {
                 patterDelay = false;
+                maja.animator.SetTrigger("Cancle");
                 yield break;
             }
             if (Vector3.Distance(new Vector3(minion.transform.position.x, 0, minion.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z)) < 2f)
@@ -95,6 +100,7 @@ public class Maja_MainSkillPattern2 : Pattern
         maja.UpdateHP(maja.hp_Max * 0.1f);
         yield return new WaitForSeconds(0.5f);
         patterDelay = false;
+        maja.animator.SetTrigger("Cancle");
     }
 
     //private IEnumerator ActiveSkill(Maja_Minion minion)
