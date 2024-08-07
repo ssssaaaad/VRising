@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6739573421114516674}
-  - component: {fileID: 7569947737553771962}
   - component: {fileID: 4400247064693308126}
   - component: {fileID: 4655274730477331985}
   - component: {fileID: 5309497011594136612}
+  - component: {fileID: 1661990774327104219}
   - component: {fileID: 806549725509145089}
   - component: {fileID: -6252210831422619886}
   - component: {fileID: 5709995837576373128}
@@ -42,29 +42,6 @@ Transform:
   - {fileID: 4545604970173868242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7569947737553771962
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599111131800705164}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
-  m_Height: 5
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &4400247064693308126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +62,8 @@ MonoBehaviour:
   rotateSpeed: 200
   animator: {fileID: 161733388955688420}
   state: 0
+  minion_Prefab: {fileID: 7106103959459495280, guid: dc6c4b38481bca4429533f78e58bcd14,
+    type: 3}
   mapOrigin: {fileID: 0}
   attackPatterns: []
   teleport: {fileID: 0}
@@ -128,19 +107,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 599111131800705164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ac3ff4c8f0da042ac4782fe34ac601, type: 3}
+  m_Script: {fileID: 11500000, guid: fc3d848c1456a324e92bf80e3378e6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelayTime: 0.3
-  delayTime: 1.5
+  attackDelayTime: 0
+  delayTime: 0
   range: 0
-  coolTime: 15
+  coolTime: 5
   readyToStart: 1
   startDistance: 2
   width: 5
   attackDistance: 10
-  attackActiveTime: 1
+  attackActiveTime: 3
   bulletCount: 4
+  damage: 10
+  projectile_Prefab: {fileID: 7635418392693607409, guid: 363e2c66092e9534892fc36017219a1e,
+    type: 3}
+--- !u!114 &1661990774327104219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599111131800705164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967d72e2459603c4ba14475b38e0a078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDelayTime: 0
+  delayTime: 0
+  range: 0
+  coolTime: 5
+  readyToStart: 1
+  radius: 5
   damage: 10
   projectile_Prefab: {fileID: 7635418392693607409, guid: 363e2c66092e9534892fc36017219a1e,
     type: 3}
@@ -163,7 +163,7 @@ MonoBehaviour:
   coolTime: 15
   readyToStart: 1
   startPosition: 2
-  parentDistance: 20
+  parentDistance: 30
   childDistanece: 30
   parentActiveTime: 1.5
   childActiveTime: 2
@@ -193,14 +193,8 @@ MonoBehaviour:
   coolTime: 10
   readyToStart: 1
   startDistance: 10
-  width: 5
-  attackDistance: 10
-  attackActiveTime: 3
-  bulletCount: 4
-  damage: 10
-  y: 10
+  minionSpeed: 2.5
   minionSpawnTime: 1
-  start: 0
 --- !u!114 &5709995837576373128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +227,7 @@ MonoBehaviour:
   bulletCount: 4
   damage: 10
   y: 10
+  ease: 3
   minionSpawnTime: 0.5
   start: 0
 --- !u!114 &3688511073062308986
@@ -797,6 +792,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 161733388955688420}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c66ef0bb71036f4384652594e332d7c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1578437762108354963}
   m_SourcePrefab: {fileID: 100100000, guid: 6c66ef0bb71036f4384652594e332d7c, type: 3}
 --- !u!1 &3773711990036820584 stripped
 GameObject:
@@ -825,6 +824,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &1578437762108354963
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773711990036820584}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &4545604970173868242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c66ef0bb71036f4384652594e332d7c,

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Maja_MainSkillPattern3 : Pattern
 {
@@ -21,11 +22,11 @@ public class Maja_MainSkillPattern3 : Pattern
     public int bulletCount = 4;
 
     public float damage = 10;
-    public float y = 10;
+    public float y = 20;
 
     private Vector3 direction;
 
-
+    public Ease ease;
 
     public float minionSpawnTime = 1;
 
@@ -58,12 +59,18 @@ public class Maja_MainSkillPattern3 : Pattern
     protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
         yield return new WaitForSeconds(attackDelayTime);
+        maja.animator.SetTrigger("MainSkillPattern3");
+        yield return new WaitForSeconds(2f);
+        maja.model.gameObject.SetActive(false);
 
         for (int i = 0; i < 4; i++)
         {
             StartCoroutine(SpawnMinion());
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
+
+        maja.model.gameObject.SetActive(true);
+        maja.animator.SetTrigger("Spawn");
     }
 
     private IEnumerator SpawnMinion()
@@ -97,20 +104,19 @@ public class Maja_MainSkillPattern3 : Pattern
         Vector3 centerPosition = startPosition + (direction * (distance / 2));
         centerPosition.y += maja.target.position.y + y;
         Vector3 p4, p5;
-
+        DOTween.To(() => time, x => time = x, 1f, 1f).SetEase(Ease.OutQuad);
         Transform line = Instantiate(spanwLineParticel, startPosition, spawnParticle.transform.rotation, null);
         Transform attackPositionCircle = Instantiate(attackPsotionCircle_Prefab, spawnPosition + Vector3.up, attackPsotionCircle_Prefab.rotation);
-     
-        while (time <= 1)
+        while (time < 1)
         {
             p4 = Vector3.Lerp(startPosition, centerPosition, time);
             p5 = Vector3.Lerp(centerPosition, spawnPosition, time);
             line.position = Vector3.Lerp(p4, p5, time);
-
-            time += 0.01f / minionSpawnTime;
-
             yield return new WaitForSeconds(0.01f);
         }
+        p4 = Vector3.Lerp(startPosition, centerPosition, time);
+        p5 = Vector3.Lerp(centerPosition, spawnPosition, time);
+        line.position = Vector3.Lerp(p4, p5, time);
         Destroy(attackPositionCircle.gameObject);
 
         Maja_Minion minion = Instantiate(minion_Prefab);

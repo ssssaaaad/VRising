@@ -82,7 +82,6 @@ public class PlayerAttack : MonoBehaviour
 
             lastAttackTime = 0f;
             comboCount++;
-            print(comboCount);
         }
         canAttack = true;
 
