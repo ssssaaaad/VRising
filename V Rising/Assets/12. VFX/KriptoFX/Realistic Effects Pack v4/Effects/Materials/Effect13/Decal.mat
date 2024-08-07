@@ -15,11 +15,11 @@ Material:
   - USE_CUTOUT
   - USE_CUTOUT_TEX
   - USE_NOISE_DISTORTION
-  - USE_QUAD_DECAL
+  - USE_WORLD_SPACE_UV
   - _BLENDMODE_BLEND
   m_InvalidKeywords: []
   m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -94,8 +94,8 @@ Material:
     - _CutoutAlphaMul: 5
     - _CutoutThreshold: 0.015
     - _DetailNormalMapScale: 1
-    - _DistortScale: 0.3
-    - _DistortSpeed: 2
+    - _DistortScale: 0.24
+    - _DistortSpeed: 0.68
     - _DstBlend: 0
     - _DstMode: 10
     - _Glossiness: 0.5
@@ -116,12 +116,12 @@ Material:
     - _UseCutoutThreshold: 0
     - _UseFrameBlending: 0
     - _UseNoiseDistortion: 1
-    - _UseWorldSpaceUV: 0
-    - _ZTest1: 4
+    - _UseWorldSpaceUV: 1
+    - _ZTest1: 5
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CutoutColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 4.857505, g: 1.7820067, b: 7.5735292, a: 1}
+    - _TintColor: {r: 0.08743073, g: 0.08259158, b: 0.9056604, a: 1}
   m_BuildTextureStacks: []
