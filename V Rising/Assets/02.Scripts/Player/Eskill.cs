@@ -6,15 +6,20 @@ using UnityEngine;
 public class Eskill : MonoBehaviour
 {
     private PlayerManager PM;
+    private Playerstate PS;
     private Coroutine castingCoroutine;
     private PlayerMove playerMove;
-    private Enemy target;
+    private Collider target;
     private CharacterController cc;
 
     public GameObject skillPrefab;  // 발사할 스킬(발사체) 프리팹
     public Transform firePoint;     // 스킬이 발사될 위치
     public SkillUI skillUI;
     public GameObject Model;
+
+    public float Edmg = 0.7f;           // 검기 데미지
+    public float EComdodmg = 0.25f;     // 추가타 데미지
+
     public float skillSpeed = 30f;  // 발사체의 속도
     public float castTime = 1f;     // 시전 시간 (초)
     public float cooldownTime = 8f; // 쿨타임 (초)
@@ -25,7 +30,7 @@ public class Eskill : MonoBehaviour
 
     private float playerSpeed;  // 정상 캐릭터 속도
     private float cooldownEndTime;  // 쿨타임 종료 시간
-    private float activeTime = 1f;      // comboEskill 활성화 시간
+    private float activeTime = 1.5f;      // comboEskill 활성화 시간
     private bool isCoolingDown = false;     // 쿨타임 여부 확인
     private bool comEActive = false;    // ComEskill 활성화 여부
 
@@ -33,6 +38,7 @@ public class Eskill : MonoBehaviour
     {
         playerMove = GetComponent<PlayerMove>();
         PM = GetComponent<PlayerManager>();
+        PS = GetComponent<Playerstate>();
         playerSpeed = playerMove.playerSpeed;
         cc = GetComponent<CharacterController>();
     }
@@ -47,6 +53,7 @@ public class Eskill : MonoBehaviour
     public IEnumerator CastSkill()
     {
         PM.eskilling = true;
+        isCoolingDown = true;
 
         playerMove.SetSpeed(slowSpeed);     // 이동속도 감소
         
@@ -70,9 +77,7 @@ public class Eskill : MonoBehaviour
         isCoolingDown = false;
     }
 
-
-
-    public void ComboEAct(Enemy target)
+    public void ComboEAct(Collider target)
     {
         Debug.Log("콤보 e 활성화");
         comEActive = true;
@@ -94,7 +99,7 @@ public class Eskill : MonoBehaviour
         // 재시전 E 
         if (target == null)
             return;
-        if (target.state == Enemy.State.Death)
+        if (target.GetComponent<Enemy>().state == Enemy.State.Death)
             return;
 
         PM.comeskilling = true;
@@ -128,7 +133,7 @@ public class Eskill : MonoBehaviour
             attackCheck += 0.01f;
             if(attackCheck > attackTime)
             {
-                // 데미지
+                Damage(target, EComdodmg);
                 attackCheck = 0;
             }
             yield return new WaitForSeconds(0.01f);
@@ -162,7 +167,12 @@ public class Eskill : MonoBehaviour
         }
 
     }
-
+    
+    // 데미지 처리 
+    public void Damage(Collider hit, float coeff)
+    {
+        hit.GetComponent<Enemy>().UpdateHP(-PS.power * coeff);
+    }
 
     public bool IsECoolTime()
     {

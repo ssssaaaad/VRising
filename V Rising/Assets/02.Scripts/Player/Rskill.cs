@@ -5,12 +5,16 @@ using UnityEngine;
 public class Rskill : MonoBehaviour
 {
     private PlayerManager PM;
+    private Playerstate PS;
     private Coroutine castingCoroutine;
     private PlayerMove playerMove; // PlayerMove 스크립트 참조
 
     public GameObject skillPrefab; // 발사할 스킬(발사체) 프리팹
     public Transform firePoint; // 스킬이 발사될 위치
     public SkillUI skillUI;
+
+    public float Rdmg = 1.5f;
+
     public float skillSpeed = 20f; // 발사체의 속도
     public float castTime = 1f; // 시전 시간 (초)
     public float cooldownTime = 8f; // 쿨타임 (초)
@@ -26,6 +30,7 @@ public class Rskill : MonoBehaviour
         // PlayerMove 컴포넌트 가져오기
         playerMove = GetComponent<PlayerMove>();
         PM = GetComponent<PlayerManager>();
+        PS = GetComponent<Playerstate>();
         playerSpeed = playerMove.playerSpeed;
     }
 
@@ -129,6 +134,13 @@ public class Rskill : MonoBehaviour
             Destroy(skill, DestroyBullet); // 발사체를 5초 후에 파괴 (필요에 따라 조정)
         }
     }
+
+    // hit : 맞은 대상, coeff : 데미지 계수
+    public void Damage(Collider hit, float coeff)
+    {
+        hit.GetComponent<Enemy>().UpdateHP(-PS.power * coeff);
+    }
+
     public bool IsCasting()
     {
         return PM.rskilling; // 현재 스킬이 시전 중인지 여부 반환

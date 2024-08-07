@@ -7,10 +7,15 @@ public class Tskill : MonoBehaviour
     CharacterController cc;
 
     private PlayerManager PM;
+    private Playerstate PS;
     private PlayerMove PlayerMove;
     private Coroutine ghostTime;
 
     public GameObject Model;
+    public GameObject Tboom;
+
+    public float Tdmg = 1.5f;
+
     public float dashReady = 1f;    // 시전 준비시간
     public float ghostDashing = 0.75f;  // 대쉬 지속시간
     public float afterDashing = 0.3f;   // 대쉬 이후 후딜레이
@@ -35,6 +40,7 @@ public class Tskill : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         PM = GetComponent<PlayerManager>();
+        PS = GetComponent<Playerstate>();
         PlayerMove = GetComponent<PlayerMove>();
 
         originalLayer= gameObject.layer;
@@ -126,16 +132,17 @@ public class Tskill : MonoBehaviour
         if (other.CompareTag("Enemy"))      // 부딪힌 대상의 레이어 확인
         {
             StartCoroutine(hitDelayTime(other.transform));
-            print("Boom");
         }
     }
 
     public IEnumerator hitDelayTime(Transform hitObject)
     {
-        hitObjects.Add(hitObject);      // 히트대상을 리스트에 추가
         yield return new WaitForSeconds(bustTime);      // 폭발 지연시간동안 대기
-        print("Boom");      // 폭발
-        hitObjects.Remove(hitObject.transform);     // 폭발이 끝나면 리스트에서 제외
+
+        GameObject tBoom = Instantiate(Tboom);
+        tBoom.transform.position = hitObject.position;
+        Destroy(tBoom, 0.2f);
+        print("Boom");      // 폭발 (Tboom 소환)
     }
 
     public bool HeadLock()
@@ -143,4 +150,10 @@ public class Tskill : MonoBehaviour
         return headLock;
     }
 
+    // hit : 맞은 대상, coeff : 데미지 계수
+    public void Damage(Collider hit, float coeff)
+    {
+        Enemy enemy = hit.GetComponent<Enemy>();
+        hit.GetComponent<Enemy>().UpdateHP(-PS.power * coeff);
+    }
 }

@@ -23,16 +23,16 @@ public class Eskillbullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        //{
-        // 충돌 여부 전송
-        if (Eskill != null)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Eskill.ComboEAct(other.GetComponent<Enemy>());
+            // 충돌 여부 전송
+            if (Eskill != null)
+            {
+                Eskill.ComboEAct(other);
+            }
+            // 데미지 입력
+            Eskill.Damage(other, Eskill.Edmg);
         }
-            // 충돌 대상이 적이라면 정보 전송
-            
-        //}
         Debug.Log("발사체 충돌파괴");
         Destroy(gameObject);
     }

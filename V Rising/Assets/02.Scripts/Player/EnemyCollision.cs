@@ -8,14 +8,14 @@ public class EnemyCollision : MonoBehaviour
 
     void Start()
     {
-        Tskill = GetComponent<Tskill>();
+        Tskill = GetComponentInParent<Tskill>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))      // 부딪힌 대상의 레이어 확인
         {
-            StartCoroutine(Tskill.hitDelayTime(other.transform));
+            Tskill.StartCoroutine(Tskill.hitDelayTime(other.transform));
         }
     }
 }

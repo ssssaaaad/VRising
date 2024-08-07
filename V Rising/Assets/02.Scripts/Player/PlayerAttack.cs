@@ -7,11 +7,14 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private PlayerManager PM;
+    private Playerstate PS;
+
+    public float Attack1dmg = 0.35f;
+    public float Attack3dmg = 0.4f;
 
     public float comboTime = 2f;    // 연속공격 유지시간
     public float attackPreDelay = 0.3f;     // 공격 전 딜레이 시간
-    // 공격 이후 딜레이 시간 
-    public float attack1Delay = 0.5f;
+    public float attack1Delay = 0.5f;       // 공격 이후 딜레이 시간 
     public float attack2Delay = 0.5f;
     public float attack3Delay = 0.75f;
     public float minSpeed = 3f;     // 공격시 감소된 속도
@@ -124,4 +127,10 @@ public class PlayerAttack : MonoBehaviour
         return canAttack; 
     }
 
+
+    // hit : 맞은 대상, coeff : 데미지 계수
+    public void Damage(Collider hit, float coeff)
+    {
+        hit.GetComponent<Enemy>().UpdateHP(-PS.power * coeff);
+    }
 }
