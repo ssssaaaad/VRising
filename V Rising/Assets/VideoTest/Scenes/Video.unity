@@ -815,6 +815,8 @@ MonoBehaviour:
   optionSprite: {fileID: 1856706075}
   endSprite: {fileID: 124807025}
   option: {fileID: 1048071006}
+  menu: {fileID: 0}
+  backOptionSprite: {fileID: 0}
 --- !u!1 &337640885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,7 +2813,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0e2fc18fe036412f8223b3b3d9ad574, type: 2}
   - {fileID: 11400000, guid: e1260c1148f6143b28bae5ace5e9c5d1, type: 2}
   - {fileID: 11400000, guid: 7b7fd9122c28c4d15b667c7040e3b3fd, type: 2}
-  Dropdown: {fileID: 0}
+  dropdown: {fileID: 1323497494}
+  resolutionDropdown: {fileID: 1400671203}
 --- !u!1 &1114313073
 GameObject:
   m_ObjectHideFlags: 0
