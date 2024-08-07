@@ -104,7 +104,8 @@ public class Maja_MainSkillPattern3 : Pattern
         Vector3 centerPosition = startPosition + (direction * (distance / 2));
         centerPosition.y += maja.target.position.y + y;
         Vector3 p4, p5;
-        DOTween.To(() => time, x => time = x, 1f, 1f).SetEase(Ease.OutQuad);
+        Sequence sequence = DOTween.Sequence().Append(DOTween.To(() => time, x => time = x, 0.5f, 0.5f).SetEase(Ease.OutQuad)).
+            Append(DOTween.To(() => time, x => time = x, 1f, 0.5f).SetEase(Ease.OutQuad));
         Transform line = Instantiate(spanwLineParticel, startPosition, spawnParticle.transform.rotation, null);
         Transform attackPositionCircle = Instantiate(attackPsotionCircle_Prefab, spawnPosition + Vector3.up, attackPsotionCircle_Prefab.rotation);
         while (time < 1)
@@ -118,6 +119,13 @@ public class Maja_MainSkillPattern3 : Pattern
         p5 = Vector3.Lerp(centerPosition, spawnPosition, time);
         line.position = Vector3.Lerp(p4, p5, time);
         Destroy(attackPositionCircle.gameObject);
+        Destroy(line.gameObject);
+
+        Collider[] hitTargets = Physics.OverlapSphere(spawnPosition, 5, LayerMask.NameToLayer("Player"));
+        for (int i = 0; i < hitTargets.Length; i++)
+        {
+            //hitTargets[i].GetComponent<Playerstate>().UpdateHP(damage);
+        }
 
         Maja_Minion minion = Instantiate(minion_Prefab);
         minion.transform.position = spawnPosition;

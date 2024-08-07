@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class Maja_Minion : Enemy
 {
@@ -45,6 +46,7 @@ public class Maja_Minion : Enemy
     void Update()
     {
         StateCycle();
+        Rotate();
     }
 
     private void OnDestroy()
@@ -55,8 +57,6 @@ public class Maja_Minion : Enemy
     public new void InitEnemy(Maja maja)
     {
         base.InitEnemy();
-        state = State.Move;
-
         this.maja = maja;
         target = maja.target;
 
@@ -85,11 +85,13 @@ public class Maja_Minion : Enemy
                 SetMovePosition();
                 break;
             case State.Death:
+                animator.SetTrigger("Die");
                 maja.RemoveMinion(this);
                 return;
                 break;
             case State.Attack:
                 Attack();
+                Rotate();
                 break;
             case State.MajaMainSkill_2:
                 break;
@@ -146,9 +148,11 @@ public class Maja_Minion : Enemy
         }
         else
         {
-
-            MovePosition(target.position);
+            moveposition = target.position;
+            MovePosition(moveposition);
         }
+
+        forward = new Vector3(moveposition.x - model.position.x, 0, moveposition.z - model.position.z).normalized;
 
         if (targetEnemyDistance <= attackRange)
         {
@@ -181,13 +185,13 @@ public class Maja_Minion : Enemy
     IEnumerator InitTimeCheck()
     {
         respawn = true;
+        state = State.Move;
         yield return new WaitForSeconds(2);
         respawn = false;
     }
 
     private void Attack()
     {
-        StopMoveTarget();
         StartCoroutine(Coroutine_Attack());
     }
 
@@ -196,16 +200,20 @@ public class Maja_Minion : Enemy
         // 공격중인지 체크
         if (attackCheck)
         {
-            yield return new Break();
+            yield break;
         }
-
         // 공격 딜레이
         attackCheck = true;
+        forward = new Vector3(target.position.x - model.position.x, model.position.y, target.position.z - model.position.z).normalized;
+        yield return new WaitForSeconds(0.15f);
+        animator.SetTrigger("Attack");
         // 어택 애니메이션 추가 바람
-        yield return new WaitForSeconds(1);
-        if(state == State.Death)
+        yield return new WaitForSeconds(0.5f);
+        StopMoveTarget();
+        yield return new WaitForSeconds(0.5f);
+        if (state == State.Death)
         {
-            yield return new Break();
+            yield break;
         }
         attackCheck = false;
 

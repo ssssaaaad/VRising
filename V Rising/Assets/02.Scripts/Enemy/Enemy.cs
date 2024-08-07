@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
-
 public class Enemy : MonoBehaviour
 {
 
@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public void InitEnemy()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
         alive = true;
     }
 
@@ -71,6 +72,7 @@ public class Enemy : MonoBehaviour
     public void StopMoveTarget()
     {
         navMeshAgent.ResetPath();
+        navMeshAgent.velocity = Vector3.zero;
     }
 
     protected void Rotate()

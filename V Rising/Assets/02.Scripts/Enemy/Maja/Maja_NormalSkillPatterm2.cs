@@ -48,7 +48,7 @@ public class Maja_NormalSkillPattern2 : Pattern
         Collider[] hitTargets = Physics.OverlapSphere(transform.position, radius, LayerMask.NameToLayer("Player"));
         for (int i = 0; i < hitTargets.Length; i++)
         {
-            //hitTargets[i].GetComponent<플레이어 hp > ().업데이트 hp(damage);
+            hitTargets[i].GetComponent<Playerstate>().UpdateHP(damage);
         }
         Vector2 randomPosition = Random.insideUnitCircle * Random.Range(5,10);
         Vector3 spawnPosition = transform.position;

@@ -13,8 +13,7 @@ public class CameraFadeObject : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, radius, direction, Vector3.Distance(transform.position, player.position),
                             1 << LayerMask.NameToLayer("EnvironmentObject"));
-
-        print(hits.Length);
+       
         for (int i = 0; i < hits.Length; i++)
         {
             TransparentObject[] obj = hits[i].transform.GetComponentsInChildren<TransparentObject>();
