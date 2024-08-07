@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     private bool canRskill = false;
     private bool canTskill = false;
     private bool canEskill = false;
+    private bool canComEskill = false;
     private bool canAttack = false;
 
     public bool dashing = false;
@@ -26,6 +27,7 @@ public class PlayerManager : MonoBehaviour
     public bool rskilling = false;
     public bool tskilling = false;
     public bool eskilling = false;
+    public bool comeskilling = false;
     public bool attacking = false;
 
 
@@ -69,15 +71,26 @@ public class PlayerManager : MonoBehaviour
             Rskill.R(); 
             RCancel();
         }
-        if (Input.GetKeyDown(KeyCode.E) && CanEskill())
-        {
-            Eskill.E();
-            ECancel();
-        }
         if (Input.GetKeyDown(KeyCode.T) && CanTskill())
         {
             Tskill.T();
             TCancel();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("canEskill = " + canEskill);
+            if (CanComEskill())
+            {
+                Eskill.ComboE();
+                ECancel();
+            }
+            else if (CanEskill())
+            {
+                Eskill.E();
+                ECancel();
+
+                Debug.Log("E눌림");
+            }
         }
         if (Input.GetMouseButton(0) && CanAttack())
         {
@@ -95,6 +108,8 @@ public class PlayerManager : MonoBehaviour
             canQskill = false;
             canRskill = false;
             canTskill = false;
+            canEskill = false;
+            canComEskill = false;
             canAttack = false;
         }
         else if (cskilling)
@@ -104,7 +119,31 @@ public class PlayerManager : MonoBehaviour
             canQskill = true;
             canRskill = true;
             canTskill = true;
+            canEskill = true;
+            canComEskill = true;
             canAttack = true;
+        }
+        else if (eskilling)
+        {
+            canDash = true;
+            canCskill = true;
+            canQskill = false;
+            canRskill = false;
+            canTskill = false;
+            canEskill = false;
+            canComEskill = false;
+            canAttack = false;
+        }
+        else if (comeskilling)
+        {
+            canDash = false;
+            canCskill = false;
+            canQskill = false;
+            canRskill = false;
+            canTskill = false;
+            canEskill = false;
+            canComEskill = false;
+            canAttack = false;
         }
         else if (qskilling)
         {
@@ -113,6 +152,8 @@ public class PlayerManager : MonoBehaviour
             canQskill = false;
             canRskill = false;
             canTskill = false;
+            canEskill = false;
+            canComEskill = false;
             canAttack = false;
         }
         else if (rskilling)
@@ -122,6 +163,8 @@ public class PlayerManager : MonoBehaviour
             canQskill = false;
             canRskill = false;
             canTskill = false;
+            canEskill = false;
+            canComEskill = false;
             canAttack = false;
         }
         else if (tskilling)
@@ -133,6 +176,8 @@ public class PlayerManager : MonoBehaviour
                 canQskill = false;
                 canRskill = false;
                 canTskill = false;
+                canEskill = false;
+                canComEskill = false;
                 canAttack = false;
             }
             else
@@ -142,6 +187,8 @@ public class PlayerManager : MonoBehaviour
                 canQskill = false;
                 canRskill = false;
                 canTskill = false;
+                canEskill = false;
+                canComEskill = false;
                 canAttack = false;
             }
         }
@@ -152,6 +199,8 @@ public class PlayerManager : MonoBehaviour
             canQskill = true;
             canRskill = true;
             canTskill = true;
+            canEskill = true;
+            canComEskill = true;
             canAttack = true;
         }
         else
@@ -161,6 +210,8 @@ public class PlayerManager : MonoBehaviour
             canQskill = true;
             canRskill = true;
             canTskill = true;
+            canEskill = true;
+            canComEskill = true;
             canAttack = true;
         }
     }
@@ -207,6 +258,13 @@ public class PlayerManager : MonoBehaviour
             return false;
         else
             return canEskill;
+    }
+    public bool CanComEskill()
+    {
+        if (Eskill.ComboEActive() && canComEskill)
+            return true;
+        else
+            return false;
     }
     public bool CanAttack()
     {
@@ -294,7 +352,14 @@ public class PlayerManager : MonoBehaviour
     }
     public void ECancel()
     {
-
+        if (rskilling)
+        {
+            Rskill.CancelRCasting();
+        }
+        if (attacking)
+        {
+            Attack.CancelAttacking();
+        }
     }
     public void ClickCancel()
     {

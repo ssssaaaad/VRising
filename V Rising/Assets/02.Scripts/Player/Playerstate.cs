@@ -5,21 +5,24 @@ using UnityEngine;
 
 public class Playerstate : MonoBehaviour
 {
+    public float hp_Max = 500;
+    public float hp_Current;
+    public float power = 40;
     
-    
-    // Start is called before the first frame update
     void Start()
     {
-        
+        hp_Current = hp_Max;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+
     public void UpdateHP(float dmg)
     {
-        
+        if (hp_Current > 0)
+            hp_Current -= dmg;
     }
 }

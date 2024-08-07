@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cskill : MonoBehaviour
 {
     private PlayerManager PM;
+    private Playerstate PS;
     private PlayerMove playerMove;
     private Coroutine castingCoroutine;
 
@@ -27,6 +28,7 @@ public class Cskill : MonoBehaviour
     {
         playerMove = GetComponent<PlayerMove>();
         PM = GetComponent<PlayerManager>();
+        PS = GetComponent<Playerstate>();
         playerSpeed = playerMove.playerSpeed;
     }
 
@@ -146,4 +148,11 @@ public class Cskill : MonoBehaviour
     {
         isCastingRSkill = value;
     }
+
+    // hit : 맞은 대상, coeff : 데미지 계수
+    public void Damage(Collider hit, float coeff)
+    {
+        hit.GetComponent<Enemy>().UpdateHP(PS.power * coeff);
+    }
+
 }

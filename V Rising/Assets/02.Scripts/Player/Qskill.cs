@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Qskill : MonoBehaviour
 {
     private PlayerManager PM;
+    private Playerstate PS;
     private Coroutine spinTime;
 
-    public Transform hitBox;        // q스킬 히트박스
+    public GameObject Qspin;        // q스킬 히트박스
+
+    public float Qdmg = 0.35f;
+
     public float spinDuration = 2f; // 회전 지속시간
     public float cooldownTime = 8f; // 쿨타임 (초)
-    public float hitFrequency = 0.2f;   // 다단히트 적용시간
+    public float hitFrequency = 0.3f;   // 다단히트 적용시간
 
     private bool isCoolingDown = false;
     private float cooldownEndTime; // 쿨타임 종료 시간
@@ -20,6 +25,7 @@ public class Qskill : MonoBehaviour
     void Start()
     {
         PM = GetComponent<PlayerManager>();
+        PS = GetComponent<Playerstate>();
     }
 
 
@@ -41,9 +47,14 @@ public class Qskill : MonoBehaviour
         PM.qskilling = true;
         isCoolingDown = true;
 
-        hitBox.gameObject.SetActive(true);      // 히트박스 활성화
+        GameObject qSpin = Instantiate(Qspin);    // 히트박스 소환
+        qSpin.transform.position = transform.position;
+        qSpin.transform.forward = transform.forward;
+        qSpin.transform.SetParent(transform);  // 히트박스를 Model의 자식으로 설정
+
         yield return new WaitForSeconds(spinDuration);      // q스킬 지속시간
-        hitBox.gameObject.SetActive(false);     // 히트박스 비활성화
+
+        Destroy(qSpin);         // 히트박스 비활성화
 
         Debug.Log("Finishing Q skill casting.");
 
@@ -71,33 +82,15 @@ public class Qskill : MonoBehaviour
     {
         StopCoroutine(Spining());
 
-        hitBox.gameObject.SetActive(false);     // 히트박스 비활성화
+        Destroy(Qspin);     // 히트박스 비활성화
 
         PM.qskilling = false;
     }
 
-    void OnEnable()
+    // hit : 맞은 대상, coeff : 데미지 계수
+    public void Damage(Collider hit, float coeff)
     {
-        hitObjects.Clear();
+        hit.GetComponent<Enemy>().UpdateHP(-PS.power * coeff);
     }
 
-    List<Transform> hitObjects = new List<Transform>();
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            if (!hitObjects.Contains(other.transform))      // 히트대상이 리스트에 있으면 통과
-            {
-                StartCoroutine(hitCoolTime(other.transform));       
-                print("attackMonster");
-            }
-        }
-    }
-    public IEnumerator hitCoolTime(Transform hitObject)
-    {
-        hitObjects.Add(hitObject);      // 히트대상을 리스트에 추가
-        yield return new WaitForSeconds(hitFrequency);      // 히트 주기동안 대기
-        hitObjects.Remove(hitObject.transform);     // 히트 주기가 끝나면 리스트에서 제외
-    }
 }
