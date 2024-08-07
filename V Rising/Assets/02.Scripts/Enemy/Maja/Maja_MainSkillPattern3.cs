@@ -47,7 +47,7 @@ public class Maja_MainSkillPattern3 : Pattern
             return;
         }
         readyToStart = false;
-        StartCoroutine(Coroutine_AttackDelayTime(direction));
+        StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
     }
@@ -55,7 +55,7 @@ public class Maja_MainSkillPattern3 : Pattern
     {
         return patterDelay;
     }
-    protected override IEnumerator Coroutine_AttackDelayTime(Vector3 direction)
+    protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
         yield return new WaitForSeconds(attackDelayTime);
 

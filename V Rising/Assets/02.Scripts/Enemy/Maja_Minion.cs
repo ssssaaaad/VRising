@@ -9,6 +9,15 @@ using Random = UnityEngine.Random;
 
 public class Maja_Minion : Enemy
 {
+    public enum State
+    {
+        Move,
+        Attack,
+        MajaMainSkill_2,
+        Death,
+    }
+
+    public State state;
     public Maja maja;
     public float speed = 10;
     public float traceRange = 5;
@@ -46,6 +55,8 @@ public class Maja_Minion : Enemy
     public new void InitEnemy(Maja maja)
     {
         base.InitEnemy();
+        state = State.Move;
+
         this.maja = maja;
         target = maja.target;
 
@@ -60,6 +71,14 @@ public class Maja_Minion : Enemy
 
     private void StateCycle()
     {
+        if (state == State.Death)
+            return;
+
+        if (!alive)
+        {
+            state = State.Death;
+        }
+
         switch (state)
         {
             case State.Move:
@@ -71,6 +90,8 @@ public class Maja_Minion : Enemy
                 break;
             case State.Attack:
                 Attack();
+                break;
+            case State.MajaMainSkill_2:
                 break;
             default:
                 SetMovePosition();
@@ -135,6 +156,19 @@ public class Maja_Minion : Enemy
         }
     }
 
+    public void SetPosition_MajaMainSkill2(Vector3 startPosition)
+    {
+        state = State.MajaMainSkill_2;
+        MovePosition(startPosition);
+    }
+    public void ActiveMajaMainSkill2(float minionSpeed)
+    {
+        state = State.MajaMainSkill_2;
+        speed = minionSpeed;
+        navMeshAgent.speed = speed;
+        MovePosition(maja.transform.position);
+    }
+
     IEnumerator ChangeAngle()
     {
         while (true)
@@ -146,6 +180,7 @@ public class Maja_Minion : Enemy
 
     IEnumerator InitTimeCheck()
     {
+        respawn = true;
         yield return new WaitForSeconds(2);
         respawn = false;
     }
@@ -167,14 +202,14 @@ public class Maja_Minion : Enemy
         // 공격 딜레이
         attackCheck = true;
         // 어택 애니메이션 추가 바람
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         if(state == State.Death)
         {
             yield return new Break();
         }
         attackCheck = false;
 
-        
+        StartCoroutine(InitTimeCheck());
         state = State.Move;
     }
 }

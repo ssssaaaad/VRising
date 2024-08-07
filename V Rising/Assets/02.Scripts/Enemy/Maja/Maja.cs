@@ -22,13 +22,27 @@ public abstract class Pattern : MonoBehaviour
     protected bool patterDelay;
     public float range;
     protected  abstract IEnumerator PatternDelayTime();
-    protected abstract IEnumerator Coroutine_AttackDelayTime(Vector3 direction);
+    protected abstract IEnumerator Coroutine_AttackPattern(Vector3 direction);
     protected abstract IEnumerator PatternCooltime();
 }
 
 
 public class Maja : Enemy
 {
+    public enum State
+    {
+        Idle,
+        Move,
+        Runaway,
+        Teleport,
+        Attack,
+        Death,
+    }
+
+    public State state;
+
+    public Maja_Minion minion_Prefab;
+
     public Transform mapOrigin;
     public List<Pattern> attackPatterns;
     public Pattern teleport;
@@ -75,13 +89,17 @@ public class Maja : Enemy
     {
         base.InitEnemy();
 
+        state = State.Idle;
+
         attackPatterns = new List<Pattern>();
 
         Pattern pattern = GetComponent<Maja_BasicAttackPattern>();
         attackPatterns.Add(pattern);
-        pattern = GetComponent<Maja_NormalSkillPattern>();
+        pattern = GetComponent<Maja_NormalSkillPattern1>();
         attackPatterns.Add(pattern);
         pattern = GetComponent<Maja_MainSkillPattern1>();
+        attackPatterns.Add(pattern);
+        pattern = GetComponent<Maja_MainSkillPattern2>();
         attackPatterns.Add(pattern);
         pattern = GetComponent<Maja_MainSkillPattern3>();
         attackPatterns.Add(pattern);
@@ -100,6 +118,14 @@ public class Maja : Enemy
         }
 
         patterCycle = StartCoroutine(CoroutinePatterCycle());
+    }
+
+
+    public void SpawnMinion(Vector3 position)
+    {
+        Maja_Minion minion = Instantiate(minion_Prefab);
+        minion.transform.position = position;
+        AddMinion(minion);
     }
 
     public void AddMinion(Maja_Minion minion)
@@ -122,9 +148,26 @@ public class Maja : Enemy
         }
     }
 
-    public Maja_Minion GetMinion()
+    public Maja_Minion GetCloseMinion()
     {
-        return maja_Minions[Random.Range(0, maja_Minions.Count)];
+        if (maja_Minions.Count == 0)
+            return null;
+
+        float min = float.MinValue;
+        float check;
+        int index = 0;
+        
+        for (int i = 0; i < maja_Minions.Count; i++)
+        {
+            check = Vector3.Distance(mapOrigin.position, maja_Minions[i].transform.position);
+            if (min > check)
+            {
+                min = check;
+                index = i;
+            }
+        }
+
+        return maja_Minions[index];
     }
 
     private IEnumerator CoroutinePatterCycle()
@@ -138,6 +181,11 @@ public class Maja : Enemy
 
     private void PatternCycle()
     {
+        if (!alive)
+        {
+            state = State.Death;
+        }
+
         if (state == State.Death)
         {
             return;
@@ -148,7 +196,6 @@ public class Maja : Enemy
         }
 
         attackCooltime_Current += routineTime;
-
 
         if (PatternDelay != null)
         {
@@ -210,6 +257,11 @@ public class Maja : Enemy
                     // 옆으로 7개
                     animator.SetTrigger("MainSkillPattern1");
                     attackPatterns[2].ActivePattern(targetDirection);
+                    attackCooltime_Current = 0;
+                }
+                else if (attackPatterns[4].CooltimeCheck())
+                {
+                    attackPatterns[4].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
                 }
                 else if (attackPatterns[3].CooltimeCheck())

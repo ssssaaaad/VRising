@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Maja_BasicAttackPattern : Pattern
+public class Maja_NormalSkillPattern1 : Pattern
 {
     private Maja maja;
 
@@ -23,17 +22,19 @@ public class Maja_BasicAttackPattern : Pattern
     public Projectile projectile_Prefab;
     private Projectile projectile;
 
-    public bool start = false;
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
     public override void InitPattern(Maja maja)
     {
         this.maja = maja;
     }
-
     public override bool CooltimeCheck()
     {
         return readyToStart;
     }
-
     public override void ActivePattern(Vector3 direction)
     {
         if (!readyToStart)
@@ -49,15 +50,21 @@ public class Maja_BasicAttackPattern : Pattern
     {
         return patterDelay;
     }
+
     protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
         yield return new WaitForSeconds(attackDelayTime);
         Vector3 right = Vector3.Cross(direction, Vector3.up);
-        projectile = Instantiate(projectile_Prefab);
-        projectile.transform.position = transform.position + direction * startDistance;
-        projectile.transform.LookAt(projectile.transform.position + direction);
-        projectile.InitAttack(damage, false);
-        projectile.Fire(direction, attackDistance, attackActiveTime);
+        for (int i = 0; i < bulletCount; i++)
+        {
+            projectile = Instantiate(projectile_Prefab);
+            spawnPosition = transform.position + (((right * width) / (bulletCount - 1)) * i);
+            spawnPosition += -right * width / 2;
+            projectile.transform.position = spawnPosition + direction * startDistance;
+            projectile.transform.LookAt(projectile.transform.position + direction);
+            projectile.InitAttack(damage, true);
+            projectile.Fire(direction, attackDistance, attackActiveTime);
+        }
     }
 
     protected override IEnumerator PatternDelayTime()
@@ -75,4 +82,5 @@ public class Maja_BasicAttackPattern : Pattern
         yield return new WaitForSeconds(coolTime);
         readyToStart = true;
     }
+
 }

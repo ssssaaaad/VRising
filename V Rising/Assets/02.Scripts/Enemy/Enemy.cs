@@ -6,15 +6,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public enum State
-    {
-        Idle,
-        Move,
-        Runaway,
-        Teleport,
-        Attack,
-        Death,
-    }
+
+    protected bool alive;
 
     #region NavMesh
     public NavMeshAgent navMeshAgent;
@@ -27,7 +20,6 @@ public class Enemy : MonoBehaviour
     #region status
     public float hp_Max;
     public float hp_Current;
-    public State state;
     #endregion
 
     #region rotate
@@ -43,7 +35,7 @@ public class Enemy : MonoBehaviour
     public void InitEnemy()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        state = State.Idle;
+        alive = true;
     }
 
 
@@ -53,14 +45,14 @@ public class Enemy : MonoBehaviour
     /// <param name="dmg"></param>
     public void UpdateHP(float dmg, bool uiActvie = true)
     {
-        if (state == State.Death)
+        if (!alive)
             return;
         hp_Current = Mathf.Clamp(hp_Current + dmg, 0, hp_Max);
 
         if (hp_Current <= 0)
         {
             StopMoveTarget();
-            state = State.Death;
+            alive = false;
         }
 
     }

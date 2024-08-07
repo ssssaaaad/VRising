@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4655274730477331985}
   - component: {fileID: 5309497011594136612}
   - component: {fileID: 806549725509145089}
+  - component: {fileID: -6252210831422619886}
   - component: {fileID: 5709995837576373128}
   - component: {fileID: 3688511073062308986}
   - component: {fileID: 2967642142717032212}
@@ -81,9 +82,9 @@ MonoBehaviour:
   model: {fileID: 4545604970173868242}
   hp_Max: 0
   hp_Current: 0
-  state: 0
   rotateSpeed: 200
   animator: {fileID: 161733388955688420}
+  state: 0
   mapOrigin: {fileID: 0}
   attackPatterns: []
   teleport: {fileID: 0}
@@ -174,6 +175,32 @@ MonoBehaviour:
     type: 3}
   childProjectile_Prefab: {fileID: 7635418392693607409, guid: 363e2c66092e9534892fc36017219a1e,
     type: 3}
+--- !u!114 &-6252210831422619886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599111131800705164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d910caa05e0666542be9acf5ebd9d2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDelayTime: 2
+  delayTime: 2
+  range: 30
+  coolTime: 10
+  readyToStart: 1
+  startDistance: 10
+  width: 5
+  attackDistance: 10
+  attackActiveTime: 3
+  bulletCount: 4
+  damage: 10
+  y: 10
+  minionSpawnTime: 1
+  start: 0
 --- !u!114 &5709995837576373128
 MonoBehaviour:
   m_ObjectHideFlags: 0

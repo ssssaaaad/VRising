@@ -1,23 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Maja_NormalSkillPattern : Pattern
+public class Maja_NormalSkillPattern2 : Pattern
 {
     private Maja maja;
 
     public float coolTime = 5;
     public bool readyToStart = true;
-    public float startDistance = 2;
-    public float width = 5;
-
-    public float attackDistance = 10;
-    public float attackActiveTime = 3;
-
-    public int bulletCount = 4;
-
+    public float radius = 5;
     public float damage = 10;
-
-    private Vector3 spawnPosition;
 
     public Projectile projectile_Prefab;
     private Projectile projectile;
@@ -42,7 +33,7 @@ public class Maja_NormalSkillPattern : Pattern
             return;
         }
         readyToStart = false;
-        StartCoroutine(Coroutine_AttackDelayTime(direction));
+        StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
     }
@@ -51,20 +42,27 @@ public class Maja_NormalSkillPattern : Pattern
         return patterDelay;
     }
 
-    protected override IEnumerator Coroutine_AttackDelayTime(Vector3 direction)
+    protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
         yield return new WaitForSeconds(attackDelayTime);
-        Vector3 right = Vector3.Cross(direction, Vector3.up);
-        for (int i = 0; i < bulletCount; i++)
+        Collider[] hitTargets = Physics.OverlapSphere(transform.position, radius, LayerMask.NameToLayer("Player"));
+        for (int i = 0; i < hitTargets.Length; i++)
         {
-            projectile = Instantiate(projectile_Prefab);
-            spawnPosition = transform.position + (((right * width) / (bulletCount - 1)) * i);
-            spawnPosition += -right * width / 2;
-            projectile.transform.position = spawnPosition + direction * startDistance;
-            projectile.transform.LookAt(projectile.transform.position + direction);
-            projectile.InitAttack(damage, true);
-            projectile.Fire(direction, attackDistance, attackActiveTime);
+            //hitTargets[i].GetComponent<플레이어 hp > ().업데이트 hp(damage);
         }
+        Vector2 randomPosition = Random.insideUnitCircle * Random.Range(5,10);
+        Vector3 spawnPosition = transform.position;
+        spawnPosition.x += randomPosition.x;
+        spawnPosition.z += randomPosition.y;
+        float distance = Vector3.Distance(maja.mapOrigin.position, spawnPosition);
+        if (distance > maja.mapRadius)
+        {
+            spawnPosition += (maja.mapOrigin.position - spawnPosition).normalized * (distance + Random.Range(1,3) - radius);
+        }
+
+        maja.SpawnMinion(spawnPosition);
+
+        yield return new WaitForSeconds(0.3f);
     }
 
     protected override IEnumerator PatternDelayTime()
@@ -73,7 +71,6 @@ public class Maja_NormalSkillPattern : Pattern
         patterDelay = true;
         yield return new WaitForSeconds(delayTime);
         patterDelay = false;
-
     }
 
     protected override IEnumerator PatternCooltime()

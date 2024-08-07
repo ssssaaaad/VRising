@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Maja_MainSkillPattern2 : Pattern
@@ -8,24 +9,13 @@ public class Maja_MainSkillPattern2 : Pattern
 
     public float coolTime = 5;
     public bool readyToStart = true;
-    public float startDistance = 2;
-    public float width = 5;
-
-    public float attackDistance = 10;
-    public float attackActiveTime = 3;
-
-    public int bulletCount = 4;
-
-    public float damage = 10;
-    public float y = 10;
-
-    private Vector3 direction;
+    public float startDistance = 10;
+    public float minionSpeed = 2.5f;
 
 
 
     public float minionSpawnTime = 1;
 
-    public bool start = false;
     public override void InitPattern(Maja maja)
     {
         this.maja = maja;
@@ -43,18 +33,68 @@ public class Maja_MainSkillPattern2 : Pattern
             return;
         }
         readyToStart = false;
-        StartCoroutine(Coroutine_AttackDelayTime(direction));
-        StartCoroutine(PatternDelayTime());
+        maja.PatternDelay = GetPatternDelay;
+        patterDelay = true;
+        StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternCooltime());
     }
     protected override bool GetPatternDelay()
     {
         return patterDelay;
     }
-    protected override IEnumerator Coroutine_AttackDelayTime(Vector3 direction)
+    protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
-        yield return new WaitForSeconds(attackDelayTime);
-        //StartCoroutine(ActiveSkill(maja.GetMinion()));
+        Maja_Minion minion = maja.GetCloseMinion();
+        if (minion == null)
+            yield break;
+        Vector3 minionPosition = (minion.transform.position - transform.position).normalized;
+        minionPosition *= startDistance;
+        minionPosition += maja.mapOrigin.position;
+        minion.SetPosition_MajaMainSkill2(minionPosition);
+
+        print(minion.gameObject.name);
+        while (true)
+        {
+            if (minion == null)
+            {
+                patterDelay = false;
+                yield break;
+            }
+            if (minion.state == Maja_Minion.State.Death)
+            {
+                patterDelay = false;
+                yield break;
+            }
+            if(Vector3.Distance(new Vector3(minion.transform.position.x , 0 , minion.transform.position.z), new Vector3(minionPosition.x, 0, minionPosition.z)) < 0.5f)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        minion.ActiveMajaMainSkill2(minionSpeed);
+        while (true)
+        {
+            if(minion == null)
+            {
+                patterDelay = false;
+                yield break;
+            }
+            if (minion.state == Maja_Minion.State.Death)
+            {
+                patterDelay = false;
+                yield break;
+            }
+            if (Vector3.Distance(new Vector3(minion.transform.position.x, 0, minion.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z)) < 2f)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+        minion.UpdateHP(-1000, false);
+        maja.UpdateHP(maja.hp_Max * 0.1f);
+        yield return new WaitForSeconds(0.5f);
+        patterDelay = false;
     }
 
     //private IEnumerator ActiveSkill(Maja_Minion minion)
