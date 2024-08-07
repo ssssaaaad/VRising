@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Playerstate : MonoBehaviour
 {
+    private PlayerManager PM;
+    private Cskill Cskill;
+
     public float hp_Max = 500;
     public float hp_Current;
     public float power = 40;
@@ -12,6 +15,7 @@ public class Playerstate : MonoBehaviour
     void Start()
     {
         hp_Current = hp_Max;
+        PM = GetComponent<PlayerManager>();
     }
 
     void Update()
@@ -19,10 +23,14 @@ public class Playerstate : MonoBehaviour
         
     }
 
-
     public void UpdateHP(float dmg)
     {
-        if (hp_Current > 0)
+        if (PM.cskilling)
+        {
+            Cskill.Cdmg = dmg;
+            Cskill.counter = true;
+        }
+        else if (hp_Current > 0)
             hp_Current -= dmg;
     }
 }

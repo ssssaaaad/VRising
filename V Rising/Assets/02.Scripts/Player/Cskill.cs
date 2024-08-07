@@ -9,19 +9,25 @@ public class Cskill : MonoBehaviour
     private PlayerMove playerMove;
     private Coroutine castingCoroutine;
 
+    public GameObject Cboom;
     public GameObject particle_Skill_C;
     public SkillUI skillUI;
-    public float slowDuration = 1.5f; // C스킬의 속도 감소 지속 시간
+
+    public float Cdmg = 0f;
+    public float slowDuration = 1.5f;   // C스킬의 속도 감소 지속 시간
+    public float plusTime = 1.2f;       // 반격 성공시 추가 무적시간
     public float slowSpeed = 1f; // C스킬 시속도 감소 값
-    public float cooldownTime = 10f; // 쿨타임 (초)
-    public float pushBackForce = 5f; // 적 오브젝트를 밀어내는 힘
+    public float cooldownTime = 10f;    // 쿨타임 (초)
+    public float pushBackForce = 5f;    // 적 오브젝트를 밀어내는 힘
     public float playerSpeed;
-    // 입력이 오면 Manager 에게 가능 여부를 물어봄
-    
+    public string noHitPlayer = "NoHitPlayer";      // 피격판정이 없는 레이어
+    public bool counter = false;
+
     private bool isCastingRSkill = false; // R 스킬 시전 중 여부
     private bool isCasting = false;
     private bool isCoolingDown = false;
     private float cooldownEndTime;
+    private int originalLayer;
 
 
     void Start()
@@ -30,6 +36,7 @@ public class Cskill : MonoBehaviour
         PM = GetComponent<PlayerManager>();
         PS = GetComponent<Playerstate>();
         playerSpeed = playerMove.playerSpeed;
+        originalLayer = gameObject.layer;
     }
 
 
@@ -48,7 +55,10 @@ public class Cskill : MonoBehaviour
         }
         isCoolingDown = true;
 
-        
+        gameObject.layer = LayerMask.NameToLayer(noHitPlayer);  // 무적판정
+
+        float finishTime = Time.time + slowDuration;
+
         // 시전 시간 동안 캐릭터 속도 감소
         if (playerMove != null)
         {
@@ -56,8 +66,39 @@ public class Cskill : MonoBehaviour
             playerMove.SetSpeed(slowSpeed);
         }
 
+
         // 시전 시간 동안 기다리기
-        yield return new WaitForSeconds(slowDuration);
+        while (Time.time < finishTime)
+        {
+            if (counter)
+            {
+                Debug.Log("반격");
+
+                finishTime += plusTime;
+                playerMove.SetSpeed(playerSpeed);
+
+                GameObject cBoom = Instantiate(Cboom);
+                cBoom.transform.position = transform.position;
+
+                Destroy(cBoom, 0.2f);
+
+                break;
+            }
+
+            yield return null;
+        }
+        
+        if (counter)
+        {
+            while (Time.time < finishTime)
+            {
+                yield return null;
+            }
+            counter = false;
+            Debug.Log("추가무적 끝");
+        }
+
+        gameObject.layer = originalLayer;
 
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         if (playerMove != null)
@@ -152,7 +193,7 @@ public class Cskill : MonoBehaviour
     // hit : 맞은 대상, coeff : 데미지 계수
     public void Damage(Collider hit, float coeff)
     {
-        hit.GetComponent<Enemy>().UpdateHP(PS.power * coeff);
+        hit.GetComponentInParent<Enemy>().UpdateHP(PS.power * coeff);
     }
 
 }
