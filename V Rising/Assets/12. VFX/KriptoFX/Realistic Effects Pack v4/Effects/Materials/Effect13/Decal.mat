@@ -94,8 +94,8 @@ Material:
     - _CutoutAlphaMul: 5
     - _CutoutThreshold: 0.015
     - _DetailNormalMapScale: 1
-    - _DistortScale: 1
-    - _DistortSpeed: 2
+    - _DistortScale: 0.24
+    - _DistortSpeed: 0.68
     - _DstBlend: 0
     - _DstMode: 10
     - _Glossiness: 0.5
