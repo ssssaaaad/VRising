@@ -68,7 +68,7 @@ public class Cskill : MonoBehaviour
 
             if (skillUI != null)
             {
-                skillUI.coolTimeImage();
+                skillUI.coolTimeImage(cooldownTime);
             }
         }
 

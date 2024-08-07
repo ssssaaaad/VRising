@@ -99,7 +99,7 @@ public class Eskill : MonoBehaviour
         // 재시전 E 
         if (target == null)
             return;
-        if (target.GetComponent<Enemy>().state == Enemy.State.Death)
+        if (!target.GetComponent<Enemy>().alive)
             return;
 
         PM.comeskilling = true;

@@ -147,7 +147,7 @@ public class PlayerMove : MonoBehaviour
         // 대쉬 방향 설정 (캐릭터가 바라보는 방향)
         currentVelocity = dashDirection * dashSpeed;
         cc.Move(currentVelocity * Time.deltaTime);
-        skillUI.coolTimeImage();
+        skillUI.coolTimeImage(dashCooldown);
     }
 
     void EndDash()

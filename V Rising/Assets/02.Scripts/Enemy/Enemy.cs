@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
 
-    protected bool alive;
+    public bool alive { get; private set; } = true;
 
     #region NavMesh
     public NavMeshAgent navMeshAgent;

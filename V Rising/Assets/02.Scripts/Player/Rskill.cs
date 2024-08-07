@@ -68,7 +68,7 @@ public class Rskill : MonoBehaviour
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         
         playerMove.SetSpeed(playerSpeed);
-        skillUI.coolTimeImage();
+        skillUI.coolTimeImage(cooldownTime);
         PM.rskilling = false;
 
         // 쿨타임 설정
