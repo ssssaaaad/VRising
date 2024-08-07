@@ -94,7 +94,7 @@ Material:
     - _CutoutAlphaMul: 5
     - _CutoutThreshold: 0.015
     - _DetailNormalMapScale: 1
-    - _DistortScale: 0.7
+    - _DistortScale: 1
     - _DistortSpeed: 2
     - _DstBlend: 0
     - _DstMode: 10
@@ -123,5 +123,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CutoutColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 1.4534786, g: 0.4217519, b: 2.3529332, a: 1}
+    - _TintColor: {r: 0.08743073, g: 0.08259158, b: 0.9056604, a: 1}
   m_BuildTextureStacks: []
