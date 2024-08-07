@@ -12,7 +12,9 @@ public class MenuUIController : MonoBehaviour
     public Image endSprite;
 
     public GameObject option;
+    public GameObject menu;
 
+    public Image backOptionSprite;
 
     private void Start()
     {
@@ -25,12 +27,19 @@ public class MenuUIController : MonoBehaviour
         Button endButton = endSprite.AddComponent<Button>();
         endButton.onClick.AddListener(OnEndButtonClick);
 
+        Button backOptionButton = backOptionSprite.AddComponent<Button>();
+        backOptionButton.onClick.AddListener(OnBackOptionButtonClick);
+    }
 
+    void OnBackOptionButtonClick()
+    {
+        SceneManager.LoadScene("PlayerMoving");
     }
 
     void OnStartButtonClick()
     {
-        SceneManager.LoadScene(0);
+        menu.SetActive(true);
+        option.SetActive(false);
     }
 
     void OnOptionButtonClick()
