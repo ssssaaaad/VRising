@@ -10,6 +10,7 @@ public class Qskill : MonoBehaviour
     private Playerstate PS;
     private Coroutine spinTime;
 
+    public GameObject Q_Skill_Particle;
     public GameObject Qspin;        // q스킬 히트박스
 
     public float Qdmg = 0.35f;
@@ -31,8 +32,11 @@ public class Qskill : MonoBehaviour
 
     public void Q()
     {
-        if(!isCoolingDown)
+        if (!isCoolingDown)
+        {
+            Q_Skill_Particle.SetActive(false);
             spinTime = StartCoroutine(Spining());
+        }
     }
 
     public void ActiveSkill()
@@ -57,6 +61,7 @@ public class Qskill : MonoBehaviour
         Destroy(qSpin);         // 히트박스 비활성화
 
         Debug.Log("Finishing Q skill casting.");
+        Q_Skill_Particle.SetActive(false);
 
         PM.qskilling = false;
 

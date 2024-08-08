@@ -12,6 +12,8 @@ public class Eskill : MonoBehaviour
     private Collider target;
     private CharacterController cc;
 
+    public GameObject E_Skill_Particle1;
+    public GameObject E_Skill_Particle2;
     public GameObject skillPrefab;  // 발사할 스킬(발사체) 프리팹
     public Transform firePoint;     // 스킬이 발사될 위치
     public SkillUI skillUI;
@@ -26,12 +28,14 @@ public class Eskill : MonoBehaviour
     public float DestroyBullet = 1f;    // 검기 부셔지는 시간
     public float DmgDelay = 0.5f;   // 재시전 데미지 딜레이
     public float comEspeed = 30f;   // 재시전 e 돌진속도
+    public string noHitPlayer = "NoHitPlayer";      // 피격판정이 없는 레이어
 
     private float playerSpeed;  // 정상 캐릭터 속도
     private float cooldownEndTime;  // 쿨타임 종료 시간
-    private float activeTime = 1.5f;      // comboEskill 활성화 시간
+    private float activeTime = 1.5f;        // comboEskill 활성화 시간
     private bool isCoolingDown = false;     // 쿨타임 여부 확인
     private bool comEActive = false;    // ComEskill 활성화 여부
+    private int originalLayer;      // 기존 레이어
 
     void Start()
     {
@@ -40,12 +44,14 @@ public class Eskill : MonoBehaviour
         PS = GetComponent<Playerstate>();
         playerSpeed = playerMove.playerSpeed;
         cc = GetComponent<CharacterController>();
+        originalLayer = gameObject.layer;
     }
 
 
     public void E()
     {
         Debug.Log("Eskill 시전");
+        E_Skill_Particle1.SetActive(true);
         castingCoroutine = StartCoroutine(CastSkill());
     }
 
@@ -62,6 +68,7 @@ public class Eskill : MonoBehaviour
 
         playerMove.SetSpeed(playerSpeed);   // 속도 정상화
 
+        E_Skill_Particle1.SetActive(false);
         PM.eskilling = false;
 
         // 쿨타임 설정
@@ -101,7 +108,9 @@ public class Eskill : MonoBehaviour
         if (!target.GetComponentInParent<Enemy>().alive)
             return;
 
+
         PM.comeskilling = true;
+        E_Skill_Particle2.SetActive(true);
 
         StartCoroutine(ComboECoroutine());
 
@@ -111,7 +120,8 @@ public class Eskill : MonoBehaviour
 
     public IEnumerator ComboECoroutine()
     {
-        // 모델 비활성화
+        // 충돌 비활성화
+        gameObject.layer = LayerMask.NameToLayer(noHitPlayer);
 
         Vector3 startPosition = transform.position;
         float check = 0;
@@ -136,9 +146,10 @@ public class Eskill : MonoBehaviour
             }
             yield return new WaitForSeconds(0.01f);
         }
-
+        E_Skill_Particle2.SetActive(false);
+        transform.position = target.transform.position - target.transform.forward * 5;
         // 모델 활성화
-
+        gameObject.layer = originalLayer;
     }
 
     void ActivateSkill()

@@ -63074,6 +63074,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Group
       objectReference: {fileID: 0}
+    - target: {fileID: 4980935947369197339, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5291935929519565267, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: firePoint
@@ -63114,6 +63119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

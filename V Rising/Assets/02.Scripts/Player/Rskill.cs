@@ -9,6 +9,7 @@ public class Rskill : MonoBehaviour
     private Coroutine castingCoroutine;
     private PlayerMove playerMove; // PlayerMove 스크립트 참조
 
+    public GameObject R_Skill_Particle;
     public GameObject skillPrefab; // 발사할 스킬(발사체) 프리팹
     public Transform firePoint; // 스킬이 발사될 위치
     public SkillUI skillUI;
@@ -37,6 +38,7 @@ public class Rskill : MonoBehaviour
     public void R()
     {
         Debug.Log("Starting skill casting.");
+        R_Skill_Particle.SetActive(true);
         castingCoroutine = StartCoroutine(CastSkill());
     }
 
@@ -64,9 +66,10 @@ public class Rskill : MonoBehaviour
 
         ActivateSkill();
         Debug.Log("발사");
+        
+        R_Skill_Particle.SetActive(false);
 
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
-        
         playerMove.SetSpeed(playerSpeed);
         skillUI.coolTimeImage(cooldownTime);
         PM.rskilling = false;
