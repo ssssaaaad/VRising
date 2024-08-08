@@ -36391,6 +36391,27 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2134154240}
   m_SourcePrefab: {fileID: 100100000, guid: 2396d578ced57f84d88c8659dbd74178, type: 3}
+--- !u!1 &729694016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
+    type: 3}
+  m_PrefabInstance: {fileID: 1205672307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &729694017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729694016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7aad71d00d50fa40b4504186879041d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp_Max: 500
+  hp_Current: 0
+  power: 40
 --- !u!1001 &738668892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48639,6 +48660,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1848364080750224367, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
@@ -48668,6 +48694,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 365527278}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 729694017}
     - targetCorrespondingSourceObject: {fileID: 2719347823016334679, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       insertIndex: -1
@@ -59735,13 +59765,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2895a66c86afcf4aa30d68c205cae22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cboom: {fileID: 0}
   particle_Skill_C: {fileID: 0}
   skillUI: {fileID: 0}
+  Cdmg: 0
   slowDuration: 1.5
+  plusTime: 1.2
   slowSpeed: 1
   cooldownTime: 10
   pushBackForce: 5
   playerSpeed: 5
+  noHitPlayer: NoHitPlayer
+  counter: 0
 --- !u!114 &1491535662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97160,11 +97195,6 @@ PrefabInstance:
       propertyPath: mapOrigin
       value: 
       objectReference: {fileID: 1040280926}
-    - target: {fileID: 5709995837576373128, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
-        type: 3}
-      propertyPath: y
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 6739573421114516674, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97281,12 +97311,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.6590324
+      value: 0.010116783
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.75211465
+      value: -0.99994886
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5491459112140227644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: khola_boi:polySurface5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 692731183760032997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 3252442529269765182}
   - component: {fileID: 963167673273361737}
   - component: {fileID: 7672149567891408055}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 2960374469198114655}
   - component: {fileID: 8802663126238497989}
   - component: {fileID: 1121849067950229490}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 1450510623443812490}
   - component: {fileID: 5049219289604823306}
   - component: {fileID: 4049632035064164797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5106,7 +5106,7 @@ GameObject:
   - component: {fileID: 8277406085843007075}
   - component: {fileID: 7454449448592373914}
   - component: {fileID: 7635418392693607409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5172,7 +5172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4541841573418052480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5205,7 +5205,7 @@ GameObject:
   - component: {fileID: 5349472594357576983}
   - component: {fileID: 782361822419332881}
   - component: {fileID: 871548722914485819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5288,7 +5288,7 @@ GameObject:
   - component: {fileID: 1948684573953180079}
   - component: {fileID: 6685465196586578769}
   - component: {fileID: 2016793791650390957}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5372,7 +5372,7 @@ GameObject:
   - component: {fileID: 5643075324457909850}
   - component: {fileID: 2758542239653922130}
   - component: {fileID: 8880227813824609846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5455,6 +5455,22 @@ PrefabInstance:
     - target: {fileID: 1148156256932182, guid: a2717a2e8ff440c44b737591e4c8f7b8, type: 3}
       propertyPath: m_Name
       value: Eff11_Energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148156256932182, guid: a2717a2e8ff440c44b737591e4c8f7b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620552098298994, guid: a2717a2e8ff440c44b737591e4c8f7b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675642937328654, guid: a2717a2e8ff440c44b737591e4c8f7b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837558879281476, guid: a2717a2e8ff440c44b737591e4c8f7b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4089046129329242, guid: a2717a2e8ff440c44b737591e4c8f7b8, type: 3}
       propertyPath: m_LocalScale.x

@@ -53,7 +53,7 @@ public class AttackCollision : MonoBehaviour
 
                 hitObjects.Add(other.transform);
 
-                // 플레이어 데미지 추가
+                other.GetComponent<Playerstate>().UpdateHP(damage);
 
                 if (hitCooltime > 0)
                 {

@@ -1,3 +1,4 @@
+using NHance.Assets.Scripts.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,4 +70,5 @@ public class Projectile : AttackCollision
         yield return new WaitForSeconds(delayTime);
         fire = true;
     }
+
 }
