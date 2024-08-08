@@ -63101,6 +63101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8222373366295902142, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
+      propertyPath: Model
+      value: 
+      objectReference: {fileID: 1599247453}
+    - target: {fileID: 8222373366295902142, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
       propertyPath: Tboom
       value: 
       objectReference: {fileID: 7334235630602265833, guid: 18af6881f16d27a4987f87d71f7f48bd,
