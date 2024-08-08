@@ -53,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6836862729004524015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -159,6 +159,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2936363254485661969}
     m_Modifications:
+    - target: {fileID: 1158198824157976, guid: 961f9f66d46891b498e4129d7b89b9f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1919843589960360, guid: 961f9f66d46891b498e4129d7b89b9f8, type: 3}
       propertyPath: m_Name
       value: Effect18
@@ -202,6 +206,11 @@ PrefabInstance:
     - target: {fileID: 4432322983238936, guid: 961f9f66d46891b498e4129d7b89b9f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114360809878457798, guid: 961f9f66d46891b498e4129d7b89b9f8,
+        type: 3}
+      propertyPath: FloatCurve.m_RotationOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114891542938095428, guid: 961f9f66d46891b498e4129d7b89b9f8,
         type: 3}

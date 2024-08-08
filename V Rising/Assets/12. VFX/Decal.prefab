@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5653224453764740374}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.19203725, z: 0, w: 0.9813876}
+  m_LocalRotation: {x: 0, y: -0.28990433, z: 0, w: -0.9570557}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10204,7 +10204,7 @@ PrefabInstance:
     - target: {fileID: 114071804779405658, guid: 9922a3006f27f504a8ad6992ba661791,
         type: 3}
       propertyPath: GraphTimeMultiplier
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114071804779405658, guid: 9922a3006f27f504a8ad6992ba661791,
         type: 3}
