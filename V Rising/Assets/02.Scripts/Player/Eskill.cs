@@ -51,7 +51,10 @@ public class Eskill : MonoBehaviour
     public void E()
     {
         Debug.Log("Eskill 시전");
-        E_Skill_Particle1.SetActive(true);
+        if (E_Skill_Particle1 != null)
+        {
+            E_Skill_Particle1.SetActive(true);
+        }
         castingCoroutine = StartCoroutine(CastSkill());
     }
 
@@ -67,8 +70,8 @@ public class Eskill : MonoBehaviour
         ActivateSkill();     // 투사체 발사
 
         playerMove.SetSpeed(playerSpeed);   // 속도 정상화
-
-        E_Skill_Particle1.SetActive(false);
+        if(E_Skill_Particle1 != null)
+            E_Skill_Particle1.SetActive(false);
         PM.eskilling = false;
 
         // 쿨타임 설정
@@ -110,8 +113,10 @@ public class Eskill : MonoBehaviour
 
 
         PM.comeskilling = true;
-        E_Skill_Particle2.SetActive(true);
-
+        if (E_Skill_Particle2 != null)
+        {
+            E_Skill_Particle2.SetActive(true);
+        }
         StartCoroutine(ComboECoroutine());
 
         Debug.Log("ComdoE 시전");
