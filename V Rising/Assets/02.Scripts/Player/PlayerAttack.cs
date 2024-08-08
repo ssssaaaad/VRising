@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject HitBox;
     public Coroutine attackCoroutain;
     public Coroutine speedCoroutain;
-    public Transform attackPoint;
+    public Transform attackPoint;   // 공격판정 위치
 
     private PlayerMove PlayerMove;
     private int comboCount;
@@ -39,6 +39,7 @@ public class PlayerAttack : MonoBehaviour
         PlayerMove = GetComponent<PlayerMove>();
 
         PM = GetComponent<PlayerManager>();
+        PS = GetComponent<Playerstate>();
     }
 
     
@@ -79,9 +80,9 @@ public class PlayerAttack : MonoBehaviour
                 comboCount = 0;
 
             GameObject hitBox = Instantiate(HitBox);    // 히트박스 소환
-            hitBox.transform.position = attackPoint.transform.position + attackPoint.transform.forward * 3;
-            hitBox.transform.forward = attackPoint.transform.forward;            
-            hitBox.transform.SetParent(attackPoint.transform);  // 히트박스를 Model의 자식으로 설정
+            hitBox.transform.position = attackPoint.transform.position + attackPoint.transform.forward * 2.5f;
+            hitBox.transform.forward = attackPoint.transform.forward;
+            hitBox.transform.SetParent(attackPoint.transform);  // 히트박스를 Swod의 자식으로 설정
 
             lastAttackTime = 0f;
             comboCount++;
@@ -130,6 +131,6 @@ public class PlayerAttack : MonoBehaviour
     // hit : 맞은 대상, coeff : 데미지 계수
     public void Damage(Collider hit, float coeff)
     {
-        hit.GetComponent<Enemy>().UpdateHP(-PS.power * coeff);
+        hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff);
     }
 }

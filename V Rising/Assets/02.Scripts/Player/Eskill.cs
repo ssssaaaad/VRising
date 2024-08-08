@@ -15,7 +15,6 @@ public class Eskill : MonoBehaviour
     public GameObject skillPrefab;  // 발사할 스킬(발사체) 프리팹
     public Transform firePoint;     // 스킬이 발사될 위치
     public SkillUI skillUI;
-    public GameObject Model;
 
     public float Edmg = 0.7f;           // 검기 데미지
     public float EComdodmg = 0.25f;     // 추가타 데미지
@@ -99,7 +98,7 @@ public class Eskill : MonoBehaviour
         // 재시전 E 
         if (target == null)
             return;
-        if (!target.GetComponent<Enemy>().alive)
+        if (!target.GetComponentInParent<Enemy>().alive)
             return;
 
         PM.comeskilling = true;
@@ -113,7 +112,6 @@ public class Eskill : MonoBehaviour
     public IEnumerator ComboECoroutine()
     {
         // 모델 비활성화
-        Model.SetActive(false);
 
         Vector3 startPosition = transform.position;
         float check = 0;
@@ -140,7 +138,6 @@ public class Eskill : MonoBehaviour
         }
 
         // 모델 활성화
-        Model.SetActive(true);
 
     }
 
@@ -171,7 +168,7 @@ public class Eskill : MonoBehaviour
     // 데미지 처리 
     public void Damage(Collider hit, float coeff)
     {
-        hit.GetComponent<Enemy>().UpdateHP(-PS.power * coeff);
+        hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff);
     }
 
     public bool IsECoolTime()
