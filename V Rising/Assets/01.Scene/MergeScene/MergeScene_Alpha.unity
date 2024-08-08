@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 2931976}
   - component: {fileID: 2931975}
   - component: {fileID: 2931977}
+  - component: {fileID: 2931978}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -177,7 +178,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -219,6 +220,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2931978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2931973}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481226, y: 0.39147234, z: 2.0850089}
+  m_Center: {x: -0.000000028473426, y: 0.0010572853, z: 1.0399985}
 --- !u!1 &3369975
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +295,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -303,18 +325,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3369975}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
---- !u!114 &3369979
-MonoBehaviour:
+--- !u!65 &3369979
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3369975}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 0.9248124, y: 0.39147228, z: 2.0850098}
+  m_Center: {x: -0.00000007665025, y: 0.0010557895, z: 1.0399992}
 --- !u!1 &8470866
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,6 +5535,7 @@ GameObject:
   - component: {fileID: 86245450}
   - component: {fileID: 86245449}
   - component: {fileID: 86245451}
+  - component: {fileID: 86245452}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -5546,7 +5578,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5588,6 +5620,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &86245452
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86245447}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248124, y: 0.39147228, z: 2.085009}
+  m_Center: {x: -0.00000017883654, y: 0.0010562123, z: 1.0399992}
 --- !u!1 &113809515
 GameObject:
   m_ObjectHideFlags: 0
@@ -5600,6 +5653,7 @@ GameObject:
   - component: {fileID: 113809518}
   - component: {fileID: 113809517}
   - component: {fileID: 113809519}
+  - component: {fileID: 113809520}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -5642,7 +5696,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5684,6 +5738,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &113809520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113809515}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248124, y: 0.39147222, z: 2.0850089}
+  m_Center: {x: 0.00000023482708, y: 0.0010574788, z: 1.039999}
 --- !u!4 &117152643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6554827985546496060, guid: 12e2edf849405b44ea899967fa705dcb,
@@ -5702,6 +5777,7 @@ GameObject:
   - component: {fileID: 127944849}
   - component: {fileID: 127944848}
   - component: {fileID: 127944850}
+  - component: {fileID: 127944851}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -5744,7 +5820,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5786,6 +5862,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &127944851
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127944846}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147258, z: 2.085009}
+  m_Center: {x: -0.000000027525374, y: 0.0010563231, z: 1.0399996}
 --- !u!1001 &129842665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5871,6 +5968,7 @@ GameObject:
   - component: {fileID: 143095700}
   - component: {fileID: 143095699}
   - component: {fileID: 143095701}
+  - component: {fileID: 143095702}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -5913,7 +6011,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5955,6 +6053,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &143095702
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143095697}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248123, y: 0.39147225, z: 2.0850089}
+  m_Center: {x: -0.000000011995432, y: 0.0010566914, z: 1.0399991}
 --- !u!1 &144640502 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 07301144ea470234d89f2b1408fe8736,
@@ -6034,6 +6153,7 @@ GameObject:
   - component: {fileID: 159226148}
   - component: {fileID: 159226147}
   - component: {fileID: 159226149}
+  - component: {fileID: 159226150}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -6076,7 +6196,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6118,6 +6238,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &159226150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159226145}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481244, y: 0.39147243, z: 2.0850093}
+  m_Center: {x: -0.00000021784308, y: 0.0010559522, z: 1.0399995}
 --- !u!1001 &166202389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11267,6 +11408,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -16684,6 +16830,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 608538287997802258, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608538287997802258, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608538287997802258, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
     - target: {fileID: 919132149155446097, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
         type: 3}
       propertyPath: m_Name
@@ -16693,6 +16854,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
         type: 3}
@@ -16708,6 +16874,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282143893009416871, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1282143893009416871, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
         type: 3}
@@ -16911,6 +17082,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1309213966}
+    - targetCorrespondingSourceObject: {fileID: 1282143893009416871, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1309213970}
   m_SourcePrefab: {fileID: 100100000, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
 --- !u!4 &298434349 stripped
 Transform:
@@ -21862,7 +22037,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 883a3a3ed87f0ee46a641723172cdfc7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 883a3a3ed87f0ee46a641723172cdfc7,
         type: 3}
@@ -22282,6 +22457,7 @@ GameObject:
   - component: {fileID: 336992194}
   - component: {fileID: 336992193}
   - component: {fileID: 336992195}
+  - component: {fileID: 336992196}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -22324,7 +22500,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22366,6 +22542,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &336992196
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336992191}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248128, y: 0.3914726, z: 2.0850093}
+  m_Center: {x: -0.00000007450584, y: 0.0010562991, z: 1.0400002}
 --- !u!1 &337068809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6763858364670572316, guid: 07301144ea470234d89f2b1408fe8736,
@@ -22405,6 +22602,7 @@ GameObject:
   - component: {fileID: 338620373}
   - component: {fileID: 338620372}
   - component: {fileID: 338620374}
+  - component: {fileID: 338620375}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -22447,7 +22645,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22489,6 +22687,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &338620375
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338620370}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248123, y: 0.39147216, z: 2.0850089}
+  m_Center: {x: -0.0000000745058, y: 0.0010569306, z: 1.039999}
 --- !u!1001 &347424872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22678,6 +22897,7 @@ GameObject:
   - component: {fileID: 359707243}
   - component: {fileID: 359707242}
   - component: {fileID: 359707244}
+  - component: {fileID: 359707245}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -22720,7 +22940,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22762,6 +22982,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &359707245
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359707240}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248124, y: 0.39147243, z: 2.085009}
+  m_Center: {x: -0.00000013523731, y: 0.0010559141, z: 1.0399994}
 --- !u!1 &365527277
 GameObject:
   m_ObjectHideFlags: 0
@@ -22901,6 +23142,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -23037,6 +23283,7 @@ GameObject:
   - component: {fileID: 401031742}
   - component: {fileID: 401031741}
   - component: {fileID: 401031743}
+  - component: {fileID: 401031744}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -23079,7 +23326,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23121,6 +23368,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &401031744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401031739}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248131, y: 0.39147297, z: 2.0850103}
+  m_Center: {x: 0.00000032209326, y: 0.0010554765, z: 1.0400006}
 --- !u!4 &403101399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3238589873253185278, guid: 2396d578ced57f84d88c8659dbd74178,
@@ -23139,6 +23407,7 @@ GameObject:
   - component: {fileID: 434116781}
   - component: {fileID: 434116780}
   - component: {fileID: 434116782}
+  - component: {fileID: 434116783}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -23181,7 +23450,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23223,6 +23492,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &434116783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434116778}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147252, z: 2.0850093}
+  m_Center: {x: 0.00000003020739, y: 0.0010561504, z: 1.0399995}
 --- !u!1001 &435654167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23440,6 +23730,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -23570,6 +23865,7 @@ GameObject:
   - component: {fileID: 452387762}
   - component: {fileID: 452387761}
   - component: {fileID: 452387763}
+  - component: {fileID: 452387764}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -23612,7 +23908,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23654,6 +23950,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &452387764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452387759}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248124, y: 0.39147228, z: 2.085009}
+  m_Center: {x: -0.00000017883654, y: 0.0010564508, z: 1.0399991}
 --- !u!1001 &458609264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23850,6 +24167,7 @@ GameObject:
   - component: {fileID: 467226380}
   - component: {fileID: 467226379}
   - component: {fileID: 467226381}
+  - component: {fileID: 467226382}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -23892,7 +24210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23934,6 +24252,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &467226382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467226377}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481303, y: 0.39147267, z: 2.08501}
+  m_Center: {x: -0.00000056289105, y: 0.0010558545, z: 1.04}
 --- !u!1001 &476774717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24177,6 +24516,7 @@ GameObject:
   - component: {fileID: 482074041}
   - component: {fileID: 482074040}
   - component: {fileID: 482074042}
+  - component: {fileID: 482074043}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -24219,7 +24559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24261,6 +24601,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &482074043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482074038}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481273, y: 0.39147258, z: 2.0850093}
+  m_Center: {x: -0.000000060948054, y: 0.0010558813, z: 1.0399996}
 --- !u!1 &491355335
 GameObject:
   m_ObjectHideFlags: 0
@@ -29169,6 +29530,7 @@ GameObject:
   - component: {fileID: 512188281}
   - component: {fileID: 512188280}
   - component: {fileID: 512188282}
+  - component: {fileID: 512188283}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -29211,7 +29573,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29253,6 +29615,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &512188283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512188278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481303, y: 0.39147267, z: 2.08501}
+  m_Center: {x: -0.0000005039676, y: 0.0010556161, z: 1.0400001}
 --- !u!1 &515128870
 GameObject:
   m_ObjectHideFlags: 0
@@ -29310,6 +29693,7 @@ GameObject:
   - component: {fileID: 530068159}
   - component: {fileID: 530068158}
   - component: {fileID: 530068160}
+  - component: {fileID: 530068161}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -29352,7 +29736,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29394,6 +29778,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &530068161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530068156}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147234, z: 2.085009}
+  m_Center: {x: -0.000000023480535, y: 0.0010564149, z: 1.0399994}
 --- !u!1 &531288620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 07301144ea470234d89f2b1408fe8736,
@@ -29439,6 +29844,7 @@ GameObject:
   - component: {fileID: 534545615}
   - component: {fileID: 534545614}
   - component: {fileID: 534545616}
+  - component: {fileID: 534545617}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -29481,7 +29887,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29523,6 +29929,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &534545617
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534545612}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248129, y: 0.3914726, z: 2.0850093}
+  m_Center: {x: -0.00000038423744, y: 0.0010558944, z: 1.0399995}
 --- !u!1 &541500348
 GameObject:
   m_ObjectHideFlags: 0
@@ -29535,6 +29962,7 @@ GameObject:
   - component: {fileID: 541500351}
   - component: {fileID: 541500350}
   - component: {fileID: 541500352}
+  - component: {fileID: 541500353}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -29577,7 +30005,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29619,6 +30047,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &541500353
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541500348}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248128, y: 0.3914726, z: 2.0850093}
+  m_Center: {x: -0.00000007450584, y: 0.0010562991, z: 1.04}
 --- !u!1 &542581676
 GameObject:
   m_ObjectHideFlags: 0
@@ -29631,6 +30080,7 @@ GameObject:
   - component: {fileID: 542581679}
   - component: {fileID: 542581678}
   - component: {fileID: 542581680}
+  - component: {fileID: 542581681}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -29673,7 +30123,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29715,6 +30165,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &542581681
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542581676}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481273, y: 0.3914726, z: 2.0850093}
+  m_Center: {x: -0.00000020105982, y: 0.0010558645, z: 1.04}
 --- !u!1001 &547728657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29815,6 +30286,7 @@ GameObject:
   - component: {fileID: 558170006}
   - component: {fileID: 558170005}
   - component: {fileID: 558170007}
+  - component: {fileID: 558170008}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -29857,7 +30329,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29899,6 +30371,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &558170008
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558170003}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147237, z: 2.085009}
+  m_Center: {x: -0.0000003229837, y: 0.0010560052, z: 1.0399991}
 --- !u!1 &561407677
 GameObject:
   m_ObjectHideFlags: 0
@@ -40278,6 +40771,7 @@ GameObject:
   - component: {fileID: 657801265}
   - component: {fileID: 657801264}
   - component: {fileID: 657801266}
+  - component: {fileID: 657801267}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -40320,7 +40814,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40362,6 +40856,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &657801267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657801262}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147258, z: 2.085009}
+  m_Center: {x: -0.000000027525374, y: 0.0010558462, z: 1.0399997}
 --- !u!1 &683015172
 GameObject:
   m_ObjectHideFlags: 0
@@ -40374,6 +40889,7 @@ GameObject:
   - component: {fileID: 683015175}
   - component: {fileID: 683015174}
   - component: {fileID: 683015176}
+  - component: {fileID: 683015177}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -40416,7 +40932,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40458,6 +40974,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &683015177
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683015172}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248123, y: 0.39147225, z: 2.0850089}
+  m_Center: {x: -0.00000004145716, y: 0.001056453, z: 1.0399988}
 --- !u!1 &701068610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 281855664364225751, guid: 07301144ea470234d89f2b1408fe8736,
@@ -41329,6 +41866,7 @@ GameObject:
   - component: {fileID: 808303438}
   - component: {fileID: 808303437}
   - component: {fileID: 808303439}
+  - component: {fileID: 808303440}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -41371,7 +41909,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41413,6 +41951,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &808303440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808303435}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147252, z: 2.0850093}
+  m_Center: {x: 0.00000008913085, y: 0.001055912, z: 1.0399996}
 --- !u!4 &814858130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8991476664664617511, guid: 0e3556f6a19bdb6438e68c79cf89c821,
@@ -46582,6 +47141,7 @@ GameObject:
   - component: {fileID: 864650543}
   - component: {fileID: 864650542}
   - component: {fileID: 864650544}
+  - component: {fileID: 864650545}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -46624,7 +47184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46666,6 +47226,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &864650545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864650540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248122, y: 0.39147252, z: 2.0850089}
+  m_Center: {x: -0.0000003576604, y: 0.0010576398, z: 1.0399983}
 --- !u!1 &865764028
 GameObject:
   m_ObjectHideFlags: 0
@@ -46678,6 +47259,7 @@ GameObject:
   - component: {fileID: 865764031}
   - component: {fileID: 865764030}
   - component: {fileID: 865764032}
+  - component: {fileID: 865764033}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -46720,7 +47302,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46762,6 +47344,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &865764033
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865764028}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248125, y: 0.39147222, z: 2.085009}
+  m_Center: {x: 0.00000005717969, y: 0.0010567014, z: 1.0399992}
 --- !u!1001 &882724352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46966,6 +47569,7 @@ GameObject:
   - component: {fileID: 885823604}
   - component: {fileID: 885823603}
   - component: {fileID: 885823605}
+  - component: {fileID: 885823606}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -47008,7 +47612,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47050,6 +47654,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &885823606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885823601}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248129, y: 0.3914726, z: 2.0850093}
+  m_Center: {x: -0.00000038423744, y: 0.0010563713, z: 1.0399996}
 --- !u!4 &892159929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6554827985546496060, guid: 12e2edf849405b44ea899967fa705dcb,
@@ -47618,6 +48243,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -48013,6 +48643,7 @@ GameObject:
   - component: {fileID: 1040294359}
   - component: {fileID: 1040294358}
   - component: {fileID: 1040294360}
+  - component: {fileID: 1040294361}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -48055,7 +48686,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48097,6 +48728,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1040294361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040294356}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248125, y: 0.39147222, z: 2.085009}
+  m_Center: {x: 0.00000005717969, y: 0.0010569398, z: 1.0399991}
 --- !u!1001 &1040849251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48183,6 +48835,7 @@ GameObject:
   - component: {fileID: 1059843183}
   - component: {fileID: 1059843182}
   - component: {fileID: 1059843184}
+  - component: {fileID: 1059843185}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -48225,7 +48878,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48267,6 +48920,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1059843185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059843180}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481244, y: 0.39147216, z: 2.0850089}
+  m_Center: {x: -0.00000015883005, y: 0.0010572245, z: 1.0399989}
 --- !u!1001 &1062147991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48386,6 +49060,7 @@ GameObject:
   - component: {fileID: 1071776682}
   - component: {fileID: 1071776681}
   - component: {fileID: 1071776683}
+  - component: {fileID: 1071776684}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -48428,7 +49103,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48470,6 +49145,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1071776684
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071776679}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248124, y: 0.39147228, z: 2.0850098}
+  m_Center: {x: -0.00000007665025, y: 0.0010557895, z: 1.0399994}
 --- !u!1 &1081399159
 GameObject:
   m_ObjectHideFlags: 0
@@ -48482,6 +49178,7 @@ GameObject:
   - component: {fileID: 1081399162}
   - component: {fileID: 1081399161}
   - component: {fileID: 1081399163}
+  - component: {fileID: 1081399164}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -48524,7 +49221,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48566,6 +49263,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1081399164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081399159}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147234, z: 2.085009}
+  m_Center: {x: -0.000000022799345, y: 0.0010564149, z: 1.0399994}
 --- !u!1001 &1102578514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48748,6 +49466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Convex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
@@ -53885,6 +54608,7 @@ GameObject:
   - component: {fileID: 1146319574}
   - component: {fileID: 1146319573}
   - component: {fileID: 1146319575}
+  - component: {fileID: 1146319576}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -53927,7 +54651,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -53969,6 +54693,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1146319576
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146319571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147237, z: 2.085009}
+  m_Center: {x: 0.00000017397211, y: 0.0010560052, z: 1.0399991}
 --- !u!1 &1174446659
 GameObject:
   m_ObjectHideFlags: 0
@@ -55145,6 +55890,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1309213970
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309213962}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248123, y: 0.39147207, z: 2.0850086}
+  m_Center: {x: -0.0000000745058, y: 0.0010574383, z: 1.0399984}
 --- !u!1001 &1310215906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55250,7 +56016,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1469098523}
+      addedObject: {fileID: 1469098528}
   m_SourcePrefab: {fileID: 100100000, guid: 2396d578ced57f84d88c8659dbd74178, type: 3}
 --- !u!1 &1310687020 stripped
 GameObject:
@@ -55622,7 +56388,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2137808982}
+      addedObject: {fileID: 2137808987}
   m_SourcePrefab: {fileID: 100100000, guid: 2396d578ced57f84d88c8659dbd74178, type: 3}
 --- !u!1 &1357214181
 GameObject:
@@ -55762,6 +56528,7 @@ GameObject:
   - component: {fileID: 1378499723}
   - component: {fileID: 1378499722}
   - component: {fileID: 1378499724}
+  - component: {fileID: 1378499725}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -55804,7 +56571,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -55846,6 +56613,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1378499725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378499720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248131, y: 0.39147297, z: 2.0850103}
+  m_Center: {x: 0.0000003810167, y: 0.0010552381, z: 1.0400007}
 --- !u!1 &1383612874
 GameObject:
   m_ObjectHideFlags: 0
@@ -60934,6 +61722,7 @@ GameObject:
   - component: {fileID: 1414572126}
   - component: {fileID: 1414572125}
   - component: {fileID: 1414572127}
+  - component: {fileID: 1414572128}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -60976,7 +61765,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -61018,6 +61807,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1414572128
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414572123}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248123, y: 0.39147216, z: 2.0850089}
+  m_Center: {x: -0.0000000745058, y: 0.0010569306, z: 1.0399991}
 --- !u!1 &1424153992
 GameObject:
   m_ObjectHideFlags: 0
@@ -65930,6 +66740,7 @@ GameObject:
   - component: {fileID: 1426668985}
   - component: {fileID: 1426668984}
   - component: {fileID: 1426668986}
+  - component: {fileID: 1426668987}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -65972,7 +66783,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -66014,6 +66825,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1426668987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426668982}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481273, y: 0.3914726, z: 2.0850093}
+  m_Center: {x: -0.00000025998327, y: 0.0010558645, z: 1.0399997}
 --- !u!1 &1448420861
 GameObject:
   m_ObjectHideFlags: 0
@@ -66026,6 +66858,7 @@ GameObject:
   - component: {fileID: 1448420864}
   - component: {fileID: 1448420863}
   - component: {fileID: 1448420865}
+  - component: {fileID: 1448420866}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -66068,7 +66901,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -66110,6 +66943,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1448420866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448420861}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481273, y: 0.39147258, z: 2.0850093}
+  m_Center: {x: -0.000000060948054, y: 0.0010556428, z: 1.0399996}
 --- !u!1 &1451337624
 GameObject:
   m_ObjectHideFlags: 0
@@ -66233,6 +67087,7 @@ GameObject:
   - component: {fileID: 1459138577}
   - component: {fileID: 1459138576}
   - component: {fileID: 1459138578}
+  - component: {fileID: 1459138579}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -66275,7 +67130,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -66317,6 +67172,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1459138579
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459138574}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248122, y: 0.39147252, z: 2.0850089}
+  m_Center: {x: -0.0000003576604, y: 0.0010576398, z: 1.0399983}
 --- !u!4 &1461891152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6385180521039346106, guid: ec59781496f69444ab998af67f2b0ec9,
@@ -66329,7 +67205,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1310215906}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1469098523
+--- !u!114 &1469098528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66731,6 +67607,7 @@ GameObject:
   - component: {fileID: 1515307048}
   - component: {fileID: 1515307047}
   - component: {fileID: 1515307049}
+  - component: {fileID: 1515307050}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -66773,7 +67650,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -66815,6 +67692,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1515307050
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515307045}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248123, y: 0.39147216, z: 2.0850089}
+  m_Center: {x: -0.0000000745058, y: 0.0010569306, z: 1.039999}
 --- !u!1001 &1517051556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67126,7 +68024,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1801005063}
+      addedObject: {fileID: 1801005068}
   m_SourcePrefab: {fileID: 100100000, guid: 2396d578ced57f84d88c8659dbd74178, type: 3}
 --- !u!1 &1546365454
 GameObject:
@@ -72181,6 +73079,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -72582,6 +73485,7 @@ GameObject:
   - component: {fileID: 1646980234}
   - component: {fileID: 1646980233}
   - component: {fileID: 1646980235}
+  - component: {fileID: 1646980236}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -72624,7 +73528,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72666,6 +73570,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1646980236
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646980231}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147237, z: 2.085009}
+  m_Center: {x: 0.00000017397211, y: 0.0010557668, z: 1.0399994}
 --- !u!1 &1653602840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5315667016057797467, guid: 12a1276311283aa4f8ea9822b7817e6a,
@@ -72707,6 +73632,7 @@ GameObject:
   - component: {fileID: 1662362273}
   - component: {fileID: 1662362272}
   - component: {fileID: 1662362274}
+  - component: {fileID: 1662362275}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -72749,7 +73675,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72791,6 +73717,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1662362275
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662362270}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481226, y: 0.39147234, z: 2.0850089}
+  m_Center: {x: -0.000000058616344, y: 0.0010570469, z: 1.0399987}
 --- !u!1 &1662628280
 GameObject:
   m_ObjectHideFlags: 0
@@ -72971,6 +73918,7 @@ GameObject:
   - component: {fileID: 1707064687}
   - component: {fileID: 1707064686}
   - component: {fileID: 1707064688}
+  - component: {fileID: 1707064689}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -73013,7 +73961,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73055,6 +74003,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1707064689
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707064684}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248126, y: 0.39147237, z: 2.085009}
+  m_Center: {x: -0.0000003229837, y: 0.0010557668, z: 1.0399994}
 --- !u!1 &1711945772
 GameObject:
   m_ObjectHideFlags: 0
@@ -78690,7 +79659,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1536169641}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1801005063
+--- !u!114 &1801005068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78726,6 +79695,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -79083,7 +80057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 533236170}
-  radius: 15
+  radius: 5
 --- !u!4 &1831508863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6554827985546496060, guid: 12e2edf849405b44ea899967fa705dcb,
@@ -84687,6 +85661,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -90048,6 +91027,7 @@ GameObject:
   - component: {fileID: 1961799919}
   - component: {fileID: 1961799918}
   - component: {fileID: 1961799920}
+  - component: {fileID: 1961799921}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -90090,7 +91070,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90132,6 +91112,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1961799921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961799916}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248123, y: 0.39147216, z: 2.0850089}
+  m_Center: {x: -0.0000000745058, y: 0.0010569306, z: 1.0399991}
 --- !u!4 &1969699511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a67e6bb3cfa6faa4989e1404ab4ec14f,
@@ -90222,6 +91223,7 @@ GameObject:
   - component: {fileID: 1988483085}
   - component: {fileID: 1988483084}
   - component: {fileID: 1988483086}
+  - component: {fileID: 1988483087}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -90264,7 +91266,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90306,6 +91308,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1988483087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988483082}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248124, y: 0.39147222, z: 2.0850089}
+  m_Center: {x: 0.00000023482708, y: 0.0010574788, z: 1.0399989}
 --- !u!1 &1999334102
 GameObject:
   m_ObjectHideFlags: 0
@@ -100188,6 +101211,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
+    - target: {fileID: 3238589873252821721, guid: 2396d578ced57f84d88c8659dbd74178,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -100318,6 +101346,7 @@ GameObject:
   - component: {fileID: 2021218560}
   - component: {fileID: 2021218559}
   - component: {fileID: 2021218561}
+  - component: {fileID: 2021218562}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -100360,7 +101389,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100402,6 +101431,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2021218562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021218557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481244, y: 0.39147216, z: 2.0850089}
+  m_Center: {x: -0.000000099906586, y: 0.0010572245, z: 1.039999}
 --- !u!1 &2036741746
 GameObject:
   m_ObjectHideFlags: 0
@@ -100714,6 +101764,7 @@ GameObject:
   - component: {fileID: 2049190139}
   - component: {fileID: 2049190138}
   - component: {fileID: 2049190140}
+  - component: {fileID: 2049190141}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -100756,7 +101807,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100798,6 +101849,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2049190141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049190136}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92481244, y: 0.39147243, z: 2.0850093}
+  m_Center: {x: -0.00000015891962, y: 0.0010559522, z: 1.0399995}
 --- !u!1 &2065079815
 GameObject:
   m_ObjectHideFlags: 0
@@ -100855,6 +101927,7 @@ GameObject:
   - component: {fileID: 2074401477}
   - component: {fileID: 2074401476}
   - component: {fileID: 2074401478}
+  - component: {fileID: 2074401479}
   m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
   m_TagString: Transparent
@@ -100897,7 +101970,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2186723045026895967, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+  - {fileID: 2100000, guid: 9750e5897bfaff2498b4b494050ba1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100939,6 +102012,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2074401479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074401474}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9248124, y: 0.39147243, z: 2.085009}
+  m_Center: {x: -0.00000013523731, y: 0.0010559141, z: 1.0399995}
 --- !u!1 &2082138255
 GameObject:
   m_ObjectHideFlags: 0
@@ -106344,7 +107438,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1356528944}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2137808982
+--- !u!114 &2137808987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106643,12 +107737,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.8336198
+      value: 0.80355537
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.55233866
+      value: -0.5952301
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
