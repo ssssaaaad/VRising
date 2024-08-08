@@ -134,9 +134,10 @@ GameObject:
   - component: {fileID: 2931974}
   - component: {fileID: 2931976}
   - component: {fileID: 2931975}
-  m_Layer: 0
+  - component: {fileID: 2931977}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +207,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2931973}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &2931977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2931973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3369975
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,9 +230,10 @@ GameObject:
   - component: {fileID: 3369976}
   - component: {fileID: 3369978}
   - component: {fileID: 3369977}
-  m_Layer: 0
+  - component: {fileID: 3369979}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,6 +303,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3369975}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &3369979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8470866
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,9 +324,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8470867}
-  m_Layer: 0
+  - component: {fileID: 8470868}
+  m_Layer: 21
   m_Name: Origin (40)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,6 +348,18 @@ Transform:
   - {fileID: 1459138575}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 150, z: 0}
+--- !u!114 &8470868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8470866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &31338701 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
@@ -464,9 +503,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 34231976}
-  m_Layer: 0
+  - component: {fileID: 34231977}
+  m_Layer: 21
   m_Name: Origin (9)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -487,6 +527,18 @@ Transform:
   - {fileID: 1426668983}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 135, z: 0}
+--- !u!114 &34231977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34231975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &41887234
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,9 +548,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 41887235}
-  m_Layer: 0
+  - component: {fileID: 41887236}
+  m_Layer: 21
   m_Name: Origin (39)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -519,6 +572,18 @@ Transform:
   - {fileID: 467226378}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 120, z: 0}
+--- !u!114 &41887236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41887234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &51714561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5616744297731482055, guid: 71ff7bf9bdd626141bdf122131c67ec0,
@@ -5391,9 +5456,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 82118330}
-  m_Layer: 0
+  - component: {fileID: 82118331}
+  m_Layer: 21
   m_Name: Origin (13)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5414,6 +5480,18 @@ Transform:
   - {fileID: 2074401475}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 195, z: 0}
+--- !u!114 &82118331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82118329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86245447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5425,9 +5503,10 @@ GameObject:
   - component: {fileID: 86245448}
   - component: {fileID: 86245450}
   - component: {fileID: 86245449}
-  m_Layer: 0
+  - component: {fileID: 86245451}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5497,6 +5576,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86245447}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &86245451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86245447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &113809515
 GameObject:
   m_ObjectHideFlags: 0
@@ -5508,9 +5599,10 @@ GameObject:
   - component: {fileID: 113809516}
   - component: {fileID: 113809518}
   - component: {fileID: 113809517}
-  m_Layer: 0
+  - component: {fileID: 113809519}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5580,6 +5672,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113809515}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &113809519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113809515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &117152643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6554827985546496060, guid: 12e2edf849405b44ea899967fa705dcb,
@@ -5597,9 +5701,10 @@ GameObject:
   - component: {fileID: 127944847}
   - component: {fileID: 127944849}
   - component: {fileID: 127944848}
-  m_Layer: 0
+  - component: {fileID: 127944850}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5669,6 +5774,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127944846}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &127944850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127944846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &129842665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5753,9 +5870,10 @@ GameObject:
   - component: {fileID: 143095698}
   - component: {fileID: 143095700}
   - component: {fileID: 143095699}
-  m_Layer: 0
+  - component: {fileID: 143095701}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5825,6 +5943,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143095697}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &143095701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143095697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &144640502 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 07301144ea470234d89f2b1408fe8736,
@@ -5903,9 +6033,10 @@ GameObject:
   - component: {fileID: 159226146}
   - component: {fileID: 159226148}
   - component: {fileID: 159226147}
-  m_Layer: 0
+  - component: {fileID: 159226149}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5975,6 +6106,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159226145}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &159226149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159226145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &166202389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10922,9 +11065,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 200944377}
-  m_Layer: 0
+  - component: {fileID: 200944378}
+  m_Layer: 21
   m_Name: Origin (20)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10945,6 +11089,18 @@ Transform:
   - {fileID: 1146319572}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 300, z: 0}
+--- !u!114 &200944378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200944376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &213559747
 GameObject:
   m_ObjectHideFlags: 0
@@ -10954,9 +11110,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213559748}
-  m_Layer: 0
+  - component: {fileID: 213559749}
+  m_Layer: 21
   m_Name: Origin (12)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10977,6 +11134,18 @@ Transform:
   - {fileID: 541500349}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
+--- !u!114 &213559749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213559747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &219697705 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2045257923548263128, guid: 07301144ea470234d89f2b1408fe8736,
@@ -11019,7 +11188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 262413298}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: OuterWall (1)
   m_TagString: Transparent
   m_Icon: {fileID: 0}
@@ -11035,8 +11204,8 @@ Transform:
   m_GameObject: {fileID: 262413297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 192.15, y: -200.68, z: -59.423}
-  m_LocalScale: {x: 0.95581, y: 0.95581, z: 0.95581}
+  m_LocalPosition: {x: 192.15, y: -229.24, z: -59.423}
+  m_LocalScale: {x: 0.95581, y: 1.0833163, z: 0.95581}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 367549532}
@@ -11097,7 +11266,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c92d6fe2f8d025d498ee97b433ef8b92, type: 2}
+      objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -11225,9 +11394,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 276511488}
-  m_Layer: 0
+  - component: {fileID: 276511489}
+  m_Layer: 21
   m_Name: Origin (46)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11248,6 +11418,18 @@ Transform:
   - {fileID: 2021218558}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 330, z: 0}
+--- !u!114 &276511489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276511487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &280888644
 GameObject:
   m_ObjectHideFlags: 0
@@ -11257,9 +11439,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 280888645}
-  m_Layer: 0
+  - component: {fileID: 280888646}
+  m_Layer: 21
   m_Name: Origin (31)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11280,6 +11463,18 @@ Transform:
   - {fileID: 401031740}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 225, z: 0}
+--- !u!114 &280888646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280888644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &281793821
 GameObject:
   m_ObjectHideFlags: 0
@@ -11420,9 +11615,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 288424631}
-  m_Layer: 0
+  - component: {fileID: 288424632}
+  m_Layer: 21
   m_Name: Origin (4)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11443,6 +11639,18 @@ Transform:
   - {fileID: 558170004}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 60, z: 0}
+--- !u!114 &288424632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288424630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &288922794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c66ef0bb71036f4384652594e332d7c,
@@ -16347,9 +16555,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 293788569}
-  m_Layer: 0
+  - component: {fileID: 293788570}
+  m_Layer: 21
   m_Name: Origin (43)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16370,6 +16579,18 @@ Transform:
   - {fileID: 1448420862}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 240, z: 0}
+--- !u!114 &293788570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293788568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &298434348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16428,6 +16649,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1462215710913474634, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: -1462215710913474634, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Transparent
+      objectReference: {fileID: 0}
     - target: {fileID: -645779136092229516, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -16458,10 +16689,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small_Bookshelf1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Transparent
+      objectReference: {fileID: 0}
     - target: {fileID: 1181748354234776827, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282143893009416871, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282143893009416871, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Transparent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -16651,7 +16902,15 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1582749579}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -1462215710913474634, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1105416517}
+    - targetCorrespondingSourceObject: {fileID: 1282143893009416871, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1309213966}
   m_SourcePrefab: {fileID: 100100000, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
 --- !u!4 &298434349 stripped
 Transform:
@@ -21804,9 +22063,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 315032237}
-  m_Layer: 0
+  - component: {fileID: 315032238}
+  m_Layer: 21
   m_Name: Origin (38)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21827,6 +22087,18 @@ Transform:
   - {fileID: 338620371}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
+--- !u!114 &315032238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315032236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &315393563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22009,9 +22281,10 @@ GameObject:
   - component: {fileID: 336992192}
   - component: {fileID: 336992194}
   - component: {fileID: 336992193}
-  m_Layer: 0
+  - component: {fileID: 336992195}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22081,6 +22354,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336992191}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &336992195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336992191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &337068809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6763858364670572316, guid: 07301144ea470234d89f2b1408fe8736,
@@ -22119,9 +22404,10 @@ GameObject:
   - component: {fileID: 338620371}
   - component: {fileID: 338620373}
   - component: {fileID: 338620372}
-  m_Layer: 0
+  - component: {fileID: 338620374}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22191,6 +22477,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338620370}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &338620374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338620370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &347424872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22379,9 +22677,10 @@ GameObject:
   - component: {fileID: 359707241}
   - component: {fileID: 359707243}
   - component: {fileID: 359707242}
-  m_Layer: 0
+  - component: {fileID: 359707244}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22451,6 +22750,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359707240}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &359707244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359707240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &365527277
 GameObject:
   m_ObjectHideFlags: 0
@@ -22589,7 +22900,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c92d6fe2f8d025d498ee97b433ef8b92, type: 2}
+      objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -22725,9 +23036,10 @@ GameObject:
   - component: {fileID: 401031740}
   - component: {fileID: 401031742}
   - component: {fileID: 401031741}
-  m_Layer: 0
+  - component: {fileID: 401031743}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22797,6 +23109,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401031739}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &401031743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401031739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &403101399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3238589873253185278, guid: 2396d578ced57f84d88c8659dbd74178,
@@ -22814,9 +23138,10 @@ GameObject:
   - component: {fileID: 434116779}
   - component: {fileID: 434116781}
   - component: {fileID: 434116780}
-  m_Layer: 0
+  - component: {fileID: 434116782}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22886,6 +23211,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434116778}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &434116782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434116778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &435654167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23049,9 +23386,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 435778885}
-  m_Layer: 0
+  - component: {fileID: 435778886}
+  m_Layer: 21
   m_Name: Origin (45)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23072,6 +23410,18 @@ Transform:
   - {fileID: 1646980232}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 300, z: 0}
+--- !u!114 &435778886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435778884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &447448657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23089,7 +23439,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c92d6fe2f8d025d498ee97b433ef8b92, type: 2}
+      objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -23219,9 +23569,10 @@ GameObject:
   - component: {fileID: 452387760}
   - component: {fileID: 452387762}
   - component: {fileID: 452387761}
-  m_Layer: 0
+  - component: {fileID: 452387763}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23291,6 +23642,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452387759}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &452387763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452387759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &458609264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23486,9 +23849,10 @@ GameObject:
   - component: {fileID: 467226378}
   - component: {fileID: 467226380}
   - component: {fileID: 467226379}
-  m_Layer: 0
+  - component: {fileID: 467226381}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23558,6 +23922,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467226377}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &467226381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467226377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &476774717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23800,9 +24176,10 @@ GameObject:
   - component: {fileID: 482074039}
   - component: {fileID: 482074041}
   - component: {fileID: 482074040}
-  m_Layer: 0
+  - component: {fileID: 482074042}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23872,6 +24249,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482074038}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &482074042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482074038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &491355335
 GameObject:
   m_ObjectHideFlags: 0
@@ -23881,9 +24270,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 491355336}
-  m_Layer: 0
+  - component: {fileID: 491355337}
+  m_Layer: 21
   m_Name: Origin (29)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23904,6 +24294,18 @@ Transform:
   - {fileID: 683015173}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 165, z: 0}
+--- !u!114 &491355337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491355335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &497384950
 GameObject:
   m_ObjectHideFlags: 0
@@ -28766,9 +29168,10 @@ GameObject:
   - component: {fileID: 512188279}
   - component: {fileID: 512188281}
   - component: {fileID: 512188280}
-  m_Layer: 0
+  - component: {fileID: 512188282}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28838,6 +29241,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512188278}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &512188282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512188278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &515128870
 GameObject:
   m_ObjectHideFlags: 0
@@ -28847,9 +29262,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 515128871}
-  m_Layer: 0
+  - component: {fileID: 515128872}
+  m_Layer: 21
   m_Name: Origin (26)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28870,6 +29286,18 @@ Transform:
   - {fileID: 885823602}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 75, z: 0}
+--- !u!114 &515128872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515128870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &530068156
 GameObject:
   m_ObjectHideFlags: 0
@@ -28881,9 +29309,10 @@ GameObject:
   - component: {fileID: 530068157}
   - component: {fileID: 530068159}
   - component: {fileID: 530068158}
-  m_Layer: 0
+  - component: {fileID: 530068160}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28953,6 +29382,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530068156}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &530068160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530068156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &531288620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 07301144ea470234d89f2b1408fe8736,
@@ -28997,9 +29438,10 @@ GameObject:
   - component: {fileID: 534545613}
   - component: {fileID: 534545615}
   - component: {fileID: 534545614}
-  m_Layer: 0
+  - component: {fileID: 534545616}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29069,6 +29511,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534545612}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &534545616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534545612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &541500348
 GameObject:
   m_ObjectHideFlags: 0
@@ -29080,9 +29534,10 @@ GameObject:
   - component: {fileID: 541500349}
   - component: {fileID: 541500351}
   - component: {fileID: 541500350}
-  m_Layer: 0
+  - component: {fileID: 541500352}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29152,6 +29607,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541500348}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &541500352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541500348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &542581676
 GameObject:
   m_ObjectHideFlags: 0
@@ -29163,9 +29630,10 @@ GameObject:
   - component: {fileID: 542581677}
   - component: {fileID: 542581679}
   - component: {fileID: 542581678}
-  m_Layer: 0
+  - component: {fileID: 542581680}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29235,6 +29703,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542581676}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &542581680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542581676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &547728657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29334,9 +29814,10 @@ GameObject:
   - component: {fileID: 558170004}
   - component: {fileID: 558170006}
   - component: {fileID: 558170005}
-  m_Layer: 0
+  - component: {fileID: 558170007}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29406,6 +29887,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558170003}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &558170007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558170003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &561407677
 GameObject:
   m_ObjectHideFlags: 0
@@ -34703,9 +35196,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 606243932}
-  m_Layer: 0
+  - component: {fileID: 606243933}
+  m_Layer: 21
   m_Name: Origin (1)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34726,6 +35220,18 @@ Transform:
   - {fileID: 86245448}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 15, z: 0}
+--- !u!114 &606243933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606243931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &611961074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
@@ -39771,9 +40277,10 @@ GameObject:
   - component: {fileID: 657801263}
   - component: {fileID: 657801265}
   - component: {fileID: 657801264}
-  m_Layer: 0
+  - component: {fileID: 657801266}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39843,6 +40350,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657801262}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &657801266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657801262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &683015172
 GameObject:
   m_ObjectHideFlags: 0
@@ -39854,9 +40373,10 @@ GameObject:
   - component: {fileID: 683015173}
   - component: {fileID: 683015175}
   - component: {fileID: 683015174}
-  m_Layer: 0
+  - component: {fileID: 683015176}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39926,6 +40446,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683015172}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &683015176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683015172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &701068610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 281855664364225751, guid: 07301144ea470234d89f2b1408fe8736,
@@ -40069,9 +40601,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 718699814}
-  m_Layer: 0
+  - component: {fileID: 718699815}
+  m_Layer: 21
   m_Name: Origin (28)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40092,6 +40625,18 @@ Transform:
   - {fileID: 542581677}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 135, z: 0}
+--- !u!114 &718699815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718699813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &736887706
 GameObject:
   m_ObjectHideFlags: 0
@@ -40101,9 +40646,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 736887707}
-  m_Layer: 0
+  - component: {fileID: 736887708}
+  m_Layer: 21
   m_Name: Origin (22)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40124,6 +40670,18 @@ Transform:
   - {fileID: 1059843181}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 330, z: 0}
+--- !u!114 &736887708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736887706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &738668892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40558,9 +41116,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 767383214}
-  m_Layer: 0
+  - component: {fileID: 767383215}
+  m_Layer: 21
   m_Name: Origin (36)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40581,6 +41140,18 @@ Transform:
   - {fileID: 113809516}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 30, z: 0}
+--- !u!114 &767383215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767383213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &769992588
 GameObject:
   m_ObjectHideFlags: 0
@@ -40683,9 +41254,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 771216411}
-  m_Layer: 0
+  - component: {fileID: 771216412}
+  m_Layer: 21
   m_Name: Origin (15)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40706,6 +41278,18 @@ Transform:
   - {fileID: 1378499721}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 225, z: 0}
+--- !u!114 &771216412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771216410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &799265114 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8009987137999418058, guid: 07301144ea470234d89f2b1408fe8736,
@@ -40744,9 +41328,10 @@ GameObject:
   - component: {fileID: 808303436}
   - component: {fileID: 808303438}
   - component: {fileID: 808303437}
-  m_Layer: 0
+  - component: {fileID: 808303439}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40816,6 +41401,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808303435}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &808303439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808303435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &814858130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8991476664664617511, guid: 0e3556f6a19bdb6438e68c79cf89c821,
@@ -41041,9 +41638,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 859325411}
-  m_Layer: 0
+  - component: {fileID: 859325412}
+  m_Layer: 21
   m_Name: Origin (44)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41064,6 +41662,18 @@ Transform:
   - {fileID: 1515307046}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 270, z: 0}
+--- !u!114 &859325412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859325410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &859610373
 GameObject:
   m_ObjectHideFlags: 0
@@ -41073,9 +41683,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 859610374}
-  m_Layer: 0
+  - component: {fileID: 859610375}
+  m_Layer: 21
   m_Name: Origin (10)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41096,6 +41707,18 @@ Transform:
   - {fileID: 864650541}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 150, z: 0}
+--- !u!114 &859610375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859610373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860338880
 GameObject:
   m_ObjectHideFlags: 0
@@ -45958,9 +46581,10 @@ GameObject:
   - component: {fileID: 864650541}
   - component: {fileID: 864650543}
   - component: {fileID: 864650542}
-  m_Layer: 0
+  - component: {fileID: 864650544}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46030,6 +46654,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864650540}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &864650544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864650540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &865764028
 GameObject:
   m_ObjectHideFlags: 0
@@ -46041,9 +46677,10 @@ GameObject:
   - component: {fileID: 865764029}
   - component: {fileID: 865764031}
   - component: {fileID: 865764030}
-  m_Layer: 0
+  - component: {fileID: 865764032}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46113,6 +46750,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865764028}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &865764032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865764028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &882724352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46316,9 +46965,10 @@ GameObject:
   - component: {fileID: 885823602}
   - component: {fileID: 885823604}
   - component: {fileID: 885823603}
-  m_Layer: 0
+  - component: {fileID: 885823605}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46388,6 +47038,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885823601}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &885823605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885823601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &892159929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6554827985546496060, guid: 12e2edf849405b44ea899967fa705dcb,
@@ -46403,9 +47065,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 895526050}
-  m_Layer: 0
+  - component: {fileID: 895526051}
+  m_Layer: 21
   m_Name: Origin (5)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46426,6 +47089,18 @@ Transform:
   - {fileID: 534545613}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 75, z: 0}
+--- !u!114 &895526051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895526049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &896032709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46528,9 +47203,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 896245668}
-  m_Layer: 0
+  - component: {fileID: 896245669}
+  m_Layer: 21
   m_Name: Origin (30)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46551,6 +47227,18 @@ Transform:
   - {fileID: 359707241}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 195, z: 0}
+--- !u!114 &896245669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896245667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &905786717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46662,7 +47350,7 @@ PrefabInstance:
     - target: {fileID: -5568371526223589888, guid: 07301144ea470234d89f2b1408fe8736,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 07301144ea470234d89f2b1408fe8736,
         type: 3}
@@ -46929,7 +47617,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c92d6fe2f8d025d498ee97b433ef8b92, type: 2}
+      objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -47324,9 +48012,10 @@ GameObject:
   - component: {fileID: 1040294357}
   - component: {fileID: 1040294359}
   - component: {fileID: 1040294358}
-  m_Layer: 0
+  - component: {fileID: 1040294360}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47396,6 +48085,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040294356}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1040294360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040294356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1040849251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47481,9 +48182,10 @@ GameObject:
   - component: {fileID: 1059843181}
   - component: {fileID: 1059843183}
   - component: {fileID: 1059843182}
-  m_Layer: 0
+  - component: {fileID: 1059843184}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47553,6 +48255,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059843180}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1059843184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059843180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1062147991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47671,9 +48385,10 @@ GameObject:
   - component: {fileID: 1071776680}
   - component: {fileID: 1071776682}
   - component: {fileID: 1071776681}
-  m_Layer: 0
+  - component: {fileID: 1071776683}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47743,6 +48458,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071776679}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1071776683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071776679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1081399159
 GameObject:
   m_ObjectHideFlags: 0
@@ -47754,9 +48481,10 @@ GameObject:
   - component: {fileID: 1081399160}
   - component: {fileID: 1081399162}
   - component: {fileID: 1081399161}
-  m_Layer: 0
+  - component: {fileID: 1081399163}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47826,6 +48554,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081399159}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1081399163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081399159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1102578514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48103,6 +48843,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1331362667}
   m_SourcePrefab: {fileID: 100100000, guid: 2396d578ced57f84d88c8659dbd74178, type: 3}
+--- !u!1 &1105416515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1462215710913474634, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+    type: 3}
+  m_PrefabInstance: {fileID: 298434348}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1105416517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105416515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1108140517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53126,9 +53884,10 @@ GameObject:
   - component: {fileID: 1146319572}
   - component: {fileID: 1146319574}
   - component: {fileID: 1146319573}
-  m_Layer: 0
+  - component: {fileID: 1146319575}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53198,6 +53957,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146319571}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1146319575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146319571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1174446659
 GameObject:
   m_ObjectHideFlags: 0
@@ -53908,9 +54679,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1249720820}
-  m_Layer: 0
+  - component: {fileID: 1249720821}
+  m_Layer: 21
   m_Name: Origin (7)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53931,6 +54703,18 @@ Transform:
   - {fileID: 1081399160}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 105, z: 0}
+--- !u!114 &1249720821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249720819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1250156640
 GameObject:
   m_ObjectHideFlags: 0
@@ -54343,6 +55127,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2105469691}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1309213962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1282143893009416871, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9,
+    type: 3}
+  m_PrefabInstance: {fileID: 298434348}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1309213966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309213962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1310215906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54604,9 +55406,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1323867504}
-  m_Layer: 0
+  - component: {fileID: 1323867505}
+  m_Layer: 21
   m_Name: Origin (8)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54627,6 +55430,18 @@ Transform:
   - {fileID: 512188279}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 120, z: 0}
+--- !u!114 &1323867505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323867503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1324561841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8575301898104034719, guid: 3bf01c9416ba0144688660b345b92778,
@@ -54666,9 +55481,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1342535084}
-  m_Layer: 0
+  - component: {fileID: 1342535085}
+  m_Layer: 21
   m_Name: Origin (34)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54689,6 +55505,18 @@ Transform:
   - {fileID: 434116779}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 315, z: 0}
+--- !u!114 &1342535085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342535083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1356528944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54886,9 +55714,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1361720308}
-  m_Layer: 0
+  - component: {fileID: 1361720309}
+  m_Layer: 21
   m_Name: Origin (11)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54909,6 +55738,18 @@ Transform:
   - {fileID: 143095698}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 165, z: 0}
+--- !u!114 &1361720309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361720307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1378499720
 GameObject:
   m_ObjectHideFlags: 0
@@ -54920,9 +55761,10 @@ GameObject:
   - component: {fileID: 1378499721}
   - component: {fileID: 1378499723}
   - component: {fileID: 1378499722}
-  m_Layer: 0
+  - component: {fileID: 1378499724}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54992,6 +55834,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378499720}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1378499724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378499720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1383612874
 GameObject:
   m_ObjectHideFlags: 0
@@ -59908,9 +60762,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1394928168}
-  m_Layer: 0
+  - component: {fileID: 1394928169}
+  m_Layer: 21
   m_Name: Origin (18)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59931,6 +60786,18 @@ Transform:
   - {fileID: 1414572124}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 270, z: 0}
+--- !u!114 &1394928169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394928167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1404367677
 GameObject:
   m_ObjectHideFlags: 0
@@ -59940,9 +60807,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1404367678}
-  m_Layer: 0
+  - component: {fileID: 1404367679}
+  m_Layer: 21
   m_Name: Origin (17)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59963,6 +60831,18 @@ Transform:
   - {fileID: 657801263}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 255, z: 0}
+--- !u!114 &1404367679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404367677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1412015131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60053,9 +60933,10 @@ GameObject:
   - component: {fileID: 1414572124}
   - component: {fileID: 1414572126}
   - component: {fileID: 1414572125}
-  m_Layer: 0
+  - component: {fileID: 1414572127}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60125,6 +61006,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414572123}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1414572127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414572123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1424153992
 GameObject:
   m_ObjectHideFlags: 0
@@ -65036,9 +65929,10 @@ GameObject:
   - component: {fileID: 1426668983}
   - component: {fileID: 1426668985}
   - component: {fileID: 1426668984}
-  m_Layer: 0
+  - component: {fileID: 1426668986}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65108,6 +66002,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426668982}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1426668986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426668982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1448420861
 GameObject:
   m_ObjectHideFlags: 0
@@ -65119,9 +66025,10 @@ GameObject:
   - component: {fileID: 1448420862}
   - component: {fileID: 1448420864}
   - component: {fileID: 1448420863}
-  m_Layer: 0
+  - component: {fileID: 1448420865}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65191,6 +66098,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448420861}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1448420865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448420861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1451337624
 GameObject:
   m_ObjectHideFlags: 0
@@ -65313,9 +66232,10 @@ GameObject:
   - component: {fileID: 1459138575}
   - component: {fileID: 1459138577}
   - component: {fileID: 1459138576}
-  m_Layer: 0
+  - component: {fileID: 1459138578}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65385,6 +66305,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459138574}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1459138578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459138574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1461891152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6385180521039346106, guid: ec59781496f69444ab998af67f2b0ec9,
@@ -65424,9 +66356,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1476373796}
-  m_Layer: 0
+  - component: {fileID: 1476373797}
+  m_Layer: 21
   m_Name: Origin (6)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65447,6 +66380,18 @@ Transform:
   - {fileID: 1961799917}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
+--- !u!114 &1476373797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476373795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1488925459
 GameObject:
   m_ObjectHideFlags: 0
@@ -65456,9 +66401,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1488925460}
-  m_Layer: 0
+  - component: {fileID: 1488925461}
+  m_Layer: 21
   m_Name: Origin (2)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65479,6 +66425,18 @@ Transform:
   - {fileID: 1988483083}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 30, z: 0}
+--- !u!114 &1488925461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488925459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1491535660
 GameObject:
   m_ObjectHideFlags: 0
@@ -65725,9 +66683,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514531572}
-  m_Layer: 0
+  - component: {fileID: 1514531573}
+  m_Layer: 21
   m_Name: Origin (37)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65748,6 +66707,18 @@ Transform:
   - {fileID: 1707064685}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 60, z: 0}
+--- !u!114 &1514531573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514531571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1515307045
 GameObject:
   m_ObjectHideFlags: 0
@@ -65759,9 +66730,10 @@ GameObject:
   - component: {fileID: 1515307046}
   - component: {fileID: 1515307048}
   - component: {fileID: 1515307047}
-  m_Layer: 0
+  - component: {fileID: 1515307049}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65831,6 +66803,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515307045}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1515307049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515307045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1517051556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71137,9 +72121,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1564067427}
-  m_Layer: 0
+  - component: {fileID: 1564067428}
+  m_Layer: 21
   m_Name: Origin (24)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71160,6 +72145,18 @@ Transform:
   - {fileID: 452387760}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 15, z: 0}
+--- !u!114 &1564067428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564067426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1567693912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4673061110187000, guid: 8d95b0f8c46e9a046a04bea2deb6ef00,
@@ -71183,7 +72180,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c92d6fe2f8d025d498ee97b433ef8b92, type: 2}
+      objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -71311,9 +72308,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1582749579}
-  m_Layer: 0
+  - component: {fileID: 1582749580}
+  m_Layer: 21
   m_Name: Origin (35)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71334,6 +72332,18 @@ Transform:
   - {fileID: 3369976}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 345, z: 0}
+--- !u!114 &1582749580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582749578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1616383073
 GameObject:
   m_ObjectHideFlags: 0
@@ -71343,9 +72353,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1616383074}
-  m_Layer: 0
+  - component: {fileID: 1616383075}
+  m_Layer: 21
   m_Name: Origin (42)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71366,6 +72377,18 @@ Transform:
   - {fileID: 2931974}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 210, z: 0}
+--- !u!114 &1616383075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616383073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1626126077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71558,9 +72581,10 @@ GameObject:
   - component: {fileID: 1646980232}
   - component: {fileID: 1646980234}
   - component: {fileID: 1646980233}
-  m_Layer: 0
+  - component: {fileID: 1646980235}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71630,6 +72654,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646980231}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1646980235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646980231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1653602840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5315667016057797467, guid: 12a1276311283aa4f8ea9822b7817e6a,
@@ -71670,9 +72706,10 @@ GameObject:
   - component: {fileID: 1662362271}
   - component: {fileID: 1662362273}
   - component: {fileID: 1662362272}
-  m_Layer: 0
+  - component: {fileID: 1662362274}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71742,6 +72779,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662362270}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1662362274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662362270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1662628280
 GameObject:
   m_ObjectHideFlags: 0
@@ -71751,9 +72800,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1662628281}
-  m_Layer: 0
+  - component: {fileID: 1662628282}
+  m_Layer: 21
   m_Name: Origin (3)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71774,6 +72824,18 @@ Transform:
   - {fileID: 2049190137}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 45, z: 0}
+--- !u!114 &1662628282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662628280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1668104167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400030, guid: 99a4a7173eef98c42a948a330329d62c,
@@ -71789,9 +72851,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1670314921}
-  m_Layer: 0
+  - component: {fileID: 1670314922}
+  m_Layer: 21
   m_Name: Origin (23)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71812,6 +72875,18 @@ Transform:
   - {fileID: 1071776680}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 345, z: 0}
+--- !u!114 &1670314922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670314920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1674865832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1502877291743220047, guid: 07301144ea470234d89f2b1408fe8736,
@@ -71848,9 +72923,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1689016444}
-  m_Layer: 0
+  - component: {fileID: 1689016445}
+  m_Layer: 21
   m_Name: Origin (27)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71871,6 +72947,18 @@ Transform:
   - {fileID: 530068157}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 105, z: 0}
+--- !u!114 &1689016445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689016443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1707064684
 GameObject:
   m_ObjectHideFlags: 0
@@ -71882,9 +72970,10 @@ GameObject:
   - component: {fileID: 1707064685}
   - component: {fileID: 1707064687}
   - component: {fileID: 1707064686}
-  m_Layer: 0
+  - component: {fileID: 1707064688}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71954,6 +73043,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707064684}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1707064688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707064684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1711945772
 GameObject:
   m_ObjectHideFlags: 0
@@ -72113,9 +73214,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1751312392}
-  m_Layer: 0
+  - component: {fileID: 1751312393}
+  m_Layer: 21
   m_Name: Origin (16)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72136,6 +73238,18 @@ Transform:
   - {fileID: 482074039}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 240, z: 0}
+--- !u!114 &1751312393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751312391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1762574075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72370,9 +73484,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1768801246}
-  m_Layer: 0
+  - component: {fileID: 1768801247}
+  m_Layer: 21
   m_Name: Origin (19)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72393,6 +73508,18 @@ Transform:
   - {fileID: 865764029}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 285, z: 0}
+--- !u!114 &1768801247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768801245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783194181
 GameObject:
   m_ObjectHideFlags: 0
@@ -77598,7 +78725,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c92d6fe2f8d025d498ee97b433ef8b92, type: 2}
+      objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -77726,9 +78853,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1811980294}
-  m_Layer: 0
+  - component: {fileID: 1811980295}
+  m_Layer: 21
   m_Name: Origin (33)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77749,6 +78877,18 @@ Transform:
   - {fileID: 1040294357}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 285, z: 0}
+--- !u!114 &1811980295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811980293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1816158299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3238589873253185278, guid: 2396d578ced57f84d88c8659dbd74178,
@@ -83172,9 +84312,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1892810211}
-  m_Layer: 0
+  - component: {fileID: 1892810212}
+  m_Layer: 21
   m_Name: Origin (14)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83195,6 +84336,18 @@ Transform:
   - {fileID: 1662362271}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 210, z: 0}
+--- !u!114 &1892810212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892810210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1914346289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83533,7 +84686,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c92d6fe2f8d025d498ee97b433ef8b92, type: 2}
+      objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -88894,9 +90047,10 @@ GameObject:
   - component: {fileID: 1961799917}
   - component: {fileID: 1961799919}
   - component: {fileID: 1961799918}
-  m_Layer: 0
+  - component: {fileID: 1961799920}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88966,6 +90120,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961799916}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1961799920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961799916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1969699511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a67e6bb3cfa6faa4989e1404ab4ec14f,
@@ -89008,9 +90174,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1987460300}
-  m_Layer: 0
+  - component: {fileID: 1987460301}
+  m_Layer: 21
   m_Name: Origin (32)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89031,6 +90198,18 @@ Transform:
   - {fileID: 127944847}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 255, z: 0}
+--- !u!114 &1987460301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987460299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988483082
 GameObject:
   m_ObjectHideFlags: 0
@@ -89042,9 +90221,10 @@ GameObject:
   - component: {fileID: 1988483083}
   - component: {fileID: 1988483085}
   - component: {fileID: 1988483084}
-  m_Layer: 0
+  - component: {fileID: 1988483086}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89114,6 +90294,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988483082}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &1988483086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988483082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1999334102
 GameObject:
   m_ObjectHideFlags: 0
@@ -98995,7 +100187,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c92d6fe2f8d025d498ee97b433ef8b92, type: 2}
+      objectReference: {fileID: 2100000, guid: eebe31a09759c514f80a14a7162cf5c6, type: 2}
     - target: {fileID: 3238589873252821726, guid: 2396d578ced57f84d88c8659dbd74178,
         type: 3}
       propertyPath: m_Name
@@ -99125,9 +100317,10 @@ GameObject:
   - component: {fileID: 2021218558}
   - component: {fileID: 2021218560}
   - component: {fileID: 2021218559}
-  m_Layer: 0
+  - component: {fileID: 2021218561}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99197,6 +100390,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021218557}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &2021218561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021218557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2036741746
 GameObject:
   m_ObjectHideFlags: 0
@@ -99508,9 +100713,10 @@ GameObject:
   - component: {fileID: 2049190137}
   - component: {fileID: 2049190139}
   - component: {fileID: 2049190138}
-  m_Layer: 0
+  - component: {fileID: 2049190140}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99580,6 +100786,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049190136}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &2049190140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049190136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2065079815
 GameObject:
   m_ObjectHideFlags: 0
@@ -99589,9 +100807,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2065079816}
-  m_Layer: 0
+  - component: {fileID: 2065079817}
+  m_Layer: 21
   m_Name: Origin (21)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99612,6 +100831,18 @@ Transform:
   - {fileID: 808303436}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 315, z: 0}
+--- !u!114 &2065079817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065079815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2074401474
 GameObject:
   m_ObjectHideFlags: 0
@@ -99623,9 +100854,10 @@ GameObject:
   - component: {fileID: 2074401475}
   - component: {fileID: 2074401477}
   - component: {fileID: 2074401476}
-  m_Layer: 0
+  - component: {fileID: 2074401478}
+  m_Layer: 21
   m_Name: Old_Dusty_Bookshelf
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99695,6 +100927,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074401474}
   m_Mesh: {fileID: 4701256047158734616, guid: cb3ef7c7fe72c7e44a10b87b4f64fff9, type: 3}
+--- !u!114 &2074401478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074401474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2082138255
 GameObject:
   m_ObjectHideFlags: 0
@@ -99704,9 +100948,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2082138256}
-  m_Layer: 0
+  - component: {fileID: 2082138257}
+  m_Layer: 21
   m_Name: Origin (25)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99727,6 +100972,18 @@ Transform:
   - {fileID: 159226146}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 45, z: 0}
+--- !u!114 &2082138257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082138255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2083234722
 GameObject:
   m_ObjectHideFlags: 0
@@ -104789,9 +106046,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2104034330}
-  m_Layer: 0
+  - component: {fileID: 2104034331}
+  m_Layer: 21
   m_Name: Origin (41)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104812,6 +106070,18 @@ Transform:
   - {fileID: 336992192}
   m_Father: {fileID: 298434349}
   m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
+--- !u!114 &2104034331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104034329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2105469691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105373,12 +106643,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.36829457
+      value: -0.8336198
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.92970914
+      value: 0.55233866
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
