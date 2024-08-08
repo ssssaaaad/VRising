@@ -16,6 +16,7 @@ public class Playerstate : MonoBehaviour
     {
         hp_Current = hp_Max;
         PM = GetComponent<PlayerManager>();
+        Cskill = GetComponent<Cskill>();
     }
 
     void Update()
@@ -25,8 +26,10 @@ public class Playerstate : MonoBehaviour
 
     public void UpdateHP(float dmg)
     {
+        print(1);
         if (PM.cskilling)
         {
+            print(2);
             Cskill.Cdmg = dmg;
             Cskill.counter = true;
         }
