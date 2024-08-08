@@ -55,8 +55,6 @@ public class Cskill : MonoBehaviour
         }
         isCoolingDown = true;
 
-        gameObject.layer = LayerMask.NameToLayer(noHitPlayer);  // 무적판정
-
         float finishTime = Time.time + slowDuration;
 
         // 시전 시간 동안 캐릭터 속도 감소
@@ -72,6 +70,7 @@ public class Cskill : MonoBehaviour
         {
             if (counter)
             {
+                gameObject.layer = LayerMask.NameToLayer(noHitPlayer);  // 무적판정
                 Debug.Log("반격");
 
                 finishTime += plusTime;
@@ -96,9 +95,10 @@ public class Cskill : MonoBehaviour
             }
             counter = false;
             Debug.Log("추가무적 끝");
+            gameObject.layer = originalLayer;
         }
 
-        gameObject.layer = originalLayer;
+        
 
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         if (playerMove != null)
