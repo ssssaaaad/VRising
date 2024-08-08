@@ -242,7 +242,7 @@
     },
     "com.unity.terrain-tools": {
       "version": "5.0.1",
-      "depth": 1,
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.terrain": "1.0.0",
