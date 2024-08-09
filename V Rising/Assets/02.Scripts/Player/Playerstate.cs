@@ -22,6 +22,7 @@ public class Playerstate : MonoBehaviour
         hp_Current = hp_Max;
         PM = GetComponent<PlayerManager>();
         Cskill = GetComponent<Cskill>();
+        OnHealthChanged?.Invoke(hp_Current, hp_Max);
     }
 
     void Update()
