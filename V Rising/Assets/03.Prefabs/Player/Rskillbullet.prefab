@@ -5221,7 +5221,7 @@ PrefabInstance:
     - target: {fileID: 198312183488155580, guid: 80ced24a9aea95e49a157e5ebc1b6f7c,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 198312183488155580, guid: 80ced24a9aea95e49a157e5ebc1b6f7c,
         type: 3}
@@ -5231,7 +5231,7 @@ PrefabInstance:
     - target: {fileID: 198312183488155580, guid: 80ced24a9aea95e49a157e5ebc1b6f7c,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 198312183488155580, guid: 80ced24a9aea95e49a157e5ebc1b6f7c,
         type: 3}

@@ -9,7 +9,7 @@ public class TransparentObject : MonoBehaviour
     private MeshRenderer[] renderers;
     private WaitForSeconds delay = new WaitForSeconds(0.001f);
     private WaitForSeconds resetDelay = new WaitForSeconds(0.005f);
-    private const float THRESHOLD_ALPHA = 0.1f;
+    private const float THRESHOLD_ALPHA = 0.12f;
     private const float THRESHOLD_MAX_TIMER = 0.5f;
 
     private bool isReseting = false;

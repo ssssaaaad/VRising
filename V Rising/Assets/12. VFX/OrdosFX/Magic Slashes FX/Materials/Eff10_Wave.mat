@@ -94,5 +94,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DistStrength: {r: 0.5, g: 0.1, b: 10, a: 10}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 2, g: 2, b: 2, a: 0.7019608}
+    - _TintColor: {r: 1.0579864, g: 1.1243465, b: 1.7801044, a: 0.3529412}
   m_BuildTextureStacks: []
