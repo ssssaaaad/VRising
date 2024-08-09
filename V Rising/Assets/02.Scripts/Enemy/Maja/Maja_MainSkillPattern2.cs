@@ -102,8 +102,8 @@ public class Maja_MainSkillPattern2 : Pattern
             }
             yield return new WaitForSeconds(0.1f);
         }
-        minion.UpdateHP(-1000, false);
-        maja.UpdateHP(maja.hp_Max * 0.1f);
+        minion.UpdateHP(-1000, null, false);
+        maja.UpdateHP(maja.hp_Max * 0.1f, null);
         yield return new WaitForSeconds(0.5f);
         patterDelay = false;
         maja.animator.SetTrigger("Cancle");

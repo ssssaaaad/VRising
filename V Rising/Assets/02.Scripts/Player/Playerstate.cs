@@ -51,7 +51,6 @@ public class Playerstate : MonoBehaviour
 
     public void UpdateHP(float dmg)
     {
-        print(1);
         if (PM.cskilling)
         {
             Cskill.Cdmg = dmg;

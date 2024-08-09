@@ -286,7 +286,7 @@ public class Maja : Enemy
         {
             if (maja_Minions[0] != null)
             {
-                maja_Minions[0].UpdateHP(-1000, false);
+                maja_Minions[0].UpdateHP(-1000, null,false);
             }
         }
     }
