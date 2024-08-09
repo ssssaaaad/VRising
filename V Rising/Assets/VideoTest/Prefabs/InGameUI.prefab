@@ -1244,7 +1244,7 @@ GameObject:
   - component: {fileID: 8116048694262738396}
   - component: {fileID: 8326540612870319721}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: HPName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3427,7 +3427,7 @@ GameObject:
   - component: {fileID: 4940308639989431666}
   - component: {fileID: 7131318895251482817}
   m_Layer: 5
-  m_Name: Image
+  m_Name: HealthBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3473,7 +3473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3818,7 +3818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3127869715420287757}
   m_Layer: 5
-  m_Name: bar
+  m_Name: BarValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4122,6 +4122,7 @@ GameObject:
   - component: {fileID: 1557781444889718207}
   - component: {fileID: 2689140724462901325}
   - component: {fileID: 2851632026172226592}
+  - component: {fileID: 14643367741026323}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -4218,6 +4219,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &14643367741026323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3930790322449555773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8311afcd4ba4345854d4c4869f74dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  healthBarImage: {fileID: 64394911834303176}
+  updateSpeedSeconds: 0.5
+  curentHealthText: {fileID: 2352418321777572745}
+  maxHealthText: {fileID: 6655701442148033953}
 --- !u!1 &4023063164936973810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,7 +4591,7 @@ GameObject:
   - component: {fileID: 2868401357571283775}
   - component: {fileID: 6655701442148033953}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: MaxHealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5130,7 +5148,7 @@ GameObject:
   - component: {fileID: 2827595885169594208}
   - component: {fileID: 64394911834303176}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5188,7 +5206,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.609
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -9424,7 +9442,7 @@ GameObject:
   - component: {fileID: 8100187292484426069}
   - component: {fileID: 2352418321777572745}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: CurrentHealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
