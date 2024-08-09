@@ -29,6 +29,8 @@ public class SkinnedMeshToMesh : MonoBehaviour
             VFXGraph.SetMesh("Mesh", m2);
 
             yield return new WaitForSeconds (refreshrate);
+            m.Clear();
+            m2.Clear();
         }
     }
 }
