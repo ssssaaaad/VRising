@@ -16,7 +16,7 @@ public class Rskill : MonoBehaviour
 
     public float Rdmg = 1.5f;
 
-    public float skillSpeed = 20f; // 발사체의 속도
+    public float skillSpeed = 40f; // 발사체의 속도
     public float castTime = 1f; // 시전 시간 (초)
     public float cooldownTime = 8f; // 쿨타임 (초)
     public float slowSpeed = 0.5f; // 시전 시 캐릭터 속도 감소

@@ -9,10 +9,10 @@ public class HP_Scan_Range : MonoBehaviour
 
     //public LayerMask layerMask;
     //public float radius;
-    public bool canF = false;
+    private bool canF = false;
 
-    public List<Transform> Enemys = new List<Transform>();
-    public Transform closeEnemy;
+    public List<Collider> Enemys = new List<Collider>();
+    public Collider closeEnemy;
 
     //private Collider[] colliders;
 
@@ -30,28 +30,29 @@ public class HP_Scan_Range : MonoBehaviour
             for(int i = Enemys.Count - 1; i >= 0; i --)
             {
                 // 리스트 안에 있는 적이 죽었을 경우 리스트에서 제거
-                if (!Enemys[i].GetComponentInParent<Enemy>().alive)
+                //if (!Enemys[i].GetComponentInParent<Enemy>().alive)
+                //{
+                //    Enemys.Remove(Enemys[i]);
+                //}
+                //else
+                if (closeEnemy == null)
                 {
-                    Enemys.Remove(Enemys[i]);
-                }
-                else if (closeEnemy == null)
-                {
-                    closeEnemy = Enemys[i].transform;
+                    closeEnemy = Enemys[i];
                 }   
                 else
                 {
-                    if (Vector3.Distance(transform.position, closeEnemy.position)
-                        > Vector3.Distance(transform.position, Enemys[i].position))
+                    if (Vector3.Distance(transform.position, closeEnemy.transform.position)
+                        > Vector3.Distance(transform.position, Enemys[i].transform.position))
                     {
                         closeEnemy = Enemys[i];
                     }
                 }
             }
-            Fblood.FActive(true);
+            canF = true;
         }
         else
         {
-            Fblood.FActive(false);
+            canF = false;
         }
     }
 
@@ -59,14 +60,19 @@ public class HP_Scan_Range : MonoBehaviour
     {
         // HP가 10퍼센트 이하라면
         // 리스트에 저장
-        Enemys.Add(other.transform);
+        Enemys.Add(other);
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        if(Enemys.Contains(other.transform))
-            Enemys.Remove(other.transform);
+        if(Enemys.Contains(other))
+            Enemys.Remove(other);
+    }
+
+    public bool CanF()
+    {
+        return canF;
     }
 
 }
