@@ -14,14 +14,21 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI curentHealthText;
     [SerializeField] private TextMeshProUGUI maxHealthText;
 
-    [SerializeField] private float textAnimationDuration = 0.3f;  // 텍스트 애니메이션 지속 시간
+    [SerializeField] private float textScaleAnimationDuration = 0.3f;  // 텍스트 애니메이션 지속 시간
     [SerializeField] private float maxTextScale = 1.5f;  // 텍스트의 최대 크기
+
+    [SerializeField] private float textAnimationDuration = 0.1f;  // 텍스트 변화 사이 시간 간격
+
+    private float targetFillAmount;
+    private float currentDisplayHealth;
 
     private void Start()
     {
         // Health 클래스의 이벤트에 리스너를 추가합니다.
         health.OnHealthChanged += UpdateHealthBar;
         curentHealthText.transform.localScale = Vector3.one;
+
+        currentDisplayHealth = health.hp_Max;
     }
 
     private void UpdateHealthBar(float currentHealth, float maxHealth)
@@ -29,11 +36,27 @@ public class InGameUIController : MonoBehaviour
         // 체력바 업데이트 
         StartCoroutine(AnimateHealthBar(currentHealth, maxHealth));
         
-        curentHealthText.text = currentHealth.ToString();
-        StartCoroutine(AnimateText());
+        curentHealthText.text = currentDisplayHealth.ToString();
+        StartCoroutine(AnimateScaleText());
+        StartCoroutine(AnimateText(currentDisplayHealth, currentHealth));
     }
 
-    IEnumerator AnimateText()
+    IEnumerator AnimateText(float startHealth, float endHealth)
+    {
+        int step = startHealth < endHealth ? 1 : -1;
+        int currentHealth = (int)startHealth;
+
+        while (currentHealth != endHealth)
+        {
+            currentHealth += step;
+            curentHealthText.text = currentHealth.ToString();
+            yield return new WaitForSeconds(textAnimationDuration);
+        }
+
+        currentDisplayHealth = endHealth;  // 최종 체력 값 업데이트
+    }
+
+    IEnumerator AnimateScaleText()
     {
         float elapsed = 0f;
 
