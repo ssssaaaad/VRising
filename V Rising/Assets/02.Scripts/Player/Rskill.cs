@@ -10,7 +10,7 @@ public class Rskill : MonoBehaviour
     private PlayerMove playerMove; // PlayerMove 스크립트 참조
     private IndiControler Indi;
 
-    public GameObject R_Skill_Particle;
+    //public GameObject R_Skill_Particle;
     public GameObject skillPrefab; // 발사할 스킬(발사체) 프리팹
     public Transform firePoint; // 스킬이 발사될 위치
     public SkillUI skillUI;
@@ -135,7 +135,6 @@ public class Rskill : MonoBehaviour
             {
                 projectile.speed = skillSpeed; // 발사체의 속도 조정
             }
-            Debug.Log("R투사체 발사");
 
             // 발사 후 스킬을 자동으로 비활성화
             Destroy(skill, DestroyBullet); // 발사체를 5초 후에 파괴 (필요에 따라 조정)
