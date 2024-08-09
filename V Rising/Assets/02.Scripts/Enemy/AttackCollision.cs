@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public delegate void CallbackEventHandler(Vector3 position);
 public class AttackCollision : MonoBehaviour
 {
     protected List<Transform> hitObjects = new List<Transform>();
@@ -10,7 +11,7 @@ public class AttackCollision : MonoBehaviour
     protected float damage;
     protected bool activeAfterHit;
     bool collision = true;
-
+    protected CallbackEventHandler callback;
     private void OnEnable()
     {
         hitObjects.Clear();
@@ -53,7 +54,10 @@ public class AttackCollision : MonoBehaviour
 
                 print(gameObject.name);
                 hitObjects.Add(other.transform);
-
+                if (callback != null)
+                {
+                    callback(transform.position);
+                }
                 other.GetComponent<Playerstate>().UpdateHP(damage);
 
                 if (hitCooltime > 0)
@@ -61,6 +65,14 @@ public class AttackCollision : MonoBehaviour
                     StartCoroutine(HitObjectCooltime(other.transform));
                 }
 
+            }
+            else if (other.transform.CompareTag("Transparent"))
+            {
+                if (callback != null)
+                {
+                    callback(transform.position);
+                    Destroy(gameObject);
+                }
             }
         }
     }

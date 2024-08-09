@@ -269,6 +269,10 @@ public class Maja : Enemy
 
     public void SpawnMinion(Vector3 position)
     {
+        if (Vector3.Distance(mapOrigin.position, position) > mapRadius)
+        {
+            position += (mapOrigin.position - position).normalized * (Vector3.Distance(mapOrigin.position, position) - mapRadius);
+        }
         Maja_Minion minion = Instantiate(minion_Prefab);
         minion.transform.position = position;
         AddMinion(minion);

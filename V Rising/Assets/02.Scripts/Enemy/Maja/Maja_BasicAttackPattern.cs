@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Maja_BasicAttackPattern : Pattern
 {
@@ -64,7 +65,7 @@ public class Maja_BasicAttackPattern : Pattern
         projectile.transform.position = transform.position + direction * startDistance;
         projectile.transform.LookAt(projectile.transform.position + direction);
         projectile.InitAttack(damage, false);
-        projectile.Fire(direction, attackDistance, attackActiveTime, ease);
+        projectile.Fire(direction, attackDistance, attackActiveTime, ease, new CallbackEventHandler(maja.SpawnMinion));
     }
 
     protected override IEnumerator PatternDelayTime()

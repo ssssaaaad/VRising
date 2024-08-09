@@ -33,6 +33,11 @@ public class Projectile : AttackCollision
             }
         }
     }
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
 
     public new void InitAttack(float damage, bool activeAfterHit, bool collision = true ,float hitCooltime = 0)
     {
@@ -41,7 +46,7 @@ public class Projectile : AttackCollision
         currentTime = 0;
     }
 
-    public void Fire(Vector3 direction, float distance, float activeTime, Ease ease, float delayTime = 0)
+    public void Fire(Vector3 direction, float distance, float activeTime, Ease ease, CallbackEventHandler callbackEvent = null, float delayTime = 0)
     {
         if (fire)
         {
@@ -51,6 +56,7 @@ public class Projectile : AttackCollision
         this.direction = direction;
         this.distance = distance;
         this.activeTime = activeTime;
+        this.callback = callbackEvent;
 
         startPosition = transform.position;
         gameObject.SetActive(true);

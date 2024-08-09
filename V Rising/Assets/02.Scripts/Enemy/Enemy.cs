@@ -9,8 +9,7 @@ public class Enemy : MonoBehaviour
 
     public bool alive { get; private set; } = true;
     public bool drain = false;
-    public bool canDrain { get; protected set; } = true;
-
+    public bool canDrain = true;
     #region NavMesh
     public NavMeshAgent navMeshAgent;
     public Transform target;
@@ -49,8 +48,13 @@ public class Enemy : MonoBehaviour
         if (hp_Current / hp_Max > 0.1f)
             return false;
 
+        animator.speed = 0;
         drain = true;
         return true;
+    }
+    public void FinishDrain()
+    {
+        animator.speed = 1;
     }
 
     /// <summary>
