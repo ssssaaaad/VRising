@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     #endregion
 
     public Transform model;
+    protected Transform origin;
 
     #region status
     public float hp_Max;
@@ -41,6 +42,11 @@ public class Enemy : MonoBehaviour
         alive = true;
     }
 
+    public void SetOrigin(Transform origin)
+    {
+        this.origin = origin;
+    }
+
     public bool Drain()
     {
         if (drain || !canDrain)
@@ -61,20 +67,32 @@ public class Enemy : MonoBehaviour
     /// 음수는 데미지, 양수는 회복
     /// </summary>
     /// <param name="dmg"></param>
-    public void UpdateHP(float dmg, bool uiActvie = true)
+    public void UpdateHP(float dmg, Transform target, bool uiActvie = true)
     {
         if (!alive)
             return;
         hp_Current = Mathf.Clamp(hp_Current + dmg, 0, hp_Max);
+
+        if(target != null)
+        {
+            this.target = target;
+        }
 
         if (hp_Current <= 0)
         {
             StopMoveTarget();
             alive = false;
         }
+        print(hp_Current);
 
     }
-
+    public void SetTarget(Transform target)
+    {
+        if (target != null)
+        {
+            this.target = target;
+        }
+    }
     protected void MoveTarget(Transform target)
     {
         this.target = target;

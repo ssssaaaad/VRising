@@ -219,7 +219,7 @@ public class Eskill : MonoBehaviour
     // 데미지 처리 
     public void Damage(Collider hit, float coeff)
     {
-        hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff);
+        hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
     }
 
     public bool IsECoolTime()

@@ -145,7 +145,7 @@ public class Rskill : MonoBehaviour
     // hit : 맞은 대상, coeff : 데미지 계수
     public void Damage(Collider hit, float coeff)
     {
-        hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff);
+        hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
     }
 
     public bool IsCasting()

@@ -338,8 +338,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7168219488691840090, guid: 3f4f0e017039c2444a05847681709c26,
-    type: 3}
+  m_Motion: {fileID: 621988743821468482, guid: a568e2c21c8167d4b98c07c33a84b835, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2671,9 +2670,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0
+  m_TransitionDuration: 0.33429646
   m_TransitionOffset: 0
-  m_ExitTime: 1
+  m_ExitTime: 0.82706356
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -3017,7 +3016,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 621988743821468482, guid: a568e2c21c8167d4b98c07c33a84b835, type: 3}
+  m_Motion: {fileID: -7168219488691840090, guid: 3f4f0e017039c2444a05847681709c26,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -3030,8 +3030,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spine_Whole body
-  m_Speed: 2
+  m_Name: NormalAttack 3
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4381505066508912174}
@@ -3044,7 +3044,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 175531a13d3120c4b9359601ba976fe2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 07067468c26dcab4d984bad1dd32c3a8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

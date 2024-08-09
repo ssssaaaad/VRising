@@ -85,6 +85,6 @@ public class Fblood : MonoBehaviour
 
     public void Damage(Collider hit, float coeff)
     {
-        hit.GetComponentInParent<Enemy>().UpdateHP(-PState.power * coeff);
+        hit.GetComponentInParent<Enemy>().UpdateHP(-PState.power * coeff, PManager.transform);
     }
 }
