@@ -39,14 +39,6 @@ public class Fblood : MonoBehaviour
 
         // 흡혈 캐스팅
         fCasting = StartCoroutine(FCasting());
-        
-        // 흡혈 캐스팅 완료시 적 처형 및 체력 회복
-        PState.UpdateHP(Healing);       // 회복량 임의설정
-
-        Debug.Log(closeEnemy);
-        Damage(Scaner.closeEnemy, 100);     // 적 즉사급 데미지 부여
-
-        PManager.fblooding = false;
     }
 
     public IEnumerator FCasting()
@@ -76,6 +68,14 @@ public class Fblood : MonoBehaviour
         gameObject.layer = originalLayer;
 
         dontMove = false;
+
+        // 흡혈 캐스팅 완료시 적 처형 및 체력 회복
+        PState.UpdateHP(Healing);       // 회복량 임의설정
+
+        Debug.Log(closeEnemy);
+        Damage(Scaner.closeEnemy, 100);     // 적 즉사급 데미지 부여
+
+        PManager.fblooding = false;
     }
 
     public void FActive(bool canf)

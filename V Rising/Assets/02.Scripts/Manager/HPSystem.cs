@@ -7,10 +7,10 @@ public class HPSystem : MonoBehaviour
 {
     public float maxHealth = 100f;
     public float currHP;
-    public Image HPImage; // 체력바 이미지 컴포넌트 (UI용)
+    public Image HPImage;   // 체력바 이미지 컴포넌트 (UI용)
     
-    public Canvas healthBarCanvasPrefab; // 체력바를 포함할 Canvas 프리팹
-    public Vector3 healthBarOffset = new Vector3(0, 2, 0); // 체력바가 캐릭터 위에 배치될 오프셋
+    public Canvas healthBarCanvasPrefab;    // 체력바를 포함할 Canvas 프리팹
+    public Vector3 healthBarOffset = new Vector3(0, 2, 0);  // 체력바가 캐릭터 위에 배치될 오프셋
 
     private Canvas healthBarCanvasInstance;
 

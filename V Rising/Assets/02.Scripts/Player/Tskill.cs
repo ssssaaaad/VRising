@@ -11,12 +11,11 @@ public class Tskill : MonoBehaviour
     private PlayerMove PlayerMove;
     private Coroutine ghostTime;
 
-    public GameObject T_Skill_Particle; 
+    public GameObject T_Skill_Particle;
     public GameObject Model;
     public GameObject Tboom;
 
     public float Tdmg = 1.5f;
-
     public float dashReady = 1f;    // 시전 준비시간
     public float ghostDashing = 0.75f;  // 대쉬 지속시간
     public float afterDashing = 0.3f;   // 대쉬 이후 후딜레이
@@ -26,7 +25,6 @@ public class Tskill : MonoBehaviour
     public float normalSpeed = 5f;  // 기본 속도
     public string noHitPlayer = "NoHitPlayer";      // 피격판정이 없는 레이어
 
-    private Vector3 head;           // 시전 방향
     private bool isCoolingDown = false;
     private float cooldownEndTime;  // 쿨타임 종료 시간
     private bool headLock = false;

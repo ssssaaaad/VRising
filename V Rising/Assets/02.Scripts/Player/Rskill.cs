@@ -38,7 +38,7 @@ public class Rskill : MonoBehaviour
     public void R()
     {
         Debug.Log("Starting skill casting.");
-        R_Skill_Particle.SetActive(true);
+        //R_Skill_Particle.SetActive(true);
         castingCoroutine = StartCoroutine(CastSkill());
     }
 
@@ -67,7 +67,7 @@ public class Rskill : MonoBehaviour
         ActivateSkill();
         Debug.Log("발사");
         
-        R_Skill_Particle.SetActive(false);
+        //R_Skill_Particle.SetActive(false);
 
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         playerMove.SetSpeed(playerSpeed);
