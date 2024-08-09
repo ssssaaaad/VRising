@@ -68,6 +68,7 @@ public class Maja_Minion : Enemy
         ResetRandomDirection();
         StartCoroutine(ChangeAngle());
         StartCoroutine(InitTimeCheck());
+
     }
 
     private void StateCycle()
@@ -226,6 +227,5 @@ public class Maja_Minion : Enemy
         attackCheck = false;
 
         StartCoroutine(InitTimeCheck());
-        state = State.Move;
     }
 }

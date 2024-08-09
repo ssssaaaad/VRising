@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        hp_Current = hp_Max;
         alive = true;
     }
 

@@ -29,7 +29,6 @@ public class Playerstate : MonoBehaviour
         print(1);
         if (PM.cskilling)
         {
-            print(2);
             Cskill.Cdmg = dmg;
             Cskill.counter = true;
         }

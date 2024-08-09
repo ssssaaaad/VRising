@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,10 +56,16 @@ public class Maja_MainSkillPattern1 : Pattern
             return;
         }
         readyToStart = false;
+        maja.animator.SetTrigger("MainSkillPattern1");
 
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
+        for (int i = 0; i < vfxList.Length; i++)
+        {
+            StartCoroutine(VFXAcitve(vfxList[i]));
+        }
+
     }
 
     protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
@@ -141,7 +148,7 @@ public class Maja_MainSkillPattern1 : Pattern
             {
                 secondDirection_Right = false;
             }
-            parentProjectile.Fire(direction, parentDistance, parentActiveTime);
+            parentProjectile.Fire(direction, parentDistance, parentActiveTime , Ease.Linear);
             StartCoroutine(SpawnChileProjectilet(parentProjectile, secondDirection_Right));
             yield return new WaitForSeconds(1);
         }
@@ -160,7 +167,7 @@ public class Maja_MainSkillPattern1 : Pattern
 
         for (int i = 0; i < childProjectiles.Count; i++)
         {
-            childProjectiles[i].Fire(childProjectiles[i].transform.forward, childDistanece, childActiveTime);
+            childProjectiles[i].Fire(childProjectiles[i].transform.forward, childDistanece, childActiveTime, Ease.Linear);
         }
     }
 
@@ -169,6 +176,14 @@ public class Maja_MainSkillPattern1 : Pattern
         readyToStart = false;
         yield return new WaitForSeconds(coolTime);
         readyToStart = true;
+    }
+
+    protected override IEnumerator VFXAcitve(VFX vfx)
+    {
+        yield return new WaitForSeconds(vfx.startTime);
+        vfx.vfxObject.SetActive(true);
+        yield return new WaitForSeconds(vfx.operatingTime);
+        vfx.vfxObject.SetActive(false);
     }
 }
 

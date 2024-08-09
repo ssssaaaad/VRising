@@ -35,8 +35,15 @@ public class Maja_MainSkillPattern2 : Pattern
         readyToStart = false;
         maja.PatternDelay = GetPatternDelay;
         patterDelay = true;
+
+        maja.animator.SetTrigger("MainSkillPattern2");
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternCooltime());
+        for (int i = 0; i < vfxList.Length; i++)
+        {
+            StartCoroutine(VFXAcitve(vfxList[i]));
+        }
+
     }
     protected override bool GetPatternDelay()
     {
@@ -51,7 +58,6 @@ public class Maja_MainSkillPattern2 : Pattern
         minionPosition *= startDistance;
         minionPosition += maja.mapOrigin.position;
         minion.SetPosition_MajaMainSkill2(minionPosition);
-        maja.animator.SetTrigger("MainSkillPattern2");
 
         print(minion.gameObject.name);
         while (true)
@@ -122,5 +128,11 @@ public class Maja_MainSkillPattern2 : Pattern
         yield return new WaitForSeconds(coolTime);
         readyToStart = true;
     }
-
+    protected override IEnumerator VFXAcitve(VFX vfx)
+    {
+        yield return new WaitForSeconds(vfx.startTime);
+        vfx.vfxObject.SetActive(true);
+        yield return new WaitForSeconds(vfx.operatingTime);
+        vfx.vfxObject.SetActive(false);
+    }
 }

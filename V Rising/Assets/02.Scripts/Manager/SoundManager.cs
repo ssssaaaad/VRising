@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,7 @@ public class Sound
     {
         None,
         DefaultBackground,
+        Test,
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip
@@ -115,7 +117,7 @@ public class SoundManager : MonoBehaviour
         // 풀에 오브젝트가 없으면 생성
         if (inactiveSFXAudioSources.Count == 0)
         {
-            source = new GameObject().AddComponent<SFXAudioSource>();
+            source = Instantiate(prefab_SFXAudioSource);
             source.transform.SetParent(transform);
             source.SetVolume(sfxVolume);
             sfxAudioSources.Enqueue(source);

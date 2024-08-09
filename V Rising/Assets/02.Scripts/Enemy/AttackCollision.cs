@@ -51,6 +51,7 @@ public class AttackCollision : MonoBehaviour
                     }
                 }
 
+                print(gameObject.name);
                 hitObjects.Add(other.transform);
 
                 other.GetComponent<Playerstate>().UpdateHP(damage);

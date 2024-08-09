@@ -9,6 +9,7 @@ public class Maja_NormalSkillPattern2 : Pattern
     public bool readyToStart = true;
     public float radius = 5;
     public float damage = 10;
+    public LayerMask layerMask;
 
     public Projectile projectile_Prefab;
     private Projectile projectile;
@@ -33,9 +34,16 @@ public class Maja_NormalSkillPattern2 : Pattern
             return;
         }
         readyToStart = false;
+
+        //maja.animator.SetTrigger("MainSkillPattern3");
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
+
+        for (int i = 0; i < vfxList.Length; i++)
+        {
+            StartCoroutine(VFXAcitve(vfxList[i]));
+        }
     }
     protected override bool GetPatternDelay()
     {
@@ -45,7 +53,8 @@ public class Maja_NormalSkillPattern2 : Pattern
     protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
         yield return new WaitForSeconds(attackDelayTime);
-        Collider[] hitTargets = Physics.OverlapSphere(transform.position, radius, LayerMask.NameToLayer("Player"));
+        Collider[] hitTargets = Physics.OverlapSphere(transform.position, radius, layerMask);
+        print(hitTargets.Length);
         for (int i = 0; i < hitTargets.Length; i++)
         {
             hitTargets[i].GetComponent<Playerstate>().UpdateHP(damage);
@@ -79,5 +88,11 @@ public class Maja_NormalSkillPattern2 : Pattern
         yield return new WaitForSeconds(coolTime);
         readyToStart = true;
     }
-
+    protected override IEnumerator VFXAcitve(VFX vfx)
+    {
+        yield return new WaitForSeconds(vfx.startTime);
+        vfx.vfxObject.SetActive(true);
+        yield return new WaitForSeconds(vfx.operatingTime);
+        vfx.vfxObject.SetActive(false);
+    }
 }

@@ -24,8 +24,21 @@ public abstract class Pattern : MonoBehaviour
     protected  abstract IEnumerator PatternDelayTime();
     protected abstract IEnumerator Coroutine_AttackPattern(Vector3 direction);
     protected abstract IEnumerator PatternCooltime();
+
+    protected abstract IEnumerator VFXAcitve(VFX vfx);
+
+
+
+    public VFX[] vfxList = new VFX[] { };
 }
 
+[System.Serializable]
+public class VFX
+{
+    public GameObject vfxObject;
+    public float startTime;
+    public float operatingTime;
+}
 
 public class Maja : Enemy
 {
@@ -63,7 +76,7 @@ public class Maja : Enemy
     private bool wall = false;
     private bool setMovePosition = false;
 
-    public float attackCooltime_Max = 2; 
+    public float attackCooltime_Max = 3;
     private float attackCooltime_Current = 2;
     private float routineTime = 0.2f;
 
@@ -71,6 +84,20 @@ public class Maja : Enemy
     private Coroutine patterCycle;
 
     public List<Maja_Minion> maja_Minions = new List<Maja_Minion>();
+
+    public Pattern[] phase1_Start;
+    public Pattern[] phase1_Loop;
+    public Pattern[] phase2_Start;
+    public Pattern[] phase2_Loop;
+    public Pattern[] phase3_Start;
+    public Pattern[] phase3_Loop;
+    public Pattern[] phase4_Start;
+    public Pattern[] phase4_Loop;
+
+    private Pattern[] phase_Start;
+    private Pattern[] phase_Loop;
+    private bool startPatternEnd = false;
+    private int index = 0;
 
     void Awake()
     {
@@ -97,6 +124,8 @@ public class Maja : Enemy
         attackPatterns.Add(pattern);
         pattern = GetComponent<Maja_NormalSkillPattern1>();
         attackPatterns.Add(pattern);
+        pattern = GetComponent<Maja_NormalSkillPattern2>();
+        attackPatterns.Add(pattern);
         pattern = GetComponent<Maja_MainSkillPattern1>();
         attackPatterns.Add(pattern);
         pattern = GetComponent<Maja_MainSkillPattern2>();
@@ -120,12 +149,46 @@ public class Maja : Enemy
         patterCycle = StartCoroutine(CoroutinePatterCycle());
     }
 
+    private void CheckHP()
+    {
+        if (hp_Current / hp_Max > 0.7f)
+        {
+            attackCooltime_Max = 3;
+            startPatternEnd = false;
+            index = 0;
+            phase_Start = phase1_Start;
+            phase_Loop = phase1_Loop;
+        }
+        else if (hp_Current / hp_Max > 0.5f)
+        {
+            startPatternEnd = false;
+            index = 0;
+            phase_Start = phase2_Start;
+            phase_Loop = phase2_Loop;
+        }
+        else if (hp_Current / hp_Max > 0.3f)
+        {
+            attackCooltime_Max = 2;
+            startPatternEnd = false;
+            index = 0;
+            phase_Start = phase3_Start;
+            phase_Loop = phase3_Loop;
+        }
+        else
+        {
+            startPatternEnd = false;
+            index = 0;
+            phase_Start = phase4_Start;
+            phase_Loop = phase4_Loop;
+        }
+    }
 
     public void SpawnMinion(Vector3 position)
     {
         Maja_Minion minion = Instantiate(minion_Prefab);
         minion.transform.position = position;
         AddMinion(minion);
+        minion.InitEnemy(this);
     }
 
     public void AddMinion(Maja_Minion minion)
@@ -201,7 +264,6 @@ public class Maja : Enemy
         {
             if (PatternDelay())
             {
-
                 animator.SetBool("Walk", false);
                 return;
             }
@@ -232,7 +294,7 @@ public class Maja : Enemy
             animator.SetTrigger("Teleport");
             StopMoveTarget();
             teleport.ActivePattern(Vector3.zero);
-            state = State.Attack;
+            //state = State.Attack;
         }
         else if(state == State.Attack)
         {
@@ -245,49 +307,82 @@ public class Maja : Enemy
 
                 forward = new Vector3(target.position.x - model.position.x, model.position.y, target.position.z - model.position.z).normalized;
                 enemy_Cross = Vector3.Cross((target.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
-                if (enemy_Cross.y > -0.3f && enemy_Cross.y < 0.2f && attackPatterns[1].CooltimeCheck())
+
+                
+
+                if (!startPatternEnd)
                 {
-                    // 직선으로 4개
-                    animator.SetTrigger("NormalSkillPattern");
-                    attackPatterns[1].ActivePattern(targetDirection);
+                    if (index >= phase_Start.Length)
+                    {
+                        index = 0;
+                        startPatternEnd = true;
+                    } 
+
+                    phase_Start[index].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
-                }
-                else if (attackPatterns[2].CooltimeCheck())
-                {
-                    // 옆으로 7개
-                    animator.SetTrigger("MainSkillPattern1");
-                    attackPatterns[2].ActivePattern(targetDirection);
-                    attackCooltime_Current = 0;
-                }
-                else if (attackPatterns[4].CooltimeCheck())
-                {
-                    attackPatterns[4].ActivePattern(targetDirection);
-                    attackCooltime_Current = 0;
-                }
-                else if (attackPatterns[3].CooltimeCheck())
-                {
-                    attackPatterns[3].ActivePattern(targetDirection);
-                    attackCooltime_Current = 0;
-                }
-                else if (attackPatterns[0].CooltimeCheck())
-                {
-                    // 기본공격
-                    animator.SetTrigger("AttackPattern1");
-                    attackPatterns[0].ActivePattern(targetDirection);
-                    attackCooltime_Current = 0;
+
                 }
                 else
                 {
-                    forward = Vector3.zero;
-                    if (Vector3.Distance(transform.position, target.position) < runawayDistance)
+                    if (index >= phase_Loop.Length)
                     {
-                        state = State.Runaway;
+                        index = 0;
                     }
-                    else
-                    {
-                        state = State.Move;
-                    }
+
+                    phase_Start[index].ActivePattern(targetDirection);
+                    attackCooltime_Current = 0;
                 }
+                //if (enemy_Cross.y > -0.3f && enemy_Cross.y < 0.2f && attackPatterns[1].CooltimeCheck())
+                //{
+                //    // 직선으로 4개
+                //    attackPatterns[1].ActivePattern(targetDirection);
+                //    attackCooltime_Current = 0;
+                //}
+                //else if (attackPatterns[3].CooltimeCheck())
+                //{
+                //    // 옆으로 7개
+                //    animator.SetTrigger("MainSkillPattern1");
+                //    attackPatterns[3].ActivePattern(targetDirection);
+                //    attackCooltime_Current = 0;
+                //}
+                //else if (attackPatterns[5].CooltimeCheck())
+                //{
+                //    attackPatterns[5].ActivePattern(targetDirection);
+                //    attackCooltime_Current = 0;
+                //}
+                //else if (attackPatterns[4].CooltimeCheck())
+                //{
+                //    attackPatterns[4].ActivePattern(targetDirection);
+                //    attackCooltime_Current = 0;
+                //}
+                //else if (attackPatterns[0].CooltimeCheck())
+                //{
+                //    print("기본");
+                //    // 기본공격
+                //    animator.SetTrigger("AttackPattern1");
+                //    attackPatterns[0].ActivePattern(targetDirection);
+                //    attackCooltime_Current = 0;
+                //}
+                //else if (attackPatterns[2].CooltimeCheck())
+                //{
+                //    print("기본");
+                //    // 기본공격
+                //    animator.SetTrigger("AttackPattern1");
+                //    attackPatterns[2].ActivePattern(targetDirection);
+                //    attackCooltime_Current = 0;
+                //}
+                //else
+                //        {
+                //    forward = Vector3.zero;
+                //    if (Vector3.Distance(transform.position, target.position) < runawayDistance)
+                //    {
+                //        state = State.Runaway;
+                //    }
+                //    else
+                //    {
+                //        state = State.Move;
+                //    }
+                //}
 
             }
             else
@@ -303,34 +398,34 @@ public class Maja : Enemy
             }
         }
 
-        // 쿨타임 체크 후 스킬을 쓸 수 있다면 사거리 만큼 이동
-        if (attackCooltime_Current > attackCooltime_Max)
-        {
-            enemyDistance = Vector3.Distance(target.position, transform.position);
-            bool check = false;
-            for (int i = 0; i < attackPatterns.Count; i++)
-            {
-                if(attackPatterns[i].CooltimeCheck())
-                {
-                    if (enemyDistance <= attackPatterns[i].range)
-                    {
-                        state = State.Attack;
-                        check = false;
-                        break;
-                    }
-                    else
-                    {
-                        check = true;
-                    }
-                }
-            }
+        //// 쿨타임 체크 후 스킬을 쓸 수 있다면 사거리 만큼 이동
+        //if (attackCooltime_Current > attackCooltime_Max)
+        //{
+        //    enemyDistance = Vector3.Distance(target.position, transform.position);
+        //    bool check = false;
+        //    for (int i = 0; i < attackPatterns.Count; i++)
+        //    {
+        //        if(attackPatterns[i].CooltimeCheck())
+        //        {
+        //            if (enemyDistance <= attackPatterns[i].range)
+        //            {
+        //                state = State.Attack;
+        //                check = false;
+        //                break;
+        //            }
+        //            else
+        //            {
+        //                check = true;
+        //            }
+        //        }
+        //    }
 
-            if (check)
-            {
-                state = State.Move;
-                Move(target.position);
-            }
-        }
+        //    if (check)
+        //    {
+        //        state = State.Move;
+        //        Move(target.position);
+        //    }
+        //}
 
         if(state != State.Move)
         {

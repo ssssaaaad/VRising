@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,13 +18,13 @@ public class Maja_BasicAttackPattern : Pattern
     public int bulletCount = 4;
 
     public float damage = 10;
+    public Ease ease = Ease.Linear;
 
     private Vector3 spawnPosition;
 
     public Projectile projectile_Prefab;
     private Projectile projectile;
 
-    public bool start = false;
     public override void InitPattern(Maja maja)
     {
         this.maja = maja;
@@ -41,9 +42,15 @@ public class Maja_BasicAttackPattern : Pattern
             return;
         }
         readyToStart = false;
+        maja.animator.SetTrigger("BasicAttackPattern");
+
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
+        for (int i = 0; i < vfxList.Length; i++)
+        {
+            StartCoroutine(VFXAcitve(vfxList[i]));
+        }
     }
     protected override bool GetPatternDelay()
     {
@@ -57,7 +64,7 @@ public class Maja_BasicAttackPattern : Pattern
         projectile.transform.position = transform.position + direction * startDistance;
         projectile.transform.LookAt(projectile.transform.position + direction);
         projectile.InitAttack(damage, false);
-        projectile.Fire(direction, attackDistance, attackActiveTime);
+        projectile.Fire(direction, attackDistance, attackActiveTime, ease);
     }
 
     protected override IEnumerator PatternDelayTime()
@@ -74,5 +81,13 @@ public class Maja_BasicAttackPattern : Pattern
         readyToStart = false;
         yield return new WaitForSeconds(coolTime);
         readyToStart = true;
+    }
+
+    protected override IEnumerator VFXAcitve(VFX vfx)
+    {
+        yield return new WaitForSeconds(vfx.startTime);
+        vfx.vfxObject.SetActive(true);
+        yield return new WaitForSeconds(vfx.operatingTime);
+        vfx.vfxObject.SetActive(false);
     }
 }

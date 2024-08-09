@@ -2,6 +2,8 @@ using NHance.Assets.Scripts.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG;
+using DG.Tweening;
 
 public class Projectile : AttackCollision
 {
@@ -22,9 +24,8 @@ public class Projectile : AttackCollision
     {
         if (fire)
         {
-            currentTime += Time.deltaTime;
-            transform.position = Vector3.Lerp(startPosition, startPosition + direction * distance, currentTime / activeTime);
-            if(currentTime >= activeTime)
+            transform.position = Vector3.Lerp(startPosition, startPosition + direction * distance, currentTime);
+            if(currentTime == 1)
             {
                 gameObject.SetActive(false);
                 // 제거 효과
@@ -40,7 +41,7 @@ public class Projectile : AttackCollision
         currentTime = 0;
     }
 
-    public void Fire(Vector3 direction, float distance, float activeTime, float delayTime = 0)
+    public void Fire(Vector3 direction, float distance, float activeTime, Ease ease, float delayTime = 0)
     {
         if (fire)
         {
@@ -56,19 +57,26 @@ public class Projectile : AttackCollision
 
         if(delayTime > 0)
         {
-            StartCoroutine(FireDelayTime(delayTime));
+            StartCoroutine(FireDelayTime(delayTime, ease));
         }
         else
         {
+            ActiveCurrentTIme(ease);
             fire = true;
         }
     }
 
 
-    IEnumerator FireDelayTime(float delayTime)
+    IEnumerator FireDelayTime(float delayTime, Ease ease)
     {
         yield return new WaitForSeconds(delayTime);
+        ActiveCurrentTIme(ease);
         fire = true;
     }
 
+    private void ActiveCurrentTIme(Ease ease)
+    {
+        currentTime = 0;
+        DOTween.To(() => currentTime, x => currentTime = x, 1, activeTime).SetEase(ease);
+    }
 }

@@ -10,6 +10,7 @@ public class Maja_MainSkillPattern3 : Pattern
     public Transform spanwLineParticel;
     public Transform spawnParticle;
     public Transform attackPsotionCircle_Prefab;
+    public LayerMask layerMask;
 
     public float coolTime = 5;
     public bool readyToStart = true;
@@ -48,9 +49,15 @@ public class Maja_MainSkillPattern3 : Pattern
             return;
         }
         readyToStart = false;
+
+        maja.animator.SetTrigger("MainSkillPattern3");
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
+        for (int i = 0; i < vfxList.Length; i++)
+        {
+            StartCoroutine(VFXAcitve(vfxList[i]));
+        }
     }
     protected override bool GetPatternDelay()
     {
@@ -121,10 +128,10 @@ public class Maja_MainSkillPattern3 : Pattern
         Destroy(attackPositionCircle.gameObject);
         Destroy(line.gameObject);
 
-        Collider[] hitTargets = Physics.OverlapSphere(spawnPosition, 5, LayerMask.NameToLayer("Player"));
+        Collider[] hitTargets = Physics.OverlapSphere(maja.target.transform.position, 5, layerMask);
         for (int i = 0; i < hitTargets.Length; i++)
         {
-            //hitTargets[i].GetComponent<Playerstate>().UpdateHP(damage);
+            hitTargets[i].GetComponent<Playerstate>().UpdateHP(damage);
         }
 
         Maja_Minion minion = Instantiate(minion_Prefab);
@@ -151,5 +158,11 @@ public class Maja_MainSkillPattern3 : Pattern
         yield return new WaitForSeconds(coolTime);
         readyToStart = true;
     }
-
+    protected override IEnumerator VFXAcitve(VFX vfx)
+    {
+        yield return new WaitForSeconds(vfx.startTime);
+        vfx.vfxObject.SetActive(true);
+        yield return new WaitForSeconds(vfx.operatingTime);
+        vfx.vfxObject.SetActive(false);
+    }
 }
