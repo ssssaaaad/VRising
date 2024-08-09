@@ -11,6 +11,7 @@ public class Eskill : MonoBehaviour
     private PlayerMove playerMove;
     private Collider target;
     private CharacterController cc;
+    private IndiControler Indi;
 
     public GameObject E_Skill_Particle1;
     public GameObject E_Skill_Particle2;
@@ -45,6 +46,7 @@ public class Eskill : MonoBehaviour
         playerSpeed = playerMove.playerSpeed;
         cc = GetComponent<CharacterController>();
         originalLayer = gameObject.layer;
+        Indi = GetComponent<IndiControler>();
     }
 
 
@@ -55,6 +57,7 @@ public class Eskill : MonoBehaviour
         {
             E_Skill_Particle1.SetActive(true);
         }
+
         castingCoroutine = StartCoroutine(CastSkill());
     }
 
@@ -63,9 +66,13 @@ public class Eskill : MonoBehaviour
         PM.eskilling = true;
         isCoolingDown = true;
 
+        Indi.Indi_E();
+
         playerMove.SetSpeed(slowSpeed);     // 이동속도 감소
         
         yield return new WaitForSeconds(castTime);  // 캐스팅 시간동안 대기
+
+        Indi.Indi_E_break();
 
         ActivateSkill();     // 투사체 발사
 
@@ -84,6 +91,34 @@ public class Eskill : MonoBehaviour
 
         // 쿨타임 종료
         isCoolingDown = false;
+    }
+
+    public void CancelECasting()
+    {
+
+        Debug.Log("E스킬 캔슬");
+        if (castingCoroutine != null)
+        {
+            StopCoroutine(castingCoroutine);
+            castingCoroutine = null;
+        }
+
+        PM.eskilling = false;
+
+        Indi.Indi_E_break();
+
+        // 시전 중 속도 복원
+        if (playerMove != null)
+        {
+            Debug.Log("속도 정상화"); // 속도 복원 로그
+            playerMove.SetSpeed(playerSpeed); // 속도 복원
+
+            // 쿨타임 리셋: 취소 시 쿨타임을 0으로 설정하여 즉시 사용 가능하게 함
+            cooldownEndTime = Time.time; // 즉시 사용 가능하게 설정
+            isCoolingDown = false;
+        }
+
+
     }
 
     public void ComboEAct(Collider target)

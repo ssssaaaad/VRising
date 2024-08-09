@@ -79,7 +79,7 @@ public class Cskill : MonoBehaviour
                 GameObject cBoom = Instantiate(Cboom);
                 cBoom.transform.position = transform.position;
 
-                Destroy(cBoom, 0.2f);
+                Destroy(cBoom, 10f);
 
                 break;
             }
