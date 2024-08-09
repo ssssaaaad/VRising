@@ -51,7 +51,7 @@ public class Tskill : MonoBehaviour
     public void T()
     {
         Debug.Log("T스킬 시작");
-        T_Skill_Particle.SetActive(true);       // 스킬 이펙트 시작
+        //T_Skill_Particle.SetActive(true);       // 스킬 이펙트 시작
         ghostTime = StartCoroutine(Ghostdash());
     }
 
@@ -91,7 +91,8 @@ public class Tskill : MonoBehaviour
         EnemyCollsion.SetActive(false);
 
 
-        T_Skill_Particle.SetActive(false);          // 스킬 이펙트 종료
+        //T_Skill_Particle.SetActive(false);          // 스킬 이펙트 종료
+
         // 기존 레이어로 복귀
         gameObject.layer = originalLayer;
 

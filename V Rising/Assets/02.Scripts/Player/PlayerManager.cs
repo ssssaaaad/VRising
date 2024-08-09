@@ -10,6 +10,8 @@ public class PlayerManager : MonoBehaviour
     private Rskill Rskill;
     private Tskill Tskill;
     private Eskill Eskill;
+    private HP_Scan_Range Fscan;
+    private Fblood Fblood;
     private PlayerAttack Attack;
 
     private bool canDash = false;
@@ -19,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     private bool canTskill = false;
     private bool canEskill = false;
     private bool canComEskill = false;
+    private bool canFblood = false;
     private bool canAttack = false;
 
     public bool dashing = false;
@@ -28,6 +31,7 @@ public class PlayerManager : MonoBehaviour
     public bool tskilling = false;
     public bool eskilling = false;
     public bool comeskilling = false;
+    public bool fblooding = false;
     public bool attacking = false;
 
 
@@ -39,12 +43,14 @@ public class PlayerManager : MonoBehaviour
         Rskill = GetComponent<Rskill>();
         Tskill = GetComponent<Tskill>();
         Eskill = GetComponent<Eskill>();
+        Fscan = GetComponentInChildren<HP_Scan_Range>();
+        Fblood = GetComponent<Fblood>();
         Attack = GetComponent<PlayerAttack>();
     }
 
     void Update()
     {
-        if (Move != null)
+        if (!Fblood.dontMove)
             Move.Move();
 
         CanCheck();     // 사용 가능 여부 확인
@@ -92,6 +98,10 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("E눌림");
             }
         }
+        if (Input.GetKeyDown(KeyCode.F) && CanFblood())
+        {
+            Fblood.F();
+        }
         if (Input.GetMouseButton(0) && CanAttack())
         {
             Attack.Click();
@@ -110,6 +120,7 @@ public class PlayerManager : MonoBehaviour
             canTskill = false;
             canEskill = false;
             canComEskill = false;
+            canFblood = false;
             canAttack = false;
         }
         else if (cskilling)
@@ -121,6 +132,7 @@ public class PlayerManager : MonoBehaviour
             canTskill = true;
             canEskill = true;
             canComEskill = true;
+            canFblood = false;
             canAttack = true;
         }
         else if (eskilling)
@@ -132,6 +144,7 @@ public class PlayerManager : MonoBehaviour
             canTskill = false;
             canEskill = false;
             canComEskill = false;
+            canFblood = false;
             canAttack = false;
         }
         else if (comeskilling)
@@ -143,6 +156,7 @@ public class PlayerManager : MonoBehaviour
             canTskill = false;
             canEskill = false;
             canComEskill = false;
+            canFblood = false;
             canAttack = false;
         }
         else if (qskilling)
@@ -154,6 +168,7 @@ public class PlayerManager : MonoBehaviour
             canTskill = false;
             canEskill = false;
             canComEskill = false;
+            canFblood = false;
             canAttack = false;
         }
         else if (rskilling)
@@ -165,6 +180,7 @@ public class PlayerManager : MonoBehaviour
             canTskill = false;
             canEskill = false;
             canComEskill = false;
+            canFblood = false;
             canAttack = false;
         }
         else if (tskilling)
@@ -178,6 +194,7 @@ public class PlayerManager : MonoBehaviour
                 canTskill = false;
                 canEskill = false;
                 canComEskill = false;
+                canFblood = false;
                 canAttack = false;
             }
             else
@@ -189,8 +206,21 @@ public class PlayerManager : MonoBehaviour
                 canTskill = false;
                 canEskill = false;
                 canComEskill = false;
+                canFblood = false;
                 canAttack = false;
             }
+        }
+        else if (fblooding)
+        {
+            canDash = false;
+            canCskill = false;
+            canQskill = false;
+            canRskill = false;
+            canTskill = false;
+            canEskill = false;
+            canComEskill = false;
+            canFblood = false;
+            canAttack = false;
         }
         else if (attacking)
         {
@@ -201,6 +231,7 @@ public class PlayerManager : MonoBehaviour
             canTskill = true;
             canEskill = true;
             canComEskill = true;
+            canFblood = false;
             canAttack = true;
         }
         else
@@ -212,6 +243,7 @@ public class PlayerManager : MonoBehaviour
             canTskill = true;
             canEskill = true;
             canComEskill = true;
+            canFblood = true;
             canAttack = true;
         }
     }
@@ -265,6 +297,13 @@ public class PlayerManager : MonoBehaviour
             return true;
         else
             return false;
+    }
+    public bool CanFblood()
+    {
+        if (!Fscan.CanF())
+            return false;
+        else
+            return canFblood;
     }
     public bool CanAttack()
     {

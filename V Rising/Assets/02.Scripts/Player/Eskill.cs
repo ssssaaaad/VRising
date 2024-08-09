@@ -21,7 +21,7 @@ public class Eskill : MonoBehaviour
     public float Edmg = 0.7f;           // 검기 데미지
     public float EComdodmg = 0.25f;     // 추가타 데미지
 
-    public float skillSpeed = 30f;  // 발사체의 속도
+    public float skillSpeed = 50f;  // 발사체의 속도
     public float castTime = 1f;     // 시전 시간 (초)
     public float cooldownTime = 8f; // 쿨타임 (초)
     public float slowSpeed = 0.5f;  // 시전 시 캐릭터 속도 감소
@@ -133,7 +133,7 @@ public class Eskill : MonoBehaviour
         while (check < 1)
         {
             transform.position = Vector3.Lerp(startPosition, target.transform.position, check);
-            check += 0.02f;
+            check += 0.05f;
             yield return new WaitForSeconds(0.01f);
         }
         check = 0;
