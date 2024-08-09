@@ -48503,6 +48503,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1198427815685852516, guid: fc5f342cf27ce7c479f9a6a4df6fc7fa,
         type: 3}
+    - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: E_Skill_Particle1
+      value: 
+      objectReference: {fileID: 1198427815685852516, guid: fc5f342cf27ce7c479f9a6a4df6fc7fa,
+        type: 3}
+    - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: E_Skill_Particle2
+      value: 
+      objectReference: {fileID: 1198427815685852516, guid: fc5f342cf27ce7c479f9a6a4df6fc7fa,
+        type: 3}
+    - target: {fileID: 1839513152214920996, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Q_Skill_Particle
+      value: 
+      objectReference: {fileID: 8336408339548364361, guid: 1df5d906aed496942b67331eb9ac2a93,
+        type: 3}
     - target: {fileID: 1965331982903560795, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -48583,6 +48601,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4771905540805942194, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4926538633031468146, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -48623,6 +48646,17 @@ PrefabInstance:
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1236457607}
+    - target: {fileID: 5291935929519565267, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: R_Skill_Particle
+      value: 
+      objectReference: {fileID: 1198427815685852516, guid: f512ba81bce797349b6d9e2fb9cd10ae,
+        type: 3}
+    - target: {fileID: 5523952941193996583, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5674220048950176895, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: attackPoint
@@ -48643,6 +48677,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8222373366295902142, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: T_Skill_Particle
+      value: 
+      objectReference: {fileID: 7334235630602265833, guid: 18af6881f16d27a4987f87d71f7f48bd,
+        type: 3}
     - target: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_IsActive
@@ -49157,6 +49197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f089fc1e98b92d24694b5d2410241314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attack1dmg: 0.35
+  Attack3dmg: 0.4
   comboTime: 2
   attackPreDelay: 0.3
   attack1Delay: 0.5
@@ -59690,13 +59732,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2895a66c86afcf4aa30d68c205cae22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cboom: {fileID: 0}
   particle_Skill_C: {fileID: 0}
   skillUI: {fileID: 0}
+  Cdmg: 0
   slowDuration: 1.5
+  plusTime: 1.2
   slowSpeed: 1
   cooldownTime: 10
   pushBackForce: 5
   playerSpeed: 5
+  noHitPlayer: NoHitPlayer
+  counter: 0
 --- !u!114 &1491535662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59709,10 +59756,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc56bbbb93729f74787e48e86c28bba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  R_Skill_Particle: {fileID: 0}
   skillPrefab: {fileID: 1198427815685852516, guid: f512ba81bce797349b6d9e2fb9cd10ae,
     type: 3}
   firePoint: {fileID: 1275961615}
   skillUI: {fileID: 0}
+  Rdmg: 1.5
   skillSpeed: 20
   castTime: 1
   cooldownTime: 8
@@ -59803,6 +59852,7 @@ MonoBehaviour:
   rskilling: 0
   tskilling: 0
   eskilling: 0
+  comeskilling: 0
   attacking: 0
 --- !u!1 &1499440579 stripped
 GameObject:
@@ -97229,12 +97279,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9734933
+      value: 0.8295014
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.22871575
+      value: 0.5585047
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}

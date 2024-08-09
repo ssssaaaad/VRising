@@ -3,7 +3,12 @@ guid: b95eccad23a8efa41bbf7585cf2cb0f2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ganfaul_diffuse
+    second: {fileID: 2800000, guid: 270589e7211e372469bb1fb4300c6f9a, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
