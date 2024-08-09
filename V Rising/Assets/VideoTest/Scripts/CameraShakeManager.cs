@@ -88,29 +88,29 @@ public class CameraShakeManager : MonoBehaviour
         float num = cameraShakeStrength * camera.orthographicSize * 0.03f;
 
         Tween.ShakeLocalPosition(
-            transform, 
+            transform,
             new ShakeSettings(
                 new Vector3(num + offsetX, num + offsetY),
                 shakeDuration,
-                shakeMagnitude, 
+                shakeMagnitude,
                 enableFalloff: true,
-                shakeEase, 
-                0f, 
-                1, 
-                startDelay, 
-                0f, 
+                shakeEase,
+                0f,
+                1,
+                startDelay,
+                0f,
                 false))
             .Group(
                 Tween.ShakeLocalRotation(
-                    transform, 
+                    transform,
                     new ShakeSettings(
-                        new Vector3(offsetRotX, offsetRotY, cameraShakeStrength * 0.6f), 
-                        shakeDuration, 
-                        shakeMagnitude, 
+                        new Vector3(offsetRotX, offsetRotY, cameraShakeStrength * 0.6f),
+                        shakeDuration,
+                        shakeMagnitude,
                         enableFalloff: true,
-                        shakeRotEase, 
-                        0f, 
-                        1, 
+                        shakeRotEase,
+                        0f,
+                        1,
                         startDelay,
                         0f,
                         false)));
@@ -118,6 +118,43 @@ public class CameraShakeManager : MonoBehaviour
         //Tween.ShakeLocalPosition(camera.transform, new ShakeSettings(cameraShakeStrength * Vector3.forward, shakeDuration, shakeDuration, enableFalloff: true, Ease.Default, 0f, 1, startDelay, 1f, false));
         //Shake();
 
+    }
+
+    public void ShakeSkillCall(Ease shakeEase, float cameraShakeStrength, float shakeMagnitude, float shakeDuration, float offsetX, float offsetY, 
+        Ease shakeRotEase, float offsetRotX, float offsetRotY, float startDelay = 0)
+    {
+
+        Transform transform = camera.transform;
+        float num = cameraShakeStrength * camera.orthographicSize * 0.03f;
+
+        Tween.ShakeLocalPosition(
+            transform,
+            new ShakeSettings(
+                new Vector3(num + offsetX, num + offsetY),
+                shakeDuration,
+                shakeMagnitude,
+                enableFalloff: true,
+                shakeEase,
+                0f,
+                1,
+                startDelay,
+                0f,
+                false))
+            .Group(
+                Tween.ShakeLocalRotation(
+                    transform,
+                    new ShakeSettings(
+                        new Vector3(offsetRotX, offsetRotY, cameraShakeStrength * 0.6f),
+                        shakeDuration,
+                        shakeMagnitude,
+                        enableFalloff: true,
+                        shakeRotEase,
+                        0f,
+                        1,
+                        startDelay,
+                        0f,
+                        false)));
+     
     }
 
     public Sequence Shake(float startDelay = 0)
