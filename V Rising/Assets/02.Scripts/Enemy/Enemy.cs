@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
 {
 
     public bool alive { get; private set; } = true;
+    public bool drain = false;
+    public bool canDrain { get; protected set; } = true;
 
     #region NavMesh
     public NavMeshAgent navMeshAgent;
@@ -24,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     #region rotate
     public float rotateSpeed = 130;
-    protected Vector3 forward = Vector3.zero;
+    public Vector3 forward = Vector3.zero;
     #endregion
 
     #region Animation
@@ -40,6 +42,16 @@ public class Enemy : MonoBehaviour
         alive = true;
     }
 
+    public bool Drain()
+    {
+        if (drain || !canDrain)
+            return false;
+        if (hp_Current / hp_Max > 0.1f)
+            return false;
+
+        drain = true;
+        return true;
+    }
 
     /// <summary>
     /// 음수는 데미지, 양수는 회복
@@ -97,8 +109,9 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                forward = Vector3.zero;
+                //forward = Vector3.zero;
             }
         }
+
     }
 }

@@ -163,7 +163,7 @@ public class Maja_Minion : Enemy
 
         forward = new Vector3(moveposition.x - model.position.x, 0, moveposition.z - model.position.z).normalized;
 
-        if (targetEnemyDistance <= attackRange)
+        if (targetEnemyDistance <= attackRange && !respawn)
         {
             state = State.Attack;
         }

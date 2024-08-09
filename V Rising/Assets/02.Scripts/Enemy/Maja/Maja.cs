@@ -85,17 +85,17 @@ public class Maja : Enemy
 
     public List<Maja_Minion> maja_Minions = new List<Maja_Minion>();
 
-    public Pattern[] phase1_Start;
-    public Pattern[] phase1_Loop;
-    public Pattern[] phase2_Start;
-    public Pattern[] phase2_Loop;
-    public Pattern[] phase3_Start;
-    public Pattern[] phase3_Loop;
-    public Pattern[] phase4_Start;
-    public Pattern[] phase4_Loop;
+    public List<Pattern> phase1_Start = new List<Pattern>();
+    public List<Pattern> phase1_Loop = new List<Pattern>();
+    public List<Pattern> phase2_Start = new List<Pattern>();
+    public List<Pattern> phase2_Loop = new List<Pattern>();
+    public List<Pattern> phase3_Start = new List<Pattern>();
+    public List<Pattern> phase3_Loop = new List<Pattern>();
+    public List<Pattern> phase4_Start = new List<Pattern>();
+    public List<Pattern> phase4_Loop = new List<Pattern>();
 
-    private Pattern[] phase_Start;
-    private Pattern[] phase_Loop;
+    private List<Pattern> phase_Start;
+    private List<Pattern> phase_Loop;
     private bool startPatternEnd = false;
     private int index = 0;
 
@@ -116,8 +116,20 @@ public class Maja : Enemy
     {
         base.InitEnemy();
 
+        InitPattern();
         state = State.Idle;
 
+        if (patterCycle != null)
+        {
+            StopCoroutine(patterCycle);
+        }
+
+        patterCycle = StartCoroutine(CoroutinePatterCycle());
+    }
+
+
+    private void InitPattern()
+    {
         attackPatterns = new List<Pattern>();
 
         Pattern pattern = GetComponent<Maja_BasicAttackPattern>();
@@ -141,18 +153,84 @@ public class Maja : Enemy
         teleport = GetComponent<Maja_Teleport>();
         teleport.InitPattern(this);
 
-        if (patterCycle != null)
-        {
-            StopCoroutine(patterCycle);
-        }
+        phase1_Start.Add(attackPatterns[0]);
+        phase1_Start.Add(attackPatterns[1]);
+        phase1_Start.Add(attackPatterns[3]);
 
-        patterCycle = StartCoroutine(CoroutinePatterCycle());
+        phase1_Loop.Add(attackPatterns[0]);
+        phase1_Loop.Add(attackPatterns[1]);
+        phase1_Loop.Add(attackPatterns[0]);
+        phase1_Loop.Add(attackPatterns[1]);
+        phase1_Loop.Add(attackPatterns[3]);
+        phase1_Loop.Add(attackPatterns[0]);
+        phase1_Loop.Add(attackPatterns[1]);
+        phase1_Loop.Add(attackPatterns[0]);
+        phase1_Loop.Add(attackPatterns[1]);
+        phase1_Loop.Add(attackPatterns[3]);
+
+
+        phase2_Start.Add(attackPatterns[0]);
+        phase2_Start.Add(attackPatterns[1]);
+        phase2_Start.Add(attackPatterns[4]);
+
+        phase2_Loop.Add(attackPatterns[0]);
+        phase2_Loop.Add(attackPatterns[1]);
+        phase2_Loop.Add(attackPatterns[0]);
+        phase2_Loop.Add(attackPatterns[1]);
+        phase2_Loop.Add(attackPatterns[4]);
+        phase2_Loop.Add(attackPatterns[0]);
+        phase2_Loop.Add(attackPatterns[1]);
+        phase2_Loop.Add(attackPatterns[0]);
+        phase2_Loop.Add(attackPatterns[1]);
+        phase2_Loop.Add(attackPatterns[3]);
+
+
+        phase3_Start.Add(attackPatterns[0]);
+        phase3_Start.Add(attackPatterns[1]);
+        phase3_Start.Add(attackPatterns[1]);
+        phase3_Start.Add(attackPatterns[4]);
+        phase3_Start.Add(attackPatterns[5]);
+
+        phase3_Loop.Add(attackPatterns[1]);
+        phase3_Loop.Add(attackPatterns[3]);
+        phase3_Loop.Add(attackPatterns[0]);
+        phase3_Loop.Add(attackPatterns[4]);
+        phase3_Loop.Add(attackPatterns[2]);
+        phase3_Loop.Add(attackPatterns[3]);
+        phase3_Loop.Add(attackPatterns[1]);
+        phase3_Loop.Add(attackPatterns[1]);
+        phase3_Loop.Add(attackPatterns[0]);
+        phase3_Loop.Add(attackPatterns[4]);
+
+
+        phase4_Start.Add(attackPatterns[5]);
+        phase4_Start.Add(attackPatterns[4]);
+        phase4_Start.Add(attackPatterns[3]);
+        phase4_Start.Add(attackPatterns[4]);
+        phase4_Start.Add(attackPatterns[0]);
+        phase4_Start.Add(attackPatterns[1]);
+        phase4_Start.Add(attackPatterns[3]);
+        phase4_Start.Add(attackPatterns[4]);
+
+
+        phase4_Loop.Add(attackPatterns[5]);
+        phase4_Loop.Add(attackPatterns[1]);
+        phase4_Loop.Add(attackPatterns[3]);
+        phase4_Loop.Add(attackPatterns[4]);
+        phase4_Loop.Add(attackPatterns[0]);
+        phase4_Loop.Add(attackPatterns[1]);
+        phase4_Loop.Add(attackPatterns[3]);
+        phase4_Loop.Add(attackPatterns[4]);
+        phase4_Loop.Add(attackPatterns[2]);
+        phase4_Loop.Add(attackPatterns[0]);
+        phase4_Loop.Add(attackPatterns[5]);
     }
-
     private void CheckHP()
     {
         if (hp_Current / hp_Max > 0.7f)
         {
+            if (phase_Loop == phase1_Loop)
+                return;
             attackCooltime_Max = 3;
             startPatternEnd = false;
             index = 0;
@@ -161,6 +239,8 @@ public class Maja : Enemy
         }
         else if (hp_Current / hp_Max > 0.5f)
         {
+            if (phase_Loop == phase2_Loop)
+                return;
             startPatternEnd = false;
             index = 0;
             phase_Start = phase2_Start;
@@ -168,6 +248,8 @@ public class Maja : Enemy
         }
         else if (hp_Current / hp_Max > 0.3f)
         {
+            if (phase_Loop == phase3_Loop)
+                return;
             attackCooltime_Max = 2;
             startPatternEnd = false;
             index = 0;
@@ -176,6 +258,8 @@ public class Maja : Enemy
         }
         else
         {
+            if (phase_Loop == phase4_Loop)
+                return;
             startPatternEnd = false;
             index = 0;
             phase_Start = phase4_Start;
@@ -258,7 +342,7 @@ public class Maja : Enemy
             return;
         }
 
-        attackCooltime_Current += routineTime;
+        CheckHP();
 
         if (PatternDelay != null)
         {
@@ -269,6 +353,7 @@ public class Maja : Enemy
             }
         }
 
+        attackCooltime_Current += routineTime;
 
         if (state == State.Idle)
         {
@@ -312,24 +397,24 @@ public class Maja : Enemy
 
                 if (!startPatternEnd)
                 {
-                    if (index >= phase_Start.Length)
+                    if (index >= phase_Start.Count)
                     {
                         index = 0;
                         startPatternEnd = true;
                     } 
 
-                    phase_Start[index].ActivePattern(targetDirection);
+                    phase_Start[index++].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
 
                 }
                 else
                 {
-                    if (index >= phase_Loop.Length)
+                    if (index >= phase_Loop.Count)
                     {
                         index = 0;
                     }
 
-                    phase_Start[index].ActivePattern(targetDirection);
+                    phase_Loop[index++].ActivePattern(targetDirection);
                     attackCooltime_Current = 0;
                 }
                 //if (enemy_Cross.y > -0.3f && enemy_Cross.y < 0.2f && attackPatterns[1].CooltimeCheck())
@@ -398,36 +483,36 @@ public class Maja : Enemy
             }
         }
 
-        //// 쿨타임 체크 후 스킬을 쓸 수 있다면 사거리 만큼 이동
-        //if (attackCooltime_Current > attackCooltime_Max)
-        //{
-        //    enemyDistance = Vector3.Distance(target.position, transform.position);
-        //    bool check = false;
-        //    for (int i = 0; i < attackPatterns.Count; i++)
-        //    {
-        //        if(attackPatterns[i].CooltimeCheck())
-        //        {
-        //            if (enemyDistance <= attackPatterns[i].range)
-        //            {
-        //                state = State.Attack;
-        //                check = false;
-        //                break;
-        //            }
-        //            else
-        //            {
-        //                check = true;
-        //            }
-        //        }
-        //    }
+        // 쿨타임 체크 후 스킬을 쓸 수 있다면 사거리 만큼 이동
+        if (attackCooltime_Current > attackCooltime_Max)
+        {
+            enemyDistance = Vector3.Distance(target.position, transform.position);
+            bool check = false;
+            for (int i = 0; i < attackPatterns.Count; i++)
+            {
+                if (attackPatterns[i].CooltimeCheck())
+                {
+                    if (enemyDistance <= attackPatterns[i].range)
+                    {
+                        state = State.Attack;
+                        check = false;
+                        break;
+                    }
+                    else
+                    {
+                        check = true;
+                    }
+                }
+            }
 
-        //    if (check)
-        //    {
-        //        state = State.Move;
-        //        Move(target.position);
-        //    }
-        //}
+            if (check)
+            {
+                state = State.Move;
+                Move(target.position);
+            }
+        }
 
-        if(state != State.Move)
+        if (state != State.Move)
         {
             setMovePosition = false;
         }

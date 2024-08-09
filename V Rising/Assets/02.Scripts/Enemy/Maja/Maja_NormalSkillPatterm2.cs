@@ -35,7 +35,7 @@ public class Maja_NormalSkillPattern2 : Pattern
         }
         readyToStart = false;
 
-        //maja.animator.SetTrigger("MainSkillPattern3");
+        maja.animator.SetTrigger("NormalSkillPattern2");
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
