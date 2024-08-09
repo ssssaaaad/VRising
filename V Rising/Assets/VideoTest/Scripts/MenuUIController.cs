@@ -33,7 +33,7 @@ public class MenuUIController : MonoBehaviour
 
     void OnBackOptionButtonClick()
     {
-        SceneManager.LoadScene("PlayerMoving");
+        SceneManager.LoadScene("MergeScene_Alpha");
     }
 
     void OnStartButtonClick()
