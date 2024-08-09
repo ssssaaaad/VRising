@@ -114,5 +114,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CutoutColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TintColor: {r: 5, g: 1.1379302, b: 0, a: 1}
+    - _TintColor: {r: 1.6887342, g: 0.33864114, b: 1.8892622, a: 1}
   m_BuildTextureStacks: []
