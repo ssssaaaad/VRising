@@ -13,7 +13,7 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))      // 부딪힌 대상의 레이어 확인
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))      // 부딪힌 대상의 레이어 확인
         {
             Tskill.StartCoroutine(Tskill.hitDelayTime(other.transform));
         }
