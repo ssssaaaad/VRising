@@ -59,8 +59,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4c83bb66770326c4a8dabdc2eb2210e9, type: 3}
   - audioClipName: 6
     audioClips:
-    - {fileID: 8300000, guid: ecd88136995861547ad18c5b43ce2167, type: 3}
-    - {fileID: 8300000, guid: ecd88136995861547ad18c5b43ce2167, type: 3}
+    - {fileID: 8300000, guid: d78e9307897287e45a4b9457f7a4ba25, type: 3}
   - audioClipName: 7
     audioClips:
     - {fileID: 8300000, guid: 58753866b1d408f4b920e2ee1dd28cfe, type: 3}
@@ -117,6 +116,15 @@ MonoBehaviour:
   - audioClipName: 25
     audioClips:
     - {fileID: 8300000, guid: c9e68a725e5d6524d9339d42136793af, type: 3}
+  - audioClipName: 26
+    audioClips:
+    - {fileID: 8300000, guid: beefdfe9e8adbb441bc3f6117e6af8b6, type: 3}
+  - audioClipName: 27
+    audioClips:
+    - {fileID: 8300000, guid: 304715e4c6fe53b49ab7bb7b8aa112af, type: 3}
+  - audioClipName: 28
+    audioClips:
+    - {fileID: 8300000, guid: e834d4038674b964eb243396c6c12813, type: 3}
   sfxVolume: 0.5
   bgmVolume: 0.5
 --- !u!82 &8866411775112689636

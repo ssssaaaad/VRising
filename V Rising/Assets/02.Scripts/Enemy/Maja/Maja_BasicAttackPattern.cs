@@ -8,6 +8,7 @@ public class Maja_BasicAttackPattern : Pattern
 {
     private Maja maja;
 
+
     public float coolTime = 5;
     public bool readyToStart = true;
     public float startDistance = 2;
@@ -18,7 +19,7 @@ public class Maja_BasicAttackPattern : Pattern
 
     public int bulletCount = 4;
 
-    public float damage = 10;
+
     public Ease ease = Ease.Linear;
 
     private Vector3 spawnPosition;
@@ -29,6 +30,19 @@ public class Maja_BasicAttackPattern : Pattern
     public override void InitPattern(Maja maja)
     {
         this.maja = maja;
+    }
+
+    public override void SetDamage(float dmg)
+    {
+        if (dmg > damage_Max)
+        {
+            dmg = damage_Max;
+        }
+        else if (dmg < damage_Min)
+        {
+            dmg = damage_Min;
+        }
+        damage = dmg;
     }
 
     public override bool CooltimeCheck()

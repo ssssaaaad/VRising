@@ -31,6 +31,9 @@ public class Sound
         Boss_MainSkill3_Throw,
         Boss_SpawnMinion,
         Boss_Explosion,
+        PlayerUH,
+        PlayerHit,
+        BossHit,
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip

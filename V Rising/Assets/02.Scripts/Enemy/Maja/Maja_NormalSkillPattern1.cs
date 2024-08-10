@@ -16,7 +16,6 @@ public class Maja_NormalSkillPattern1 : Pattern
 
     public int bulletCount = 4;
 
-    public float damage = 10;
     public Ease ease = Ease.Linear;
 
     private Vector3 spawnPosition;
@@ -33,6 +32,19 @@ public class Maja_NormalSkillPattern1 : Pattern
     {
         this.maja = maja;
     }
+    public override void SetDamage(float dmg)
+    {
+        if (dmg > damage_Max)
+        {
+            dmg = damage_Max;
+        }
+        else if (dmg < damage_Min)
+        {
+            dmg = damage_Min;
+        }
+        damage = dmg;
+    }
+
     public override bool CooltimeCheck()
     {
         return readyToStart;

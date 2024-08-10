@@ -18,8 +18,6 @@ public class Maja_MainSkillPattern1 : Pattern
 
     public int childBulletCount = 8;
     
-    public float parentDamage = 10;
-    public float childDamage = 10;
 
     public bool secondDirection_Right;
 
@@ -44,6 +42,18 @@ public class Maja_MainSkillPattern1 : Pattern
     public override void InitPattern(Maja maja)
     {
         this.maja = maja;
+    }
+    public override void SetDamage(float dmg)
+    {
+        if (dmg > damage_Max)
+        {
+            dmg = damage_Max;
+        }
+        else if (dmg < damage_Min)
+        {
+            dmg = damage_Min;
+        }
+        damage = dmg;
     }
     public override bool CooltimeCheck()
     {
@@ -95,7 +105,7 @@ public class Maja_MainSkillPattern1 : Pattern
             childProjectile.transform.Rotate(0, -90, 0);
         }
 
-        childProjectile.InitAttack(parentDamage, true);
+        childProjectile.InitAttack(damage, true);
         return(childProjectile);
     }
 
@@ -135,7 +145,7 @@ public class Maja_MainSkillPattern1 : Pattern
             lookAtDirection = (transform.position + direction);
             lookAtDirection.y = parentProjectile.transform.position.y;
             parentProjectile.transform.LookAt(lookAtDirection);
-            parentProjectile.InitAttack(parentDamage, true, false);
+            parentProjectile.InitAttack(damage, true, false);
 
             if (maja.target != null)
             {

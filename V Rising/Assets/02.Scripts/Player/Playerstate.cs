@@ -20,6 +20,8 @@ public class Playerstate : MonoBehaviour
 
     public int cameraShakeTypeIndex = 0;
 
+    private SFXAudioSource hitSound;
+
     void Start()
     {
         hp_Current = hp_Max;
@@ -61,10 +63,21 @@ public class Playerstate : MonoBehaviour
         else if (hp_Current > 0)
         {
             hp_Current -= dmg;
-
+            
+            if (hitSound != null)
+            {
+                if (!hitSound.audioSource.isPlaying)
+                {
+                    hitSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.PlayerHit, transform, Vector3.zero);
+                }
+            }
+            else
+            {
+                hitSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.PlayerHit, transform, Vector3.zero);
+            }
+            SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.PlayerHit, transform, Vector3.zero);
             CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
         }
-            
 
         // HP가 변경되면 이벤트를 호출
         OnHealthChanged?.Invoke(hp_Current, hp_Max);

@@ -8,7 +8,6 @@ public class Maja_NormalSkillPattern2 : Pattern
     public float coolTime = 5;
     public bool readyToStart = true;
     public float radius = 5;
-    public float damage = 10;
     public LayerMask layerMask;
 
     public Projectile projectile_Prefab;
@@ -18,7 +17,18 @@ public class Maja_NormalSkillPattern2 : Pattern
     {
         StopAllCoroutines();
     }
-
+    public override void SetDamage(float dmg)
+    {
+        if (dmg > damage_Max)
+        {
+            dmg = damage_Max;
+        }
+        else if (dmg < damage_Min)
+        {
+            dmg = damage_Min;
+        }
+        damage = dmg;
+    }
     public override void InitPattern(Maja maja)
     {
         this.maja = maja;

@@ -43,6 +43,9 @@ public class Maja_Minion : Enemy
     private float attackCooltime = 1;
     private bool attackCheck = false;
 
+    public float damage = 15;
+    public float damage_Min = 15;
+    public float damage_Max = 30;
 
     void Update()
     {
@@ -55,12 +58,12 @@ public class Maja_Minion : Enemy
         StopAllCoroutines();
     }
 
-    public new void InitEnemy(Maja maja)
+    public new void InitEnemy(Maja maja, float damage)
     {
         base.InitEnemy();
         this.maja = maja;
         target = maja.target;
-
+        SetDamage(damage);
         onTarget = false;
         respawn = true;
         navMeshAgent.speed = speed;
@@ -69,6 +72,19 @@ public class Maja_Minion : Enemy
         StartCoroutine(ChangeAngle());
         StartCoroutine(InitTimeCheck());
 
+    }
+
+    public void SetDamage(float dmg)
+    {
+        if (dmg > damage_Max)
+        {
+            dmg = damage_Max;
+        }
+        else if (dmg < damage_Min)
+        {
+            dmg = damage_Min;
+        }
+        damage = dmg;
     }
 
     private void StateCycle()
@@ -207,7 +223,7 @@ public class Maja_Minion : Enemy
     IEnumerator Coroutine_Attack()
     {
         // 공격중인지 체크
-        if (attackCheck)
+        if (attackCheck || !alive)
         {
             yield break;
         }

@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
         this.origin = origin;
     }
 
+
     public bool Drain()
     {
         if (drain || !canDrain)
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour
     {
         animator.speed = 1;
     }
+
 
     /// <summary>
     /// 음수는 데미지, 양수는 회복
@@ -82,6 +84,10 @@ public class Enemy : MonoBehaviour
         {
             StopMoveTarget();
             alive = false;
+        }
+        else
+        {
+            SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.BossHit, transform, Vector3.zero);
         }
 
     }

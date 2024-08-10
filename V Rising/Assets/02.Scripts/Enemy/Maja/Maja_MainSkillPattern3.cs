@@ -22,7 +22,6 @@ public class Maja_MainSkillPattern3 : Pattern
 
     public int bulletCount = 4;
 
-    public float damage = 10;
     public float y = 20;
 
     private Vector3 direction;
@@ -36,7 +35,18 @@ public class Maja_MainSkillPattern3 : Pattern
     {
         this.maja = maja;
     }
-
+    public override void SetDamage(float dmg)
+    {
+        if (dmg > damage_Max)
+        {
+            dmg = damage_Max;
+        }
+        else if (dmg < damage_Min)
+        {
+            dmg = damage_Min;
+        }
+        damage = dmg;
+    }
     public override bool CooltimeCheck()
     {
         return readyToStart;
@@ -77,7 +87,7 @@ public class Maja_MainSkillPattern3 : Pattern
         yield return new WaitForSeconds(2f);
         maja.model.gameObject.SetActive(false);
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < bulletCount; i++)
         {
             StartCoroutine(SpawnMinion());
             yield return new WaitForSeconds(1f);
@@ -137,7 +147,7 @@ public class Maja_MainSkillPattern3 : Pattern
         Destroy(attackPositionCircle.gameObject);
         Destroy(line.gameObject);
 
-        Collider[] hitTargets = Physics.OverlapSphere(maja.target.transform.position, 5, layerMask);
+        Collider[] hitTargets = Physics.OverlapSphere(spawnPosition, width, layerMask);
         for (int i = 0; i < hitTargets.Length; i++)
         {
             hitTargets[i].GetComponent<Playerstate>().UpdateHP(damage);
@@ -150,7 +160,7 @@ public class Maja_MainSkillPattern3 : Pattern
         a = a.normalized;
         minion.transform.forward = a;
 
-        minion.InitEnemy(maja);
+        minion.InitEnemy(maja, minion.damage_Min);
     }
 
     protected override IEnumerator PatternDelayTime()

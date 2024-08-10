@@ -83,7 +83,9 @@ MonoBehaviour:
   phase3_Loop: []
   phase4_Start: []
   phase4_Loop: []
+  phase: 0
   talkSound: {fileID: 0}
+  Test: 0
 --- !u!114 &4655274730477331985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,18 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5bbf29651fc734e9a29121fa422f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelayTime: 0.3
+  attackDelayTime: 1
   delayTime: 1.5
   range: 0
   vfxList: []
+  damage: 10
+  damage_Min: 50
+  damage_Max: 75
   coolTime: 0
   readyToStart: 1
   startDistance: 2
   width: 5
-  attackDistance: 10
-  attackActiveTime: 3
+  attackDistance: 50
+  attackActiveTime: 2
   bulletCount: 4
-  damage: 10
   ease: 1
   projectile_Prefab: {fileID: 7635418392693607409, guid: 9f95df07862d6474781cc8aa322db1c2,
     type: 3}
@@ -123,19 +127,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3d848c1456a324e92bf80e3378e6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelayTime: 0
-  delayTime: 0
+  attackDelayTime: 0.8
+  delayTime: 3
   range: 0
   vfxList: []
+  damage: 10
+  damage_Min: 50
+  damage_Max: 75
   coolTime: 5
   readyToStart: 1
-  startDistance: 2
+  startDistance: 0
   width: 5
-  attackDistance: 10
-  attackActiveTime: 3
+  attackDistance: 40
+  attackActiveTime: 1.5
   bulletCount: 4
-  damage: 10
-  ease: 1
+  ease: 2
   projectile_Prefab: {fileID: 7635418392693607409, guid: 363e2c66092e9534892fc36017219a1e,
     type: 3}
 --- !u!114 &1661990774327104219
@@ -154,10 +160,12 @@ MonoBehaviour:
   delayTime: 3
   range: 5
   vfxList: []
+  damage: 10
+  damage_Min: 50
+  damage_Max: 75
   coolTime: 5
   readyToStart: 1
   radius: 5
-  damage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -179,17 +187,18 @@ MonoBehaviour:
   delayTime: 3
   range: 10
   vfxList: []
+  damage: 50
+  damage_Min: 50
+  damage_Max: 75
   maja: {fileID: 0}
   coolTime: 0
   readyToStart: 1
   startPosition: 2
   parentDistance: 30
-  childDistanece: 30
+  childDistanece: 45
   parentActiveTime: 1.5
   childActiveTime: 2
   childBulletCount: 7
-  parentDamage: 10
-  childDamage: 10
   secondDirection_Right: 0
   parentProjectile_Prefab: {fileID: 7635418392693607409, guid: 363e2c66092e9534892fc36017219a1e,
     type: 3}
@@ -211,9 +220,12 @@ MonoBehaviour:
   delayTime: 2
   range: 30
   vfxList: []
+  damage: 50
+  damage_Min: 50
+  damage_Max: 75
   coolTime: 0
   readyToStart: 1
-  startDistance: 10
+  startDistance: 6
   minionSpeed: 2.5
   minionSpawnTime: 1
 --- !u!114 &5709995837576373128
@@ -232,6 +244,9 @@ MonoBehaviour:
   delayTime: 5
   range: 25
   vfxList: []
+  damage: 50
+  damage_Min: 50
+  damage_Max: 75
   minion_Prefab: {fileID: 7106103959459495280, guid: dc6c4b38481bca4429533f78e58bcd14,
     type: 3}
   spanwLineParticel: {fileID: 5228259164503839403, guid: 3391a54fd332b464fb6787d087635d8d,
@@ -246,11 +261,10 @@ MonoBehaviour:
   coolTime: 0
   readyToStart: 1
   startDistance: 0
-  width: 5
+  width: 2
   attackDistance: 10
   attackActiveTime: 3
-  bulletCount: 4
-  damage: 10
+  bulletCount: 3
   y: 30
   ease: 3
   minionSpawnTime: 0.5
@@ -271,6 +285,9 @@ MonoBehaviour:
   delayTime: 1
   range: 0
   vfxList: []
+  damage: 50
+  damage_Min: 50
+  damage_Max: 75
   coolTime: 15
   readyToStart: 1
 --- !u!195 &2967642142717032212
@@ -1312,12 +1329,12 @@ PrefabInstance:
     - target: {fileID: 8534601073107679804, guid: 383a0dfb3babc0a4393dc3e7911d324a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.43552178
+      value: -0.21093059
       objectReference: {fileID: 0}
     - target: {fileID: 8534601073107679804, guid: 383a0dfb3babc0a4393dc3e7911d324a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.90017825
+      value: -0.9775011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

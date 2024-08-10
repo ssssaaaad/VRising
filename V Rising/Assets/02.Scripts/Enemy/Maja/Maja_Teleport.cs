@@ -18,7 +18,10 @@ public class Maja_Teleport : Pattern
     {
         return readyToStart;
     }
-
+    public override void SetDamage(float dmg)
+    {
+        return;
+    }
     public override void ActivePattern(Vector3 direction)
     {
         if (maja.target == null)

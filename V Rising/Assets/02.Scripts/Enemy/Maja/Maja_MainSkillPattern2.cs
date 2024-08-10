@@ -20,7 +20,10 @@ public class Maja_MainSkillPattern2 : Pattern
     {
         this.maja = maja;
     }
-
+    public override void SetDamage(float dmg)
+    {
+        return;
+    }
     public override bool CooltimeCheck()
     {
         return readyToStart;

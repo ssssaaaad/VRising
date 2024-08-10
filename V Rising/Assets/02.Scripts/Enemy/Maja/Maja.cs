@@ -12,6 +12,8 @@ public abstract class Pattern : MonoBehaviour
 {
     public abstract void InitPattern(Maja maja);
     public abstract void ActivePattern(Vector3 direction);
+
+    public abstract void SetDamage(float dmg);
     public abstract bool CooltimeCheck();
 
     protected abstract bool GetPatternDelay();
@@ -30,6 +32,11 @@ public abstract class Pattern : MonoBehaviour
 
 
     public VFX[] vfxList = new VFX[] { };
+
+
+    public float damage = 50;
+    public float damage_Min = 50;
+    public float damage_Max = 75;
 }
 
 [System.Serializable]
@@ -99,7 +106,12 @@ public class Maja : Enemy
     private bool startPatternEnd = false;
     private int index = 0;
 
+    public int phase = 0;
+
     public SFXAudioSource talkSound = null;
+
+    public bool Test = false;
+
     void Awake()
     {
         InitEnemy();
@@ -107,6 +119,11 @@ public class Maja : Enemy
     private void Update()
     {
         Rotate();
+        if (Test)
+        {
+            Test = false;
+            hp_Current -= 1000;
+        }
     }
     private void OnDestroy()
     {
@@ -149,28 +166,29 @@ public class Maja : Enemy
         for (int i = 0; i < attackPatterns.Count; i++)
         {
             attackPatterns[i].InitPattern(this);
+            attackPatterns[i].SetDamage(attackPatterns[i].damage_Min);
         }
 
         teleport = GetComponent<Maja_Teleport>();
         teleport.InitPattern(this);
 
-        phase1_Start.Add(attackPatterns[3]);
-        phase1_Start.Add(attackPatterns[3]);
-        phase1_Start.Add(attackPatterns[3]);
-        phase1_Start.Add(attackPatterns[3]);
-        phase1_Start.Add(attackPatterns[3]);
-        phase1_Start.Add(attackPatterns[3]);
+        phase1_Start.Add(attackPatterns[5]);
+        //phase1_Start.Add(attackPatterns[1]);
+        //phase1_Start.Add(attackPatterns[2]);
+        //phase1_Start.Add(attackPatterns[3]);
+        //phase1_Start.Add(attackPatterns[4]);
+        //phase1_Start.Add(attackPatterns[5]);
 
-        phase1_Loop.Add(attackPatterns[0]);
-        phase1_Loop.Add(attackPatterns[1]);
-        phase1_Loop.Add(attackPatterns[0]);
-        phase1_Loop.Add(attackPatterns[1]);
-        phase1_Loop.Add(attackPatterns[3]);
-        phase1_Loop.Add(attackPatterns[0]);
-        phase1_Loop.Add(attackPatterns[1]);
-        phase1_Loop.Add(attackPatterns[0]);
-        phase1_Loop.Add(attackPatterns[1]);
-        phase1_Loop.Add(attackPatterns[3]);
+        phase1_Loop.Add(attackPatterns[5]);
+        //phase1_Loop.Add(attackPatterns[1]);
+        //phase1_Loop.Add(attackPatterns[0]);
+        //phase1_Loop.Add(attackPatterns[1]);
+        //phase1_Loop.Add(attackPatterns[3]);
+        //phase1_Loop.Add(attackPatterns[0]);
+        //phase1_Loop.Add(attackPatterns[1]);
+        //phase1_Loop.Add(attackPatterns[0]);
+        //phase1_Loop.Add(attackPatterns[1]);
+        //phase1_Loop.Add(attackPatterns[3]);
 
 
         phase2_Start.Add(attackPatterns[0]);
@@ -245,29 +263,74 @@ public class Maja : Enemy
         {
             if (phase_Loop == phase2_Loop)
                 return;
+            phase++;
             startPatternEnd = false;
             index = 0;
             phase_Start = phase2_Start;
             phase_Loop = phase2_Loop;
+
+            for (int i = 0; i < attackPatterns.Count; i++)
+            {
+                float dmg = attackPatterns[i].damage_Max - attackPatterns[i].damage_Min;
+                dmg = attackPatterns[i].damage + dmg / 3;
+                attackPatterns[i].SetDamage(dmg);
+            }
+
+            for (int i = 0; i < maja_Minions.Count; i++)
+            {
+                float dmg = (maja_Minions[i].damage_Max - maja_Minions[i].damage_Min);
+                dmg = maja_Minions[i].damage + (dmg / 3 * phase);
+                maja_Minions[i].SetDamage(dmg);
+            }
+            
         }
         else if (hp_Current / hp_Max > 0.3f)
         {
             if (phase_Loop == phase3_Loop)
                 return;
+            phase++;
             attackCooltime_Max = 2;
             startPatternEnd = false;
             index = 0;
             phase_Start = phase3_Start;
-            phase_Loop = phase3_Loop;
+            phase_Loop = phase3_Loop; 
+            
+            for (int i = 0; i < attackPatterns.Count; i++)
+            {
+                float dmg = attackPatterns[i].damage_Max - attackPatterns[i].damage_Min;
+                dmg = attackPatterns[i].damage + dmg / 3;
+                attackPatterns[i].SetDamage(dmg);
+            }
+
+            for (int i = 0; i < maja_Minions.Count; i++)
+            {
+                float dmg = (maja_Minions[i].damage_Max - maja_Minions[i].damage_Min);
+                dmg = maja_Minions[i].damage + (dmg / 3 * phase);
+                maja_Minions[i].SetDamage(dmg);
+            }
         }
         else
         {
             if (phase_Loop == phase4_Loop)
                 return;
+            phase++;
             startPatternEnd = false;
             index = 0;
             phase_Start = phase4_Start;
             phase_Loop = phase4_Loop;
+
+            for (int i = 0; i < attackPatterns.Count; i++)
+            {
+                float dmg = attackPatterns[i].damage_Max - attackPatterns[i].damage_Min;
+                dmg = attackPatterns[i].damage + dmg / 3;
+                attackPatterns[i].SetDamage(dmg);
+            }
+            for (int i = 0; i < maja_Minions.Count; i++)
+            {
+                float dmg = (maja_Minions[i].damage_Max - maja_Minions[i].damage_Min);
+                dmg = maja_Minions[i].damage + (dmg / 3 * phase);
+                maja_Minions[i].SetDamage(dmg);
+            }
         }
     }
 
@@ -280,7 +343,11 @@ public class Maja : Enemy
         Maja_Minion minion = Instantiate(minion_Prefab);
         minion.transform.position = position;
         AddMinion(minion);
-        minion.InitEnemy(this);
+
+        float dmg = (minion.damage_Max - minion.damage_Min);
+        dmg = minion.damage + (dmg / 3* phase);
+
+        minion.InitEnemy(this, dmg);
     }
 
     public void AddMinion(Maja_Minion minion)
