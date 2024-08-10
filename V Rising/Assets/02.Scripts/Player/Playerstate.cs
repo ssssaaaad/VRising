@@ -53,7 +53,6 @@ public class Playerstate : MonoBehaviour
     {
         if (PM.cskilling)
         {
-            Cskill.Cdmg = dmg;
             Cskill.counter = true;
         }
         else if (hp_Current > 0)

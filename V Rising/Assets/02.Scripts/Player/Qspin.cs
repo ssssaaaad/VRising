@@ -18,12 +18,11 @@ public class Qspin : MonoBehaviour
         
     }
 
-    
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
             if (!hitObjects.Contains(other.transform))      // 히트대상이 리스트에 있으면 통과
             {
                 StartCoroutine(hitCoolTime(other.transform));
