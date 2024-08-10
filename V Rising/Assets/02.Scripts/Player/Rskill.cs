@@ -8,8 +8,9 @@ public class Rskill : MonoBehaviour
     private Playerstate PS;
     private Coroutine castingCoroutine;
     private PlayerMove playerMove; // PlayerMove 스크립트 참조
+    private IndiControler Indi;
 
-    public GameObject R_Skill_Particle;
+    //public GameObject R_Skill_Particle;
     public GameObject skillPrefab; // 발사할 스킬(발사체) 프리팹
     public Transform firePoint; // 스킬이 발사될 위치
     public SkillUI skillUI;
@@ -26,6 +27,8 @@ public class Rskill : MonoBehaviour
     private float cooldownEndTime; // 쿨타임 종료 시간
     private bool isCoolingDown = false; // 쿨타임 여부 확인
 
+    public int cameraShakeTypeIndex = 0;
+
     void Start()
     {
         // PlayerMove 컴포넌트 가져오기
@@ -33,6 +36,7 @@ public class Rskill : MonoBehaviour
         PM = GetComponent<PlayerManager>();
         PS = GetComponent<Playerstate>();
         playerSpeed = playerMove.playerSpeed;
+        Indi = GetComponent<IndiControler>();
     }
 
     public void R()
@@ -52,6 +56,8 @@ public class Rskill : MonoBehaviour
         PM.rskilling = true; //시전 상태로 설정
         isCoolingDown = true;
 
+        Indi.Indi_R();
+
         // 시전 시간 동안 캐릭터 속도 감소
         if (playerMove != null)
         {
@@ -62,8 +68,9 @@ public class Rskill : MonoBehaviour
         // 시전 시간 동안 기다리기
         yield return new WaitForSeconds(castTime);
 
-        // 발사체 발사
+        Indi.Indi_R_break();
 
+        // 발사체 발사
         ActivateSkill();
         Debug.Log("발사");
         
@@ -95,11 +102,10 @@ public class Rskill : MonoBehaviour
             StopCoroutine(castingCoroutine);
             castingCoroutine = null;
         }
+        
+        PM.rskilling = false;
 
-        if (PM != null)
-        {
-            PM.rskilling = false;
-        }
+        Indi.Indi_R_break();
 
         // 시전 중 속도 복원
         if (playerMove != null)
@@ -114,7 +120,7 @@ public class Rskill : MonoBehaviour
             
         
     }
-        void ActivateSkill()
+    void ActivateSkill()
     {
         if (skillPrefab != null && firePoint != null)
         {
@@ -131,7 +137,6 @@ public class Rskill : MonoBehaviour
             {
                 projectile.speed = skillSpeed; // 발사체의 속도 조정
             }
-            Debug.Log("R투사체 발사");
 
             // 발사 후 스킬을 자동으로 비활성화
             Destroy(skill, DestroyBullet); // 발사체를 5초 후에 파괴 (필요에 따라 조정)
@@ -142,6 +147,8 @@ public class Rskill : MonoBehaviour
     public void Damage(Collider hit, float coeff)
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
+
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
     }
 
     public bool IsCasting()

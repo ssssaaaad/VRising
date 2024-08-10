@@ -332,6 +332,10 @@ public class PlayerManager : MonoBehaviour
         {
             Tskill.CancelTSkill();
         }
+        if (eskilling)
+        {
+            Eskill.CancelECasting();
+        }
         if (attacking)
         {
             Attack.CancelAttacking();
@@ -350,6 +354,10 @@ public class PlayerManager : MonoBehaviour
         if (tskilling)
         {
             Tskill.CancelTSkill();
+        }
+        if (eskilling)
+        {
+            Eskill.CancelECasting();
         }
         if (attacking)
         {

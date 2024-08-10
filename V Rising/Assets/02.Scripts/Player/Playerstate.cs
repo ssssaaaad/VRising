@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TMPro.Examples;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,8 @@ public class Playerstate : MonoBehaviour
     public float power = 40;
 
     public event Action<float, float> OnHealthChanged;
+
+    public int cameraShakeTypeIndex = 0;
 
     void Start()
     {
@@ -53,11 +56,15 @@ public class Playerstate : MonoBehaviour
     {
         if (PM.cskilling)
         {
-            Cskill.Cdmg = dmg;
             Cskill.counter = true;
         }
         else if (hp_Current > 0)
+        {
             hp_Current -= dmg;
+
+            CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
+        }
+            
 
         // HP가 변경되면 이벤트를 호출
         OnHealthChanged?.Invoke(hp_Current, hp_Max);

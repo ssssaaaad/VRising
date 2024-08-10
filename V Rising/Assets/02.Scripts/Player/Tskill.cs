@@ -10,6 +10,7 @@ public class Tskill : MonoBehaviour
     private Playerstate PS;
     private PlayerMove PlayerMove;
     private Coroutine ghostTime;
+    private IndiControler Indi;
 
     public GameObject T_Skill_Particle;
     public GameObject Model;
@@ -22,7 +23,7 @@ public class Tskill : MonoBehaviour
     public float bustTime = 1.5f;   // 폭발 지연시간
     public float cooldownTime = 20f;    // 쿨타임 (초)
     public float highSpeed = 50f;   // 돌진 속도
-    public float normalSpeed = 5f;  // 기본 속도
+    public float normalSpeed = 10f;  // 기본 속도
     public string noHitPlayer = "NoHitPlayer";      // 피격판정이 없는 레이어
 
     private bool isCoolingDown = false;
@@ -34,6 +35,7 @@ public class Tskill : MonoBehaviour
 
     public GameObject EnemyCollsion;
 
+    public int cameraShakeTypeIndex = 0;
 
     void Start()
     {
@@ -41,8 +43,8 @@ public class Tskill : MonoBehaviour
         PM = GetComponent<PlayerManager>();
         PS = GetComponent<Playerstate>();
         PlayerMove = GetComponent<PlayerMove>();
-
-        originalLayer= gameObject.layer;
+        Indi = GetComponent<IndiControler>();
+        originalLayer = gameObject.layer;
     }
 
 
@@ -58,11 +60,13 @@ public class Tskill : MonoBehaviour
         PM.tskilling = true;
         isCoolingDown = true;
 
+        Indi.Indi_T();
+
         yield return new WaitForSeconds(dashReady);         // 시전시간동안 대기 
 
         headLock = true; // 방향 고정
 
-        
+        Indi.Indi_T_break();
 
         // 플레이어 Layer를 NoHitPlayer로 변경
         gameObject.layer = LayerMask.NameToLayer(noHitPlayer);
@@ -124,7 +128,7 @@ public class Tskill : MonoBehaviour
         StopCoroutine(ghostTime);
         
         PM.tskilling = false;
-
+        Indi.Indi_T_break();
         isCoolingDown = false;
 
         Debug.Log("Tskill 캔슬");
@@ -157,5 +161,7 @@ public class Tskill : MonoBehaviour
     public void Damage(Collider hit, float coeff)
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
+
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
     }
 }

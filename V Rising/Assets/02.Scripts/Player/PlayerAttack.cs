@@ -29,9 +29,10 @@ public class PlayerAttack : MonoBehaviour
     private int comboCount;
     private float lastAttackTime;   // 마지막 공격시간
     private float[] comboDelay;
-    private float basicSpeed = 5f;
+    private float basicSpeed = 10f;
     private bool canAttack = true;
 
+    public int cameraShakeTypeIndex = 0;
 
     void Start()
     {
@@ -132,5 +133,7 @@ public class PlayerAttack : MonoBehaviour
     public void Damage(Collider hit, float coeff)
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
+
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
     }
 }

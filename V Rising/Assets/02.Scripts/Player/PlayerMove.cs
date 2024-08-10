@@ -18,8 +18,8 @@ public class PlayerMove : MonoBehaviour
     public GameObject model;
     public Animator animator;
     public SkillUI skillUI;
-    public float playerSpeed_Max = 5f; // 기본속도
-    public float playerSpeed = 5f; // 기본속도
+    public float playerSpeed_Max = 10f; // 기본속도
+    public float playerSpeed = 10f; // 기본속도
     public float dashSpeed = 20f; // 대쉬 이동속도
     public float dashDuration = 0.45f; // 대쉬 지속 시간
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
@@ -128,7 +128,7 @@ public class PlayerMove : MonoBehaviour
 
         if (dashDirection.magnitude == 0) // 입력이 없는 경우 기본 방향을 설정
         {
-            dashDirection = forward;
+            dashDirection = model.transform.forward;
         }
 
         currentVelocity = dashDirection * dashSpeed;

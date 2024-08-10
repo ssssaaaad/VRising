@@ -23,6 +23,7 @@ public class Qskill : MonoBehaviour
     private bool isCoolingDown = false;
     private float cooldownEndTime; // 쿨타임 종료 시간
 
+    public int cameraShakeTypeIndex = 0;
     private SFXAudioSource spinSound;
 
     void Start()
@@ -110,6 +111,8 @@ public class Qskill : MonoBehaviour
     public void Damage(Collider hit, float coeff)
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
+
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
     }
 
 }

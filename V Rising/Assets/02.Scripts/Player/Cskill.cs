@@ -29,6 +29,7 @@ public class Cskill : MonoBehaviour
     private float cooldownEndTime;
     private int originalLayer;
 
+    public int cameraShakeTypeIndex = 0;
     private SFXAudioSource spinSound;
 
     void Start()
@@ -72,6 +73,8 @@ public class Cskill : MonoBehaviour
         {
             if (counter)
             {
+                CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
+
                 gameObject.layer = LayerMask.NameToLayer(noHitPlayer);  // 무적판정
                 Debug.Log("반격");
 
@@ -81,7 +84,7 @@ public class Cskill : MonoBehaviour
                 GameObject cBoom = Instantiate(Cboom);
                 cBoom.transform.position = transform.position;
 
-                Destroy(cBoom, 0.2f);
+                Destroy(cBoom, 10f);
 
                 break;
             }
@@ -199,7 +202,7 @@ public class Cskill : MonoBehaviour
     // hit : 맞은 대상, coeff : 데미지 계수
     public void Damage(Collider hit, float coeff)
     {
-        hit.GetComponentInParent<Enemy>().UpdateHP(PS.power * coeff, PM.transform);
+        hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
     }
 
 }
