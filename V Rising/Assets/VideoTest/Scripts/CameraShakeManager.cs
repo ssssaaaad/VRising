@@ -12,6 +12,21 @@ using static UnityEditor.MaterialProperty;
 using Unity.VisualScripting;
 using Sequence = PrimeTween.Sequence;
 
+[System.Serializable]
+public class SkakeType
+{
+    public Ease shakeEase;
+    public float cameraShakeStrength;
+    public float shakeMagnitude;
+    public float shakeDuration;
+    public float offsetX;
+    public float offsetY;
+    public Ease shakeRotEase;
+    public float offsetRotX;
+    public float offsetRotY;
+    public float startDelay;
+}
+
 public class CameraShakeManager : MonoBehaviour
 {
     public static CameraShakeManager instance {  get; private set; }
@@ -51,6 +66,8 @@ public class CameraShakeManager : MonoBehaviour
 
     private Vector3 shakeOffset;  // 쉐이킹 오프셋
     private Vector3 velocity = Vector3.zero;  // 부드럽게 이동하기 위한 변수
+
+    public SkakeType[] SkakeTypeList;
 
     private void Awake()
     {
@@ -155,6 +172,45 @@ public class CameraShakeManager : MonoBehaviour
                         0f,
                         false)));
      
+    }
+
+    public void ShakeSkillCall(int index)
+    {
+        if (index >= SkakeTypeList.Length)
+            return;
+
+
+        Transform transform = camera.transform;
+        float num = SkakeTypeList[index].cameraShakeStrength * camera.orthographicSize * 0.03f;
+
+        Tween.ShakeLocalPosition(
+            transform,
+            new ShakeSettings(
+                new Vector3(num + SkakeTypeList[index].offsetX, num + SkakeTypeList[index].offsetY),
+                SkakeTypeList[index].shakeDuration,
+                SkakeTypeList[index].shakeMagnitude,
+                enableFalloff: true,
+                SkakeTypeList[index].shakeEase,
+                0f,
+                1,
+                SkakeTypeList[index].startDelay,
+                0f,
+                false))
+            .Group(
+                Tween.ShakeLocalRotation(
+                    transform,
+                    new ShakeSettings(
+                        new Vector3(SkakeTypeList[index].offsetRotX, SkakeTypeList[index].offsetRotY, SkakeTypeList[index].cameraShakeStrength * 0.6f),
+                        SkakeTypeList[index].shakeDuration,
+                        SkakeTypeList[index].shakeMagnitude,
+                        enableFalloff: true,
+                        SkakeTypeList[index].shakeRotEase,
+                        0f,
+                        1,
+                        SkakeTypeList[index].startDelay,
+                        0f,
+                        false)));
+
     }
 
     public Sequence Shake(float startDelay = 0)

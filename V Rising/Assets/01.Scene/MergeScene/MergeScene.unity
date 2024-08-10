@@ -48536,6 +48536,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8336408339548364361, guid: 1df5d906aed496942b67331eb9ac2a93,
         type: 3}
+    - target: {fileID: 1839513152214920996, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: cameraShakeTypeIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1965331982903560795, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -48545,6 +48550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2602906714244888806, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: cameraShakeTypeIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3358338793887673359, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
@@ -48556,6 +48566,11 @@ PrefabInstance:
       propertyPath: particle_Skill_C
       value: 
       objectReference: {fileID: 1324561841}
+    - target: {fileID: 3358338793887673359, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: cameraShakeTypeIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3430529038807297314, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -48702,6 +48717,11 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1883298963}
+    - target: {fileID: 5674220048950176895, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: cameraShakeTypeIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7225509834765251605, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: model
@@ -48729,10 +48749,20 @@ PrefabInstance:
       objectReference: {fileID: 1883298961}
     - target: {fileID: 8222373366295902142, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
+      propertyPath: normalSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222373366295902142, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
       propertyPath: T_Skill_Particle
       value: 
       objectReference: {fileID: 7334235630602265833, guid: 18af6881f16d27a4987f87d71f7f48bd,
         type: 3}
+    - target: {fileID: 8222373366295902142, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: cameraShakeTypeIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_IsActive
@@ -48771,6 +48801,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1205672309}
+    - targetCorrespondingSourceObject: {fileID: 2719347823016334679, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1830957311}
   m_SourcePrefab: {fileID: 100100000, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
 --- !u!1 &1205672308 stripped
 GameObject:
@@ -49285,6 +49319,7 @@ MonoBehaviour:
   speedDuration: 0.75
   HitBox: {fileID: 6836862729004524015, guid: 64b2c97e468e6b149a72dcc1faa626ca, type: 3}
   attackPoint: {fileID: 0}
+  cameraShakeTypeIndex: 0
 --- !u!1 &1298909174
 GameObject:
   m_ObjectHideFlags: 0
@@ -54668,6 +54703,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1517051556}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1397352545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2719347823016334679, guid: 5e59e3fe9d25a6d44a337cceee864049,
+    type: 3}
+  m_PrefabInstance: {fileID: 1205672307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1412015131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59821,6 +59862,7 @@ MonoBehaviour:
   playerSpeed: 5
   noHitPlayer: NoHitPlayer
   counter: 0
+  cameraShakeTypeIndex: 0
 --- !u!114 &1491535662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59843,6 +59885,7 @@ MonoBehaviour:
   cooldownTime: 8
   slowSpeed: 0.5
   DestroyBullet: 1
+  cameraShakeTypeIndex: 0
 --- !u!143 &1491535663
 CharacterController:
   m_ObjectHideFlags: 0
@@ -70969,6 +71012,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1205672307}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1830957311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397352545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1410007dce17bf94c9e99331a36cc747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeEase: 0
+  cameraShakeStrength: 0.4
+  shakeMagnitude: 0.3
+  shakeDuration: 0.5
+  offsetX: 0.5
+  offsetY: 0.5
+  shakeRotEase: 0
+  offsetRotX: 0.5
+  offsetRotY: 0.5
+  smoothTime: 0.1
+  SkakeTypeList:
+  - shakeEase: 18
+    cameraShakeStrength: 10
+    shakeMagnitude: 10
+    shakeDuration: 0.05
+    offsetX: 1
+    offsetY: 1
+    shakeRotEase: 0
+    offsetRotX: 0
+    offsetRotY: 0
+    startDelay: 0
+  - shakeEase: 18
+    cameraShakeStrength: 5
+    shakeMagnitude: 5
+    shakeDuration: 0.05
+    offsetX: 0.5
+    offsetY: 0.5
+    shakeRotEase: 0
+    offsetRotX: 0
+    offsetRotY: 0
+    startDelay: 0
+  - shakeEase: 24
+    cameraShakeStrength: 7
+    shakeMagnitude: 7
+    shakeDuration: 0.5
+    offsetX: 1
+    offsetY: 1
+    shakeRotEase: 0
+    offsetRotX: 0
+    offsetRotY: 0
+    startDelay: 0
 --- !u!4 &1831508863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6554827985546496060, guid: 12e2edf849405b44ea899967fa705dcb,
@@ -97356,12 +97452,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5511258
+      value: 0.009170484
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.83442223
+      value: -0.999958
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}

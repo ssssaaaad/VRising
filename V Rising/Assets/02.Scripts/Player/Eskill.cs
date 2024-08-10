@@ -39,6 +39,8 @@ public class Eskill : MonoBehaviour
     private bool comEActive = false;    // ComEskill 활성화 여부
     private int originalLayer;      // 기존 레이어
 
+    public int cameraShakeTypeIndex = 0;
+
     void Start()
     {
         playerMove = GetComponent<PlayerMove>();
@@ -227,6 +229,8 @@ public class Eskill : MonoBehaviour
     public void Damage(Collider hit, float coeff)
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
+
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
     }
 
     public bool IsECoolTime()

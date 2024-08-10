@@ -29,6 +29,7 @@ public class Cskill : MonoBehaviour
     private float cooldownEndTime;
     private int originalLayer;
 
+    public int cameraShakeTypeIndex = 0;
 
     void Start()
     {
@@ -70,6 +71,8 @@ public class Cskill : MonoBehaviour
         {
             if (counter)
             {
+                CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
+
                 gameObject.layer = LayerMask.NameToLayer(noHitPlayer);  // 무적판정
                 Debug.Log("반격");
 

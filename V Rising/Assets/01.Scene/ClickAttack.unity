@@ -2860,6 +2860,11 @@ PrefabInstance:
       propertyPath: DestroyBullet
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 1839513152214920996, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 1779437979}
     - target: {fileID: 4980935947369197339, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_Name
@@ -2886,6 +2891,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1779437977}
+    - targetCorrespondingSourceObject: {fileID: 2719347823016334679, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1779437980}
   m_SourcePrefab: {fileID: 100100000, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
 --- !u!1 &1779437975 stripped
 GameObject:
@@ -2915,6 +2924,51 @@ MonoBehaviour:
   Indi_r: {fileID: 1327566775286768, guid: a5caf17a6023c954b90f4d9a3219c1fd, type: 3}
   Indi_t: {fileID: 1327566775286768, guid: ccde142d2702a2046818f7f703979477, type: 3}
   Model: {fileID: 1779437975}
+--- !u!1 &1779437978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2719347823016334679, guid: 5e59e3fe9d25a6d44a337cceee864049,
+    type: 3}
+  m_PrefabInstance: {fileID: 1779437974}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1779437979 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8590362400572989130, guid: 5e59e3fe9d25a6d44a337cceee864049,
+    type: 3}
+  m_PrefabInstance: {fileID: 1779437974}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1779437980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779437978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1410007dce17bf94c9e99331a36cc747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeEase: 0
+  cameraShakeStrength: 0.4
+  shakeMagnitude: 0.3
+  shakeDuration: 0.5
+  offsetX: 0.5
+  offsetY: 0.5
+  shakeRotEase: 0
+  offsetRotX: 0.5
+  offsetRotY: 0.5
+  smoothTime: 0.1
+  SkakeTypeList:
+  - shakeEase: 18
+    cameraShakeStrength: 0.4
+    shakeMagnitude: 0.3
+    shakeDuration: 0.5
+    offsetX: 0.5
+    offsetY: 0.5
+    shakeRotEase: 0
+    offsetRotX: 0.5
+    offsetRotY: 0.5
+    startDelay: 0
 --- !u!1 &1849140246 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c66ef0bb71036f4384652594e332d7c,

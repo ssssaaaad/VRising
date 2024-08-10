@@ -128,7 +128,7 @@ public class PlayerMove : MonoBehaviour
 
         if (dashDirection.magnitude == 0) // 입력이 없는 경우 기본 방향을 설정
         {
-            dashDirection = forward;
+            dashDirection = model.transform.forward;
         }
 
         currentVelocity = dashDirection * dashSpeed;

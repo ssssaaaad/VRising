@@ -19,6 +19,8 @@ public class Fblood : MonoBehaviour
     private Coroutine fCasting;
     private int originalLayer;      // 기존 레이어
 
+    public int cameraShakeTypeIndex = 0;
+
     void Start()
     {
         PState = GetComponent<Playerstate>();
@@ -86,5 +88,7 @@ public class Fblood : MonoBehaviour
     public void Damage(Collider hit, float coeff)
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PState.power * coeff, PManager.transform);
+
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
     }
 }

@@ -35,6 +35,7 @@ public class Tskill : MonoBehaviour
 
     public GameObject EnemyCollsion;
 
+    public int cameraShakeTypeIndex = 0;
 
     void Start()
     {
@@ -160,5 +161,7 @@ public class Tskill : MonoBehaviour
     public void Damage(Collider hit, float coeff)
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
+
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
     }
 }

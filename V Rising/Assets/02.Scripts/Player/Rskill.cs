@@ -27,6 +27,8 @@ public class Rskill : MonoBehaviour
     private float cooldownEndTime; // 쿨타임 종료 시간
     private bool isCoolingDown = false; // 쿨타임 여부 확인
 
+    public int cameraShakeTypeIndex = 0;
+
     void Start()
     {
         // PlayerMove 컴포넌트 가져오기
@@ -145,6 +147,8 @@ public class Rskill : MonoBehaviour
     public void Damage(Collider hit, float coeff)
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
+
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
     }
 
     public bool IsCasting()
