@@ -11,7 +11,13 @@ public class Sound
     {
         None,
         DefaultBackground,
-        Test,
+        Basicattack1, Basicattack2, Basicattack3,
+        Dash,
+        RSkill_Start, RSkill_Fire,
+        QSkill,
+        CSkill,
+        TSkill_Ready, TSkill_Active,
+
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip
@@ -33,6 +39,8 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]
     private Sound[] sounds;
+
+    public Dictionary<string, Sound.AudioClipName> enumToString = new Dictionary<string, Sound.AudioClipName>(); 
 
     public Dictionary<Sound.AudioClipName, Sound> soundDictionary = new Dictionary<Sound.AudioClipName, Sound>();
 
@@ -66,6 +74,7 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < sounds.Length; i++)
         {
             soundDictionary.Add(sounds[i].audioClipName, sounds[i]);
+            enumToString.Add(sounds[i].audioClipName.ToString(), sounds[i].audioClipName);
         }
     }
 
@@ -125,6 +134,7 @@ public class SoundManager : MonoBehaviour
         else // 풀에 오브젝트가 있으면 액티브
         {
             source = inactiveSFXAudioSources.Dequeue();
+            source.SetVolume(sfxVolume);
             source.gameObject.SetActive(true);
         }
   

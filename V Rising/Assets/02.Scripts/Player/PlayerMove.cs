@@ -68,7 +68,7 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && PM.CanDash())
             {
                 PM.SpaceCancel();
-
+                SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Dash, transform, Vector3.zero);
                 SetDashDirection();
                 Vector3 modeolDir = model.transform.InverseTransformDirection(moveDirection);
 

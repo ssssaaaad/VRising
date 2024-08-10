@@ -184,7 +184,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8282378760026362546, guid: 6bd0789028bb4ac41a5625d714320271,
+  m_Motion: {fileID: -8347773411925595694, guid: e93ee0fa1d92fc24f8d677bf4be2341c,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -1952,7 +1952,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: dodge_front
+  m_Name: SKill T Ready
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1965,8 +1965,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8282378760026362546, guid: 6bd0789028bb4ac41a5625d714320271,
-    type: 3}
+  m_Motion: {fileID: 0}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2540,7 +2539,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Ative_Skill_T
+    m_ConditionEvent: Skill_T
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: Death_Check
@@ -3101,7 +3100,7 @@ AnimatorStateMachine:
     m_Position: {x: 610, y: -90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5368452605273570859}
-    m_Position: {x: -300, y: 30, z: 0}
+    m_Position: {x: -300, y: 20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -6104521009812494421}
@@ -3625,18 +3624,9 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -5252816984213320552, guid: aee2b3a138b7bee40b8cf3fc42030014,
-      type: 3}
-    m_Threshold: 0
-    m_Position: {x: 0.05, y: 0.95}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Horizontal
-    m_Mirror: 0
-  - serializedVersion: 2
     m_Motion: {fileID: -8884753593123772766, guid: 3a4cc74404244e241ae4a74f3d76980c,
       type: 3}
-    m_Threshold: 0.3137255
+    m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0

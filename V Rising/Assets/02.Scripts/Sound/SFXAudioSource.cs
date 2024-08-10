@@ -56,7 +56,7 @@ public class SFXAudioSource : MonoBehaviour
 
     public void StopSound()
     {
-        audioSource.Stop();
+        StartCoroutine(FadeOut());
     }
 
     public void ReplayAudio()
@@ -69,5 +69,16 @@ public class SFXAudioSource : MonoBehaviour
         yield return new WaitForSeconds(audioSource.clip.length);
         SoundManager.instance.InactiveSFXSound(this);
         playCheck = null;
+    }
+
+    private IEnumerator FadeOut()
+    {
+        while(audioSource.volume > 0)
+        {
+            audioSource.volume -= 0.05f;
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        audioSource.Stop();
     }
 }

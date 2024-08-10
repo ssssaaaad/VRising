@@ -12,6 +12,7 @@ public class Qskill : MonoBehaviour
 
     public GameObject Q_Skill_Particle;
     public GameObject Qspin;        // q스킬 히트박스
+    public GameObject Qspin_Instance;
 
     public float Qdmg = 0.35f;
 
@@ -22,6 +23,7 @@ public class Qskill : MonoBehaviour
     private bool isCoolingDown = false;
     private float cooldownEndTime; // 쿨타임 종료 시간
 
+    private SFXAudioSource spinSound;
 
     void Start()
     {
@@ -51,15 +53,16 @@ public class Qskill : MonoBehaviour
         PM.qskilling = true;
         isCoolingDown = true;
 
-        GameObject qSpin = Instantiate(Qspin);    // 히트박스 소환
-        qSpin.transform.position = transform.position;
-        qSpin.transform.forward = transform.forward;
-        qSpin.transform.SetParent(transform);  // 히트박스를 Model의 자식으로 설정
+        Qspin_Instance = Instantiate(Qspin);    // 히트박스 소환
+        Qspin_Instance.transform.position = transform.position;
+        Qspin_Instance.transform.forward = transform.forward;
+        Qspin_Instance.transform.SetParent(transform);  // 히트박스를 Model의 자식으로 설정
 
+        spinSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.QSkill, transform, Vector3.zero);
         yield return new WaitForSeconds(spinDuration);      // q스킬 지속시간
 
-        Destroy(qSpin);         // 히트박스 비활성화
-
+        Destroy(Qspin_Instance);         // 히트박스 비활성화
+        
         Debug.Log("Finishing Q skill casting.");
         //Q_Skill_Particle.SetActive(false);
 
@@ -78,6 +81,14 @@ public class Qskill : MonoBehaviour
 
     }
 
+    //private IEnumerator QSkillSound()
+    //{
+    //    while (PM.qskilling)
+    //    {
+    //        SoundManager.instance.ActiveOnShotSFXSound()
+    //    }
+    //}
+
     public bool IsQCoolTime()
     {
         return isCoolingDown;
@@ -86,9 +97,12 @@ public class Qskill : MonoBehaviour
     public void CancelQSkill()
     {
         StopCoroutine(Spining());
-
-        Destroy(Qspin);     // 히트박스 비활성화
-
+        if (Qspin_Instance != null)
+        {
+            Destroy(Qspin_Instance); // 히트박스 비활성화
+        }
+        if(spinSound != null)
+            spinSound.StopSound();
         PM.qskilling = false;
     }
 

@@ -29,6 +29,7 @@ public class Cskill : MonoBehaviour
     private float cooldownEndTime;
     private int originalLayer;
 
+    private SFXAudioSource spinSound;
 
     void Start()
     {
@@ -64,6 +65,7 @@ public class Cskill : MonoBehaviour
             playerMove.SetSpeed(slowSpeed);
         }
 
+        spinSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.CSkill, transform, Vector3.zero);
 
         // 시전 시간 동안 기다리기
         while (Time.time < finishTime)
@@ -154,7 +156,11 @@ public class Cskill : MonoBehaviour
                 Debug.Log("C스킬 속도 복원"); // 속도 복원 로그
                 playerMove.SetSpeed(playerSpeed); // 속도 복원
             }
-
+            
+            if(spinSound != null)
+            {
+                spinSound.StopSound();
+            }
         }
     }
     /*

@@ -7,6 +7,6 @@ public class SoundTriigger : MonoBehaviour
 {
     public void ActiveSound(string soundEnum)
     {
-        SoundManager.instance.ActiveOnShotSFXSound((Sound.AudioClipName)Enum.Parse(typeof(Sound.AudioClipName), soundEnum), transform, Vector3.zero);
+        SoundManager.instance.ActiveOnShotSFXSound(SoundManager.instance.enumToString[soundEnum], transform, Vector3.zero);
     }
 }

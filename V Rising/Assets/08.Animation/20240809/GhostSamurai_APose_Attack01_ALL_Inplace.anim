@@ -58862,4 +58862,12 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.25
+    functionName: ActiveSound
+    data: Basicattack3
+    objectReferenceParameter: {fileID: 11500000, guid: 11bb7a894431151488eb3b8e35a800ed,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

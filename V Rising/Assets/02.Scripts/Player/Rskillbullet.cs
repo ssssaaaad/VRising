@@ -19,6 +19,8 @@ public class Rskillbullet : MonoBehaviour
             // 발사체의 방향으로 속도 설정
             rb.velocity = transform.forward * speed;
         }
+
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.RSkill_Fire, transform, Vector3.zero);
     }
 
     private void OnTriggerEnter(Collider other)
