@@ -5417,6 +5417,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: skillPrefab
+      value: 
+      objectReference: {fileID: 1427184144938852, guid: 24a70ea07a7c5f24bb39abc74b055c3f,
+        type: 3}
+    - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: E_Skill_Particle1
+      value: 
+      objectReference: {fileID: 1427184144938852, guid: 24a70ea07a7c5f24bb39abc74b055c3f,
+        type: 3}
+    - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: E_Skill_Particle2
+      value: 
+      objectReference: {fileID: 1427184144938852, guid: 24a70ea07a7c5f24bb39abc74b055c3f,
+        type: 3}
     - target: {fileID: 1445171059702582476, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -13964,12 +13982,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.14570819
+      value: 0.55370945
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9893276
+      value: -0.83271
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
