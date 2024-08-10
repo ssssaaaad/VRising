@@ -13,6 +13,7 @@ public class Eskill : MonoBehaviour
     private CharacterController cc;
     private IndiControler Indi;
 
+    public GameObject Walking;
     public GameObject E_Skill_Particle1;
     public GameObject E_Skill_Particle2;
     public GameObject skillPrefab;  // 발사할 스킬(발사체) 프리팹
@@ -164,11 +165,14 @@ public class Eskill : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer(noHitPlayer);
 
         Vector3 startPosition = transform.position;
+
+        Walking.SetActive(false);
+
         float check = 0;
         while (check < 1)
         {
             transform.position = Vector3.Lerp(startPosition, target.transform.position, check);
-            check += 0.05f;
+            check += 0.1f;
             yield return new WaitForSeconds(0.01f);
         }
         check = 0;
@@ -186,6 +190,9 @@ public class Eskill : MonoBehaviour
             }
             yield return new WaitForSeconds(0.01f);
         }
+
+        Walking.SetActive(true);
+
         E_Skill_Particle2.SetActive(false);
         transform.position = target.transform.position - target.transform.forward * 5;
         // 모델 활성화
