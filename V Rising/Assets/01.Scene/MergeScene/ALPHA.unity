@@ -2423,9 +2423,10 @@ GameObject:
   - component: {fileID: 281793824}
   - component: {fileID: 281793823}
   - component: {fileID: 281793822}
-  m_Layer: 0
+  - component: {fileID: 281793827}
+  m_Layer: 21
   m_Name: Dungeon Archway 1A (1)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2541,6 +2542,18 @@ Transform:
   - {fileID: 917853861}
   m_Father: {fileID: 1357214182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281793827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281793821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &282113568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5418,6 +5431,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903351724931054907, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: radius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3970558358004735423, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
@@ -10478,7 +10496,7 @@ GameObject:
   - component: {fileID: 917853861}
   - component: {fileID: 917853860}
   - component: {fileID: 917853859}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Dungeon Archway 1A LOD 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13722,7 +13740,7 @@ GameObject:
   - component: {fileID: 1174446662}
   - component: {fileID: 1174446661}
   - component: {fileID: 1174446660}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Dungeon Archway 1A LOD 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13946,12 +13964,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.99080706
+      value: 0.14570819
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.13528305
+      value: -0.9893276
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
@@ -15882,17 +15900,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
         type: 3}
@@ -16018,6 +16036,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1345138762 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4545604970173868242, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2738901277988087158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1347888570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18855,7 +18879,7 @@ GameObject:
   - component: {fileID: 1546365457}
   - component: {fileID: 1546365456}
   - component: {fileID: 1546365455}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Dungeon Archway 1A LOD 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21468,9 +21492,10 @@ GameObject:
   - component: {fileID: 1784660074}
   - component: {fileID: 1784660073}
   - component: {fileID: 1784660072}
-  m_Layer: 0
+  - component: {fileID: 1784660077}
+  m_Layer: 21
   m_Name: Dungeon Archway 1A (3)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21586,6 +21611,18 @@ Transform:
   - {fileID: 1859083956}
   m_Father: {fileID: 1357214182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784660077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784660071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1791543664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22523,7 +22560,7 @@ GameObject:
   - component: {fileID: 1859083956}
   - component: {fileID: 1859083955}
   - component: {fileID: 1859083954}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Dungeon Archway 1A LOD 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23592,9 +23629,10 @@ GameObject:
   - component: {fileID: 1959035727}
   - component: {fileID: 1959035726}
   - component: {fileID: 1959035725}
-  m_Layer: 0
+  - component: {fileID: 1959035730}
+  m_Layer: 21
   m_Name: Dungeon Archway 1A (4)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23710,6 +23748,18 @@ Transform:
   - {fileID: 1174446662}
   m_Father: {fileID: 1357214182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959035730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959035724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1961799916
 GameObject:
   m_ObjectHideFlags: 0
@@ -26134,9 +26184,10 @@ GameObject:
   - component: {fileID: 2144727771}
   - component: {fileID: 2144727770}
   - component: {fileID: 2144727769}
-  m_Layer: 0
+  - component: {fileID: 2144727774}
+  m_Layer: 21
   m_Name: Dungeon Archway 1A (2)
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26252,12 +26303,176 @@ Transform:
   - {fileID: 1546365457}
   m_Father: {fileID: 1357214182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2144727774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144727768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4961492590530458 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1942081614970117917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &670588668897804446
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.1758413
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21900368
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.690907
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278044585866309342, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445357037141246905, guid: 562558871fea07e4d992dc4cefc6b16e,
+        type: 3}
+      propertyPath: m_Name
+      value: Pink Trail
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 562558871fea07e4d992dc4cefc6b16e, type: 3}
 --- !u!4 &960498989108715730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 960498988750863529, guid: 5e59e3fe9d25a6d44a337cceee864049,
     type: 3}
   m_PrefabInstance: {fileID: 460299387}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1942081614970117917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1345138762}
+    m_Modifications:
+    - target: {fileID: 919470979393600591, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045585231373615427, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4340330012607339434, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497023901554151111, guid: 313b414608c2e9d4dae47d7cdb2aed2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Boss_Exploaion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 313b414608c2e9d4dae47d7cdb2aed2e, type: 3}
 --- !u!1001 &2738901277988087158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26290,12 +26505,17 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9975488
+      value: 0.23632371
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.06997459
+      value: 0.9716744
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640302421481971532, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
@@ -26395,26 +26615,30 @@ PrefabInstance:
     - target: {fileID: 7287388353266700060, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: startDelay.scalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7287461867857795548, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: startDelay.scalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7287768199730522536, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: startDelay.scalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7486766540028933872, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4545604970173868242, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4961492590530458}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2, type: 3}
 --- !u!114 &3998330517381045244 stripped
@@ -26553,3 +26777,4 @@ SceneRoots:
   - {fileID: 17961743}
   - {fileID: 902412881}
   - {fileID: 1733832435}
+  - {fileID: 670588668897804446}
