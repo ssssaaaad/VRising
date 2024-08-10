@@ -35,6 +35,10 @@ public class Maja_NormalSkillPattern2 : Pattern
         }
         readyToStart = false;
 
+        if (maja.talkSound == null)
+        {
+            maja.talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Talk_Skill, transform, Vector3.zero);
+        }
         maja.animator.SetTrigger("NormalSkillPattern2");
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
@@ -52,7 +56,9 @@ public class Maja_NormalSkillPattern2 : Pattern
 
     protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_NormalSkill2_Start, transform, Vector3.zero);
         yield return new WaitForSeconds(attackDelayTime);
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Explosion, transform, Vector3.zero);
         Collider[] hitTargets = Physics.OverlapSphere(transform.position, radius, layerMask);
         print(hitTargets.Length);
         for (int i = 0; i < hitTargets.Length; i++)

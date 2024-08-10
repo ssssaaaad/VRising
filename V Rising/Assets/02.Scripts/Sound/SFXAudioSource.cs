@@ -54,11 +54,14 @@ public class SFXAudioSource : MonoBehaviour
     }
 
 
-    public void StopSound()
+    public void StopSound_FadeOut()
     {
         StartCoroutine(FadeOut());
     }
-
+    public void StopSound()
+    {
+        audioSource.Stop();
+    }
     public void ReplayAudio()
     {
         audioSource.Play();

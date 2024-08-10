@@ -59,7 +59,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4c83bb66770326c4a8dabdc2eb2210e9, type: 3}
   - audioClipName: 6
     audioClips:
-    - {fileID: 8300000, guid: d78e9307897287e45a4b9457f7a4ba25, type: 3}
+    - {fileID: 8300000, guid: ecd88136995861547ad18c5b43ce2167, type: 3}
+    - {fileID: 8300000, guid: ecd88136995861547ad18c5b43ce2167, type: 3}
   - audioClipName: 7
     audioClips:
     - {fileID: 8300000, guid: 58753866b1d408f4b920e2ee1dd28cfe, type: 3}
@@ -74,7 +75,48 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3e4cd6df6b86b354296a41a302afb777, type: 3}
   - audioClipName: 10
     audioClips:
-    - {fileID: 8300000, guid: e2a64e11bf0e6cb489c2491e7bc3f472, type: 3}
+    - {fileID: 8300000, guid: f5982daf19536d94eab52656d1d0d431, type: 3}
+  - audioClipName: 11
+    audioClips:
+    - {fileID: 8300000, guid: 9e7c8297a39e7274e9029a6cbffaeaec, type: 3}
+  - audioClipName: 12
+    audioClips:
+    - {fileID: 8300000, guid: 0f9c9aff01b5dd845802903c3db65f22, type: 3}
+  - audioClipName: 13
+    audioClips:
+    - {fileID: 8300000, guid: 91841574c7a5623499599ca5bf4fc579, type: 3}
+  - audioClipName: 14
+    audioClips:
+    - {fileID: 8300000, guid: ecd88136995861547ad18c5b43ce2167, type: 3}
+    - {fileID: 8300000, guid: e339d2dd2d8d7314b868b2325626b872, type: 3}
+    - {fileID: 8300000, guid: f5761b8e6408a4249a71fedda9ff9638, type: 3}
+  - audioClipName: 15
+    audioClips:
+    - {fileID: 8300000, guid: 1ef139e7c2e31f5498d72fabf695c67a, type: 3}
+  - audioClipName: 16
+    audioClips:
+    - {fileID: 8300000, guid: d36e78225a556e1459018eb0ab53d591, type: 3}
+  - audioClipName: 17
+    audioClips:
+    - {fileID: 8300000, guid: 5db2bb951276fe049b4f23979e476e39, type: 3}
+  - audioClipName: 18
+    audioClips:
+    - {fileID: 8300000, guid: 53eff7bbeb6fa15419e45e2f595bab89, type: 3}
+  - audioClipName: 19
+    audioClips:
+    - {fileID: 8300000, guid: 9c0de53b4ee72f940b9320ad5b0eb529, type: 3}
+  - audioClipName: 20
+    audioClips:
+    - {fileID: 8300000, guid: 53eff7bbeb6fa15419e45e2f595bab89, type: 3}
+  - audioClipName: 22
+    audioClips:
+    - {fileID: 8300000, guid: 9c0de53b4ee72f940b9320ad5b0eb529, type: 3}
+  - audioClipName: 23
+    audioClips:
+    - {fileID: 8300000, guid: c938f81c27af423409896258c5eb3dfa, type: 3}
+  - audioClipName: 25
+    audioClips:
+    - {fileID: 8300000, guid: c9e68a725e5d6524d9339d42136793af, type: 3}
   sfxVolume: 0.5
   bgmVolume: 0.5
 --- !u!82 &8866411775112689636

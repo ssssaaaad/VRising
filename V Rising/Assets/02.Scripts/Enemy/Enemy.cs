@@ -83,7 +83,6 @@ public class Enemy : MonoBehaviour
             StopMoveTarget();
             alive = false;
         }
-        print(hp_Current);
 
     }
     public void SetTarget(Transform target)

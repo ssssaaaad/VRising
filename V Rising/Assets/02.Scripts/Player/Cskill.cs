@@ -162,7 +162,7 @@ public class Cskill : MonoBehaviour
             
             if(spinSound != null)
             {
-                spinSound.StopSound();
+                spinSound.StopSound_FadeOut();
             }
         }
     }

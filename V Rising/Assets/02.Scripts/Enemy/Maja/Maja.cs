@@ -99,6 +99,7 @@ public class Maja : Enemy
     private bool startPatternEnd = false;
     private int index = 0;
 
+    public SFXAudioSource talkSound = null;
     void Awake()
     {
         InitEnemy();
@@ -153,8 +154,11 @@ public class Maja : Enemy
         teleport = GetComponent<Maja_Teleport>();
         teleport.InitPattern(this);
 
-        phase1_Start.Add(attackPatterns[0]);
-        phase1_Start.Add(attackPatterns[1]);
+        phase1_Start.Add(attackPatterns[3]);
+        phase1_Start.Add(attackPatterns[3]);
+        phase1_Start.Add(attackPatterns[3]);
+        phase1_Start.Add(attackPatterns[3]);
+        phase1_Start.Add(attackPatterns[3]);
         phase1_Start.Add(attackPatterns[3]);
 
         phase1_Loop.Add(attackPatterns[0]);
@@ -332,10 +336,6 @@ public class Maja : Enemy
 
     private void PatternCycle()
     {
-        if (!alive)
-        {
-            state = State.Death;
-        }
 
         if (state == State.Death)
         {
@@ -344,6 +344,16 @@ public class Maja : Enemy
         else if(target == null)
         {
             return;
+        }
+
+        if (!alive)
+        {
+            state = State.Death;
+            if(talkSound != null)
+            {
+                talkSound.StopSound();
+            }
+            talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
         }
 
         CheckHP();
@@ -397,7 +407,13 @@ public class Maja : Enemy
                 forward = new Vector3(target.position.x - model.position.x, model.position.y, target.position.z - model.position.z).normalized;
                 enemy_Cross = Vector3.Cross((target.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
 
-                
+                if(talkSound != null)
+                {
+                    if (!talkSound.audioSource.isPlaying)
+                    {
+                        talkSound = null;
+                    }
+                }
 
                 if (!startPatternEnd)
                 {

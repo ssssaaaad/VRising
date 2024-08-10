@@ -25,12 +25,6 @@ public class PlayerAnimationTest : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (cast_T && time > castingTime_T)
-        {
-            cast_T = false;
-            animator.SetTrigger("Ative_Skill_T");
-            StartCoroutine(a());
-        }
         if(cast_R && time > castingTime_R)
         {
             cast_R = false;
@@ -97,21 +91,6 @@ public class PlayerAnimationTest : MonoBehaviour
             }
 
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            if (!cast)
-            {
-                time = 0;
-                cast_T = true;
-                animator.SetTrigger("Skill_T");
-            }
-            else
-            {
-                cast_T = false;
-                animator.SetTrigger("CancelSkill");
-            }
         }
 
         if (Input.GetMouseButtonDown(0))

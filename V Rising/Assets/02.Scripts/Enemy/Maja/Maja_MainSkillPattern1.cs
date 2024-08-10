@@ -56,6 +56,12 @@ public class Maja_MainSkillPattern1 : Pattern
             return;
         }
         readyToStart = false;
+
+        if (maja.talkSound == null)
+        {
+            maja.talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Talk_Skill, transform, Vector3.zero);
+        }
+
         maja.animator.SetTrigger("MainSkillPattern1");
 
         StartCoroutine(Coroutine_AttackPattern(direction));
@@ -150,6 +156,8 @@ public class Maja_MainSkillPattern1 : Pattern
             }
             parentProjectile.Fire(direction, parentDistance, parentActiveTime , Ease.Linear);
             StartCoroutine(SpawnChileProjectilet(parentProjectile, secondDirection_Right));
+
+            SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_MainSkill1, parentProjectile.transform, Vector3.zero);
             yield return new WaitForSeconds(1);
         }
         
@@ -159,9 +167,12 @@ public class Maja_MainSkillPattern1 : Pattern
     IEnumerator SpawnChileProjectilet(Projectile parentProjectile, bool secondDirection_Right)
     {
         List<Projectile> childProjectiles = new List<Projectile>();
+        Projectile projectile;
         for (int i = 0; i < childBulletCount; i++)
         {
-            childProjectiles.Add(ActiveChildProjectile(parentProjectile, secondDirection_Right));
+            projectile = ActiveChildProjectile(parentProjectile, secondDirection_Right);
+            childProjectiles.Add(projectile);
+            SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_BookSpawn, projectile.transform, Vector3.zero);
             yield return new WaitForSeconds(parentActiveTime / childBulletCount);
         }
 
@@ -169,6 +180,7 @@ public class Maja_MainSkillPattern1 : Pattern
         {
             childProjectiles[i].Fire(childProjectiles[i].transform.forward, childDistanece, childActiveTime, Ease.Linear);
         }
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_BasicAttack, transform, Vector3.zero);
     }
 
     protected override IEnumerator PatternCooltime()

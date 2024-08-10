@@ -52,7 +52,6 @@ public class AttackCollision : MonoBehaviour
                     }
                 }
 
-                print(gameObject.name);
                 hitObjects.Add(other.transform);
                 if (callback != null)
                 {

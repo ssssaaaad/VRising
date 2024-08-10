@@ -45,6 +45,11 @@ public class Maja_NormalSkillPattern1 : Pattern
         }
         readyToStart = false;
 
+        if (maja.talkSound == null)
+        {
+            maja.talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Talk_Skill, transform, Vector3.zero);
+        }
+
         maja.animator.SetTrigger("NormalSkillPattern");
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
@@ -62,6 +67,7 @@ public class Maja_NormalSkillPattern1 : Pattern
     protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
         yield return new WaitForSeconds(attackDelayTime);
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_NormalSkill1, transform, Vector3.zero);
         Vector3 right = Vector3.Cross(direction, Vector3.up);
         for (int i = 0; i < bulletCount; i++)
         {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public Animator animator;
+
     private PlayerMove Move;
     private Cskill Cskill;
     private Qskill Qskill;

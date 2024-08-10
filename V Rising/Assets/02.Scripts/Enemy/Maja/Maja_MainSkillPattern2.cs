@@ -33,6 +33,10 @@ public class Maja_MainSkillPattern2 : Pattern
             return;
         }
         readyToStart = false;
+        if (maja.talkSound == null)
+        {
+            maja.talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Talk_Skill, transform, Vector3.zero);
+        }
         maja.PatternDelay = GetPatternDelay;
         patterDelay = true;
 

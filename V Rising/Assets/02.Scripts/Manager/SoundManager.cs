@@ -17,7 +17,20 @@ public class Sound
         QSkill,
         CSkill,
         TSkill_Ready, TSkill_Active,
-
+        PlayerStep1,
+        Boss_Talk_Default,
+        Boss_Talk_Skill,
+        Boss_Die,
+        Boss_BasicAttack,
+        Boss_BookSpawn,
+        Boss_NormalSkill1,
+        Boss_NormalSkill2_Start,
+        Boss_MainSkill1,
+        Boss_MainSkill2,
+        Boss_MainSkill3_Start,
+        Boss_MainSkill3_Throw,
+        Boss_SpawnMinion,
+        Boss_Explosion,
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip
@@ -150,7 +163,7 @@ public class SoundManager : MonoBehaviour
     //  풀링을 위한 효과음 오브젝트 비활성화
     public void InactiveSFXSound(SFXAudioSource sfxAudioSource)
     {
-        sfxAudioSource.StopSound();
+        sfxAudioSource.StopSound_FadeOut();
         sfxAudioSource.transform.SetParent(transform);
         sfxAudioSource.gameObject.SetActive(false);
         inactiveSFXAudioSources.Enqueue(sfxAudioSource);

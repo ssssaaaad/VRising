@@ -37,6 +37,7 @@ public class PlayerMove : MonoBehaviour
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
 
     float yVelocity = 0;
+    SFXAudioSource moveSound;
 
     void Start()
     {
@@ -279,7 +280,29 @@ public class PlayerMove : MonoBehaviour
             moveDirection.y = 0; // Y축 회전만 고려
 
             moveDirection.Normalize();
+             if (moveDirection != Vector3.zero)
+            {
+                if (moveSound != null)
+                {
+                    if (!moveSound.audioSource.isPlaying || !moveSound.gameObject.activeSelf)
+                    {
+                        moveSound = null;
+                    }
+                }
 
+                if (moveSound == null)
+                {
+                    moveSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.PlayerStep1, transform, Vector3.zero);
+                }
+            }
+            else
+            {
+                if (moveSound != null)
+                {
+                    moveSound.StopSound();
+                    moveSound = null;
+                }
+            }
             yVelocity += gravity * Time.deltaTime;
             moveDirection.y = yVelocity;
 
@@ -290,6 +313,8 @@ public class PlayerMove : MonoBehaviour
 
             animator.SetFloat("Horizontal", modeolDir.x * playerSpeed / playerSpeed_Max);
             animator.SetFloat("Vertical", modeolDir.z * playerSpeed / playerSpeed_Max);
+
+           
         }
 
     }

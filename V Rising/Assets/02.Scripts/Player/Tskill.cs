@@ -62,7 +62,12 @@ public class Tskill : MonoBehaviour
 
         Indi.Indi_T();
 
+        PM.animator.SetTrigger("Skill_T_Ready");
+        SFXAudioSource start = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.TSkill_Ready, transform, Vector3.zero);
         yield return new WaitForSeconds(dashReady);         // 시전시간동안 대기 
+        start.StopSound_FadeOut();
+        PM.animator.SetTrigger("Skill_T_Active");
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.TSkill_Active, transform, Vector3.zero);
 
         headLock = true; // 방향 고정
 

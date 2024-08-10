@@ -103,7 +103,7 @@ public class Qskill : MonoBehaviour
             Destroy(Qspin_Instance); // 히트박스 비활성화
         }
         if(spinSound != null)
-            spinSound.StopSound();
+            spinSound.StopSound_FadeOut();
         PM.qskilling = false;
     }
 

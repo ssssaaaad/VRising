@@ -43,6 +43,11 @@ public class Maja_BasicAttackPattern : Pattern
             return;
         }
         readyToStart = false;
+
+        if (maja.talkSound == null)
+        {
+            maja.talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Talk_Default, transform, Vector3.zero);
+        }
         maja.animator.SetTrigger("BasicAttackPattern");
 
         StartCoroutine(Coroutine_AttackPattern(direction));
@@ -66,6 +71,8 @@ public class Maja_BasicAttackPattern : Pattern
         projectile.transform.LookAt(projectile.transform.position + direction);
         projectile.InitAttack(damage, false);
         projectile.Fire(direction, attackDistance, attackActiveTime, ease, new CallbackEventHandler(maja.SpawnMinion));
+
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_BasicAttack, projectile.transform, Vector3.zero);
     }
 
     protected override IEnumerator PatternDelayTime()

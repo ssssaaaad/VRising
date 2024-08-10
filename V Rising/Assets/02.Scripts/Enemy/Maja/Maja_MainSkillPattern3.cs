@@ -50,6 +50,10 @@ public class Maja_MainSkillPattern3 : Pattern
         }
         readyToStart = false;
 
+        if (maja.talkSound == null)
+        {
+            maja.talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Talk_Skill, transform, Vector3.zero);
+        }
         maja.animator.SetTrigger("MainSkillPattern3");
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternDelayTime());
@@ -65,7 +69,10 @@ public class Maja_MainSkillPattern3 : Pattern
     }
     protected override IEnumerator Coroutine_AttackPattern(Vector3 direction)
     {
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_MainSkill3_Start, transform, Vector3.zero);
         yield return new WaitForSeconds(attackDelayTime);
+
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Explosion, transform, Vector3.zero);
         maja.animator.SetTrigger("MainSkillPattern3");
         yield return new WaitForSeconds(2f);
         maja.model.gameObject.SetActive(false);
@@ -115,6 +122,8 @@ public class Maja_MainSkillPattern3 : Pattern
             Append(DOTween.To(() => time, x => time = x, 1f, 0.5f).SetEase(Ease.OutQuad));
         Transform line = Instantiate(spanwLineParticel, startPosition, spawnParticle.transform.rotation, null);
         Transform attackPositionCircle = Instantiate(attackPsotionCircle_Prefab, spawnPosition + Vector3.up, attackPsotionCircle_Prefab.rotation);
+
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_MainSkill3_Throw, line.transform, Vector3.zero);
         while (time < 1)
         {
             p4 = Vector3.Lerp(startPosition, centerPosition, time);
