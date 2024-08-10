@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     public float attack3Delay = 0.75f;
     public float minSpeed = 3f;     // 공격시 감소된 속도
     public float speedDuration = 0.75f;  // 속도 감소 지속시간
+    public bool afterDash = false;
 
     public GameObject HitBox;
     public Coroutine attackCoroutain;
@@ -102,6 +103,15 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator Slowing()
     {
         yield return new WaitForSeconds(speedDuration);
+    }
+
+    public IEnumerator AfterDash()
+    {
+        afterDash = true;
+
+        yield return new WaitForSeconds(3);
+
+        afterDash = false;
     }
 
     public void CancelAttacking()

@@ -5,12 +5,15 @@ using UnityEngine;
 public class Qspin : MonoBehaviour
 {
     private Qskill Qskill;
+    private Playerstate PState;
 
     List<Transform> hitObjects = new List<Transform>();
 
     void Start()
     {
         Qskill = FindObjectOfType<Qskill>();
+        PState = GetComponent<Playerstate>();
+
     }
 
     void Update()
@@ -28,6 +31,7 @@ public class Qspin : MonoBehaviour
                 StartCoroutine(hitCoolTime(other.transform));
 
                 Qskill.Damage(other, Qskill.Qdmg);
+                PState.UpdateHP(PState.hp_Max * 0.05f);     // 플레이어 회복량
 
                 Debug.Log("Q hit");
             }
