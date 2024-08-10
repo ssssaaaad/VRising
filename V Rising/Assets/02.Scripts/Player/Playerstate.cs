@@ -15,6 +15,7 @@ public class Playerstate : MonoBehaviour
     public float hp_Max = 500;
     public float hp_Current;
     public float power = 40;
+    public bool dead = false;
 
     public event Action<float, float> OnHealthChanged;
 
@@ -68,5 +69,8 @@ public class Playerstate : MonoBehaviour
 
         // HP가 변경되면 이벤트를 호출
         OnHealthChanged?.Invoke(hp_Current, hp_Max);
+
+        if(hp_Current <= 0)
+            dead = true;
     }
 }

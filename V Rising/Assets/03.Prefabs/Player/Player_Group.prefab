@@ -48051,7 +48051,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1865020400300476489}
   - component: {fileID: 8590362400572989130}
-  - component: {fileID: 7232836133854296289}
   - component: {fileID: 3697140567247821164}
   - component: {fileID: 1651383130195132345}
   - component: {fileID: 1903351724931054907}
@@ -48129,14 +48128,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7232836133854296289
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2719347823016334679}
-  m_Enabled: 1
 --- !u!114 &3697140567247821164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48199,6 +48190,7 @@ MonoBehaviour:
   camDistance: 10
   camcurrentinterval: 10
   camcurrentinterval_Max: 30
+  isCameraShake: 0
 --- !u!114 &1903351724931054907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138360,7 +138352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc56bbbb93729f74787e48e86c28bba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  R_Skill_Particle: {fileID: 0}
   skillPrefab: {fileID: 1198427815685852516, guid: f512ba81bce797349b6d9e2fb9cd10ae,
     type: 3}
   firePoint: {fileID: 7371622147451718204}
@@ -138371,6 +138362,7 @@ MonoBehaviour:
   cooldownTime: 8
   slowSpeed: 2
   DestroyBullet: 1.5
+  cameraShakeTypeIndex: 0
 --- !u!114 &3358338793887673359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138395,6 +138387,7 @@ MonoBehaviour:
   playerSpeed: 5
   noHitPlayer: NoHitPlayer
   counter: 0
+  cameraShakeTypeIndex: 0
 --- !u!114 &9004534106012792138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138439,6 +138432,7 @@ MonoBehaviour:
   speedDuration: 0.75
   HitBox: {fileID: 6836862729004524015, guid: 64b2c97e468e6b149a72dcc1faa626ca, type: 3}
   attackPoint: {fileID: 5179937002306925469}
+  cameraShakeTypeIndex: 0
 --- !u!114 &7225509834765251605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138488,6 +138482,8 @@ MonoBehaviour:
   normalSpeed: 5
   noHitPlayer: NoHitPlayer
   EnemyCollsion: {fileID: 1451571330865683712}
+  cameraShakeTypeIndex: 0
+  cameraShakeTypeIndexBoom: 0
 --- !u!114 &1839513152214920996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138502,10 +138498,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Q_Skill_Particle: {fileID: 0}
   Qspin: {fileID: 1032953590982179243, guid: d24a491adc617f5428ae09ac727923cc, type: 3}
+  Qspin_Instance: {fileID: 0}
   Qdmg: 0.35
   spinDuration: 2
   cooldownTime: 8
   hitFrequency: 0.2
+  cameraShakeTypeIndex: 0
 --- !u!114 &1347066875705193728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138518,6 +138516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3edaba583c3647409c974f9896b39b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Walking: {fileID: 0}
   E_Skill_Particle1: {fileID: 3839436026409315737}
   E_Skill_Particle2: {fileID: 3839436026409315737}
   skillPrefab: {fileID: 1198427815685852516, guid: fc5f342cf27ce7c479f9a6a4df6fc7fa,
@@ -138534,6 +138533,7 @@ MonoBehaviour:
   DmgDelay: 0.5
   comEspeed: 30
   noHitPlayer: NoHitPlayer
+  cameraShakeTypeIndex: 0
 --- !u!114 &3998330517739423623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138549,6 +138549,7 @@ MonoBehaviour:
   hp_Max: 500
   hp_Current: 0
   power: 40
+  cameraShakeTypeIndex: 0
 --- !u!114 &2602906714244888806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138566,6 +138567,7 @@ MonoBehaviour:
   bloodingTime: 2
   dontMove: 0
   noHitPlayer: NoHitPlayer
+  cameraShakeTypeIndex: 0
 --- !u!1 &8976415090599485998
 GameObject:
   m_ObjectHideFlags: 0

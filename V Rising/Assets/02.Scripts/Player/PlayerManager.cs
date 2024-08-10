@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     private HP_Scan_Range Fscan;
     private Fblood Fblood;
     private PlayerAttack Attack;
+    private Playerstate PState;
 
     private bool canDash = false;
     private bool canCskill = false;
@@ -46,10 +47,15 @@ public class PlayerManager : MonoBehaviour
         Fscan = GetComponentInChildren<HP_Scan_Range>();
         Fblood = GetComponent<Fblood>();
         Attack = GetComponent<PlayerAttack>();
+
+        PState = GetComponent<Playerstate>();
     }
 
     void Update()
     {
+        if (PState.dead)
+            return;
+
         if (!Fblood.dontMove)
             Move.Move();
 

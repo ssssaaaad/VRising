@@ -65529,6 +65529,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1883298964}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1883298965}
     - targetCorrespondingSourceObject: {fileID: 8279239330272192641, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
         type: 3}
       insertIndex: -1
@@ -76195,6 +76199,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11bb7a894431151488eb3b8e35a800ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &1883298965
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883298961}
+  m_Enabled: 1
 --- !u!1001 &1914346289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97551,12 +97563,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.051587056
+      value: -0.4745549
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.99866855
+      value: 0.88022596
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
