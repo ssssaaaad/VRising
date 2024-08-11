@@ -111,7 +111,7 @@ public class Maja_Minion : Enemy
                     colliders[i].isTrigger = true;
                 }
                 GetComponent<NavMeshAgent>().enabled = false;
-                transform.DOMoveY(transform.position.y - 3, 1).SetEase(Ease.InQuart);
+                transform.DOMoveY(transform.position.y - 3, 0.5F).SetEase(Ease.InQuart);
                 return;
                 break;
             case State.Attack:
@@ -119,6 +119,7 @@ public class Maja_Minion : Enemy
                 Rotate();
                 break;
             case State.MajaMainSkill_2:
+                return;
                 break;
             default:
                 SetMovePosition();

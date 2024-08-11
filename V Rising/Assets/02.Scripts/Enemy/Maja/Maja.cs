@@ -110,8 +110,6 @@ public class Maja : Enemy
 
     public SFXAudioSource talkSound = null;
 
-    public bool Test = false;
-
     void Awake()
     {
         InitEnemy();
@@ -119,11 +117,6 @@ public class Maja : Enemy
     private void Update()
     {
         Rotate();
-        if (Test)
-        {
-            Test = false;
-            hp_Current -= 1000;
-        }
     }
     private void OnDestroy()
     {
@@ -172,12 +165,12 @@ public class Maja : Enemy
         teleport = GetComponent<Maja_Teleport>();
         teleport.InitPattern(this);
 
-        phase1_Start.Add(attackPatterns[0]);
-        phase1_Start.Add(attackPatterns[1]);
         phase1_Start.Add(attackPatterns[2]);
-        phase1_Start.Add(attackPatterns[3]);
         phase1_Start.Add(attackPatterns[4]);
-        phase1_Start.Add(attackPatterns[5]);
+        phase1_Start.Add(attackPatterns[2]);
+        phase1_Start.Add(attackPatterns[4]);
+        phase1_Start.Add(attackPatterns[2]);
+        phase1_Start.Add(attackPatterns[4]);
 
         phase1_Loop.Add(attackPatterns[5]);
         //phase1_Loop.Add(attackPatterns[1]);

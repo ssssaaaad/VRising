@@ -46,10 +46,6 @@ public class Maja_MainSkillPattern2 : Pattern
         maja.animator.SetTrigger("MainSkillPattern2");
         StartCoroutine(Coroutine_AttackPattern(direction));
         StartCoroutine(PatternCooltime());
-        for (int i = 0; i < vfxList.Length; i++)
-        {
-            StartCoroutine(VFXAcitve(vfxList[i]));
-        }
 
     }
     protected override bool GetPatternDelay()
@@ -62,10 +58,14 @@ public class Maja_MainSkillPattern2 : Pattern
         if (minion == null)
             yield break;
         Vector3 minionPosition = (minion.transform.position - transform.position).normalized;
+        maja.forward = minionPosition;
         minionPosition *= startDistance;
         minionPosition += maja.mapOrigin.position;
         minion.SetPosition_MajaMainSkill2(minionPosition);
-
+        for (int i = 0; i < vfxList.Length; i++)
+        {
+            vfxList[i].vfxObject.SetActive(true);
+        }
         print(minion.gameObject.name);
         while (true)
         {
@@ -73,15 +73,17 @@ public class Maja_MainSkillPattern2 : Pattern
             {
                 patterDelay = false;
                 maja.animator.SetTrigger("Cancle");
+                StartCoroutine(InactiveAllVFX(0.5f));
                 yield break;
             }
-            if (minion.state == Maja_Minion.State.Death)
+            if (minion.state != Maja_Minion.State.MajaMainSkill_2)
             {
                 patterDelay = false;
                 maja.animator.SetTrigger("Cancle");
+                StartCoroutine(InactiveAllVFX(0.5f));
                 yield break;
             }
-            if(Vector3.Distance(new Vector3(minion.transform.position.x , 0 , minion.transform.position.z), new Vector3(minionPosition.x, 0, minionPosition.z)) < 0.5f)
+            if (Vector3.Distance(new Vector3(minion.transform.position.x, 0, minion.transform.position.z), new Vector3(minionPosition.x, 0, minionPosition.z)) < 0.5f)
             {
                 break;
             }
@@ -91,16 +93,18 @@ public class Maja_MainSkillPattern2 : Pattern
         minion.ActiveMajaMainSkill2(minionSpeed);
         while (true)
         {
-            if(minion == null)
+            if (minion == null)
             {
                 patterDelay = false;
                 maja.animator.SetTrigger("Cancle");
+                StartCoroutine(InactiveAllVFX(0.5f));
                 yield break;
             }
             if (minion.state == Maja_Minion.State.Death)
             {
                 patterDelay = false;
                 maja.animator.SetTrigger("Cancle");
+                StartCoroutine(InactiveAllVFX(0.5f));
                 yield break;
             }
             if (Vector3.Distance(new Vector3(minion.transform.position.x, 0, minion.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z)) < 2f)
@@ -114,11 +118,14 @@ public class Maja_MainSkillPattern2 : Pattern
         yield return new WaitForSeconds(0.5f);
         patterDelay = false;
         maja.animator.SetTrigger("Cancle");
+
+        StartCoroutine(InactiveAllVFX(0.5f));
+
     }
 
     //private IEnumerator ActiveSkill(Maja_Minion minion)
     //{
-       
+
     //}
 
     protected override IEnumerator PatternDelayTime()
@@ -141,5 +148,14 @@ public class Maja_MainSkillPattern2 : Pattern
         vfx.vfxObject.SetActive(true);
         yield return new WaitForSeconds(vfx.operatingTime);
         vfx.vfxObject.SetActive(false);
+    }
+
+    protected IEnumerator InactiveAllVFX(float time)
+    {
+        yield return new WaitForSeconds(time);
+        for (int i = 0; i < vfxList.Length; i++)
+        {
+            vfxList[i].vfxObject.SetActive(false);
+        }
     }
 }
