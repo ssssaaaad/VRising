@@ -682,6 +682,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eff11_Energy
       objectReference: {fileID: 0}
+    - target: {fileID: 6943842356097860666, guid: 300d467ad74215e479405dcfb0dc55a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6944524961936700456, guid: 300d467ad74215e479405dcfb0dc55a2,
         type: 3}
       propertyPath: m_IsActive
