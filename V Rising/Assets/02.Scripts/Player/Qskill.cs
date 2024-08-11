@@ -13,6 +13,8 @@ public class Qskill : MonoBehaviour
     public GameObject Q_Skill_Particle;
     public GameObject Qspin;        // q스킬 히트박스
     public GameObject Qspin_Instance;
+    public SkillUI skillUI;
+
 
     public float Qdmg = 0.35f;
 
@@ -49,6 +51,8 @@ public class Qskill : MonoBehaviour
 
     public IEnumerator Spining()
     {
+        skillUI.coolTimeImage(cooldownTime);
+
         Debug.Log("Starting Q skill casting");
 
         PM.animator.SetBool("Skill_Q", true);
