@@ -735,7 +735,7 @@ PrefabInstance:
     - target: {fileID: 7933180295084307872, guid: 300d467ad74215e479405dcfb0dc55a2,
         type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
-      value: 1.2
+      value: 1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
