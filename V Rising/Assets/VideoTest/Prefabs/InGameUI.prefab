@@ -4231,11 +4231,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8311afcd4ba4345854d4c4869f74dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossHealth: {fileID: 0}
+  bossHealthImage: {fileID: 0}
   health: {fileID: 0}
   healthBarImage: {fileID: 64394911834303176}
+  bloodHealth: {fileID: 0}
+  bloodHealthBarImage: {fileID: 9208105682236395145}
   updateSpeedSeconds: 0.5
   curentHealthText: {fileID: 2352418321777572745}
   maxHealthText: {fileID: 6655701442148033953}
+  textScaleAnimationDuration: 0.3
+  maxTextScale: 1.5
+  textAnimationDuration: 0.1
 --- !u!1 &4023063164936973810
 GameObject:
   m_ObjectHideFlags: 0

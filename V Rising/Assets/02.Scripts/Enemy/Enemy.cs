@@ -88,6 +88,7 @@ public class Enemy : MonoBehaviour
         if (hp_Current <= 0)
         {
             StopMoveTarget();
+            OnHealthChanged?.Invoke(hp_Current, hp_Max);
             alive = false;
         }
         else
