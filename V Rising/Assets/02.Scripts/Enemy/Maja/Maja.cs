@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
@@ -50,6 +51,8 @@ public class VFX
 
 public class Maja : Enemy
 {
+
+
     public enum State
     {
         Idle,
@@ -102,6 +105,8 @@ public class Maja : Enemy
     public List<Pattern> phase4_Start = new List<Pattern>();
     public List<Pattern> phase4_Loop = new List<Pattern>();
 
+    
+
     private List<Pattern> phase_Start;
     private List<Pattern> phase_Loop;
     private bool startPatternEnd = false;
@@ -115,9 +120,22 @@ public class Maja : Enemy
     {
         InitEnemy();
     }
+
+
     private void Update()
     {
         Rotate();
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            UpdateHP(100f,this.transform);
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            UpdateHP(-100f, this.transform);
+
+        }
     }
     private void OnDestroy()
     {
