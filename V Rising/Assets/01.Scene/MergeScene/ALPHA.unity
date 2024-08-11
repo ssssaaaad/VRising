@@ -5475,6 +5475,11 @@ PrefabInstance:
       propertyPath: VFXGraph
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5965169875361096382, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7578165761204444260, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_Enabled
@@ -5512,6 +5517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7232836133854296289, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
+    - {fileID: 5965169875361096382, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3171670183971809215, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
     - {fileID: 5523952941193996583, guid: 5e59e3fe9d25a6d44a337cceee864049, type: 3}
@@ -13954,12 +13960,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.91478395
+      value: 0.5797667
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.4039437
+      value: -0.81478256
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
