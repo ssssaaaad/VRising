@@ -25,38 +25,41 @@ public class HP_Scan_Range : MonoBehaviour
 
     private void Update()
     {
-        if(Enemys != null)
+        if (Enemys != null)
         {
-            for(int i = Enemys.Count - 1; i >= 0; i --)
-            {
-                // 리스트 안에 있는 적이 죽었을 경우 리스트에서 제거
-                if (!Enemys[i].GetComponentInParent<Enemy>().alive)
-                {
-                    if (Enemys[i] == closeEnemy)
-                        closeEnemy = null;
-                    Enemys.Remove(Enemys[i]);
-                }
-                else if (closeEnemy == null)
-                {
-                    closeEnemy = Enemys[i];
-                }   
-                else
-                {
-                    if (Vector3.Distance(transform.position, closeEnemy.transform.position)
-                        > Vector3.Distance(transform.position, Enemys[i].transform.position))
-                    {
-                        closeEnemy = Enemys[i];
-                    }
-                }
-            }
-            
+            //    for (int i = Enemys.Count - 1; i >= 0; i--)
+            //    {
+            //        print(i);
+            //        // 리스트 안에 있는 적이 죽었을 경우 리스트에서 제거
+            //        if (!Enemys[i].GetComponentInParent<Enemy>().alive)
+            //        {
+            //            if (Enemys[i] == closeEnemy)
+            //                closeEnemy = null;
+            //            Enemys.Remove(Enemys[i]);
+            //        }
+            //        else if (closeEnemy == null)
+            //        {
+            //            closeEnemy = Enemys[i];
+            //        }
+            //        else
+            //        {
+            //            if (Vector3.Distance(transform.position, closeEnemy.transform.position)
+            //                > Vector3.Distance(transform.position, Enemys[i].transform.position))
+            //            {
+            //                closeEnemy = Enemys[i];
+            //            }
+            //        }
+            //    }
+            closeEnemy = Enemys[Enemys.Count - 1];
         }
-        else
-        {
-            closeEnemy = null;
-        }
+        //else
+        //{
+        //    closeEnemy = null;
+        //}
 
-        if(closeEnemy != null) 
+
+
+        if (closeEnemy != null) 
             canF = true;
         else
             canF = false;

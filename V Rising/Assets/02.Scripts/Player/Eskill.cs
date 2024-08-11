@@ -66,6 +66,8 @@ public class Eskill : MonoBehaviour
 
     public IEnumerator CastSkill()
     {
+        PM.animator.SetTrigger("Skill_E");
+
         PM.eskilling = true;
         isCoolingDown = true;
 
@@ -74,6 +76,8 @@ public class Eskill : MonoBehaviour
         playerMove.SetSpeed(slowSpeed);     // 이동속도 감소
         
         yield return new WaitForSeconds(castTime);  // 캐스팅 시간동안 대기
+
+        PM.animator.SetTrigger("Active_Skill_E");
 
         Indi.Indi_E_break();
 

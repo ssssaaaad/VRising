@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class Fblood : MonoBehaviour
     private PlayerMove playerMove;
 
     public HP_Scan_Range Scaner;
+
+    public float hp_BloodMax       = 100;
+    public float hp_BloodCurrent   = 0;
+
     public float Healing = 100f;        // 흡혈 회복량
     public float bloodingTime = 2f;     // 흡혈 시간
     public bool dontMove = false;       // 움직이지 마!
@@ -21,12 +26,32 @@ public class Fblood : MonoBehaviour
 
     public int cameraShakeTypeIndex = 0;
 
+
+    public event Action<float, float> OnHealthChanged;
+
+
     void Start()
     {
         PState = GetComponent<Playerstate>();
         PManager = GetComponent<PlayerManager>();
         playerMove = GetComponent<PlayerMove>();
         originalLayer = gameObject.layer;
+
+        hp_BloodCurrent = hp_BloodMax;
+        OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            TakeDamage(10f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            TakeDamage(-10f);
+        }
     }
 
     public void F()
@@ -43,6 +68,38 @@ public class Fblood : MonoBehaviour
         fCasting = StartCoroutine(FCasting());
     }
 
+    public void TakeDamage(float damage)
+    {
+        hp_BloodCurrent -= damage;
+        if (hp_BloodCurrent <= 0)
+        {
+            hp_BloodCurrent = 0;
+            //Die();
+        }
+
+        Debug.Log("2222피_현재 : " + hp_BloodCurrent + ", 3323피_맥스 : " + hp_BloodMax);
+
+        UpdateBlood(damage);
+    }
+
+    private void UpdateBlood(float dmg)
+    {
+        if (hp_BloodCurrent > 0)
+        {
+            hp_BloodCurrent -= dmg;
+        }
+
+        if (hp_BloodCurrent > hp_BloodMax)
+            hp_BloodCurrent = hp_BloodMax;
+
+
+        Debug.Log("ㅈㅈㅈ피_현재 : " + hp_BloodCurrent + ", ㅈㅈㅈ피_맥스 : " + hp_BloodMax);
+
+        // HP가 변경되면 이벤트를 호출
+        OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
+
+    }
+
     public IEnumerator FCasting()
     {
         float cast = Time.time + bloodingTime;
@@ -56,6 +113,8 @@ public class Fblood : MonoBehaviour
             check += 0.1f;
             yield return new WaitForSeconds(0.01f);
         }
+
+        PManager.animator.SetTrigger("Drain");
 
         // 흡혈 캐스팅중 플레이어 조작 불가
         dontMove = true;
