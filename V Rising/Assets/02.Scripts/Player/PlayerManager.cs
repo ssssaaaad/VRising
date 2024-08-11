@@ -40,7 +40,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
 
         Move = GetComponent<PlayerMove>();
         Cskill = GetComponent<Cskill>();
@@ -75,7 +75,6 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && CanQskill())
         {
             Qskill.Q();
-            animator.SetTrigger("Skill_Q");
             QCancel();
         }
         if (Input.GetKeyDown(KeyCode.C) && CanCskill())
@@ -93,7 +92,6 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T) && CanTskill())
         {
             Tskill.T();
-            animator.SetTrigger("Skill_T");
             TCancel();
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -121,12 +119,20 @@ public class PlayerManager : MonoBehaviour
         {
             Attack.Click();
             if (Attack.Combo() == 0)
-            { }
+            {
+                animator.SetBool("NormalAttackCheck", false);
+                animator.SetTrigger("NormalAttack");
+            }
             else if (Attack.Combo() == 1)
-            { }
+            {
+                animator.SetTrigger("NormalAttack");
+                animator.SetBool("NormalAttackCheck", true);
+            }
             else
-            { }
-                ClickCancel();
+            {
+                animator.SetTrigger("NormalAttack");
+            }
+            ClickCancel();
         }
     }
 

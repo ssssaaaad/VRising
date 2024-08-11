@@ -77,6 +77,7 @@ public class PlayerMove : MonoBehaviour
             // 대쉬 처리
             if (Input.GetKeyDown(KeyCode.Space) && PM.CanDash())
             {
+                
 
                 PM.SpaceCancel();
                 SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Dash, transform, Vector3.zero);
@@ -151,6 +152,8 @@ public class PlayerMove : MonoBehaviour
     {
         gameObject.layer = LayerMask.NameToLayer(noHitPlayer);
 
+        StartCoroutine(PAttack.AfterDash());
+
         if (PM != null)
         {
             PM.dashing = true;
@@ -176,7 +179,6 @@ public class PlayerMove : MonoBehaviour
 
         gameObject.layer = originalLayer;
 
-        StartCoroutine(PAttack.AfterDash());
     }
 
     
