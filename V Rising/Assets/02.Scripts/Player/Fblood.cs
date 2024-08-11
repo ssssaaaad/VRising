@@ -114,6 +114,8 @@ public class Fblood : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
 
+        PManager.animator.SetTrigger("Drain");
+
         // 흡혈 캐스팅중 플레이어 조작 불가
         dontMove = true;
         transform.forward = Scaner.closeEnemy.transform.forward;
