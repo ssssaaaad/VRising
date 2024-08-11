@@ -25,7 +25,7 @@ public class HP_Scan_Range : MonoBehaviour
 
     private void Update()
     {
-        if (Enemys != null)
+        if (Enemys.Count > 0)
         {
             //    for (int i = Enemys.Count - 1; i >= 0; i--)
             //    {
