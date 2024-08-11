@@ -381,6 +381,14 @@ public class Maja : Enemy
         
         for (int i = 0; i < maja_Minions.Count; i++)
         {
+            if (maja_Minions[i] == null)
+            {
+                maja_Minions.RemoveAt(i);
+                if(maja_Minions.Count == 0)
+                {
+                    return null;
+                }
+            }
             check = Vector3.Distance(mapOrigin.position, maja_Minions[i].transform.position);
             if (min > check)
             {
