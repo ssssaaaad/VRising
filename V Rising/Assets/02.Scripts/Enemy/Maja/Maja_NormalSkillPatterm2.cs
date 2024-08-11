@@ -70,7 +70,6 @@ public class Maja_NormalSkillPattern2 : Pattern
         yield return new WaitForSeconds(attackDelayTime);
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Explosion, transform, Vector3.zero);
         Collider[] hitTargets = Physics.OverlapSphere(transform.position, radius, layerMask);
-        print(hitTargets.Length);
         for (int i = 0; i < hitTargets.Length; i++)
         {
             hitTargets[i].GetComponent<Playerstate>().UpdateHP(damage);
@@ -107,6 +106,12 @@ public class Maja_NormalSkillPattern2 : Pattern
     protected override IEnumerator VFXAcitve(VFX vfx)
     {
         yield return new WaitForSeconds(vfx.startTime);
+        if (!vfx.localPosition)
+        {
+            vfx.vfxObject.transform.SetParent(maja.effectPosition);
+            vfx.vfxObject.transform.localPosition = Vector3.zero;
+            vfx.vfxObject.transform.SetParent(null);
+        }
         vfx.vfxObject.SetActive(true);
         yield return new WaitForSeconds(vfx.operatingTime);
         vfx.vfxObject.SetActive(false);

@@ -29,6 +29,7 @@ public class Maja_Teleport : Pattern
 
         StartCoroutine(PatternDelayTime());
         StartCoroutine(PatternCooltime());
+        StartCoroutine(Coroutine_AttackPattern(direction));
         for (int i = 0; i < vfxList.Length; i++)
         {
             StartCoroutine(VFXAcitve(vfxList[i]));

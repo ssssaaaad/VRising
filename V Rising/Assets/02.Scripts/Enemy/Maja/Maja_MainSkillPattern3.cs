@@ -83,7 +83,6 @@ public class Maja_MainSkillPattern3 : Pattern
         yield return new WaitForSeconds(attackDelayTime);
 
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Explosion, transform, Vector3.zero);
-        maja.animator.SetTrigger("MainSkillPattern3");
         yield return new WaitForSeconds(2f);
         maja.model.gameObject.SetActive(false);
 
@@ -179,7 +178,15 @@ public class Maja_MainSkillPattern3 : Pattern
     }
     protected override IEnumerator VFXAcitve(VFX vfx)
     {
-        yield return new WaitForSeconds(vfx.startTime);
+        yield return new WaitForSeconds(vfx.startTime); 
+
+        if (!vfx.localPosition)
+        {
+            vfx.vfxObject.transform.SetParent(maja.effectPosition);
+            vfx.vfxObject.transform.localPosition = Vector3.zero;
+            vfx.vfxObject.transform.SetParent(null);
+        }
+
         vfx.vfxObject.SetActive(true);
         yield return new WaitForSeconds(vfx.operatingTime);
         vfx.vfxObject.SetActive(false);

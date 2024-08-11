@@ -45,6 +45,7 @@ public class VFX
     public GameObject vfxObject;
     public float startTime;
     public float operatingTime;
+    public bool localPosition = true;
 }
 
 public class Maja : Enemy
@@ -165,14 +166,14 @@ public class Maja : Enemy
         teleport = GetComponent<Maja_Teleport>();
         teleport.InitPattern(this);
 
-        phase1_Start.Add(attackPatterns[2]);
-        phase1_Start.Add(attackPatterns[4]);
-        phase1_Start.Add(attackPatterns[2]);
-        phase1_Start.Add(attackPatterns[4]);
-        phase1_Start.Add(attackPatterns[2]);
-        phase1_Start.Add(attackPatterns[4]);
+        phase1_Start.Add(attackPatterns[5]);
+        //phase1_Start.Add(attackPatterns[4]);
+        //phase1_Start.Add(attackPatterns[2]);
+        //phase1_Start.Add(attackPatterns[4]);
+        //phase1_Start.Add(attackPatterns[2]);
+        //phase1_Start.Add(attackPatterns[4]);
 
-        phase1_Loop.Add(attackPatterns[5]);
+        phase1_Loop.Add(attackPatterns[1]);
         //phase1_Loop.Add(attackPatterns[1]);
         //phase1_Loop.Add(attackPatterns[0]);
         //phase1_Loop.Add(attackPatterns[1]);
@@ -335,10 +336,9 @@ public class Maja : Enemy
         }
         Maja_Minion minion = Instantiate(minion_Prefab);
         minion.transform.position = position;
-        AddMinion(minion);
 
         float dmg = (minion.damage_Max - minion.damage_Min);
-        dmg = minion.damage + (dmg / 3* phase);
+        dmg = minion.damage + (dmg / 3 * phase);
 
         minion.InitEnemy(this, dmg);
     }
@@ -346,13 +346,15 @@ public class Maja : Enemy
     public void AddMinion(Maja_Minion minion)
     {
         maja_Minions.Add(minion);
-        if(maja_Minions.Count > 6)
+        if(maja_Minions.Count > 2)
         {
             if (maja_Minions[0] != null)
             {
                 maja_Minions[0].UpdateHP(-1000, null,false);
+                maja_Minions.RemoveAt(0);
             }
         }
+
     }
 
     public void RemoveMinion(Maja_Minion minion)
@@ -461,7 +463,7 @@ public class Maja : Enemy
             animator.SetTrigger("Teleport");
             StopMoveTarget();
             teleport.ActivePattern(Vector3.zero);
-            //state = State.Attack;
+            state = State.Idle;
         }
         else if(state == State.Attack)
         {

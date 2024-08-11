@@ -62,7 +62,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaMul: 1
-    - _AlphaPow: 0.2
+    - _AlphaPow: 0.16
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -82,5 +82,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 0.2582965, g: 0.15901253, b: 0.7547169, a: 0.8980392}
+    - _TintColor: {r: 0.2582965, g: 0.15901253, b: 0.7547169, a: 0.5686275}
   m_BuildTextureStacks: []

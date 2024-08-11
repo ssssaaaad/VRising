@@ -41,7 +41,6 @@ public class PlayerMove : MonoBehaviour
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
 
 
-
     float yVelocity = 0;
     SFXAudioSource moveSound;
 
@@ -204,7 +203,6 @@ public class PlayerMove : MonoBehaviour
 
     Plane m_plane;
     public bool canRotate = true;
-
     public void LookMouseCursor()
     {
         m_plane = new Plane(Vector3.up, model.transform.position);
@@ -215,8 +213,7 @@ public class PlayerMove : MonoBehaviour
         float zValue;
 
         m_plane.Raycast(ray, out zValue);
-
-
+        
         Vector3 mouseScreenPosition = Input.mousePosition;
 
         mouseScreenPosition.z = zValue;

@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     #endregion
 
+    public Transform effectPosition;
 
     public void InitEnemy()
     {
@@ -71,6 +72,7 @@ public class Enemy : MonoBehaviour
     /// <param name="dmg"></param>
     public void UpdateHP(float dmg, Transform target, bool uiActvie = true)
     {
+        print(1);
         if (!alive)
             return;
         hp_Current = Mathf.Clamp(hp_Current + dmg, 0, hp_Max);

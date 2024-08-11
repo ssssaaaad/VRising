@@ -21,6 +21,8 @@ public class Maja_Minion : Enemy
 
     public State state;
     public Maja maja;
+    public AttackCollision attackCollision_Prefab;
+    public Transform attackPosition;
     public float speed = 10;
     public float traceRange = 5;
     public float attackRange = 1;
@@ -46,6 +48,8 @@ public class Maja_Minion : Enemy
     public float damage = 15;
     public float damage_Min = 15;
     public float damage_Max = 30;
+
+    private AttackCollision attackCollision;
 
     void Update()
     {
@@ -90,8 +94,9 @@ public class Maja_Minion : Enemy
     private void StateCycle()
     {
         if (state == State.Death)
+        {
             return;
-
+        }
         if (!alive)
         {
             state = State.Death;
@@ -110,8 +115,9 @@ public class Maja_Minion : Enemy
                 {
                     colliders[i].isTrigger = true;
                 }
-                GetComponent<NavMeshAgent>().enabled = false;
-                transform.DOMoveY(transform.position.y - 3, 0.5F).SetEase(Ease.InQuart);
+                navMeshAgent.isStopped = true;
+                model.transform.DOMoveY(model.transform.position.y - 5, 0.5f).SetEase(Ease.InQuad);
+                Destroy(gameObject, 3);
                 return;
                 break;
             case State.Attack:
@@ -126,7 +132,6 @@ public class Maja_Minion : Enemy
                 break;
         }
     }
-
 
     private void ResetRandomDirection()
     {
@@ -233,11 +238,21 @@ public class Maja_Minion : Enemy
         forward = new Vector3(target.position.x - model.position.x, model.position.y, target.position.z - model.position.z).normalized;
         yield return new WaitForSeconds(0.15f);
         animator.SetTrigger("Attack");
-        // 어택 애니메이션 추가 바람
+        attackCollision = Instantiate(attackCollision_Prefab);
+        attackCollision.transform.SetParent(attackPosition);
+        attackCollision.transform.localPosition = Vector3.zero;
+        attackCollision.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        attackCollision.InitAttack(damage, true);
+        Destroy(attackCollision.gameObject, 0.5f);
         yield return new WaitForSeconds(0.5f);
+        if (!alive)
+        {
+            yield break;
+        }
         StopMoveTarget();
+
         yield return new WaitForSeconds(0.5f);
-        if (state == State.Death)
+        if (!alive)
         {
             yield break;
         }

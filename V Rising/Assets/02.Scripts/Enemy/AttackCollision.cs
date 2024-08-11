@@ -17,7 +17,12 @@ public class AttackCollision : MonoBehaviour
         hitObjects.Clear();
     }
 
-    protected void InitAttack(float damage, bool activeAfterHit, bool collision = true, float hitCooltime = 0)
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
+    public void InitAttack(float damage, bool activeAfterHit, bool collision = true, float hitCooltime = 0)
     {
         hitObjects.Clear();
         this.damage = damage;
