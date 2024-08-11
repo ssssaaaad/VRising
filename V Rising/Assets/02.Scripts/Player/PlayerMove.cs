@@ -94,7 +94,6 @@ public class PlayerMove : MonoBehaviour
                     dashDirection_z = 1;
                 }
                 animator.SetFloat("Vertical", dashDirection_z);
-                animator.SetTrigger("Dash");
                 StartDash();
 
             }
@@ -149,6 +148,7 @@ public class PlayerMove : MonoBehaviour
 
     void StartDash()
     {
+        PM.animator.SetTrigger("Dash");
         gameObject.layer = LayerMask.NameToLayer(noHitPlayer);
 
         StartCoroutine(PAttack.AfterDash());

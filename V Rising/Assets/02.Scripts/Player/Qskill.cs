@@ -102,6 +102,8 @@ public class Qskill : MonoBehaviour
     public void CancelQSkill()
     {
         PM.animator.SetBool("Skill_Q", false);
+        PM.animator.SetTrigger("CancelSkill");
+
         StopCoroutine(Spining());
         if (Qspin_Instance != null)
         {

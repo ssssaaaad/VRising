@@ -14,9 +14,8 @@ public class PlayerAttack : MonoBehaviour
 
     public float comboTime = 2f;    // 연속공격 유지시간
     public float attackPreDelay = 0.3f;     // 공격 전 딜레이 시간
-    public float attack1Delay = 0.5f;       // 공격 이후 딜레이 시간 
-    public float attack2Delay = 0.5f;
-    public float attack3Delay = 0.75f;
+    public float attackDelay = 0.2f;       // 공격 이후 딜레이 시간 
+    public float attack3Delay = 0.45f;
     public float minSpeed = 3f;     // 공격시 감소된 속도
     public float speedDuration = 0.75f;  // 속도 감소 지속시간
     public bool afterDash = false;
@@ -30,25 +29,23 @@ public class PlayerAttack : MonoBehaviour
     private PlayerMove PlayerMove;
     private int comboCount;
     private float lastAttackTime;   // 마지막 공격시간
-    private float[] comboDelay;
     private float basicSpeed = 10f;
     private bool canAttack = true;
+    private bool attack1 = false;
 
     public int cameraShakeTypeIndex = 0;
 
     void Start()
     {
-        comboDelay = new float[] { attack1Delay, attack2Delay, attack3Delay };
         PlayerMove = GetComponent<PlayerMove>();
 
         PM = GetComponent<PlayerManager>();
         PS = GetComponent<Playerstate>();
     }
 
-    
-    void Update()
+    private void Update()
     {
-        lastAttackTime += Time.deltaTime;   // 마지막 공격 이후 시간 측정
+        lastAttackTime += Time.deltaTime;
     }
 
     public void Click()
@@ -68,7 +65,30 @@ public class PlayerAttack : MonoBehaviour
         if (lastAttackTime > comboTime)     // 마지막 공격 이후 시간이 연속공격 유지시간 초과시 콤보 초기화
         {
             comboCount = 0;
+            attack1 = false;
             PM.animator.SetBool("NormalAttackCheck", false);
+        }
+
+        if (comboCount == 2)
+        {
+            PM.animator.SetTrigger("Spine_WholeBody");
+        }
+        else
+        {
+            if (!attack1)
+            {
+                PM.animator.SetTrigger("NormalAttack");
+                PM.animator.SetBool("NormalAttackCheck", attack1);
+
+                attack1 = true;
+            }
+            else
+            {
+                PM.animator.SetTrigger("NormalAttack");
+                PM.animator.SetBool("NormalAttackCheck", attack1);
+
+                attack1 = false;
+            }
         }
 
         Debug.Log("속도감소");
@@ -77,29 +97,33 @@ public class PlayerAttack : MonoBehaviour
 
         yield return new WaitForSeconds(attackPreDelay);    // 클릭시 attackPreDelay 만큼 기다렸다 공격
 
-        // 첫 공격일 경우 or 마지막 공격 이후 시간이 공격 딜레이 시간 이상일 경우에 공격
-        if (comboCount == 0 || lastAttackTime >= comboDelay[comboCount - 1])
+        GameObject hitBox = Instantiate(HitBox);    // 히트박스 소환
+        hitBox.transform.position = attackPoint.transform.position + attackPoint.transform.forward * 2.5f;
+        hitBox.transform.forward = attackPoint.transform.forward;
+        hitBox.transform.SetParent(attackPoint.transform);  
+
+        lastAttackTime = 0f;
+
+        if(comboCount == 2)
         {
-            if (comboCount >= 3)
-                comboCount = 0;
-
-            GameObject hitBox = Instantiate(HitBox);    // 히트박스 소환
-            hitBox.transform.position = attackPoint.transform.position + attackPoint.transform.forward * 2.5f;
-            hitBox.transform.forward = attackPoint.transform.forward;
-            hitBox.transform.SetParent(attackPoint.transform);  // 히트박스를 Swod의 자식으로 설정
-
-            lastAttackTime = 0f;
-            comboCount++;
+            yield return new WaitForSeconds(attack3Delay);
         }
+        else
+        {
+            yield return new WaitForSeconds(attackDelay);
+        }
+
+        comboCount++;
+
+        if (comboCount == 3) 
+            comboCount = 0;
+
         canAttack = true;
 
-        if (PM != null)
-        {
-            PM.attacking = false;
-        }
-        yield return new WaitForSeconds(speedDuration - attackPreDelay);
+        //마지막 공격 이후 시간이 공격 딜레이 시간 이상일 경우에 공격 활성화
+        
+        
         PlayerMove.SetSpeed(basicSpeed);
-        attackCoroutain = null;
     }
 
     private IEnumerator Slowing()
@@ -127,6 +151,8 @@ public class PlayerAttack : MonoBehaviour
 
     public void CancelAttacking()
     {
+        PM.animator.SetTrigger("CancelSkill");
+
         StopCoroutine(Attack());
         StopCoroutine(Slowing());
         if (PlayerMove.playerSpeed == minSpeed)
