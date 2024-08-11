@@ -104,17 +104,19 @@ public class PlayerMove : MonoBehaviour
                 isCoolingDown = true;
             }
 
-
-            if (Time.time > dashEndTime)
+            if (PM.dashing)
             {
-                EndDash();
-            }
-            else
-            {
-                // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
-                ApplyDashFriction();
-                // 대쉬 중 입력을 반영하여 방향 전환
-                SetDashDirection();
+                if (Time.time > dashEndTime)
+                {
+                    EndDash();
+                }
+                else
+                {
+                    // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
+                    ApplyDashFriction();
+                    // 대쉬 중 입력을 반영하여 방향 전환
+                    SetDashDirection();
+                }
             }
         }
     }

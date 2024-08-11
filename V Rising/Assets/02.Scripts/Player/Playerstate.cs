@@ -70,6 +70,9 @@ public class Playerstate : MonoBehaviour
             CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
         }
             
+        if (hp_Current > hp_Max) 
+            hp_Current = hp_Max;
+
 
         // HP가 변경되면 이벤트를 호출
         OnHealthChanged?.Invoke(hp_Current, hp_Max);

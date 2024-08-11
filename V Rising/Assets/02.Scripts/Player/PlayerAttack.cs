@@ -108,10 +108,12 @@ public class PlayerAttack : MonoBehaviour
     public IEnumerator AfterDash()
     {
         afterDash = true;
+        Debug.Log("평타 강화중");
 
         yield return new WaitForSeconds(3);
 
         afterDash = false;
+        Debug.Log("평타강화 자동취소");
     }
 
     public void CancelAttacking()

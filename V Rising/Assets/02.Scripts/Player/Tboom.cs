@@ -23,7 +23,7 @@ public class Tboom : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Tskill.Damage(other, Tskill.Tdmg);
-            PS.UpdateHP(PS.power * Tskill.Tdmg * 0.05f);
+            PS.UpdateHP(-PS.power * Tskill.Tdmg * 0.05f);
         }
         
     }

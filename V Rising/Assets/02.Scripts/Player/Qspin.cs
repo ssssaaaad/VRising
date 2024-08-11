@@ -12,7 +12,7 @@ public class Qspin : MonoBehaviour
     void Start()
     {
         Qskill = FindObjectOfType<Qskill>();
-        PState = GetComponent<Playerstate>();
+        PState = GetComponentInParent<Playerstate>();
 
     }
 
@@ -31,7 +31,6 @@ public class Qspin : MonoBehaviour
                 StartCoroutine(hitCoolTime(other.transform));
 
                 Qskill.Damage(other, Qskill.Qdmg);
-                PState.UpdateHP(PState.hp_Max * 0.05f);     // 플레이어 회복량
 
                 Debug.Log("Q hit");
             }

@@ -31,8 +31,12 @@ public class AttackHitBox : MonoBehaviour
 
             if (PlayerAttack.afterDash)
             {
+                Debug.Log("강화평타");
+
                 PlayerAttack.Damage(other, 0.25f);
-                PState.UpdateHP(PState.hp_Max * 0.1f);
+                PState.UpdateHP(-PState.hp_Max * 0.1f);
+                PlayerAttack.afterDash = false;
+                StopCoroutine(PlayerAttack.AfterDash());
             }
         }
     }
