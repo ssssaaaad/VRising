@@ -5,12 +5,15 @@ using UnityEngine;
 public class Qspin : MonoBehaviour
 {
     private Qskill Qskill;
+    private Playerstate PState;
 
     List<Transform> hitObjects = new List<Transform>();
 
     void Start()
     {
         Qskill = FindObjectOfType<Qskill>();
+        PState = GetComponentInParent<Playerstate>();
+
     }
 
     void Update()

@@ -9,12 +9,15 @@ using UnityEngine.UI;
 
 public class Playerstate : MonoBehaviour
 {
+    public Animator animator;
+
     private PlayerManager PM;
     private Cskill Cskill;
 
     public float hp_Max = 500;
     public float hp_Current;
     public float power = 40;
+    public bool dead = false;
 
     public event Action<float, float> OnHealthChanged;
 
@@ -24,6 +27,8 @@ public class Playerstate : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         hp_Current = hp_Max;
         PM = GetComponent<PlayerManager>();
         Cskill = GetComponent<Cskill>();
@@ -78,8 +83,19 @@ public class Playerstate : MonoBehaviour
             SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.PlayerHit, transform, Vector3.zero);
             CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
         }
+            
+        if (hp_Current > hp_Max) 
+            hp_Current = hp_Max;
+
 
         // HP가 변경되면 이벤트를 호출
         OnHealthChanged?.Invoke(hp_Current, hp_Max);
+
+        if (hp_Current <= 0)
+        {
+            dead = true;
+            animator.SetTrigger("Death");
+            animator.SetBool("Death_Check", true);
+        }
     }
 }

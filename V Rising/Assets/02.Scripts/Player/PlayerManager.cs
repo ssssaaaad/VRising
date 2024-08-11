@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     private HP_Scan_Range Fscan;
     private Fblood Fblood;
     private PlayerAttack Attack;
+    private Playerstate PState;
 
     private bool canDash = false;
     private bool canCskill = false;
@@ -39,6 +40,8 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         Move = GetComponent<PlayerMove>();
         Cskill = GetComponent<Cskill>();
         Qskill = GetComponent<Qskill>();
@@ -48,10 +51,15 @@ public class PlayerManager : MonoBehaviour
         Fscan = GetComponentInChildren<HP_Scan_Range>();
         Fblood = GetComponent<Fblood>();
         Attack = GetComponent<PlayerAttack>();
+
+        PState = GetComponent<Playerstate>();
     }
 
     void Update()
     {
+        if (PState.dead)
+            return;
+
         if (!Fblood.dontMove)
             Move.Move();
 
@@ -67,21 +75,25 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && CanQskill())
         {
             Qskill.Q();
+            animator.SetTrigger("Skill_Q");
             QCancel();
         }
         if (Input.GetKeyDown(KeyCode.C) && CanCskill())
         {
             Cskill.C();
+            animator.SetTrigger("Skill_C");
             CCancel();
         }
         if (Input.GetKeyDown(KeyCode.R) && CanRskill())
         {  
-            Rskill.R(); 
+            Rskill.R();
+            animator.SetTrigger("Skill_R");
             RCancel();
         }
         if (Input.GetKeyDown(KeyCode.T) && CanTskill())
         {
             Tskill.T();
+            animator.SetTrigger("Skill_T");
             TCancel();
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -95,6 +107,7 @@ public class PlayerManager : MonoBehaviour
             else if (CanEskill())
             {
                 Eskill.E();
+                animator.SetTrigger("Skill_E");
                 ECancel();
 
                 Debug.Log("E눌림");
@@ -107,7 +120,13 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetMouseButton(0) && CanAttack())
         {
             Attack.Click();
-            ClickCancel();
+            if (Attack.Combo() == 0)
+            { }
+            else if (Attack.Combo() == 1)
+            { }
+            else
+            { }
+                ClickCancel();
         }
     }
 

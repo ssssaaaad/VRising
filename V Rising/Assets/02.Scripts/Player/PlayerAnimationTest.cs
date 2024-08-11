@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerAnimationTest : MonoBehaviour
 {
-    public PlayerMove playerMove;
     public Animator animator;
     public Transform model;
 
@@ -35,9 +34,6 @@ public class PlayerAnimationTest : MonoBehaviour
             cast_C = false;
             animator.SetTrigger("CancelSkill");
         }
-
-
-
 
 
         if (Input.GetKeyDown(KeyCode.R))

@@ -37,6 +37,8 @@ public class Tskill : MonoBehaviour
 
     public int cameraShakeTypeIndex = 0;
 
+    public int cameraShakeTypeIndexBoom = 0;
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -138,17 +140,12 @@ public class Tskill : MonoBehaviour
 
         Debug.Log("Tskill 캔슬");
     }
-    
-    private void OnTriggerEnter(Collider other)     
-    {
-        if (other.CompareTag("Enemy"))      // 부딪힌 대상의 레이어 확인
-        {
-            StartCoroutine(hitDelayTime(other.transform));
-        }
-    }
+   
 
     public IEnumerator hitDelayTime(Transform hitObject)
     {
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
+
         yield return new WaitForSeconds(bustTime);      // 폭발 지연시간동안 대기
 
         GameObject tBoom = Instantiate(Tboom);
@@ -167,6 +164,6 @@ public class Tskill : MonoBehaviour
     {
         hit.GetComponentInParent<Enemy>().UpdateHP(-PS.power * coeff, PM.transform);
 
-        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
+        CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndexBoom);
     }
 }

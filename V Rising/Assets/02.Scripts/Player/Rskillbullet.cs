@@ -28,7 +28,7 @@ public class Rskillbullet : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Rskill.Damage(other, Rskill.Rdmg);
-            PS.UpdateHP(Rskill.Rdmg * PS.power);
+            PS.UpdateHP(-Rskill.Rdmg * PS.power);
         }
 
         Destroy(gameObject);

@@ -25,8 +25,11 @@ public class PlayerMove : MonoBehaviour
     public float dashFriction = 2f; // 대쉬 중 감쇠속도
     public float dashCooldown = 8f; // 대쉬 쿨타임 (8초)
     public float gravity = -9.8f;
+    public bool afterDash = false;
+    public string noHitPlayer = "NoHitPlayer";      // 피격판정이 없는 레이어
 
     private Tskill Tskill;
+    private PlayerAttack PAttack;
     private bool isDashing = false;
     private bool isCoolingDown = true;    // 대쉬 쿨타임 여부 확인
     private Vector3 moveDirection;
@@ -34,7 +37,10 @@ public class PlayerMove : MonoBehaviour
     private Vector3 dashDirection;
     private float dashEndTime = 0f;
     private float nextDashTime = 0f; // 다음 대쉬 가능 시간
+    private int originalLayer;
     //public TextMeshProUGUI cooldownText; // 쿨타임 남은시간 택스트
+
+
 
     float yVelocity = 0;
     SFXAudioSource moveSound;
@@ -44,7 +50,10 @@ public class PlayerMove : MonoBehaviour
         cc = GetComponent<CharacterController>();
         Tskill = GetComponent<Tskill>();
         PM = GetComponent<PlayerManager>();
-    }
+        PAttack = GetComponent<PlayerAttack>();
+
+        originalLayer = gameObject.layer;
+}
 
     private void Awake()
     {
@@ -68,6 +77,7 @@ public class PlayerMove : MonoBehaviour
             // 대쉬 처리
             if (Input.GetKeyDown(KeyCode.Space) && PM.CanDash())
             {
+
                 PM.SpaceCancel();
                 SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Dash, transform, Vector3.zero);
                 SetDashDirection();
@@ -95,17 +105,19 @@ public class PlayerMove : MonoBehaviour
                 isCoolingDown = true;
             }
 
-
-            if (Time.time > dashEndTime)
+            if (PM.dashing)
             {
-                EndDash();
-            }
-            else
-            {
-                // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
-                ApplyDashFriction();
-                // 대쉬 중 입력을 반영하여 방향 전환
-                SetDashDirection();
+                if (Time.time > dashEndTime)
+                {
+                    EndDash();
+                }
+                else
+                {
+                    // 대쉬 중 미끄러짐 효과 및 방향 전환 적용
+                    ApplyDashFriction();
+                    // 대쉬 중 입력을 반영하여 방향 전환
+                    SetDashDirection();
+                }
             }
         }
     }
@@ -137,6 +149,8 @@ public class PlayerMove : MonoBehaviour
 
     void StartDash()
     {
+        gameObject.layer = LayerMask.NameToLayer(noHitPlayer);
+
         if (PM != null)
         {
             PM.dashing = true;
@@ -159,9 +173,13 @@ public class PlayerMove : MonoBehaviour
         }
 
         isDashing = false;
-        
 
+        gameObject.layer = originalLayer;
+
+        StartCoroutine(PAttack.AfterDash());
     }
+
+    
 
     System.Collections.IEnumerator DashCoroutine(Vector3 dashDirection)
     {
