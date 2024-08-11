@@ -6659,6 +6659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Jansang
       value: 
+      objectReference: {fileID: 3061442151210580833}
+    - target: {fileID: 5674220048950176895, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Jansang_Black
+      value: 
       objectReference: {fileID: 371433480306473223, guid: 15dbe01ba9a5f3e4caed4ad2c839bad6,
         type: 3}
     - target: {fileID: 5965169875361096382, guid: 5e59e3fe9d25a6d44a337cceee864049,
@@ -16905,12 +16910,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6148208
+      value: -0.8243057
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.78866684
+      value: -0.56614494
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
@@ -18294,9 +18299,10 @@ MonoBehaviour:
   minSpeed: 2
   speedDuration: 0.75
   afterDash: 0
-  Jansang: {fileID: 0}
+  Jansang_Black: {fileID: 0}
   HitBox: {fileID: 6836862729004524015, guid: 64b2c97e468e6b149a72dcc1faa626ca, type: 3}
   attackPoint: {fileID: 0}
+  Jansang: {fileID: 0}
   cameraShakeTypeIndex: 0
 --- !u!23 &1277849936 stripped
 MeshRenderer:
@@ -31708,6 +31714,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jansang
       objectReference: {fileID: 0}
+    - target: {fileID: 371433480306473223, guid: df1fb9ee79227c447ad04ccc62685c61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1039285211871503293, guid: df1fb9ee79227c447ad04ccc62685c61,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -31783,6 +31794,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df1fb9ee79227c447ad04ccc62685c61, type: 3}
+--- !u!1 &3061442151210580833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 371433480306473223, guid: df1fb9ee79227c447ad04ccc62685c61,
+    type: 3}
+  m_PrefabInstance: {fileID: 3061442151210580832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3998330517381045244 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3998330517739423623, guid: 5e59e3fe9d25a6d44a337cceee864049,
