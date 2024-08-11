@@ -111,6 +111,8 @@ public class Maja : Enemy
 
     public SFXAudioSource talkSound = null;
 
+    public bool test = false;
+
     void Awake()
     {
         InitEnemy();
@@ -118,6 +120,15 @@ public class Maja : Enemy
     private void Update()
     {
         Rotate();
+        if (test)
+        {
+            if(hp_Current == 0)
+            {
+                animator.SetTrigger("Death");
+            }
+            test = false;
+            UpdateHP(-1100000, null);
+        }
     }
     private void OnDestroy()
     {
@@ -330,6 +341,9 @@ public class Maja : Enemy
 
     public void SpawnMinion(Vector3 position)
     {
+        if (!alive)
+            return;
+
         if (Vector3.Distance(mapOrigin.position, position) > mapRadius)
         {
             position += (mapOrigin.position - position).normalized * (Vector3.Distance(mapOrigin.position, position) - mapRadius);
@@ -419,7 +433,15 @@ public class Maja : Enemy
         if (!alive)
         {
             state = State.Death;
-            if(talkSound != null)
+            print(1);
+            animator.SetTrigger("Groggy");
+            canDrain = true;
+            for (int i = 0; i < maja_Minions.Count; i++)
+            {
+                maja_Minions[i].UpdateHP(-10000, null, false);
+            }
+
+            if (talkSound != null)
             {
                 talkSound.StopSound();
             }
@@ -612,7 +634,10 @@ public class Maja : Enemy
         }
     }
 
-
+    public void Finish()
+    {
+        animator.SetTrigger("Death");
+    }
     private void AttakPatter(int index)
     {
         attackPatterns[index].ActivePattern(target.position);

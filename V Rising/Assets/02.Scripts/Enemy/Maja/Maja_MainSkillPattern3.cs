@@ -84,10 +84,20 @@ public class Maja_MainSkillPattern3 : Pattern
 
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Explosion, transform, Vector3.zero);
         yield return new WaitForSeconds(2f);
+        if (!maja.alive)
+        {
+            yield break;
+        }
         maja.model.gameObject.SetActive(false);
 
         for (int i = 0; i < bulletCount; i++)
         {
+            if (!maja.alive)
+            {
+                maja.model.gameObject.SetActive(true);
+                yield break;
+            }
+
             StartCoroutine(SpawnMinion());
             yield return new WaitForSeconds(1f);
         }

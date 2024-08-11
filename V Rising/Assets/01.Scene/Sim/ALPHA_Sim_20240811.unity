@@ -6732,6 +6732,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6899732444038877249, guid: 36856a68fee54cb40afdc79eab9248c3,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899732444038877249, guid: 36856a68fee54cb40afdc79eab9248c3,
+        type: 3}
+      propertyPath: sounds.Array.data[25].audioClipName
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899732444038877249, guid: 36856a68fee54cb40afdc79eab9248c3,
+        type: 3}
+      propertyPath: sounds.Array.data[25].audioClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899732444038877249, guid: 36856a68fee54cb40afdc79eab9248c3,
+        type: 3}
+      propertyPath: sounds.Array.data[25].audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ef139e7c2e31f5498d72fabf695c67a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18343,12 +18363,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.052120443
+      value: -0.9697562
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9986409
+      value: 0.24407561
       objectReference: {fileID: 0}
     - target: {fileID: 1749934431462338859, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}

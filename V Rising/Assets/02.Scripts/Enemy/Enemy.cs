@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour
         if (hp_Current / hp_Max > 0.1f)
             return false;
 
-        animator.speed = 0;
         drain = true;
         return true;
     }
@@ -72,7 +71,6 @@ public class Enemy : MonoBehaviour
     /// <param name="dmg"></param>
     public void UpdateHP(float dmg, Transform target, bool uiActvie = true)
     {
-        print(1);
         if (!alive)
             return;
         hp_Current = Mathf.Clamp(hp_Current + dmg, 0, hp_Max);
