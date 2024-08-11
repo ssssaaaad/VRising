@@ -21,6 +21,7 @@ public class PlayerAttack : MonoBehaviour
     public float speedDuration = 0.75f;  // 속도 감소 지속시간
     public bool afterDash = false;
 
+    public GameObject Jansang;
     public GameObject HitBox;
     public Coroutine attackCoroutain;
     public Coroutine speedCoroutain;
@@ -67,6 +68,7 @@ public class PlayerAttack : MonoBehaviour
         if (lastAttackTime > comboTime)     // 마지막 공격 이후 시간이 연속공격 유지시간 초과시 콤보 초기화
         {
             comboCount = 0;
+            PM.animator.SetBool("NormalAttackCheck", false);
         }
 
         Debug.Log("속도감소");
@@ -108,11 +110,18 @@ public class PlayerAttack : MonoBehaviour
     public IEnumerator AfterDash()
     {
         afterDash = true;
+
+        GameObject jansang = Instantiate(Jansang);
+        jansang.transform.position = transform.position;
+        jansang.transform.forward = attackPoint.transform.forward;
+        Destroy(jansang, 3f);
         Debug.Log("평타 강화중");
 
         yield return new WaitForSeconds(3);
 
         afterDash = false;
+
+        
         Debug.Log("평타강화 자동취소");
     }
 

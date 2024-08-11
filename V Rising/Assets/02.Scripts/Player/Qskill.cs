@@ -51,6 +51,8 @@ public class Qskill : MonoBehaviour
     {
         Debug.Log("Starting Q skill casting");
 
+        PM.animator.SetBool("Skill_Q", true);
+
         PM.qskilling = true;
         isCoolingDown = true;
 
@@ -63,7 +65,9 @@ public class Qskill : MonoBehaviour
         yield return new WaitForSeconds(spinDuration);      // q스킬 지속시간
 
         Destroy(Qspin_Instance);         // 히트박스 비활성화
-        
+
+        PM.animator.SetBool("Skill_Q", false);
+
         Debug.Log("Finishing Q skill casting.");
         //Q_Skill_Particle.SetActive(false);
 
@@ -97,6 +101,7 @@ public class Qskill : MonoBehaviour
 
     public void CancelQSkill()
     {
+        PM.animator.SetBool("Skill_Q", false);
         StopCoroutine(Spining());
         if (Qspin_Instance != null)
         {

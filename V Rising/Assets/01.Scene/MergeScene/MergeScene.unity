@@ -4153,11 +4153,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3614577949851696185, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Jansang
+      value: 
+      objectReference: {fileID: 5481162139129073254, guid: daea51e47dc3a424b99ab796064cd1da,
+        type: 3}
     - target: {fileID: 4980935947369197339, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_Name
       value: Player_Group
       objectReference: {fileID: 0}
+    - target: {fileID: 5674220048950176895, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Jansang
+      value: 
+      objectReference: {fileID: 5481162139129073254, guid: daea51e47dc3a424b99ab796064cd1da,
+        type: 3}
+    - target: {fileID: 9004534106012792138, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1434393292}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4622,6 +4639,7 @@ MonoBehaviour:
   minSpeed: 2
   speedDuration: 0.75
   afterDash: 0
+  Jansang: {fileID: 0}
   HitBox: {fileID: 6836862729004524015, guid: 64b2c97e468e6b149a72dcc1faa626ca, type: 3}
   attackPoint: {fileID: 0}
   cameraShakeTypeIndex: 0
@@ -5059,6 +5077,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1517051556}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1434393292 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 104747052257203482, guid: 5e59e3fe9d25a6d44a337cceee864049,
+    type: 3}
+  m_PrefabInstance: {fileID: 1205672307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1461891152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6385180521039346106, guid: ec59781496f69444ab998af67f2b0ec9,
@@ -5227,6 +5251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c688b7ff12defb14288b519b99ac3170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   dashing: 0
   cskilling: 0
   qskilling: 0
@@ -7590,6 +7615,16 @@ PrefabInstance:
       propertyPath: distance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9926538
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.12098988
+      objectReference: {fileID: 0}
     - target: {fileID: 2600273654849335464, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_Enabled
@@ -7765,12 +7800,12 @@ PrefabInstance:
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7813777
+      value: 0.6926553
       objectReference: {fileID: 0}
     - target: {fileID: 7295971138370239845, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.62405854
+      value: -0.72126883
       objectReference: {fileID: 0}
     - target: {fileID: 7451367402085424911, guid: 99f0d0c8c1426ee499d1e18b9c9a2416,
         type: 3}
