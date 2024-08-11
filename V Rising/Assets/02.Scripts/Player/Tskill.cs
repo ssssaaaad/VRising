@@ -15,6 +15,8 @@ public class Tskill : MonoBehaviour
     public GameObject T_Skill_Particle;
     public GameObject Model;
     public GameObject Tboom;
+    public SkillUI skillUI;
+
 
     public float Tdmg = 1.5f;
     public float dashReady = 1f;    // 시전 준비시간
@@ -59,6 +61,7 @@ public class Tskill : MonoBehaviour
 
     public IEnumerator Ghostdash()
     {
+        skillUI.coolTimeImage(cooldownTime);
         PM.tskilling = true;
         isCoolingDown = true;
 

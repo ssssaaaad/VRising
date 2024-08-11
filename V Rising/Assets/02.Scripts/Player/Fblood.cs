@@ -77,8 +77,6 @@ public class Fblood : MonoBehaviour
             //Die();
         }
 
-        Debug.Log("2222피_현재 : " + hp_BloodCurrent + ", 3323피_맥스 : " + hp_BloodMax);
-
         UpdateBlood(damage);
     }
 
@@ -93,7 +91,6 @@ public class Fblood : MonoBehaviour
             hp_BloodCurrent = hp_BloodMax;
 
 
-        Debug.Log("ㅈㅈㅈ피_현재 : " + hp_BloodCurrent + ", ㅈㅈㅈ피_맥스 : " + hp_BloodMax);
 
         // HP가 변경되면 이벤트를 호출
         OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);

@@ -67,7 +67,7 @@ public class Eskill : MonoBehaviour
     public IEnumerator CastSkill()
     {
         PM.animator.SetTrigger("Skill_E");
-
+        skillUI.coolTimeImage(cooldownTime);
         PM.eskilling = true;
         isCoolingDown = true;
 

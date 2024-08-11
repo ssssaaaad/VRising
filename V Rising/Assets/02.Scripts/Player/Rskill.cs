@@ -56,6 +56,7 @@ public class Rskill : MonoBehaviour
         PM.rskilling = true; //시전 상태로 설정
         isCoolingDown = true;
 
+
         PM.animator.SetTrigger("Skill_R");
 
         Indi.Indi_R();
