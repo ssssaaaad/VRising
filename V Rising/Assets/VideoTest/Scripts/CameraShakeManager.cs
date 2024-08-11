@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 using PrimeTween;
-using static UnityEditor.MaterialProperty;
 using Unity.VisualScripting;
 using Sequence = PrimeTween.Sequence;
 

@@ -366,7 +366,7 @@ public class Maja : Enemy
     public void AddMinion(Maja_Minion minion)
     {
         maja_Minions.Add(minion);
-        if(maja_Minions.Count > 2)
+        if(maja_Minions.Count > 6)
         {
             if (maja_Minions[0] != null)
             {

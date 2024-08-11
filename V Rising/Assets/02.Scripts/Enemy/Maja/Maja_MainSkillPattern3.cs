@@ -143,7 +143,7 @@ public class Maja_MainSkillPattern3 : Pattern
         Transform line = Instantiate(spanwLineParticel, startPosition, spawnParticle.transform.rotation, null);
         Transform attackPositionCircle = Instantiate(attackPsotionCircle_Prefab, spawnPosition + Vector3.up, attackPsotionCircle_Prefab.rotation);
 
-        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_MainSkill3_Throw, line.transform, Vector3.zero);
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_MainSkill3_Throw, transform, Vector3.zero);
         while (time < 1)
         {
             p4 = Vector3.Lerp(startPosition, centerPosition, time);

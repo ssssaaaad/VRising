@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/VideoTest/Scenes/Video.unity
     guid: b2d9c67de6931bb48b63fc6845e17c84
   - enabled: 1
-    path: Assets/01.Scene/MergeScene/MergeScene_Alpha.unity
-    guid: 3fe008130120eb1488c3af1cdd570e32
-  - enabled: 1
-    path: Assets/01.Scene/MergeScene/MergeScene.unity
-    guid: 45c8474a2285cbc4eaf2e57d06f48d99
+    path: Assets/01.Scene/MergeScene/ALPHA_0812.unity
+    guid: 93041117b7b667d45b73afe9ece16bd3
   m_configObjects: {}

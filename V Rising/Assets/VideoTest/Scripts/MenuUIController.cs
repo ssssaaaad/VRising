@@ -33,13 +33,13 @@ public class MenuUIController : MonoBehaviour
 
     void OnBackOptionButtonClick()
     {
-        SceneManager.LoadScene("MergeScene_Alpha");
+        menu.SetActive(true);
+        option.SetActive(false);
     }
 
     void OnStartButtonClick()
     {
-        menu.SetActive(true);
-        option.SetActive(false);
+        SceneManager.LoadScene(1);
     }
 
     void OnOptionButtonClick()

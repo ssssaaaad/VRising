@@ -12,7 +12,7 @@ public class VideoPlayerController : MonoBehaviour
     private void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
-
+        videoPlayer.Play();
         videoPlayer.loopPointReached += OnVideoEnd;
     }
     void OnDestroy()
