@@ -20,11 +20,12 @@ public class PlayerAttack : MonoBehaviour
     public float speedDuration = 0.75f;  // 속도 감소 지속시간
     public bool afterDash = false;
 
-    public GameObject Jansang;
+    public GameObject Jansang_Black;
     public GameObject HitBox;
     public Coroutine attackCoroutain;
     public Coroutine speedCoroutain;
     public Transform attackPoint;   // 공격판정 위치
+    public GameObject Jansang;
 
     private PlayerMove PlayerMove;
     private int comboCount;
@@ -135,7 +136,8 @@ public class PlayerAttack : MonoBehaviour
     {
         afterDash = true;
 
-        GameObject jansang = Instantiate(Jansang);
+        GameObject jansang = Instantiate(Jansang_Black);
+        Jansang.SetActive(true);
         jansang.transform.position = transform.position;
         jansang.transform.forward = attackPoint.transform.forward;
         Destroy(jansang, 3f);
@@ -145,7 +147,7 @@ public class PlayerAttack : MonoBehaviour
 
         afterDash = false;
 
-        
+        Jansang.SetActive(false);
         Debug.Log("평타강화 자동취소");
     }
 

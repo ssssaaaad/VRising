@@ -37,6 +37,7 @@ public class AttackHitBox : MonoBehaviour
                 PState.UpdateHP(-PState.hp_Max * 0.1f);
                 PlayerAttack.afterDash = false;
                 StopCoroutine(PlayerAttack.AfterDash());
+                PlayerAttack.Jansang.SetActive(false);
             }
         }
     }
