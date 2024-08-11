@@ -136,6 +136,8 @@ public class Tskill : MonoBehaviour
 
     public void CancelTSkill()
     {
+        PM.animator.SetTrigger("CancelSkill");
+
         StopCoroutine(ghostTime);
         
         PM.tskilling = false;

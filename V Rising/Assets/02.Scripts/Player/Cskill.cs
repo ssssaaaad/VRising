@@ -51,6 +51,8 @@ public class Cskill : MonoBehaviour
 
     public IEnumerator CastSkill()
     {
+        PM.animator.SetBool("Skill_C", true);
+
         if (PM != null)
         {
             PM.cskilling = true;
@@ -73,6 +75,7 @@ public class Cskill : MonoBehaviour
         {
             if (counter)
             {
+                PM.animator.SetBool("Skill_C", false);
                 CameraShakeManager.instance.ShakeSkillCall(cameraShakeTypeIndex);
 
                 gameObject.layer = LayerMask.NameToLayer(noHitPlayer);  // 무적판정
@@ -102,8 +105,10 @@ public class Cskill : MonoBehaviour
             Debug.Log("추가무적 끝");
             gameObject.layer = originalLayer;
         }
+        else
+            PM.animator.SetBool("Skill_C", false);
 
-        
+
 
         // 시전 시간이 끝난 후 캐릭터 속도 원래대로 복원
         if (playerMove != null)
@@ -144,6 +149,9 @@ public class Cskill : MonoBehaviour
     {
         if (PM.cskilling)
         {
+            PM.animator.SetBool("Skill_C", false);
+            PM.animator.SetTrigger("CancelSkill");
+
             particle_Skill_C.SetActive(false);
             Debug.Log("C스킬 캔슬");
             if (castingCoroutine != null)

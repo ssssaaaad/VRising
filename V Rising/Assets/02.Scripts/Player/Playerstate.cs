@@ -9,8 +9,6 @@ using UnityEngine.UI;
 
 public class Playerstate : MonoBehaviour
 {
-    public Animator animator;
-
     private PlayerManager PM;
     private Cskill Cskill;
 
@@ -27,8 +25,6 @@ public class Playerstate : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
-
         hp_Current = hp_Max;
         PM = GetComponent<PlayerManager>();
         Cskill = GetComponent<Cskill>();
@@ -93,9 +89,10 @@ public class Playerstate : MonoBehaviour
 
         if (hp_Current <= 0)
         {
+            if (!dead)
+            PM.animator.SetTrigger("Death");
+            PM.animator.SetBool("Death_Check", true);
             dead = true;
-            animator.SetTrigger("Death");
-            animator.SetBool("Death_Check", true);
         }
     }
 }

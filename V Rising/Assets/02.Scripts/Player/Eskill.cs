@@ -98,6 +98,7 @@ public class Eskill : MonoBehaviour
 
     public void CancelECasting()
     {
+        PM.animator.SetTrigger("CancelSkill");
 
         Debug.Log("E스킬 캔슬");
         if (castingCoroutine != null)

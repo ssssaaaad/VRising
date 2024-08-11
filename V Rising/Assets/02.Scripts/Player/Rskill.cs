@@ -56,6 +56,8 @@ public class Rskill : MonoBehaviour
         PM.rskilling = true; //시전 상태로 설정
         isCoolingDown = true;
 
+        PM.animator.SetTrigger("Skill_R");
+
         Indi.Indi_R();
 
         // 시전 시간 동안 캐릭터 속도 감소
@@ -69,6 +71,8 @@ public class Rskill : MonoBehaviour
         yield return new WaitForSeconds(castTime);
 
         Indi.Indi_R_break();
+
+        PM.animator.SetTrigger("Ative_Skill_R");
 
         // 발사체 발사
         ActivateSkill();
@@ -95,8 +99,9 @@ public class Rskill : MonoBehaviour
 
     public void CancelRCasting()
     {
-        
-            Debug.Log("R스킬 캔슬");
+        PM.animator.SetTrigger("CancelSkill");
+
+        Debug.Log("R스킬 캔슬");
         if (castingCoroutine != null)
         {
             StopCoroutine(castingCoroutine);

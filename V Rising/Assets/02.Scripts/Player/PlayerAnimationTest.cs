@@ -23,6 +23,7 @@ public class PlayerAnimationTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        return;
         time += Time.deltaTime;
         if(cast_R && time > castingTime_R)
         {

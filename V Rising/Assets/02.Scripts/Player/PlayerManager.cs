@@ -86,7 +86,6 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && CanRskill())
         {  
             Rskill.R();
-            animator.SetTrigger("Skill_R");
             RCancel();
         }
         if (Input.GetKeyDown(KeyCode.T) && CanTskill())
@@ -118,20 +117,6 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetMouseButton(0) && CanAttack())
         {
             Attack.Click();
-            if (Attack.Combo() == 0)
-            {
-                animator.SetBool("NormalAttackCheck", false);
-                animator.SetTrigger("NormalAttack");
-            }
-            else if (Attack.Combo() == 1)
-            {
-                animator.SetTrigger("NormalAttack");
-                animator.SetBool("NormalAttackCheck", true);
-            }
-            else
-            {
-                animator.SetTrigger("NormalAttack");
-            }
             ClickCancel();
         }
     }
@@ -397,6 +382,10 @@ public class PlayerManager : MonoBehaviour
         {
             Rskill.CancelRCasting();
         }
+        if (cskilling)
+        {
+            Cskill.CancelCasting();
+        }
         if (attacking)
         {
             Attack.CancelAttacking();
@@ -419,6 +408,10 @@ public class PlayerManager : MonoBehaviour
         {
             Rskill.CancelRCasting();
         }
+        if (cskilling)
+        {
+            Cskill.CancelCasting();
+        }
         if (attacking)
         {
             Attack.CancelAttacking();
@@ -429,6 +422,10 @@ public class PlayerManager : MonoBehaviour
         if (rskilling)
         {
             Rskill.CancelRCasting();
+        }
+        if (cskilling)
+        {
+            Cskill.CancelCasting();
         }
         if (attacking)
         {
