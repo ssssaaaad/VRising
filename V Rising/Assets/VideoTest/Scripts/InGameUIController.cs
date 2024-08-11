@@ -43,8 +43,13 @@ public class InGameUIController : MonoBehaviour
 
     private void UpdateHealthBar(float currentHealth, float maxHealth)
     {
+        Debug.Log((float)currentHealth / maxHealth);
 
-        Debug.Log("DDFDFGDFGRGDFGDGDF");
+
+        healthBarImage.fillAmount = (float)currentHealth / maxHealth;
+
+        curentHealthText.text = currentHealth.ToString();
+        maxHealthText.text = " / " + maxHealth.ToString();
 
         /*
 
@@ -70,6 +75,8 @@ public class InGameUIController : MonoBehaviour
     
         StartCoroutine(AnimateText(currentDisplayHealth, currentHealth));
         */
+
+
     }
 
     IEnumerator AnimateText(float startHealth, float endHealth)
@@ -154,7 +161,7 @@ public class InGameUIController : MonoBehaviour
     private void OnDestroy()
     {
         // 이벤트 구독 해제
-        //health.OnHealthChanged -= UpdateHealthBar;
+        health.OnHealthChanged -= UpdateHealthBar;
         //bossHealth.OnHealthChanged += UpdateBossHealthBar;
     }
 }
