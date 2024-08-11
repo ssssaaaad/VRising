@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class InGameUIController : MonoBehaviour
 {
+    [SerializeField] private Enemy bossHealth;
+    [SerializeField] private Image bossHealthImage;
+
     [SerializeField] private Playerstate health;
     [SerializeField] private Image healthBarImage;
     [SerializeField] private float updateSpeedSeconds = 0.5f;
@@ -26,9 +29,16 @@ public class InGameUIController : MonoBehaviour
     {
         // Health 클래스의 이벤트에 리스너를 추가합니다.
         health.OnHealthChanged += UpdateHealthBar;
+        bossHealth.OnHealthChanged += UpdateBossHealthBar;
+
         curentHealthText.transform.localScale = Vector3.one;
 
         currentDisplayHealth = health.hp_Max;
+    }
+
+    private void UpdateBossHealthBar(float currentHealth, float maxHealth)
+    {
+        StartCoroutine(AnimateHealthBarBoss(currentHealth, maxHealth));
     }
 
     private void UpdateHealthBar(float currentHealth, float maxHealth)
@@ -37,7 +47,22 @@ public class InGameUIController : MonoBehaviour
         StartCoroutine(AnimateHealthBar(currentHealth, maxHealth));
         
         curentHealthText.text = currentDisplayHealth.ToString();
+
         StartCoroutine(AnimateScaleText());
+
+        int step = currentHealth < maxHealth ? 1 : -1;
+        int currentHealth2 = (int)currentHealth;
+
+
+        while (currentHealth2 != maxHealth)
+        {
+            currentHealth += step;
+            curentHealthText.text = currentHealth.ToString();
+            currentDisplayHealth = currentHealth;
+        }
+
+        currentDisplayHealth = maxHealth;  // 최종 체력 값 업데이트
+    
         StartCoroutine(AnimateText(currentDisplayHealth, currentHealth));
     }
 
@@ -45,6 +70,7 @@ public class InGameUIController : MonoBehaviour
     {
         int step = startHealth < endHealth ? 1 : -1;
         int currentHealth = (int)startHealth;
+
 
         while (currentHealth != endHealth)
         {
@@ -83,6 +109,23 @@ public class InGameUIController : MonoBehaviour
         curentHealthText.transform.localScale = Vector3.one;  // 크기를 원래대로 설정
     }
 
+    IEnumerator AnimateHealthBarBoss(float currentHealth, float maxHealth)
+    {
+        float preChangePct = bossHealthImage.fillAmount;
+        float newPct = (float)currentHealth / maxHealth;
+
+        float elapsed = 0f;
+
+        while (elapsed < preChangePct)
+        {
+            elapsed += Time.deltaTime;
+            bossHealthImage.fillAmount = Mathf.Lerp(preChangePct, newPct, elapsed / updateSpeedSeconds);
+
+            yield return null;
+        }
+
+    }
+
     IEnumerator AnimateHealthBar(float currentHealth, float maxHealth)
     {
         float preChangePct = healthBarImage.fillAmount;
@@ -106,5 +149,6 @@ public class InGameUIController : MonoBehaviour
     {
         // 이벤트 구독 해제
         health.OnHealthChanged -= UpdateHealthBar;
+        bossHealth.OnHealthChanged += UpdateBossHealthBar;
     }
 }

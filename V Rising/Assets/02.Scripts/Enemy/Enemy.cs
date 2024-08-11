@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
+    
+
+
 
     public bool alive { get; private set; } = true;
     public bool drain = false;
@@ -33,6 +36,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     #endregion
 
+    public event Action<float, float> OnHealthChanged;
 
     public void InitEnemy()
     {
@@ -40,6 +44,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         hp_Current = hp_Max;
         alive = true;
+        OnHealthChanged?.Invoke(hp_Current, hp_Max);
     }
 
     public void SetOrigin(Transform origin)
@@ -87,6 +92,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            OnHealthChanged?.Invoke(hp_Current, hp_Max);
             SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.BossHit, transform, Vector3.zero);
         }
 
