@@ -29,7 +29,7 @@ public class InGameUIController : MonoBehaviour
     {
         // Health 클래스의 이벤트에 리스너를 추가합니다.
         health.OnHealthChanged += UpdateHealthBar;
-        //bossHealth.OnHealthChanged += UpdateBossHealthBar;
+        bossHealth.OnHealthChanged += UpdateBossHealthBar;
 
         curentHealthText.transform.localScale = Vector3.one;
 
@@ -38,7 +38,8 @@ public class InGameUIController : MonoBehaviour
 
     private void UpdateBossHealthBar(float currentHealth, float maxHealth)
     {
-        StartCoroutine(AnimateHealthBarBoss(currentHealth, maxHealth));
+        bossHealthImage.fillAmount = (float)currentHealth / maxHealth;
+        //StartCoroutine(AnimateHealthBarBoss(currentHealth, maxHealth));
     }
 
     private void UpdateHealthBar(float currentHealth, float maxHealth)
@@ -162,6 +163,6 @@ public class InGameUIController : MonoBehaviour
     {
         // 이벤트 구독 해제
         health.OnHealthChanged -= UpdateHealthBar;
-        //bossHealth.OnHealthChanged += UpdateBossHealthBar;
+        bossHealth.OnHealthChanged += UpdateBossHealthBar;
     }
 }
