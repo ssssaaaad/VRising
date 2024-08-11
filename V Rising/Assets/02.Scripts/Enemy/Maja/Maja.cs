@@ -184,23 +184,22 @@ public class Maja : Enemy
         teleport = GetComponent<Maja_Teleport>();
         teleport.InitPattern(this);
 
+        phase1_Start.Add(attackPatterns[0]);
+        phase1_Start.Add(attackPatterns[1]);
+        phase1_Start.Add(attackPatterns[2]);
+        phase1_Start.Add(attackPatterns[3]);
+        phase1_Start.Add(attackPatterns[4]);
         phase1_Start.Add(attackPatterns[5]);
-        //phase1_Start.Add(attackPatterns[4]);
-        //phase1_Start.Add(attackPatterns[2]);
-        //phase1_Start.Add(attackPatterns[4]);
-        //phase1_Start.Add(attackPatterns[2]);
-        //phase1_Start.Add(attackPatterns[4]);
 
         phase1_Loop.Add(attackPatterns[1]);
-        //phase1_Loop.Add(attackPatterns[1]);
-        //phase1_Loop.Add(attackPatterns[0]);
-        //phase1_Loop.Add(attackPatterns[1]);
-        //phase1_Loop.Add(attackPatterns[3]);
-        //phase1_Loop.Add(attackPatterns[0]);
-        //phase1_Loop.Add(attackPatterns[1]);
-        //phase1_Loop.Add(attackPatterns[0]);
-        //phase1_Loop.Add(attackPatterns[1]);
-        //phase1_Loop.Add(attackPatterns[3]);
+        phase1_Loop.Add(attackPatterns[0]);
+        phase1_Loop.Add(attackPatterns[1]);
+        phase1_Loop.Add(attackPatterns[3]);
+        phase1_Loop.Add(attackPatterns[0]);
+        phase1_Loop.Add(attackPatterns[1]);
+        phase1_Loop.Add(attackPatterns[0]);
+        phase1_Loop.Add(attackPatterns[1]);
+        phase1_Loop.Add(attackPatterns[3]);
 
 
         phase2_Start.Add(attackPatterns[0]);
@@ -430,6 +429,28 @@ public class Maja : Enemy
 
         if (state == State.Death)
         {
+            if (!drain)
+            {
+                if(talkSound != null)
+                {
+                    if (!talkSound.audioSource.isPlaying)
+                    { 
+                        talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
+                    }
+                }
+                else
+                {
+                    talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
+                }
+            }
+            else
+            {
+                if (talkSound != null)
+                {
+                    talkSound.StopSound();
+                    talkSound = null;
+                }
+            }
             return;
         }
         else if(target == null)

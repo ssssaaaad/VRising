@@ -95,6 +95,7 @@ public class Maja_MainSkillPattern3 : Pattern
             if (!maja.alive)
             {
                 maja.model.gameObject.SetActive(true);
+                maja.animator.SetTrigger("Groggy");
                 yield break;
             }
 
