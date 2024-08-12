@@ -100,7 +100,7 @@ public class Fblood : MonoBehaviour
     public IEnumerator FCasting()
     {
         float cast = Time.time + bloodingTime;
-
+        Scaner.closeEnemy.GetComponentInParent<Enemy>().StartDrain();
         gameObject.layer = LayerMask.NameToLayer(noHitPlayer);
 
         float check = 0;

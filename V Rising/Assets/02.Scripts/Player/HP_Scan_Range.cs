@@ -59,10 +59,11 @@ public class HP_Scan_Range : MonoBehaviour
 
 
 
-        if (closeEnemy != null) 
+        if (closeEnemy != null)
             canF = true;
         else
             canF = false;
+
     }
 
     private void OnTriggerStay(Collider other)

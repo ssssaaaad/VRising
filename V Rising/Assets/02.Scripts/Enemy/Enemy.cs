@@ -60,8 +60,12 @@ public class Enemy : MonoBehaviour
         if (hp_Current / hp_Max > 0.1f)
             return false;
 
-        drain = true;
         return true;
+    }
+
+    public void StartDrain()
+    {
+        drain = true;
     }
     public void FinishDrain()
     {
