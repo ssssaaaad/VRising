@@ -114,6 +114,8 @@ public class PlayerAttack : MonoBehaviour
             yield return new WaitForSeconds(attackDelay);
         }
 
+        PM.attacking = false;
+
         comboCount++;
 
         if (comboCount == 3) 

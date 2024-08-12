@@ -315,7 +315,9 @@ public class PlayerManager : MonoBehaviour
         if (!Fscan.CanF())
             return false;
         else
+        {
             return canFblood;
+        }
     }
     public bool CanAttack()
     {
