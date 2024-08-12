@@ -34,6 +34,7 @@ public class Sound
         PlayerUH,
         PlayerHit,
         BossHit,
+        BossStart,
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip

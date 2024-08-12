@@ -125,6 +125,9 @@ MonoBehaviour:
   - audioClipName: 28
     audioClips:
     - {fileID: 8300000, guid: e834d4038674b964eb243396c6c12813, type: 3}
+  - audioClipName: 29
+    audioClips:
+    - {fileID: 8300000, guid: 9cbbff7d2537c544abf238f6ee7101ae, type: 3}
   sfxVolume: 0.5
   bgmVolume: 0.5
 --- !u!82 &8866411775112689636
