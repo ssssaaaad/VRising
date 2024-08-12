@@ -78,10 +78,10 @@ public class Maja_NormalSkillPattern2 : Pattern
         Vector3 spawnPosition = transform.position;
         spawnPosition.x += randomPosition.x;
         spawnPosition.z += randomPosition.y;
-        float distance = Vector3.Distance(maja.mapOrigin.position, spawnPosition);
+        float distance = Vector3.Distance(maja.origin.position, spawnPosition);
         if (distance > maja.mapRadius)
         {
-            spawnPosition += (maja.mapOrigin.position - spawnPosition).normalized * (distance + Random.Range(1,3) - radius);
+            spawnPosition += (maja.origin.position - spawnPosition).normalized * (distance + Random.Range(1,3) - radius);
         }
 
         maja.SpawnMinion(spawnPosition);

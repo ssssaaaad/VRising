@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     #endregion
 
     public Transform model;
-    protected Transform origin;
+    public Transform origin;
 
     #region status
     public float hp_Max;

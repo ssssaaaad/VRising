@@ -160,14 +160,14 @@ public class Maja_Minion : Enemy
         if (!onTarget || respawn)
         {
             
-            moveDirection = (transform.position - maja.mapOrigin.position);
+            moveDirection = (transform.position - maja.origin.position);
             moveDirection.y = 0;
             moveDirection = moveDirection.normalized;
             float angle = Mathf.Atan2(moveDirection.z, moveDirection.x);
             angle += (randomAngle * randomDirection) * Mathf.Deg2Rad;
             moveposition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
             moveposition *= randomDistance;
-            moveposition += maja.mapOrigin.position;
+            moveposition += maja.origin.position;
 
             traceTime += Time.deltaTime;
             if (traceTime >= traceTime_Max)

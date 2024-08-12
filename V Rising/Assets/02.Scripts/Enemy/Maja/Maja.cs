@@ -67,8 +67,6 @@ public class Maja : Enemy
     public State state;
 
     public Maja_Minion minion_Prefab;
-
-    public Transform mapOrigin;
     public List<Pattern> attackPatterns;
     public Pattern teleport;
 
@@ -375,9 +373,9 @@ public class Maja : Enemy
         if (!alive)
             return;
 
-        if (Vector3.Distance(mapOrigin.position, position) > mapRadius)
+        if (Vector3.Distance(origin.position, position) > mapRadius)
         {
-            position += (mapOrigin.position - position).normalized * (Vector3.Distance(mapOrigin.position, position) - mapRadius);
+            position += (origin.position - position).normalized * (Vector3.Distance(origin.position, position) - mapRadius);
         }
         Maja_Minion minion = Instantiate(minion_Prefab);
         minion.transform.position = position;
@@ -429,7 +427,7 @@ public class Maja : Enemy
                     return null;
                 }
             }
-            check = Vector3.Distance(mapOrigin.position, maja_Minions[i].transform.position);
+            check = Vector3.Distance(origin.position, maja_Minions[i].transform.position);
             if (min > check)
             {
                 min = check;
@@ -723,7 +721,7 @@ public class Maja : Enemy
             }
 
 
-            enemyDirection = new Vector3(transform.position.x - mapOrigin.position.x, 0, transform.position.z - mapOrigin.position.z).normalized;
+            enemyDirection = new Vector3(transform.position.x - origin.position.x, 0, transform.position.z - origin.position.z).normalized;
             angle = Mathf.Atan2(enemyDirection.z, enemyDirection.x) * Mathf.Rad2Deg;
 
             if (Random.value > 0.5)
@@ -736,7 +734,7 @@ public class Maja : Enemy
             }
             angle *= Mathf.Deg2Rad;
             movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius - 1);
-            movementPosition += mapOrigin.position;
+            movementPosition += origin.position;
 
             forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
             navMeshAgent.SetDestination(movementPosition);
@@ -744,7 +742,7 @@ public class Maja : Enemy
         }
         else
         {
-            if(Vector3.Distance(mapOrigin.position, target.position) < mapRadius)
+            if(Vector3.Distance(origin.position, target.position) < mapRadius)
             {
                 movementPosition = position;
                 forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
@@ -770,7 +768,7 @@ public class Maja : Enemy
 
         }
 
-        enemyDistance = Vector3.Distance(mapOrigin.position, transform.position);
+        enemyDistance = Vector3.Distance(origin.position, transform.position);
         if (enemyDistance < (mapRadius/4)*3 && !wall)
         {
             movementPosition = transform.position + (transform.position - target.position).normalized * (mapRadius - enemyDistance);
@@ -791,11 +789,11 @@ public class Maja : Enemy
             wall = true;
             
             // 각도 구하기
-            enemyDirection = new Vector3(transform.position.x - mapOrigin.position.x, 0 , transform.position.z - mapOrigin.position.z).normalized;
-            targetDirection = new Vector3(target.position.x - mapOrigin.position.x, 0, target.position.z - mapOrigin.position.z).normalized;
+            enemyDirection = new Vector3(transform.position.x - origin.position.x, 0 , transform.position.z - origin.position.z).normalized;
+            targetDirection = new Vector3(target.position.x - origin.position.x, 0, target.position.z - origin.position.z).normalized;
             angle = Mathf.Atan2(enemyDirection.z, enemyDirection.x) * Mathf.Rad2Deg;
             // 이동 방향 구하기
-            enemy_Cross = Vector3.Cross((mapOrigin.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
+            enemy_Cross = Vector3.Cross((origin.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
 
             if (enemy_Cross.y < -0.5)
             {
@@ -809,14 +807,14 @@ public class Maja : Enemy
             {
                 angle *= Mathf.Deg2Rad;
                 movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius * 0.6f);
-                movementPosition += mapOrigin.position;
+                movementPosition += origin.position;
                 navMeshAgent.SetDestination(movementPosition);
                 return;
             }
 
             angle *= Mathf.Deg2Rad;
             movementPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (mapRadius - 1);
-            movementPosition += mapOrigin.position;
+            movementPosition += origin.position;
         }
         forward = new Vector3(movementPosition.x - model.position.x, 0, movementPosition.z - model.position.z).normalized;
         navMeshAgent.SetDestination(movementPosition);

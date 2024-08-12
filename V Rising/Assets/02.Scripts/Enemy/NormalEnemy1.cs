@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NormalEnemy1 : Enemy
 {
@@ -17,6 +18,7 @@ public class NormalEnemy1 : Enemy
 
     public State state;
     public float range;
+    public float traceRange = 30;
     public float damage;
 
     private float distance;
@@ -29,31 +31,49 @@ public class NormalEnemy1 : Enemy
     private bool canAttack = true;
 
     private Coroutine coroutine_BackOrigin;
+    Vector3 modeolDir;
+
+    private void Awake()
+    {
+        InitEnemy();
+    }
+
+    private void Update()
+    {
+        StateUpdate();
+        Rotate();
+    }
 
     public new void InitEnemy()
     {
         base.InitEnemy();
+        animator.SetBool("alive", alive);
     }
 
     private void ChangeState(State state)
     {
         this.state = state;
 
-        if (coroutine_BackOrigin != null)
+        if (coroutine_BackOrigin != null && (state == State.Attack || state == State.Trace))
         {
             StopCoroutine(coroutine_BackOrigin);
             coroutine_BackOrigin = null;
         }
 
+        animator.SetBool("Run", false);
         switch (state)
         {
+            case State.Idle:
+                break;
             case State.Patrol:
                 navMeshAgent.speed = patrolSpeed;
                 break;
             case State.Trace:
                 navMeshAgent.speed = traceSpeed;
+                animator.SetBool("Run", true);
                 break;
             case State.BackOrigin:
+                target = null;
                 MovePosition(origin.position);
                 coroutine_BackOrigin = StartCoroutine(Coroutine_BackOrigin());
                 break;
@@ -66,9 +86,10 @@ public class NormalEnemy1 : Enemy
                 {
                     movePosition_rotate = true;
                 }
-                Attack();
                 break;
             case State.Die:
+                animator.SetBool("alive", alive);
+                animator.SetTrigger("Death");
                 StopMoveTarget();
                 break;
         }
@@ -78,10 +99,25 @@ public class NormalEnemy1 : Enemy
     {
         if (state == State.Die)
             return;
-        
+
+        modeolDir = model.transform.InverseTransformDirection(navMeshAgent.velocity.normalized);
+        animator.SetFloat("Horizontal", modeolDir.x);
+        animator.SetFloat("Vertical", modeolDir.z);
         if (target != null)
         {
             distance = Vector3.Distance(transform.position, target.position);
+            if (Vector3.Distance(target.position, origin.position) > traceRange)
+            {
+                ChangeState(State.BackOrigin);
+                return;
+            }
+
+            forward = (target.position - transform.position).normalized;
+        }
+        else
+        {
+
+            forward = navMeshAgent.velocity;
         }
         switch (state)
         {
@@ -100,6 +136,9 @@ public class NormalEnemy1 : Enemy
             case State.BackOrigin:
                 BackOrigin();
                 break;
+            case State.Attack:
+                Attack();
+                break;
         }
     }
     private void Patrol()
@@ -108,21 +147,17 @@ public class NormalEnemy1 : Enemy
         //{
 
         //}
-        forward = navMeshAgent.velocity;
-        Rotate();
     }
 
     private void Trace()
     {
         if(target != null)
         {
-            if(Vector3.Distance(transform.position, origin.position) > 30)
+            if (Vector3.Distance(target.position, origin.position) > traceRange)
             {
-                state = State.BackOrigin;
+                ChangeState(State.BackOrigin);
             }
-            forward = navMeshAgent.velocity;
-            Rotate();
-            if (distance <= range)
+            if (distance > range)
             {
                 MovePosition(target.position);
             }
@@ -138,33 +173,49 @@ public class NormalEnemy1 : Enemy
     private bool movePosition_rotate = false;
     private void Attack()
     {
+        if(target == null && !isAttack)
+        {
+            ChangeState(State.BackOrigin);
+            return;
+        }
+
+        if (distance > range && !isAttack)
+        {
+            ChangeState(State.Trace);
+            return;
+        }
+
         if (canAttack)
         {
+            animator.SetTrigger("Attack");
+            animator.SetInteger("AttackNum", Random.Range(0, 3));
+            StopMoveTarget();
             StartCoroutine(Coroutine_AttackDelay());
             StartCoroutine(Coroutine_AttackCool());
+            ChangeState(State.Attack);
         }
-        else
+        else if(!isAttack)
         {
             direction = (transform.position - target.position).normalized;
             float angle = Mathf.Atan2(direction.z, direction.x);
             if (movePosition_rotate)
             {
-                angle += 30 * Mathf.Deg2Rad;
+                angle += Mathf.Deg2Rad;
             }
             else
             {
-                angle += -30 * Mathf.Deg2Rad;
+                angle += -Mathf.Deg2Rad;
             }
-            movePosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (range - range / 3);
+            movePosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (range - range / 4);
             movePosition += target.position;
 
-
+            MovePosition(movePosition);
         }
     }
 
     private void BackOrigin()
     {
-        if(Vector3.Distance(transform.position, origin.position) < 15)
+        if (Vector3.Distance(transform.position, origin.position) < 15)
         {
             if(target != null && Vector3.Distance(target.position, transform.position) < 10)
             {
@@ -174,8 +225,6 @@ public class NormalEnemy1 : Enemy
         }
         else
         {
-            forward = navMeshAgent.velocity;
-            Rotate();
             target = null;
         }  
 
@@ -204,11 +253,13 @@ public class NormalEnemy1 : Enemy
     }
     private IEnumerator Coroutine_BackOrigin()
     {
-        while(hp_Current < hp_Max)
+        while(hp_Current != hp_Max)
         {
-            hp_Current += hp_Max * 0.1f;
+            print(1);
+            UpdateHP(hp_Max * 0.1f, null);
             yield return new WaitForSeconds(1);
         }
+        coroutine_BackOrigin = null;
     }
 
 }

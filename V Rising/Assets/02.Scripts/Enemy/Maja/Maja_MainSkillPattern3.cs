@@ -123,10 +123,10 @@ public class Maja_MainSkillPattern3 : Pattern
         Vector2 random = Random.insideUnitCircle * Random.Range(1,6);
         spawnPosition += new Vector3(random.x, 0, random.y);
 
-        Vector3 originDirection = (spawnPosition - maja.mapOrigin.position).normalized;
-        float originDistance = Vector3.Distance(maja.mapOrigin.position, spawnPosition);
+        Vector3 originDirection = (spawnPosition - maja.origin.position).normalized;
+        float originDistance = Vector3.Distance(maja.origin.position, spawnPosition);
         originDistance = Mathf.Clamp(originDistance + Random.value, originDistance - 1, maja.mapRadius);
-        spawnPosition = maja.mapOrigin.position + (originDirection * originDistance);
+        spawnPosition = maja.origin.position + (originDirection * originDistance);
         
         direction = spawnPosition - transform.position;
         direction.y = 0;
@@ -165,7 +165,7 @@ public class Maja_MainSkillPattern3 : Pattern
 
         Maja_Minion minion = Instantiate(minion_Prefab);
         minion.transform.position = spawnPosition;
-        Vector3 a = (maja.mapOrigin.position - transform.position);
+        Vector3 a = (maja.origin.position - transform.position);
         a.y = 0;
         a = a.normalized;
         minion.transform.forward = a;

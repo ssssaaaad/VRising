@@ -62,7 +62,7 @@ public class Maja_MainSkillPattern2 : Pattern
         Vector3 minionPosition = (minion.transform.position - transform.position).normalized;
         maja.forward = minionPosition;
         minionPosition *= startDistance;
-        minionPosition += maja.mapOrigin.position;
+        minionPosition += maja.origin.position;
         minion.SetPosition_MajaMainSkill2(minionPosition);
         for (int i = 0; i < vfxList.Length; i++)
         {

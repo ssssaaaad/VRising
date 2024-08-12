@@ -44,7 +44,7 @@ public class Maja_Teleport : Pattern
     {
         yield return new WaitForSeconds(attackDelayTime);
 
-        direction = (maja.mapOrigin.position - maja.target.position).normalized * (maja.mapRadius * 0.6f);
+        direction = (maja.origin.position - maja.target.position).normalized * (maja.mapRadius * 0.6f);
         transform.position = direction;
     }
 
