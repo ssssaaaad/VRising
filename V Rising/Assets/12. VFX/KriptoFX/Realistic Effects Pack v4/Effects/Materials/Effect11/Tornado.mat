@@ -2,20 +2,28 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Tornado
   m_Shader: {fileID: 4800000, guid: 44baba223b9807b4aa6d0ae25198291d, type: 3}
-  m_ShaderKeywords: BlendAlpha FrameBlend_OFF SoftParticles_OFF VertLight4Normal_ON
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - BlendAlpha
+  - FrameBlend_OFF
+  - SoftParticles_OFF
+  - VertLight4Normal_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -40,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ac8aea2c321c7c348bf4fbcd4fecfc2e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 65d5232cdb0b9ca4a8b76001ac3ddfb8, type: 3}
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -59,6 +67,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - DstMode: 10
     - SrcMode: 5
@@ -83,6 +92,7 @@ Material:
     - _FireOffsetSpeed: {r: 1, g: 1, b: 0, a: 0}
     - _NoiseScale: {r: 1, g: 0.14, b: -3, a: 0.2}
     - _Tiling: {r: 800, g: 800, b: 8, a: 8}
-    - _TintColor: {r: 29.744535, g: 5.7715774, b: 0.9821315, a: 1}
+    - _TintColor: {r: 4.745372, g: 0.22383769, b: 0.36159328, a: 1}
     - _TwistScale: {r: 2, g: 0.12, b: 2, a: 1}
     - _WavesScale: {r: 9, g: 0.07, b: 20, a: 0}
+  m_BuildTextureStacks: []

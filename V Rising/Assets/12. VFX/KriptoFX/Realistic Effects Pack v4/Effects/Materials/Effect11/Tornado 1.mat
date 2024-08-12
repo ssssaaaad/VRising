@@ -2,40 +2,24 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Skull2
-  m_Shader: {fileID: 4800000, guid: 18cc8fe7d50c89741b56c1ae6a5baa66, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _FADING_ON
-  - _FLIPBOOK_BLENDING
-  m_InvalidKeywords:
-  - BlendAlpha
-  - Clip_OFF
-  - FrameBlend_ON
-  - SoftParticles_ON
-  - VertLight4_ON
-  - _BLENDMODE_MUL
+  m_Name: Tornado 1
+  m_Shader: {fileID: 4800000, guid: 44baba223b9807b4aa6d0ae25198291d, type: 3}
+  m_ShaderKeywords: BlendAlpha FrameBlend_OFF SoftParticles_OFF VertLight4Normal_ON
   m_LightmapFlags: 5
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CutoutTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -56,14 +40,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 25975c43db132a14fa54a8821e885e67, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: ac8aea2c321c7c348bf4fbcd4fecfc2e, type: 3}
+        m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -75,52 +55,34 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
+    - _PerlinNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - DstMode: 10
     - SrcMode: 5
-    - _BlendMode: 2
     - _BumpScale: 1
-    - _CullMode: 0
     - _Cutoff: 0.5
-    - _Cutout: 0.1
-    - _CutoutThreshold: 0.015
     - _DetailNormalMapScale: 1
-    - _DstBlend: 10
-    - _DstMode: 3
-    - _FresnelFadeFactor: 2
-    - _FresnelPow: 5
-    - _FresnelR0: 0.04
-    - _Glossiness: 0
-    - _InvFade: 10
+    - _DstBlend: 0
+    - _FPOW: 0.55
+    - _Glossiness: 0.5
+    - _InvFade: 0.2
     - _Metallic: 0
-    - _Mode: 2
+    - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SoftInverted: 0
-    - _SrcBlend: 5
-    - _SrcMode: 0
+    - _R0: 0.14
+    - _SrcBlend: 1
     - _UVSec: 0
-    - _UseCutout: 0
-    - _UseCutoutTex: 0
-    - _UseCutoutThreshold: 0
-    - _UseFrameBlending: 1
-    - _UseFresnel: 0
-    - _UseFresnelFading: 0
-    - _UseNoiseDistortion: 0
-    - _UseParticlesAlphaCutout: 0
-    - _UseSoft: 1
-    - _UseSoftCutout: 0
-    - _UseVertexStreamRandom: 0
-    - _ZWrite: 0
-    - _ZWriteMode: 0
+    - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoutColor: {r: 1, g: 1, b: 1, a: 1}
-    - _DistortionSpeedScale: {r: 1, g: -1, b: 0.15, a: 0.15}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColorMultiplier: {r: 1, g: 1, b: 1, a: 1}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FireOffsetSpeed: {r: 1, g: 1, b: 0, a: 0}
+    - _NoiseScale: {r: 1, g: 0.14, b: -3, a: 0.2}
     - _Tiling: {r: 800, g: 800, b: 8, a: 8}
-    - _TintColor: {r: 0.25735295, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
+    - _TintColor: {r: 29.744535, g: 5.7715774, b: 0.9821315, a: 1}
+    - _TwistScale: {r: 2, g: 0.12, b: 2, a: 1}
+    - _WavesScale: {r: 9, g: 0.07, b: 20, a: 0}
