@@ -55,7 +55,7 @@ public class Tskill : MonoBehaviour
     public void T()
     {
         Debug.Log("T스킬 시작");
-        T_Skill_Particle.SetActive(true);       // 스킬 이펙트 시작
+        
         ghostTime = StartCoroutine(Ghostdash());
     }
 
@@ -74,6 +74,8 @@ public class Tskill : MonoBehaviour
 
         yield return new WaitForSeconds(dashReady);         // 시전시간동안 대기 
 
+        T_Skill_Particle.SetActive(true);       // 스킬 이펙트 시작
+
         start.StopSound_FadeOut();
         PM.animator.SetTrigger("Skill_T_Active");
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.TSkill_Active, transform, Vector3.zero);
@@ -87,6 +89,8 @@ public class Tskill : MonoBehaviour
 
         // EnemyCollision 을 활성화
         EnemyCollsion.SetActive(true);
+
+
 
         // 고정된 방향으로 돌진
         float dashTime = 0f;
@@ -107,7 +111,7 @@ public class Tskill : MonoBehaviour
         EnemyCollsion.SetActive(false);
 
 
-        //T_Skill_Particle.SetActive(false);          // 스킬 이펙트 종료
+        T_Skill_Particle.SetActive(false);          // 스킬 이펙트 종료
 
         // 기존 레이어로 복귀
         gameObject.layer = originalLayer;
