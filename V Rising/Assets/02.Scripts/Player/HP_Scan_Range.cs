@@ -27,35 +27,35 @@ public class HP_Scan_Range : MonoBehaviour
     {
         if (Enemys.Count > 0)
         {
-            //    for (int i = Enemys.Count - 1; i >= 0; i--)
-            //    {
-            //        print(i);
-            //        // 리스트 안에 있는 적이 죽었을 경우 리스트에서 제거
-            //        if (!Enemys[i].GetComponentInParent<Enemy>().alive)
-            //        {
-            //            if (Enemys[i] == closeEnemy)
-            //                closeEnemy = null;
-            //            Enemys.Remove(Enemys[i]);
-            //        }
-            //        else if (closeEnemy == null)
-            //        {
-            //            closeEnemy = Enemys[i];
-            //        }
-            //        else
-            //        {
-            //            if (Vector3.Distance(transform.position, closeEnemy.transform.position)
-            //                > Vector3.Distance(transform.position, Enemys[i].transform.position))
-            //            {
-            //                closeEnemy = Enemys[i];
-            //            }
-            //        }
-            //    }
+            for (int i = Enemys.Count - 1; i >= 0; i--)
+            {
+                print(i);
+                // 리스트 안에 있는 적이 죽었을 경우 리스트에서 제거
+                if (!Enemys[i].GetComponentInParent<Enemy>().alive)
+                {
+                    if (Enemys[i] == closeEnemy)
+                        closeEnemy = null;
+                    Enemys.Remove(Enemys[i]);
+                }
+                else if (closeEnemy == null)
+                {
+                    closeEnemy = Enemys[i];
+                }
+                else
+                {
+                    if (Vector3.Distance(transform.position, closeEnemy.transform.position)
+                        > Vector3.Distance(transform.position, Enemys[i].transform.position))
+                    {
+                        closeEnemy = Enemys[i];
+                    }
+                }
+            }
             closeEnemy = Enemys[Enemys.Count - 1];
         }
-        //else
-        //{
-        //    closeEnemy = null;
-        //}
+        else
+        {
+            closeEnemy = null;
+        }
 
 
 
@@ -70,8 +70,7 @@ public class HP_Scan_Range : MonoBehaviour
     {
         // 리스트에 저장
         if (other.GetComponentInParent<Enemy>().Drain())
-            closeEnemy = other;
-            //Enemys.Add(other);
+            Enemys.Add(other);
     }
 
 
