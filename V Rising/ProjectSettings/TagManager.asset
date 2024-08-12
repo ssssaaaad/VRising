@@ -9,6 +9,7 @@ TagManager:
   - Interactive
   - Transparent
   - ClickBlock
+  - EventTrigger
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/VideoTest/Scenes/Video.unity
     guid: b2d9c67de6931bb48b63fc6845e17c84
   - enabled: 1
+    path: Assets/VideoTest/Scenes/StartCutScence.unity
+    guid: 4892487b29904ed44bba3200e79a039c
+  - enabled: 1
     path: Assets/01.Scene/MergeScene/ALPHA_0812.unity
     guid: 93041117b7b667d45b73afe9ece16bd3
+  - enabled: 1
+    path: Assets/VideoTest/Scenes/EndCutScence.unity
+    guid: 5eb0afd5b95da5d43bd05ba0634b9a67
   m_configObjects: {}

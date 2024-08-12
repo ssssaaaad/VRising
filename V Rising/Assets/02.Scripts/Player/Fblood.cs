@@ -15,7 +15,7 @@ public class Fblood : MonoBehaviour
     public float hp_BloodCurrent   = 0;
 
     public float Healing = 100f;        // 흡혈 회복량
-    public float bloodingTime = 2f;     // 흡혈 시간
+    private float bloodingTime = 6f;     // 흡혈 시간
     public bool dontMove = false;       // 움직이지 마!
     public string noHitPlayer = "NoHitPlayer";      // 피격판정이 없는 레이어
 
@@ -130,7 +130,6 @@ public class Fblood : MonoBehaviour
         // 흡혈 캐스팅 완료시 적 처형 및 체력 회복
         // PState.UpdateHP(Healing);       // 회복량 임의설정
 
-        Debug.Log(Scaner.closeEnemy.name);
         Scaner.closeEnemy.GetComponentInParent<Maja>().Finish();
         // Damage(Scaner.closeEnemy, 100);     // 적 즉사급 데미지 부여
 

@@ -35,6 +35,8 @@ public class Maja_MainSkillPattern2 : Pattern
         {
             return;
         }
+        if (maja.maja_Minions.Count == 0)
+            return;
         readyToStart = false;
         if (maja.talkSound == null)
         {
@@ -69,7 +71,7 @@ public class Maja_MainSkillPattern2 : Pattern
         print(minion.gameObject.name);
         while (true)
         {
-            if (minion == null)
+            if (minion == null || maja.maja_Minions.Count == 0)
             {
                 patterDelay = false;
                 maja.animator.SetTrigger("Cancle");
@@ -93,7 +95,7 @@ public class Maja_MainSkillPattern2 : Pattern
         minion.ActiveMajaMainSkill2(minionSpeed);
         while (true)
         {
-            if (minion == null)
+            if (minion == null || maja.maja_Minions.Count == 0)
             {
                 patterDelay = false;
                 maja.animator.SetTrigger("Cancle");

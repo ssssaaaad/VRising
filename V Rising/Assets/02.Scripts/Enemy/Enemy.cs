@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
 
     public event Action<float, float> OnHealthChanged;
     public Transform effectPosition;
+    public GameObject drainEffect;
 
     public void InitEnemy()
     {
@@ -66,10 +67,12 @@ public class Enemy : MonoBehaviour
     public void StartDrain()
     {
         drain = true;
+        drainEffect.SetActive(true);
     }
     public void FinishDrain()
     {
         animator.speed = 1;
+        drainEffect.SetActive(false);
     }
 
 

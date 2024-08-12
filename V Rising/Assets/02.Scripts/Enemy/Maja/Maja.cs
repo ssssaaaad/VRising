@@ -5,6 +5,7 @@ using Unity.AI.Navigation;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public delegate bool PatternDelay();
@@ -691,6 +692,13 @@ public class Maja : Enemy
     public void Finish()
     {
         animator.SetTrigger("Death");
+        drainEffect.SetActive(false);
+        StartCoroutine(Scene());
+    }
+    IEnumerator Scene()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(3);
     }
     private void AttakPatter(int index)
     {
