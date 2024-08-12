@@ -29541,6 +29541,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jansang 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
         type: 3}
       propertyPath: m_Enabled
@@ -29550,7 +29555,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c16e31557f69ae840b872893500678c2, type: 2}
+      objectReference: {fileID: 9100000, guid: bfea004076bdda74da1aa39c89128485, type: 2}
     - target: {fileID: 7833114641849259454, guid: b95eccad23a8efa41bbf7585cf2cb0f2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

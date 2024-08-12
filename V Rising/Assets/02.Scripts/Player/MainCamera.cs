@@ -9,11 +9,11 @@ public class MainCamera : MonoBehaviour
     public GameObject player;
     public float rotSpeed = 1000f;
     public bool rotate;
-    public float camDistance = 10f;
+    public float camDistance = 30f;
     float mx = 0;
     float my = 0;
-    public float camcurrentinterval = 10;
-    public float camcurrentinterval_Max = 20;
+    public float camcurrentinterval = 15;
+    public float camcurrentinterval_Max = 30;
 
     public bool isCameraShake = false;
 

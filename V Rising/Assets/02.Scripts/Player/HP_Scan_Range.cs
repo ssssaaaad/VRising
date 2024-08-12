@@ -69,7 +69,8 @@ public class HP_Scan_Range : MonoBehaviour
     {
         // 리스트에 저장
         if (other.GetComponentInParent<Enemy>().Drain())
-            Enemys.Add(other);
+            closeEnemy = other;
+            //Enemys.Add(other);
     }
 
 

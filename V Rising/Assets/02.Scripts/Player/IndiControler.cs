@@ -36,7 +36,7 @@ public class IndiControler : MonoBehaviour
 
     public void Indi_E()
     {
-        Pos = new Vector3(0, 0.1f, IndiLength_E / 2);
+        Pos = new Vector3(0, 0.5f, IndiLength_E / 2);
 
         Indi = Instantiate(Indi_e);
 
@@ -51,7 +51,7 @@ public class IndiControler : MonoBehaviour
 
     public void Indi_R()
     {
-        Pos = new Vector3(0, 0.1f, IndiLength_R / 2);
+        Pos = new Vector3(0, 0.5f, IndiLength_R / 2);
 
         Indi = Instantiate(Indi_r);
 
@@ -65,7 +65,7 @@ public class IndiControler : MonoBehaviour
     }
     public void Indi_T()
     {
-        Pos = new Vector3(0, 0.1f, IndiLength_T / 2);
+        Pos = new Vector3(0, 0.5f, IndiLength_T / 2);
 
         Indi = Instantiate(Indi_t);
 

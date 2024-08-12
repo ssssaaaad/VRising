@@ -484,6 +484,7 @@ public class Maja : Enemy
 
         if (!alive)
         {
+            print(1);
             state = State.Death;
             animator.SetBool("IsAlive", alive);
             animator.SetTrigger("Groggy");
