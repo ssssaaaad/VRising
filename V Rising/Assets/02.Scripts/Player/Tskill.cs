@@ -55,7 +55,7 @@ public class Tskill : MonoBehaviour
     public void T()
     {
         Debug.Log("T스킬 시작");
-        //T_Skill_Particle.SetActive(true);       // 스킬 이펙트 시작
+        T_Skill_Particle.SetActive(true);       // 스킬 이펙트 시작
         ghostTime = StartCoroutine(Ghostdash());
     }
 
