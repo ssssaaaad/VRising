@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AquariusMax.Ancient
+namespace AquariusMax.AncientDungeon
 {
     // influenced by Unity
     [RequireComponent(typeof(CharacterController))]
