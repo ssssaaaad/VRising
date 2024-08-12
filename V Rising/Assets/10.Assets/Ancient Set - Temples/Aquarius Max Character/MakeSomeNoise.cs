@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AquariusMax.Ancient
+namespace AquariusMax.AncientDungeon
 {
 
 public class MakeSomeNoise : MonoBehaviour {

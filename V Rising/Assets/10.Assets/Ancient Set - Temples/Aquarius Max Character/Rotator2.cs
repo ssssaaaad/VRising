@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace AquariusMax.Ancient {
+namespace AquariusMax.AncientDungeon {
 public class Rotator2 : MonoBehaviour {
 
 		public float x = 0f;
