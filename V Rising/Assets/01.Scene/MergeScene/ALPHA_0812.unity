@@ -1085,16 +1085,6 @@ PrefabInstance:
       objectReference: {fileID: 3998330517381045244}
     - target: {fileID: 14643367741026323, guid: 3789e9ae526ef93498c5d78d67add15b,
         type: 3}
-      propertyPath: bossHealth
-      value: 
-      objectReference: {fileID: 1801502298}
-    - target: {fileID: 14643367741026323, guid: 3789e9ae526ef93498c5d78d67add15b,
-        type: 3}
-      propertyPath: bloodHealth
-      value: 
-      objectReference: {fileID: 3998330517381045244}
-    - target: {fileID: 14643367741026323, guid: 3789e9ae526ef93498c5d78d67add15b,
-        type: 3}
       propertyPath: bossHealthImage
       value: 
       objectReference: {fileID: 1314448499}
@@ -5750,6 +5740,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1327346455607503741, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: b40a04b18db9140488e55c225eee8af6, type: 2}
     - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: skillUI
@@ -5858,6 +5853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: VFXGraph
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359792690664106924, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_AllowXRRendering
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6393131458670848652, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
@@ -10421,15 +10421,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6035721ec8c56664c8e876a76e13bb4e,
         type: 3}
+    - target: {fileID: 1315874089865536063, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.89997214
+      value: -0.9411807
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.43594742
+      value: 0.33790365
       objectReference: {fileID: 0}
     - target: {fileID: 3068529154333599450, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
@@ -10437,6 +10442,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: aecd72773a6d26142a3624bc1e893888,
         type: 3}
+    - target: {fileID: 3068529154333599450, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: target
@@ -22024,18 +22034,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1955e8d84abd7a449357a94ac9148d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1801502298 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
-    type: 3}
-  m_PrefabInstance: {fileID: 932207910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92dfb7e8d3c247342ae1e6ddc9c025d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1801911264 stripped
