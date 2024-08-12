@@ -187,6 +187,8 @@ public class Maja_Minion : Enemy
 
         if (targetEnemyDistance <= attackRange && !respawn)
         {
+            if (state == State.MajaMainSkill_2)
+                return;
             state = State.Attack;
         }
     }
@@ -215,6 +217,8 @@ public class Maja_Minion : Enemy
 
     IEnumerator InitTimeCheck()
     {
+        if (state == State.MajaMainSkill_2)
+            yield break;
         respawn = true;
         state = State.Move;
         yield return new WaitForSeconds(2);

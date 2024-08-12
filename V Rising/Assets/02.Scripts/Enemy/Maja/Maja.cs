@@ -118,6 +118,8 @@ public class Maja : Enemy
 
     public bool test = false;
 
+    private bool[] phases = new bool[] { false, false, false, false };
+
     void Awake()
     {
         InitEnemy();
@@ -134,7 +136,7 @@ public class Maja : Enemy
                 animator.SetTrigger("Death");
             }
             test = false;
-            UpdateHP(-1100000, null);
+            UpdateHP(-hp_Max*0.1f, null);
         }
     }
     private void OnDestroy()
@@ -155,6 +157,7 @@ public class Maja : Enemy
         }
 
         patterCycle = StartCoroutine(CoroutinePatterCycle());
+        animator.SetBool("IsAlive", alive);
     }
 
 
@@ -258,12 +261,15 @@ public class Maja : Enemy
         phase4_Loop.Add(attackPatterns[0]);
         phase4_Loop.Add(attackPatterns[5]);
     }
+    
     private void CheckHP()
     {
         if (hp_Current / hp_Max > 0.7f)
         {
-            if (phase_Loop == phase1_Loop)
+            if (phase_Loop == phase1_Loop || phases[0])
                 return;
+            phases[0] = true;
+            print(phase);
             attackCooltime_Max = 3;
             startPatternEnd = false;
             index = 0;
@@ -272,9 +278,10 @@ public class Maja : Enemy
         }
         else if (hp_Current / hp_Max > 0.5f)
         {
-            if (phase_Loop == phase2_Loop)
+            if (phase_Loop == phase2_Loop || phases[1])
                 return;
             phase++;
+            phases[1] = true;
             startPatternEnd = false;
             index = 0;
             phase_Start = phase2_Start;
@@ -297,9 +304,11 @@ public class Maja : Enemy
         }
         else if (hp_Current / hp_Max > 0.3f)
         {
-            if (phase_Loop == phase3_Loop)
+            if (phase_Loop == phase3_Loop || phases[2])
                 return;
             phase++;
+            phases[2] = true;
+            print(3);
             attackCooltime_Max = 2;
             startPatternEnd = false;
             index = 0;
@@ -322,9 +331,11 @@ public class Maja : Enemy
         }
         else
         {
-            if (phase_Loop == phase4_Loop)
+            if (phase_Loop == phase4_Loop || phases[3])
                 return;
             phase++;
+            phases[3] = true;
+            print(4);
             startPatternEnd = false;
             index = 0;
             phase_Start = phase4_Start;
@@ -461,7 +472,7 @@ public class Maja : Enemy
         if (!alive)
         {
             state = State.Death;
-            print(1);
+            animator.SetBool("IsAlive", alive);
             animator.SetTrigger("Groggy");
             canDrain = true;
             for (int i = 0; i < maja_Minions.Count; i++)
