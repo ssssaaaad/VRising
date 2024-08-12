@@ -205,6 +205,8 @@ public class PlayerMove : MonoBehaviour
 
     Plane m_plane;
     public bool canRotate = true;
+
+
     public void LookMouseCursor()
     {
         m_plane = new Plane(Vector3.up, model.transform.position);
@@ -214,22 +216,29 @@ public class PlayerMove : MonoBehaviour
 
         float zValue;
 
-        m_plane.Raycast(ray, out zValue);
-        
-        Vector3 mouseScreenPosition = Input.mousePosition;
-
-        mouseScreenPosition.z = zValue;
-
-        Vector3 mouseWorldPosition = characterCamera.ScreenToWorldPoint(mouseScreenPosition);
-
-
-        Vector3 mouseDir = mouseWorldPosition - model.transform.position;
-        mouseDir.y = 0;
-
-        if (canRotate)
+       if( m_plane.Raycast(ray, out zValue))
         {
-            model.transform.forward = mouseDir;
+            Vector3 hitpoint = ray.GetPoint(zValue);
+
+            Vector3 mouseScreenPosition = Input.mousePosition;
+
+            mouseScreenPosition.z = zValue;
+
+            Vector3 mouseWorldPosition = characterCamera.ScreenToWorldPoint(mouseScreenPosition);
+
+            Vector3 mouseDir = mouseWorldPosition - model.transform.position;
+            mouseDir.y = 0;
+
+            if (canRotate)
+            {
+                model.transform.forward = mouseDir;
+            }
         }
+
+        
+        
+
+        
 
         //카메라 방향을 기준으로 캐릭터의 이동 방향을 설정
 
