@@ -120,6 +120,23 @@ public class Maja : Enemy
 
     private bool[] phases = new bool[] { false, false, false, false };
 
+    public GameObject[] particles;
+
+    IEnumerator ResetParticle()
+    {
+        for (int i = 0; i < particles.Length; i++)
+        {
+            particles[i].SetActive(true);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        for (int i = 0; i < particles.Length; i++)
+        {
+            particles[i].SetActive(false);
+        }
+    }
+
     void Awake()
     {
         InitEnemy();
@@ -158,6 +175,8 @@ public class Maja : Enemy
 
         patterCycle = StartCoroutine(CoroutinePatterCycle());
         animator.SetBool("IsAlive", alive);
+
+        StartCoroutine(ResetParticle());
     }
 
 
