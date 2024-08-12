@@ -13,11 +13,14 @@ public class VideoPlayerController : MonoBehaviour
     {
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.Play();
+        if (menu == null)
+            return;
         videoPlayer.loopPointReached += OnVideoEnd;
     }
     void OnDestroy()
     {
-       
+        if (menu == null)
+            return;
         videoPlayer.loopPointReached -= OnVideoEnd;
     }
 

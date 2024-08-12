@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -35,6 +36,7 @@ public class Sound
         PlayerHit,
         BossHit,
         BossStart,
+        BossBGM,
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip
@@ -179,6 +181,22 @@ public class SoundManager : MonoBehaviour
                 Destroy(inactiveSFXAudioSources.Dequeue().gameObject);
             }
         }
+    }
+
+    public void FadeOut_BGM()
+    {
+        StartCoroutine(Coroutine_FadeOut_BGM());
+    }
+
+    private IEnumerator Coroutine_FadeOut_BGM()
+    {
+        while (bgmAudioSource.volume > 0)
+        {
+            bgmAudioSource.volume -= 0.01f;
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        bgmAudioSource.Stop();
     }
 
 }

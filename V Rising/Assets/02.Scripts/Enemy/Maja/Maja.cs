@@ -116,8 +116,6 @@ public class Maja : Enemy
 
     public SFXAudioSource talkSound = null;
 
-    public bool test = false;
-
     private bool[] phases = new bool[] { false, false, false, false };
 
     public GameObject[] particles;
@@ -146,13 +144,9 @@ public class Maja : Enemy
     private void Update()
     {
         Rotate();
-        if (test)
+
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            if(hp_Current == 0)
-            {
-                animator.SetTrigger("Death");
-            }
-            test = false;
             UpdateHP(-hp_Max*0.1f, null);
         }
     }
@@ -493,6 +487,7 @@ public class Maja : Enemy
             state = State.Death;
             animator.SetBool("IsAlive", alive);
             animator.SetTrigger("Groggy");
+            SoundManager.instance.FadeOut_BGM();
             canDrain = true;
             for (int i = 0; i < maja_Minions.Count; i++)
             {
