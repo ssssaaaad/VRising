@@ -28,7 +28,7 @@ public class EventManager : MonoBehaviour
 
     IEnumerator StartAni()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(1f);
 
         PManager.IsStart = true;
     }
