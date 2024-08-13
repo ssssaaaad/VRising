@@ -474,13 +474,13 @@ public class Maja : Enemy
             }
             return;
         }
-        else if(target == null)
+        else if(target == null && hp_Current > 0)
         {
             return;
         }
-
-        if (hp_Current == 0)
+        else if (hp_Current == 0)
         {
+            print("죽음");
             state = State.Death;
             animator.SetBool("IsAlive", false);
             animator.SetTrigger("Groggy");
