@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     private Fblood Fblood;
     private PlayerAttack Attack;
     private Playerstate PState;
-
+    
     private bool GetKey = false;
     private bool canDash = false;
     private bool canCskill = false;
@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     private bool canFblood = false;
     private bool canAttack = false;
 
+    public bool IsStart = false;
     public bool dashing = false;
     public bool cskilling = false;
     public bool qskilling = false;
@@ -38,6 +39,9 @@ public class PlayerManager : MonoBehaviour
     public bool comeskilling = false;
     public bool fblooding = false;
     public bool attacking = false;
+
+    public bool Drain_1 = false;
+    public bool Drain_2 = false;
 
 
     void Start()
@@ -59,6 +63,9 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        if (!IsStart)
+            return;
+
         if (PState.dead)
             return;
 
@@ -280,7 +287,7 @@ public class PlayerManager : MonoBehaviour
     }
     public bool CanCskill()
     {
-        if (Cskill.IsCCoolTime())       // 쿨타임중인가
+        if (Cskill.IsCCoolTime() || Drain_1)       // 쿨타임중인가
             return false;
         else
             return canCskill;
@@ -294,14 +301,14 @@ public class PlayerManager : MonoBehaviour
     }
     public bool CanRskill()
     {
-        if (Rskill.IsRCoolTime())       // 쿨타임중인가
+        if (Rskill.IsRCoolTime() || Drain_1)       // 쿨타임중인가
             return false;
         else
             return canRskill;
     }
     public bool CanTskill()
     {
-        if (Tskill.IsTCoolTime())
+        if (Tskill.IsTCoolTime() || Drain_2)
             return false;
         else
             return canTskill;

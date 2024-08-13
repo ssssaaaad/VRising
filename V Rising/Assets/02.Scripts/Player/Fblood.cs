@@ -19,6 +19,7 @@ public class Fblood : MonoBehaviour
     public bool dontMove = false;       // 움직이지 마!
     public string noHitPlayer = "NoHitPlayer";      // 피격판정이 없는 레이어
 
+    private int DrainCount = 0;
     private bool fActive = false;
     private Collider closeEnemy;
     private Coroutine fCasting;
@@ -132,6 +133,15 @@ public class Fblood : MonoBehaviour
 
         Scaner.closeEnemy.GetComponentInParent<Maja>().Finish();
         // Damage(Scaner.closeEnemy, 100);     // 적 즉사급 데미지 부여
+
+        if (DrainCount == 0)
+        {
+            PManager.Drain_1 = true;
+        }
+        else if (DrainCount == 1)
+        {
+            PManager.Drain_2 = true;
+        }
 
         PManager.fblooding = false;
     }
