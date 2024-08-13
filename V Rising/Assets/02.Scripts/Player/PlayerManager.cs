@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
     public bool Drain_2 = false;
 
 
-    void Start()
+    void Awake()
     {
         animator = GetComponentInChildren<Animator>();
 

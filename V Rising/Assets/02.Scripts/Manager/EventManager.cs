@@ -5,32 +5,36 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
+    public GameObject Player;
+
     private PlayerManager PManager;
 
     private Coroutine startAni;
+    
 
     private void Start()
     {
-        PManager = GetComponentInChildren<PlayerManager>();
-        
+        startAni = StartCoroutine(GameStarter());
+
+        PManager = GetComponentInChildren<PlayerManager>(true);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            print("시작");
-            PManager.animator.SetTrigger("GameStart");
-            startAni = StartCoroutine(StartAni());
-        }
 
-    }
-
-    IEnumerator StartAni()
+    public IEnumerator StartAni()
     {
-        yield return new WaitForSeconds(1f);
+        PManager.animator.SetTrigger("GameStart");
+        yield return new WaitForSeconds(5f);
 
         PManager.IsStart = true;
+    }
+
+    public IEnumerator GameStarter()
+    {
+        yield return new WaitForSeconds(3f);
+
+        Player.SetActive(true);
+
+        startAni = StartCoroutine(StartAni());
     }
 
 }
