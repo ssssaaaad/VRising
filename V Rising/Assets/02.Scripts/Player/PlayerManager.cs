@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public Animator animator;
+    public Act_Range Act_Range;
 
     private PlayerMove Move;
     private Cskill Cskill;
@@ -17,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerAttack Attack;
     private Playerstate PState;
 
+    private bool GetKey = false;
     private bool canDash = false;
     private bool canCskill = false;
     private bool canQskill = false;
@@ -71,7 +73,14 @@ public class PlayerManager : MonoBehaviour
 
     public void InPut()
     {
-        
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (Act_Range.something)
+            {
+                Act_Range.something.GetComponentInParent<ActObject>().Act();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Q) && CanQskill())
         {
             Qskill.Q();
@@ -119,6 +128,7 @@ public class PlayerManager : MonoBehaviour
             Attack.Click();
             ClickCancel();
         }
+        
     }
 
     public void CanCheck()
