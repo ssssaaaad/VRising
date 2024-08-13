@@ -50,7 +50,6 @@ public class HP_Scan_Range : MonoBehaviour
                     }
                 }
             }
-            closeEnemy = Enemys[Enemys.Count - 1];
         }
         else
         {
