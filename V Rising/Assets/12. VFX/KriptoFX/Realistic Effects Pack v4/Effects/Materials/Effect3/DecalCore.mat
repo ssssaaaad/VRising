@@ -16,7 +16,6 @@ Material:
   - USE_CUTOUT
   - USE_CUTOUT_TEX
   - USE_NOISE_DISTORTION
-  - USE_QUAD_DECAL
   - _BLENDMODE_BLEND
   m_InvalidKeywords: []
   m_LightmapFlags: 5
@@ -124,12 +123,12 @@ Material:
     - _UseNoiseDistortion: 1
     - _UseVertexStreamRandom: 0
     - _UseWorldSpaceUV: 0
-    - _ZTest1: 4
+    - _ZTest1: 5
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CutoutColor: {r: 1, g: 1, b: 1, a: 1}
     - _DistortionSpeedScale: {r: 0.5, g: 0, b: 0.1, a: 0.5}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 8.47419, g: 3.608487, b: 1.9078015, a: 1}
+    - _TintColor: {r: 3.557769, g: 0.7695197, b: 0.6600891, a: 1}
   m_BuildTextureStacks: []
