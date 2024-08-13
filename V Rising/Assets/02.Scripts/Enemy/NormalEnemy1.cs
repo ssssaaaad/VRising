@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -42,7 +43,14 @@ public class NormalEnemy1 : Enemy
     {
         StateUpdate();
         Rotate();
+        if (c)
+        {
+            UpdateHP(-1, player);
+        }
     }
+
+    public bool c = false;
+    public Transform player;
 
     public new void InitEnemy()
     {
