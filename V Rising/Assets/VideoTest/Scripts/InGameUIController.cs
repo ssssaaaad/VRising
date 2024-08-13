@@ -68,7 +68,7 @@ public class InGameUIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            ItemSkill_lcon_true(player.transform);
+            //ItemSkill_lcon_true(player.transform);
         }
 
         if (Input.GetKeyDown(KeyCode.X))
