@@ -3385,6 +3385,11 @@ PrefabInstance:
       propertyPath: bossHealthImage
       value: 
       objectReference: {fileID: 1314448499}
+    - target: {fileID: 462206628649598102, guid: 3789e9ae526ef93498c5d78d67add15b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 737021631150699176, guid: 3789e9ae526ef93498c5d78d67add15b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3483,6 +3488,11 @@ PrefabInstance:
     - target: {fileID: 737021631150699176, guid: 3789e9ae526ef93498c5d78d67add15b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668772839953232222, guid: 3789e9ae526ef93498c5d78d67add15b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3734704744709303512, guid: 3789e9ae526ef93498c5d78d67add15b,
@@ -38567,12 +38577,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9765838
+      value: -0.21755978
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.2151376
+      value: 0.97604704
       objectReference: {fileID: 0}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}

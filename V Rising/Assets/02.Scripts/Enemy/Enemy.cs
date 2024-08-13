@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
     public bool drain = false;
     public bool canDrain = true;
     public bool boss = false;
+    public GameObject image_F;
     #region NavMesh
     public NavMeshAgent navMeshAgent;
     public Transform target;

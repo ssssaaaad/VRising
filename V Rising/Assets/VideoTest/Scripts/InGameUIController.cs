@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class InGameUIController : MonoBehaviour
 {
@@ -78,22 +79,18 @@ public class InGameUIController : MonoBehaviour
 
     public void ItemSkill_lcon_true(Transform pos)
     {
-        transform.parent = itemSkill.transform;
-        itemSkill.gameObject.SetActive(true);
     }
     public void ItemSkill_lcon_false()
     {
-        itemSkill.gameObject.SetActive(false);
     }
 
     public void BloodSkill_lcon_true(Transform pos)
     {
-        transform.parent = itemSkill.transform;
-        bloodSkill.gameObject.SetActive(true);
+        pos.GetComponentInParent<Enemy>().image_F.SetActive(true);
     }
     public void BloodSkill_lcon_false()
     {
-        bloodSkill.gameObject.SetActive(false);
+        //bloodSkill.gameObject.SetActive(false);
     }
 
     private IEnumerator BloodSkillCon()
