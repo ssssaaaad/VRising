@@ -29,7 +29,6 @@ public class HP_Scan_Range : MonoBehaviour
         {
             for (int i = Enemys.Count - 1; i >= 0; i--)
             {
-                print(i);
                 // 리스트 안에 있는 적이 죽었을 경우 리스트에서 제거
                 if (!Enemys[i].GetComponentInParent<Enemy>().alive)
                 {
@@ -69,7 +68,7 @@ public class HP_Scan_Range : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         // 리스트에 저장
-        if (other.GetComponentInParent<Enemy>().Drain())
+        if (other.GetComponentInParent<Enemy>().Drain() && !Enemys.Contains(other))
         {
             Enemys.Add(other);            
             InGameUIController.instance.BloodSkill_lcon_true(other.transform.position);

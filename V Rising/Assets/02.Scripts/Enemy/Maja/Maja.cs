@@ -281,7 +281,6 @@ public class Maja : Enemy
             if (phase_Loop == phase1_Loop || phases[0])
                 return;
             phases[0] = true;
-            print(phase);
             attackCooltime_Max = 3;
             startPatternEnd = false;
             index = 0;
@@ -320,7 +319,6 @@ public class Maja : Enemy
                 return;
             phase++;
             phases[2] = true;
-            print(3);
             attackCooltime_Max = 2;
             startPatternEnd = false;
             index = 0;
@@ -347,7 +345,6 @@ public class Maja : Enemy
                 return;
             phase++;
             phases[3] = true;
-            print(4);
             startPatternEnd = false;
             index = 0;
             phase_Start = phase4_Start;
@@ -370,7 +367,7 @@ public class Maja : Enemy
 
     public void SpawnMinion(Vector3 position)
     {
-        if (!alive)
+        if (hp_Current == 0)
             return;
 
         if (Vector3.Distance(origin.position, position) > mapRadius)
@@ -468,6 +465,7 @@ public class Maja : Enemy
             }
             else
             {
+                alive = false;
                 if (talkSound != null)
                 {
                     talkSound.StopSound();
@@ -481,11 +479,10 @@ public class Maja : Enemy
             return;
         }
 
-        if (!alive)
+        if (hp_Current == 0)
         {
-            print(1);
             state = State.Death;
-            animator.SetBool("IsAlive", alive);
+            animator.SetBool("IsAlive", false);
             animator.SetTrigger("Groggy");
             SoundManager.instance.FadeOut_BGM();
             canDrain = true;

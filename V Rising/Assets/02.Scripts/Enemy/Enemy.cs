@@ -9,9 +9,10 @@ public class Enemy : MonoBehaviour
 
 
 
-    public bool alive { get; private set; } = true;
+    public bool alive { get; protected set; } = true;
     public bool drain = false;
     public bool canDrain = true;
+    public bool boss = false;
     #region NavMesh
     public NavMeshAgent navMeshAgent;
     public Transform target;
@@ -95,7 +96,8 @@ public class Enemy : MonoBehaviour
         {
             StopMoveTarget();
             OnHealthChanged?.Invoke(hp_Current, hp_Max);
-            alive = false;
+            if(!boss)
+                alive = false;
         }
         else
         {
