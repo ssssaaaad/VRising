@@ -33,6 +33,21 @@ public class InGameUIController : MonoBehaviour
     private float targetFillAmount;
     private float currentDisplayHealth;
 
+    public static InGameUIController instance { get; private set; }
+
+    private void Awake()
+    {
+        // 싱글톤 인스턴스 설정
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         // Health 클래스의 이벤트에 리스너를 추가합니다.
@@ -49,27 +64,23 @@ public class InGameUIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            //StartCoroutine(BloodSkillCon());
+            StartCoroutine(BloodSkillCon());
         }
+    }
+
+    public void BloodSkill_lcon_true(Vector3 pos)
+    {
+        bloodSkill.transform.position = pos;
+        bloodSkill.gameObject.SetActive(true);
+    }
+    public void BloodSkill_lcon_false()
+    {
+        bloodSkill.gameObject.SetActive(false);
     }
 
     private IEnumerator BloodSkillCon()
     {
         bloodSkill.gameObject.SetActive(true);
-
-        float preChangePct = healthBarImage.fillAmount;
-
-        float elapsed = 0f;
-
-        float newPct = (float)elapsed / 2f;
-
-        while (elapsed < 2f)
-        {
-            elapsed += Time.deltaTime;
-            bossHealthImage.fillAmount = newPct / preChangePct;
-
-            yield return null;
-        }
 
         yield return new WaitForSeconds(2f);
         bloodSkill.gameObject.SetActive(false);
