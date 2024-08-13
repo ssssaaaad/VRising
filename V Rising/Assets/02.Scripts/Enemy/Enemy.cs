@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     public event Action<float, float> OnHealthChanged;
     public Transform effectPosition;
     public GameObject drainEffect;
+    protected EnemyGroup enemyGroup;
 
     public void InitEnemy()
     {
@@ -56,6 +57,10 @@ public class Enemy : MonoBehaviour
         this.origin = origin;
     }
 
+    public void SetEnemyGroup(EnemyGroup enemyGroup)
+    {
+        this.enemyGroup = enemyGroup;
+    }
 
     public bool Drain()
     {
