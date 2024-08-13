@@ -70,7 +70,10 @@ public class HP_Scan_Range : MonoBehaviour
     {
         // 리스트에 저장
         if (other.GetComponentInParent<Enemy>().Drain())
-            Enemys.Add(other);
+        {
+            Enemys.Add(other);            
+            InGameUIController.instance.BloodSkill_lcon_true(other.transform.position);
+        }
     }
 
 
@@ -78,6 +81,7 @@ public class HP_Scan_Range : MonoBehaviour
     {
         if (Enemys.Contains(other))
         {
+            InGameUIController.instance.BloodSkill_lcon_false();
             Enemys.Remove(other);
             closeEnemy = null;
         }

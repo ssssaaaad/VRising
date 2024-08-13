@@ -22,6 +22,9 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI curentHealthText;
     [SerializeField] private TextMeshProUGUI maxHealthText;
 
+
+    [SerializeField] private Image bloodSkill;
+
     [SerializeField] private float textScaleAnimationDuration = 0.3f;  // 텍스트 애니메이션 지속 시간
     [SerializeField] private float maxTextScale = 1.5f;  // 텍스트의 최대 크기
 
@@ -29,6 +32,21 @@ public class InGameUIController : MonoBehaviour
 
     private float targetFillAmount;
     private float currentDisplayHealth;
+
+    public static InGameUIController instance { get; private set; }
+
+    private void Awake()
+    {
+        // 싱글톤 인스턴스 설정
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -40,6 +58,32 @@ public class InGameUIController : MonoBehaviour
         curentHealthText.transform.localScale = Vector3.one;
 
         currentDisplayHealth = health.hp_Max;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            StartCoroutine(BloodSkillCon());
+        }
+    }
+
+    public void BloodSkill_lcon_true(Vector3 pos)
+    {
+        bloodSkill.transform.position = pos;
+        bloodSkill.gameObject.SetActive(true);
+    }
+    public void BloodSkill_lcon_false()
+    {
+        bloodSkill.gameObject.SetActive(false);
+    }
+
+    private IEnumerator BloodSkillCon()
+    {
+        bloodSkill.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+        bloodSkill.gameObject.SetActive(false);
     }
 
     private void UpdateBloodHealthBar(float currentHealth, float maxHealth)
