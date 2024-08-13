@@ -45,6 +45,7 @@ public class NormalEnemy1 : Enemy
         Rotate();
         if (c)
         {
+            c = false;
             UpdateHP(-1, player);
         }
     }
@@ -108,9 +109,7 @@ public class NormalEnemy1 : Enemy
         if (state == State.Die)
             return;
 
-        modeolDir = model.transform.InverseTransformDirection(navMeshAgent.velocity.normalized);
-        animator.SetFloat("Horizontal", modeolDir.x);
-        animator.SetFloat("Vertical", modeolDir.z);
+
         if (target != null)
         {
             distance = Vector3.Distance(transform.position, target.position);
@@ -136,18 +135,39 @@ public class NormalEnemy1 : Enemy
             case State.Patrol:
                 if(target != null)
                     ChangeState(State.Trace);
+                SetAnimtion_Movement();
                 Patrol();
                 break;
             case State.Trace:
                 Trace();
+                SetAnimtion_Movement();
                 break;
             case State.BackOrigin:
                 BackOrigin();
+                SetAnimtion_Movement();
                 break;
             case State.Attack:
                 Attack();
+                if(!isAttack)
+                {
+                    modeolDir = model.transform.InverseTransformDirection(forward);
+                    animator.SetFloat("Horizontal", modeolDir.x);
+                    animator.SetFloat("Vertical", modeolDir.z);
+                }
+                else
+                {
+                    animator.SetFloat("Horizontal", 0);
+                    animator.SetFloat("Vertical", 0);
+                }
                 break;
         }
+    }
+
+    private void SetAnimtion_Movement()
+    {
+        modeolDir = model.transform.InverseTransformDirection(navMeshAgent.velocity.normalized);
+        animator.SetFloat("Horizontal", modeolDir.x);
+        animator.SetFloat("Vertical", modeolDir.z);
     }
     private void Patrol()
     {
@@ -208,11 +228,11 @@ public class NormalEnemy1 : Enemy
             float angle = Mathf.Atan2(direction.z, direction.x);
             if (movePosition_rotate)
             {
-                angle += Mathf.Deg2Rad;
+                angle += Mathf.Deg2Rad * 10;
             }
             else
             {
-                angle += -Mathf.Deg2Rad;
+                angle += -Mathf.Deg2Rad * 10;
             }
             movePosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * (range - range / 4);
             movePosition += target.position;
@@ -263,7 +283,8 @@ public class NormalEnemy1 : Enemy
     {
         while(hp_Current != hp_Max)
         {
-            print(1);
+            if (hp_Current == 0)
+                yield break;
             UpdateHP(hp_Max * 0.1f, null);
             yield return new WaitForSeconds(1);
         }
