@@ -4922,6 +4922,18 @@ PrefabInstance:
       propertyPath: skillUI
       value: 
       objectReference: {fileID: 94289433}
+    - target: {fileID: 1839513152214920996, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Qspin_Instance
+      value: 
+      objectReference: {fileID: 1032953590982179243, guid: d24a491adc617f5428ae09ac727923cc,
+        type: 3}
+    - target: {fileID: 1839513152214920996, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Q_Skill_Particle
+      value: 
+      objectReference: {fileID: 1032953590982179243, guid: d24a491adc617f5428ae09ac727923cc,
+        type: 3}
     - target: {fileID: 1903351724931054907, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: radius
@@ -8931,12 +8943,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.98948306
+      value: -0.9860721
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.1446486
+      value: -0.1663182
       objectReference: {fileID: 0}
     - target: {fileID: 3068529154333599450, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
@@ -19166,27 +19178,27 @@ PrefabInstance:
     - target: {fileID: 5667039249787214179, guid: 6ae945a9e95039d44a99b70489f8027e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6464205551973972647, guid: 6ae945a9e95039d44a99b70489f8027e,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.91823894
+      value: 0.8238993
       objectReference: {fileID: 0}
     - target: {fileID: 6464205551973972647, guid: 6ae945a9e95039d44a99b70489f8027e,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.84012055
+      value: 0.712413
       objectReference: {fileID: 0}
     - target: {fileID: 6464205551973972647, guid: 6ae945a9e95039d44a99b70489f8027e,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.7882994
+      value: 0.63994694
       objectReference: {fileID: 0}
     - target: {fileID: 6464205551973972647, guid: 6ae945a9e95039d44a99b70489f8027e,
         type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
