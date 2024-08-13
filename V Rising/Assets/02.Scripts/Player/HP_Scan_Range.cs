@@ -71,7 +71,7 @@ public class HP_Scan_Range : MonoBehaviour
         if (other.GetComponentInParent<Enemy>().Drain() && !Enemys.Contains(other))
         {
             Enemys.Add(other);            
-            InGameUIController.instance.BloodSkill_lcon_true(other.transform.position);
+            InGameUIController.instance.BloodSkill_lcon_true(other.transform);
         }
     }
 
