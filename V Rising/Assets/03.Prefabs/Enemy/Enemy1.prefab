@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1663813991509249736}
   - {fileID: 6241562290615605043}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drain: 0
   canDrain: 1
+  boss: 0
+  image_F: {fileID: 0}
   navMeshAgent: {fileID: 5620575633357830501}
   target: {fileID: 0}
   model: {fileID: 1663813991509249736}
@@ -61,13 +63,15 @@ MonoBehaviour:
   effectPosition: {fileID: 6241562290615605043}
   drainEffect: {fileID: 0}
   state: 0
-  range: 3
-  traceRange: 10
+  range: 7
+  traceRange: 50
   damage: 0
   patrolSpeed: 5
   traceSpeed: 10
-  attackDelayTime: 2.3
-  attackCoolTime: 4
+  attackDelayTime: 1.6
+  attackCoolTime: 2.3
+  c: 0
+  player: {fileID: 0}
 --- !u!195 &5620575633357830501
 NavMeshAgent:
   m_ObjectHideFlags: 0
