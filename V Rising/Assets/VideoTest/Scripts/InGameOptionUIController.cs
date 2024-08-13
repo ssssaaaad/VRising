@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class InGameOptionUIController : MonoBehaviour
 {
+
     public GameObject optionUI;
     public Image endSprite;
     public Image exitSprite;

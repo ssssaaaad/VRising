@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class InGameUIController : MonoBehaviour
 {
+    [SerializeField] private Playerstate player;
+
     [SerializeField] private Enemy bossHealth;
     [SerializeField] private Image bossHealthImage;
 
@@ -24,6 +26,7 @@ public class InGameUIController : MonoBehaviour
 
 
     [SerializeField] private Image bloodSkill;
+    [SerializeField] private Image itemSkill;
 
     [SerializeField] private float textScaleAnimationDuration = 0.3f;  // 텍스트 애니메이션 지속 시간
     [SerializeField] private float maxTextScale = 1.5f;  // 텍스트의 최대 크기
@@ -64,13 +67,28 @@ public class InGameUIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            StartCoroutine(BloodSkillCon());
+            ItemSkill_lcon_true(player.transform);
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            ItemSkill_lcon_false();
         }
     }
 
-    public void BloodSkill_lcon_true(Vector3 pos)
+    public void ItemSkill_lcon_true(Transform pos)
     {
-        bloodSkill.transform.position = pos;
+        transform.parent = itemSkill.transform;
+        itemSkill.gameObject.SetActive(true);
+    }
+    public void ItemSkill_lcon_false()
+    {
+        itemSkill.gameObject.SetActive(false);
+    }
+
+    public void BloodSkill_lcon_true(Transform pos)
+    {
+        transform.parent = itemSkill.transform;
         bloodSkill.gameObject.SetActive(true);
     }
     public void BloodSkill_lcon_false()
