@@ -106,7 +106,7 @@ public class NormalEnemy1 : Enemy
         if (target != null)
         {
             distance = Vector3.Distance(transform.position, target.position);
-            if (Vector3.Distance(target.position, origin.position) > traceRange)
+            if (Vector3.Distance(target.position, origin.position) > traceRange && !isAttack)
             {
                 ChangeState(State.BackOrigin);
                 return;
