@@ -22180,7 +22180,7 @@ PrefabInstance:
         type: 3}
       propertyPath: skillPrefab
       value: 
-      objectReference: {fileID: 1427184144938852, guid: 24a70ea07a7c5f24bb39abc74b055c3f,
+      objectReference: {fileID: 6346982745123461680, guid: 023caf9261e9e724ca462a29d0ed8def,
         type: 3}
     - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
@@ -22224,6 +22224,12 @@ PrefabInstance:
       propertyPath: skillUI
       value: 
       objectReference: {fileID: 94289433}
+    - target: {fileID: 1839513152214920996, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Qspin_Instance
+      value: 
+      objectReference: {fileID: 1032953590982179243, guid: d24a491adc617f5428ae09ac727923cc,
+        type: 3}
     - target: {fileID: 1872511651374544693, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: m_Intensity
@@ -40034,12 +40040,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.080878906
+      value: -0.092683405
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99672395
+      value: -0.99569565
       objectReference: {fileID: 0}
     - target: {fileID: 2036146880652003687, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
