@@ -6,7 +6,7 @@ public class Eskillbullet : MonoBehaviour
 {
     public Eskill Eskill;
 
-    public float speed = 20f; // 발사체의 속도
+    public float speed = 50f; // 발사체의 속도
     private Rigidbody rb;
 
     void Start()

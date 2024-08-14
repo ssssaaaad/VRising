@@ -20628,6 +20628,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
+      propertyPath: skillSpeed
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347066875705193728, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
       propertyPath: skillPrefab
       value: 
       objectReference: {fileID: 6346982745123461680, guid: 023caf9261e9e724ca462a29d0ed8def,
@@ -37770,12 +37775,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97822446
+      value: 0.8515308
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.2075498
+      value: -0.5243046
       objectReference: {fileID: 0}
     - target: {fileID: 2036146880652003687, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
