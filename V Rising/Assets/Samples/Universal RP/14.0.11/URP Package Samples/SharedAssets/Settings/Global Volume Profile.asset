@@ -42,7 +42,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0.2
   clamp:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.05
 --- !u!114 &-3542174837501920898
 MonoBehaviour:
