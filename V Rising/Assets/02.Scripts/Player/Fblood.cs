@@ -115,8 +115,8 @@ public class Fblood : MonoBehaviour
         PManager.animator.SetTrigger("Drain");
 
         // 흡혈 캐스팅중 플레이어 조작 불가
-        dontMove = true;
         transform.forward = Scaner.closeEnemy.transform.forward;
+        dontMove = true;
         // 흡혈 캐스팅중 흡혈 대상 이동 불가
 
         while (cast > Time.time)
