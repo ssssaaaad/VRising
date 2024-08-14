@@ -41,7 +41,7 @@ public class RFX4_Decal : MonoBehaviour
                 pos.z += 0.1f;
                 transform.localPosition = pos;
                 var scale = transform.localScale;
-                scale.y = 0.001f;
+                scale.y = 1f;
                 transform.localScale = scale;
             }
         }
