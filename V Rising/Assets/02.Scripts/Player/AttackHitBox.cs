@@ -7,6 +7,9 @@ public class AttackHitBox : MonoBehaviour
 {
     public float activeTime = 1f;
 
+    public GameObject effect1;
+    public GameObject effect2;
+
     private PlayerAttack PlayerAttack;
     private Playerstate PState;
 
@@ -20,6 +23,13 @@ public class AttackHitBox : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        if (PlayerAttack.Combo() == 0)
+            effect2.SetActive(true);
+        else
+            effect1.SetActive(true);
+
+
+
         // 만약 히트박스에 닿은 대상의 레이어가 enemy라면
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {

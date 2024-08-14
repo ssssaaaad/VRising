@@ -476,5 +476,10 @@ public class PlayerManager : MonoBehaviour
     {
         StartCoroutine(DUIC.FadeIn(6));
     }
+
+    public void GadiunFight()
+    {
+        StartCoroutine(DUIC.FadeIn(5));
+    }
 }
 
