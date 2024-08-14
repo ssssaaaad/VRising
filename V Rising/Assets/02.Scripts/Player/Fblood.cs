@@ -137,6 +137,8 @@ public class Fblood : MonoBehaviour
         if (DrainCount == 0)
         {
             PManager.Drain_1 = true;
+
+            StartCoroutine(PManager.DUIC.FadeIn(2));
         }
         else if (DrainCount == 1)
         {
@@ -145,6 +147,8 @@ public class Fblood : MonoBehaviour
         else if (DrainCount == 2)
         {
             Scaner.closeEnemy.GetComponentInParent<Maja>().Finish();
+
+            StartCoroutine(PManager.DUIC.FadeIn(6));
         }
 
         PManager.fblooding = false;

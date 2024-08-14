@@ -57,7 +57,7 @@ public class DescriptionUIController : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeIn(int index)
+    public IEnumerator FadeIn(int index)
     {
         descriptionImages[index].DOFade(1f, 1f);
         yield return new WaitForSeconds(desctionTime);
