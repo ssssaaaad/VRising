@@ -37,6 +37,9 @@ public class Sound
         BossHit,
         BossStart,
         BossBGM,
+        Door_SFX,
+        Enemy_Sword,
+        UI_Sound,
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip
@@ -134,7 +137,7 @@ public class SoundManager : MonoBehaviour
     }
 
     // 효과음 audioSource 활성화
-    public SFXAudioSource ActiveOnShotSFXSound(Sound.AudioClipName audioClipName, Transform target, Vector3 position)
+    public SFXAudioSource ActiveOnShotSFXSound(Sound.AudioClipName audioClipName, Transform target, Vector3 position, float spatial = 1)
     {
         // 오디오 타입이 오지 않았다면 return
         if (audioClipName == 0)
@@ -156,8 +159,8 @@ public class SoundManager : MonoBehaviour
             source.SetVolume(sfxVolume);
             source.gameObject.SetActive(true);
         }
-  
-        if(target == null)
+        source.audioSource.spatialBlend = spatial;
+        if (target == null)
         {
             source.transform.position = position;
         }

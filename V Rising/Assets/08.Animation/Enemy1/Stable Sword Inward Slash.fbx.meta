@@ -65,6 +65,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.4963145
+        functionName: ActiveSound
+        data: Enemy_Sword
+        objectReferenceParameter: {fileID: 11500000, guid: 11bb7a894431151488eb3b8e35a800ed,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

@@ -59,6 +59,7 @@ public class DescriptionUIController : MonoBehaviour
 
     public IEnumerator FadeIn(int index)
     {
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.UI_Sound, null, Vector3.zero, 0);
         descriptionImages[index].DOFade(1f, 1f);
         yield return new WaitForSeconds(desctionTime);
         descriptionImages[index].DOFade(0.0f, 1f);

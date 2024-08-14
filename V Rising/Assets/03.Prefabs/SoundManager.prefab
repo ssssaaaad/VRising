@@ -131,6 +131,15 @@ MonoBehaviour:
   - audioClipName: 30
     audioClips:
     - {fileID: 8300000, guid: fae1fb9a0873ef2409fcd84181800553, type: 3}
+  - audioClipName: 31
+    audioClips:
+    - {fileID: 8300000, guid: 6dfbcd5e331bd464cba55b61deae6735, type: 3}
+  - audioClipName: 32
+    audioClips:
+    - {fileID: 8300000, guid: af1236bf4f378894c8e3471e35c04355, type: 3}
+  - audioClipName: 33
+    audioClips:
+    - {fileID: 8300000, guid: 81f993822e5fb2241af81a39faba8ae2, type: 3}
   sfxVolume: 0.5
   bgmVolume: 0.5
 --- !u!82 &8866411775112689636
@@ -147,7 +156,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
