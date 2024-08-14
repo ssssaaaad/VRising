@@ -6,6 +6,8 @@ public class PlayerManager : MonoBehaviour
 {
     public Animator animator;
     public Act_Range Act_Range;
+    public GameObject DUI;
+    public DescriptionUIController DUIC;
 
     private PlayerMove Move;
     private Cskill Cskill;
@@ -47,6 +49,7 @@ public class PlayerManager : MonoBehaviour
     void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        DUIC = DUI.GetComponent<DescriptionUIController>();
 
         Move = GetComponent<PlayerMove>();
         Cskill = GetComponent<Cskill>();
@@ -467,4 +470,11 @@ public class PlayerManager : MonoBehaviour
             Cskill.CancelCasting();
         }
     }
+
+
+    public void BossFight()
+    {
+        StartCoroutine(DUIC.FadeIn(6));
+    }
 }
+

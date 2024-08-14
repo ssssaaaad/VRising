@@ -6,35 +6,63 @@ using UnityEngine.UI;
 
 public class DescriptionUIController : MonoBehaviour
 {
-    public Image descriptionImage;
+    public float desctionTime = 2f;
+
+    public List<Sprite> descriptionSprites = new List<Sprite>();
+
+    public List<Image> descriptionImages = new List<Image>();
 
     private void Start()
     {
-        descriptionImage.DOFade(0.0f, 0f);
+        for (int i = 0; i < descriptionImages.Count; i++)
+        {
+            descriptionImages[i].sprite = descriptionSprites[i];
+            descriptionImages[i].DOFade(0.0f, 0f);
+        }
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.Alpha8))
         {
-            
-            FadeIn();
+            StartCoroutine(FadeIn(0));
         }
-
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            
-            FadeOut();
+            StartCoroutine(FadeIn(1));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            StartCoroutine(FadeIn(2));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            StartCoroutine(FadeIn(3));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            StartCoroutine(FadeIn(4));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            StartCoroutine(FadeIn(5));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            StartCoroutine(FadeIn(6));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            StartCoroutine(FadeIn(7));
         }
     }
 
-    private void FadeIn()
+    public IEnumerator FadeIn(int index)
     {
-        descriptionImage.DOFade(1f, 1f);
+        descriptionImages[index].DOFade(1f, 1f);
+        yield return new WaitForSeconds(desctionTime);
+        descriptionImages[index].DOFade(0.0f, 1f);
+
     }
 
-    public void FadeOut()
-    {
-        descriptionImage.DOFade(0.0f, 1f);
-    }
 }
