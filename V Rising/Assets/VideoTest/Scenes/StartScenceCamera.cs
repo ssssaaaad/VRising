@@ -6,6 +6,7 @@ using UnityEngine;
 public class StartScenceCamera : MonoBehaviour
 {
     public Camera playerCamera;
+    public Camera startCamera;
     public GameObject coffin;
 
     public Vector3 pos;
@@ -17,6 +18,8 @@ public class StartScenceCamera : MonoBehaviour
     {
         transform.position = pos;
         transform.rotation = rot;
+        playerCamera.enabled = false;
+        startCamera.enabled = true;
 
         Sequence mySequence = DOTween.Sequence();
         mySequence.Append(transform.DOMove(transform.position + new Vector3(0, 0, 175), 5f))
@@ -27,8 +30,9 @@ public class StartScenceCamera : MonoBehaviour
             .OnComplete(() =>
             {
                 coffin.transform.gameObject.SetActive(false);
-                transform.gameObject.SetActive(false);
-                playerCamera.gameObject.SetActive(true);
+                
+                startCamera.enabled = false;
+                playerCamera.enabled = true;
             });
 
 
