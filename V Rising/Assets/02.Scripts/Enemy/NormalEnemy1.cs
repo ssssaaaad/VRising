@@ -40,7 +40,13 @@ public class NormalEnemy1 : Enemy
     public LayerMask obstacleMask;
     public float viewAngle;
     private Transform targetTransform;
-    private Transform[] patrolPoint;
+
+    public float idleTime = 2;
+    private float timeCheck = 0;
+
+    public Transform attackPosition;
+    public AttackCollision attackCollision;
+
 
     private void Awake()
     {
@@ -51,25 +57,24 @@ public class NormalEnemy1 : Enemy
     {
         StateUpdate();
         Rotate();
-        if (c)
-        {
-            c = false;
-            UpdateHP(-1, player);
-        }
     }
-
-    public bool c = false;
-    public Transform player;
 
     public new void InitEnemy()
     {
         base.InitEnemy();
         animator.SetBool("alive", alive);
+        effectTrigger.callBackAction += () => 
+        { 
+            AttackCollision temp = Instantiate(attackCollision, attackPosition.position, model.transform.rotation, transform);
+            temp.InitAttack(damage, true);
+            temp.DestoryCollision(0.5f);
+        };
     }
 
     private void ChangeState(State state)
     {
         this.state = state;
+        timeCheck = 0;
 
         if (coroutine_BackOrigin != null && (state == State.Attack || state == State.Trace))
         {
@@ -84,10 +89,7 @@ public class NormalEnemy1 : Enemy
                 break;
             case State.Patrol:
                 navMeshAgent.speed = patrolSpeed;
-                if(patrolPoint.Length == 0)
-                {
-                    ChangeState(State.Idle);
-                }
+                Patrol();
                 break;
             case State.Trace:
                 navMeshAgent.speed = traceSpeed;
@@ -112,6 +114,7 @@ public class NormalEnemy1 : Enemy
             case State.Die:
                 animator.SetBool("alive", alive);
                 animator.SetTrigger("Death");
+                target = null;
                 StopMoveTarget();
                 break;
         }
@@ -120,7 +123,14 @@ public class NormalEnemy1 : Enemy
     private void StateUpdate()
     {
         if (state == State.Die)
+        {
             return;
+        }
+        if(hp_Current == 0)
+        {
+            ChangeState(State.Die);
+            return;
+        }
 
         if(targetTransform != null)
         {
@@ -145,10 +155,16 @@ public class NormalEnemy1 : Enemy
         switch (state)
         {
             case State.Idle:
+                timeCheck += Time.deltaTime;
+
                 if (target != null)
                 {
                     ChangeState(State.Trace);
                     return;
+                }
+                else if (timeCheck >= idleTime)
+                {
+                    ChangeState(State.Patrol);
                 }
                 FindVisibleTargets();
                 break;
@@ -190,12 +206,45 @@ public class NormalEnemy1 : Enemy
         animator.SetFloat("Horizontal", modeolDir.x);
         animator.SetFloat("Vertical", modeolDir.z);
     }
+
+    private void SetPatrolIndex()
+    {
+        if (patrolPoints.Length == 0)
+        {
+            ChangeState(State.Idle);
+            return;
+        }
+
+        float distance_Max = float.MaxValue;
+        float distance = 0;
+        for (int i = 0; i < patrolPoints.Length; i++)
+        {
+            distance = Vector3.Distance(transform.position, patrolPoints[i].position);
+            if (distance < distance_Max)
+            {
+                patrolIndex = i;
+                distance_Max = distance;
+            }
+        }
+
+    }
+
     private void Patrol()
     {
-        //if(Vector3.Distance(new Vector3(transform.position.x,0, transform.position.z),new Vector3(origin.position.x,0, origin.position.z)) < 1)
-        //{
+        if(patrolPoints.Length == 0)
+        {
+            ChangeState(State.Idle);
+            return;
+        }
 
-        //}
+        if (Vector3.Distance(transform.position, patrolPoints[patrolIndex].position) < 1)
+        {
+            if(++patrolIndex >= patrolPoints.Length)
+            {
+                patrolIndex = 0;
+            }
+        }
+        MovePosition(patrolPoints[patrolIndex].position);
     }
 
     private void Trace()
@@ -280,7 +329,7 @@ public class NormalEnemy1 : Enemy
         if(Vector3.Distance(transform.position, origin.position) < 1)
         {
             StopMoveTarget();
-            ChangeState(State.Idle);
+            ChangeState(State.Patrol);
         }
     }
 

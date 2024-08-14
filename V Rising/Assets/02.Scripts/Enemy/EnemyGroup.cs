@@ -7,7 +7,7 @@ public class EnemyData
 {
     public Enemy enemy;
     public Transform enemyOrigin;
-    public Transform[] patrolPoint;
+    public Transform[] patrolPoints;
 }
 
 public class EnemyGroup : MonoBehaviour
@@ -26,6 +26,7 @@ public class EnemyGroup : MonoBehaviour
             groupEnemyDatas[i].enemy.SetOrigin(groupEnemyDatas[i].enemyOrigin);
             groupEnemyDatas[i].enemy.InitEnemy();
             groupEnemyDatas[i].enemy.SetEnemyGroup(this);
+            groupEnemyDatas[i].enemy.SetPatrolPoints(groupEnemyDatas[i].patrolPoints);
         }
     }
 

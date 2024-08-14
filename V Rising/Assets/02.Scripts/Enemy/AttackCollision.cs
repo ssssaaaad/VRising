@@ -43,6 +43,18 @@ public class AttackCollision : MonoBehaviour
         }
     }
 
+    public void DestoryCollision(float time)
+    {
+        StartCoroutine(Coroutine_DestoryCollision(time));
+    }
+
+    private IEnumerator Coroutine_DestoryCollision(float time)
+    {
+        yield return new WaitForSeconds(0.3f);
+        if( gameObject != null)
+            Destroy(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (collision)
@@ -70,7 +82,7 @@ public class AttackCollision : MonoBehaviour
                 }
 
             }
-            else if (other.transform.CompareTag("Transparent"))
+            if (other.transform.CompareTag("Transparent"))
             {
                 if (callback != null)
                 {

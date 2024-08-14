@@ -23,7 +23,8 @@ public class Enemy : MonoBehaviour
 
     public Transform model;
     public Transform origin;
-
+    public EnemyUI enemyUI;
+    public EffectTrigger effectTrigger;
     #region status
     public float hp_Max;
     public float hp_Current;
@@ -42,11 +43,16 @@ public class Enemy : MonoBehaviour
     public Transform effectPosition;
     public GameObject drainEffect;
     protected EnemyGroup enemyGroup;
+    protected Transform[] patrolPoints;
+    protected int patrolIndex = 0;
+
 
     public void InitEnemy()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        enemyUI = GetComponent<EnemyUI>();
+        effectTrigger = GetComponentInChildren<EffectTrigger>();
         hp_Current = hp_Max;
         alive = true;
         OnHealthChanged?.Invoke(hp_Current, hp_Max);
@@ -62,8 +68,18 @@ public class Enemy : MonoBehaviour
         this.enemyGroup = enemyGroup;
     }
 
+    public void SetPatrolPoints(Transform[] patrolPoints)
+    {
+        if(patrolPoints == null)
+        {
+            patrolPoints = new Transform[] { };
+        }
+        this.patrolPoints = patrolPoints;
+    }
     public bool Drain()
     {
+        if (!alive)
+            return false;
         if (drain || !canDrain)
             return false;
         if (hp_Current / hp_Max > 0.1f)
@@ -112,6 +128,7 @@ public class Enemy : MonoBehaviour
             SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.BossHit, transform, Vector3.zero);
         }
 
+        enemyUI?.UpdateHP();
     }
     public void SetTarget(Transform target)
     {

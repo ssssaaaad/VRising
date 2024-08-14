@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void CallBackAction();
+
 public class EffectTrigger : MonoBehaviour
 {
     public GameObject[] Effects;
+    public CallBackAction callBackAction;
 
     public void ActiveSound(string soundEnum)
     {
@@ -16,5 +19,9 @@ public class EffectTrigger : MonoBehaviour
     {
         Effects[index].SetActive(false);
         Effects[index].SetActive(true);
+        if(callBackAction != null)
+        {
+            callBackAction();
+        }
     }
 }
