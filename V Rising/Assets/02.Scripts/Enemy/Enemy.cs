@@ -83,9 +83,13 @@ public class Enemy : MonoBehaviour
             return false;
         if (drain || !canDrain)
             return false;
-        if (hp_Current / hp_Max > 0.5f)
+        if (hp_Current / hp_Max > 0.5f && !boss)
             return false;
-
+        else if (boss)
+        {
+            if(hp_Current > 0)
+                return false;
+        }
         return true;
     }
 
