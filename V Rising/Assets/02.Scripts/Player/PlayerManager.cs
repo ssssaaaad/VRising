@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
     public bool Drain_2 = false;
 
 
-    void Start()
+    void Awake()
     {
         animator = GetComponentInChildren<Animator>();
 
@@ -287,7 +287,10 @@ public class PlayerManager : MonoBehaviour
     }
     public bool CanCskill()
     {
-        if (Cskill.IsCCoolTime() || Drain_1)       // 쿨타임중인가
+        if (!Drain_1)
+            return false;
+        
+        if (Cskill.IsCCoolTime())       // 쿨타임중인가
             return false;
         else
             return canCskill;
@@ -301,14 +304,20 @@ public class PlayerManager : MonoBehaviour
     }
     public bool CanRskill()
     {
-        if (Rskill.IsRCoolTime() || Drain_1)       // 쿨타임중인가
+        if (!Drain_1)
+            return false;
+
+        if (Rskill.IsRCoolTime())       // 쿨타임중인가
             return false;
         else
             return canRskill;
     }
     public bool CanTskill()
     {
-        if (Tskill.IsTCoolTime() || Drain_2)
+        if (!Drain_2)
+            return false;
+
+        if (Tskill.IsTCoolTime())
             return false;
         else
             return canTskill;

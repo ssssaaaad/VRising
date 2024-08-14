@@ -82,7 +82,8 @@ public class MainCamera : MonoBehaviour
         //카메라의 회전은 사이의 벡터를 특정 축으로 회전한 벡터를 구하고 
         //쿼터니언과 벡터의 곱에서 힌트
         //다시 카메라의 위치를 플레이어 + 구한벡터 위치로
-        transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraDir, .5f);
+        //transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraDir, 0.1f);
+        transform.position = player.transform.position + cameraDir;
     }
     
 
