@@ -101,9 +101,14 @@ public class InGameUIController : MonoBehaviour
     {
     }
 
+    GameObject image_F;
     public void BloodSkill_lcon_true(Transform pos)
     {
-        pos.GetComponentInParent<Enemy>().image_F.SetActive(true);
+        image_F = pos.GetComponentInParent<Enemy>().image_F;
+        if (image_F != null)
+        {
+            pos.GetComponentInParent<Enemy>().image_F.SetActive(true);
+        }
     }
     public void BloodSkill_lcon_false()
     {

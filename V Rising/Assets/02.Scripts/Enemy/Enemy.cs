@@ -96,14 +96,14 @@ public class Enemy : MonoBehaviour
         if (!boss)
         {
             animator.speed = 0;
-            enemyUI.image_DrainIcon.gameObject.SetActive(false);
+            enemyUI?.image_DrainIcon.gameObject.SetActive(false);
         }
     }
     public void FinishDrain()
     {
         animator.speed = 1;
         drainEffect.SetActive(false);
-        enemyUI.InactiveUI();
+        enemyUI?.InactiveUI();
         if (drainFinishEvent != null)
         {
             drainFinishEvent();
