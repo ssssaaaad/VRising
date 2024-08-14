@@ -38,8 +38,8 @@ public class Fblood : MonoBehaviour
         playerMove = GetComponent<PlayerMove>();
         originalLayer = gameObject.layer;
 
-        hp_BloodCurrent = hp_BloodMax;
-        OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
+        hp_BloodCurrent = 0;
+        //OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
     }
 
     private void Update()

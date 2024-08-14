@@ -17,7 +17,7 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private Image healthBarImage;
 
 
-    [SerializeField] private Playerstate bloodHealth;
+    [SerializeField] private Fblood bloodHealth;
     [SerializeField] private Image bloodHealthBarImage;
 
     [SerializeField] private float updateSpeedSeconds = 0.5f;
@@ -78,6 +78,7 @@ public class InGameUIController : MonoBehaviour
         curentHealthText.transform.localScale = Vector3.one;
 
         currentDisplayHealth = health.hp_Max;
+        bloodHealthBarImage.fillAmount = 0f;
     }
 
     private void Update()
@@ -119,6 +120,7 @@ public class InGameUIController : MonoBehaviour
 
     private void UpdateBloodHealthBar(float currentHealth, float maxHealth)
     {
+        
         bloodHealthBarImage.fillAmount = (float)currentHealth / maxHealth;
         //StartCoroutine(AnimateHealthBarBoss(currentHealth, maxHealth));
     }
