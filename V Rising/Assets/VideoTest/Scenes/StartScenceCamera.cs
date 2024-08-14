@@ -31,6 +31,8 @@ public class StartScenceCamera : MonoBehaviour
                 coffin.transform.gameObject.SetActive(false);
 
                 startCamera.depth = -10f;
+                startCamera.gameObject.SetActive(false);
+                startCamera.enabled = false;
             });
 
 
