@@ -440,7 +440,7 @@ public class Maja : Enemy
 
     private IEnumerator CoroutinePatterCycle()
     {
-        while(state != State.Death)
+        while(alive)
         {
             PatternCycle();
             yield return new WaitForSeconds(routineTime);
@@ -466,7 +466,7 @@ public class Maja : Enemy
                     talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
                 }
             }
-            else
+            if (drain)
             {
                 alive = false;
                 if (talkSound != null)
@@ -474,6 +474,7 @@ public class Maja : Enemy
                     talkSound.StopSound();
                     talkSound = null;
                 }
+                image_F.SetActive(false);
             }
             return;
         }

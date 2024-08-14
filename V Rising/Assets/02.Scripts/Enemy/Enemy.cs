@@ -107,6 +107,7 @@ public class Enemy : MonoBehaviour
     {
         animator.speed = 1;
         drainEffect.SetActive(false);
+        canDrain = false;
         enemyUI?.InactiveUI();
         if (drainFinishEvent != null)
         {
@@ -177,9 +178,9 @@ public class Enemy : MonoBehaviour
         float angle;
         angle = Vector3.Angle(model.forward, forward);
         Vector3 cross = Vector3.Cross(model.forward, forward);
-        if (cross.y > 0.1)
+        if (cross.y > 0.05)
             model.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
-        else if (cross.y < -0.1)
+        else if (cross.y < -0.05)
             model.Rotate(new Vector3(0, -rotateSpeed * Time.deltaTime, 0));
         else
         {

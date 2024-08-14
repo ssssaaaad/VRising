@@ -29,11 +29,13 @@ public class HP_Scan_Range : MonoBehaviour
         {
             for (int i = Enemys.Count - 1; i >= 0; i--)
             {
+                
                 if (Enemys[i] == null)
                 {
                     Enemys.Remove(Enemys[i]);
                     continue;
                 }
+                print(Enemys[i].name + " : " + Enemys[i].GetComponentInParent<Enemy>().alive + ", " + Enemys[i].GetComponentInParent<Enemy>().canDrain);
                 // 리스트 안에 있는 적이 죽었을 경우 리스트에서 제거
                 if (!Enemys[i].GetComponentInParent<Enemy>().alive && !Enemys[i].GetComponentInParent<Enemy>().canDrain)
                 {

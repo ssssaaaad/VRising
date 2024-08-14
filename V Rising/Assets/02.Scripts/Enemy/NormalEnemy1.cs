@@ -81,6 +81,8 @@ public class NormalEnemy1 : Enemy
             target = null;
             StopMoveTarget();
         };
+
+        navMeshAgent.acceleration = 70;
     }
 
     private void ChangeState(State state)
@@ -372,6 +374,8 @@ public class NormalEnemy1 : Enemy
             yield break;
         while (distance < range - (range/2))
         {
+            if (!alive)
+                yield break;
             MovePosition(target.position);
             yield return null;
         }
