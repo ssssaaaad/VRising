@@ -25,6 +25,9 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI curentHealthText;
     [SerializeField] private TextMeshProUGUI maxHealthText;
 
+    [SerializeField] private GameObject rSkillRock;
+    [SerializeField] private GameObject cSkillRock;
+    [SerializeField] private GameObject tSkillRock;
 
     [SerializeField] private Image bloodSkill;
     [SerializeField] private Image itemSkill;
@@ -36,6 +39,19 @@ public class InGameUIController : MonoBehaviour
 
     private float targetFillAmount;
     private float currentDisplayHealth;
+
+    public void rockRC()
+    {
+        rSkillRock.SetActive(false);
+        cSkillRock.SetActive(false);
+    }
+
+    public void rockT()
+    {
+        tSkillRock.SetActive(false);
+    }
+
+
 
     public static InGameUIController instance { get; private set; }
 
