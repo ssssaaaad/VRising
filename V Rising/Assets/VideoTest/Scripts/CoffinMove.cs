@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CoffinMove : MonoBehaviour
 {
-
+    //transform.DOMove(transform.position + new Vector3(0, 10, 0), .5f)
 
     private void Start()
     {
