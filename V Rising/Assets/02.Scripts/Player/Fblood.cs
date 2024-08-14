@@ -9,6 +9,7 @@ public class Fblood : MonoBehaviour
     private PlayerManager PManager;
     private PlayerMove playerMove;
 
+    public GameObject head;
     public HP_Scan_Range Scaner;
 
     public float hp_BloodMax       = 100;
@@ -115,8 +116,8 @@ public class Fblood : MonoBehaviour
         PManager.animator.SetTrigger("Drain");
 
         // 흡혈 캐스팅중 플레이어 조작 불가
-        transform.forward = Scaner.closeEnemy.transform.forward;
         dontMove = true;
+        head.transform.forward = Scaner.closeEnemy.transform.forward;
         // 흡혈 캐스팅중 흡혈 대상 이동 불가
 
         while (cast > Time.time)
@@ -127,6 +128,10 @@ public class Fblood : MonoBehaviour
         gameObject.layer = originalLayer;
 
         dontMove = false;
+        
+        {
+            
+        }
 
         // 흡혈 캐스팅 완료시 적 처형 및 체력 회복
         // PState.UpdateHP(Healing);       // 회복량 임의설정
