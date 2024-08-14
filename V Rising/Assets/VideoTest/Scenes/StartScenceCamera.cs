@@ -18,8 +18,7 @@ public class StartScenceCamera : MonoBehaviour
     {
         transform.position = pos;
         transform.rotation = rot;
-        playerCamera.enabled = false;
-        startCamera.enabled = true;
+        startCamera.depth = 10f;
 
         Sequence mySequence = DOTween.Sequence();
         mySequence.Append(transform.DOMove(transform.position + new Vector3(0, 0, 175), 5f))
@@ -30,9 +29,8 @@ public class StartScenceCamera : MonoBehaviour
             .OnComplete(() =>
             {
                 coffin.transform.gameObject.SetActive(false);
-                
-                startCamera.enabled = false;
-                playerCamera.enabled = true;
+
+                startCamera.depth = -10f;
             });
 
 
