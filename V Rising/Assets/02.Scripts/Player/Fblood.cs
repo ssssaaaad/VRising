@@ -131,7 +131,7 @@ public class Fblood : MonoBehaviour
         // 흡혈 캐스팅 완료시 적 처형 및 체력 회복
         // PState.UpdateHP(Healing);       // 회복량 임의설정
 
-        Scaner.closeEnemy.GetComponentInParent<Maja>().Finish();
+
         // Damage(Scaner.closeEnemy, 100);     // 적 즉사급 데미지 부여
 
         if (DrainCount == 0)
@@ -141,6 +141,10 @@ public class Fblood : MonoBehaviour
         else if (DrainCount == 1)
         {
             PManager.Drain_2 = true;
+        }
+        else if (DrainCount == 2)
+        {
+            Scaner.closeEnemy.GetComponentInParent<Maja>().Finish();
         }
 
         PManager.fblooding = false;
