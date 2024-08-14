@@ -12,7 +12,7 @@ public class EnemyData
 
 public class EnemyGroup : MonoBehaviour
 {
-    public List<EnemyData> groupEnemys = new List<EnemyData>();
+    public List<EnemyData> groupEnemyDatas = new List<EnemyData>();
 
     private void Awake()
     {
@@ -21,30 +21,31 @@ public class EnemyGroup : MonoBehaviour
 
     private void initGroup()
     {
-        for (int i = 0; i < groupEnemys.Count; i++)
+        for (int i = 0; i < groupEnemyDatas.Count; i++)
         {
-            groupEnemys[i].SetOrigin(enemyOrigin[i]);
-            groupEnemys[i].InitEnemy();
-            groupEnemys[i].SetEnemyGroup(this);
+            groupEnemyDatas[i].enemy.SetOrigin(groupEnemyDatas[i].enemyOrigin);
+            groupEnemyDatas[i].enemy.InitEnemy();
+            groupEnemyDatas[i].enemy.SetEnemyGroup(this);
         }
     }
 
     public void Death(Enemy enemy)
     {
-        if (groupEnemys.Contains(enemy))
+        for (int i = 0; i < groupEnemyDatas.Count; i++)
         {
-            int index = groupEnemys.IndexOf(enemy);
-            groupEnemys.RemoveAt(index);
-            enemyOrigin.RemoveAt(index);
+            if (groupEnemyDatas[i].enemy == enemy)
+            {
+                groupEnemyDatas.RemoveAt(i);
+            }
         }
     }
 
     public void SetTarget(Transform target)
     {
-        for (int i = 0; i < groupEnemys.Count; i++)
+        for (int i = 0; i < groupEnemyDatas.Count; i++)
         {
-            if (groupEnemys[i].target == null)
-                groupEnemys[i].SetTarget(target);
+            if (groupEnemyDatas[i].enemy.target == null)
+                groupEnemyDatas[i].enemy.SetTarget(target);
         }
     }
 }

@@ -40,6 +40,7 @@ public class NormalEnemy1 : Enemy
     public LayerMask obstacleMask;
     public float viewAngle;
     private Transform targetTransform;
+    private Transform[] patrolPoint;
 
     private void Awake()
     {
@@ -83,6 +84,10 @@ public class NormalEnemy1 : Enemy
                 break;
             case State.Patrol:
                 navMeshAgent.speed = patrolSpeed;
+                if(patrolPoint.Length == 0)
+                {
+                    ChangeState(State.Idle);
+                }
                 break;
             case State.Trace:
                 navMeshAgent.speed = traceSpeed;
