@@ -31,7 +31,7 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator GameStarter()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(20f);
 
         Player.SetActive(true);
 
