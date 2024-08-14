@@ -77,26 +77,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5887008998475437570}
     m_Modifications:
-    - target: {fileID: 1637305965681764385, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2273008621995544426, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2273008621995544426, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2273008621995544426, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2273008621995544426, guid: 1df5d906aed496942b67331eb9ac2a93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -147,85 +127,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2599848085081761754, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2599848085081761754, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2599848085081761754, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2599848085081761754, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4100598658369062328, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: simulationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510967545486725653, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7599068810491966671, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: simulationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140556287770312439, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140556287770312439, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140556287770312439, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.3000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140556287770312439, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8336408339548364361, guid: 1df5d906aed496942b67331eb9ac2a93,
         type: 3}
       propertyPath: m_Name
       value: Q_Skill
-      objectReference: {fileID: 0}
-    - target: {fileID: 8843963718259666823, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8843963718259666823, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8843963718259666823, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8843963718259666823, guid: 1df5d906aed496942b67331eb9ac2a93,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
