@@ -57,7 +57,6 @@ public class Playerstate : MonoBehaviour
 
     public void UpdateHP(float dmg)
     {
-        print(dmg);
         if (PM.cskilling)
         {
             Cskill.counter = true;

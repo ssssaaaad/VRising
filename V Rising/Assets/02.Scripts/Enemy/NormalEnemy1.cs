@@ -14,7 +14,8 @@ public class NormalEnemy1 : Enemy
         Trace,
         Attack,
         Die,
-        BackOrigin
+        BackOrigin,
+        Drain
     }
 
     public State state;
@@ -56,7 +57,10 @@ public class NormalEnemy1 : Enemy
     private void Update()
     {
         StateUpdate();
-        Rotate();
+        if (state != State.Die && state != State.Drain)
+        {
+            Rotate();
+        }
     }
 
     public new void InitEnemy()
@@ -68,6 +72,14 @@ public class NormalEnemy1 : Enemy
             AttackCollision temp = Instantiate(attackCollision, attackPosition.position, model.transform.rotation, transform);
             temp.InitAttack(damage, true);
             temp.DestoryCollision(0.5f);
+        };
+        drainFinishEvent += () =>
+        {
+            UpdateHP(-hp_Max, target); 
+            animator.SetBool("alive", alive);
+            animator.SetTrigger("Death");
+            target = null;
+            StopMoveTarget();
         };
     }
 
@@ -93,6 +105,7 @@ public class NormalEnemy1 : Enemy
                 break;
             case State.Trace:
                 navMeshAgent.speed = traceSpeed;
+                enemyUI.ActiveFindIcon();
                 animator.SetBool("Run", true);
                 enemyGroup.SetTarget(target);
                 break;
@@ -112,9 +125,24 @@ public class NormalEnemy1 : Enemy
                 }
                 break;
             case State.Die:
-                animator.SetBool("alive", alive);
-                animator.SetTrigger("Death");
-                target = null;
+                if (canDrain)
+                {
+                    animator.SetBool("alive", alive);
+                    animator.SetTrigger("Groggy");
+                    target = null;
+                    StopMoveTarget();
+                }
+                else
+                {
+                    enemyUI.InactiveUI();
+                    animator.SetBool("alive", alive);
+                    animator.SetTrigger("Death");
+                    target = null;
+                    StopMoveTarget();
+                }
+                break;
+            case State.Drain:
+                canDrain = false;
                 StopMoveTarget();
                 break;
         }
@@ -129,6 +157,11 @@ public class NormalEnemy1 : Enemy
         if(hp_Current == 0)
         {
             ChangeState(State.Die);
+            return;
+        }
+        if (drain && state != State.Drain)
+        {
+            ChangeState(State.Drain);
             return;
         }
 

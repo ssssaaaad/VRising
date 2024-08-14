@@ -168,7 +168,10 @@ public class Maja : Enemy
 
         patterCycle = StartCoroutine(CoroutinePatterCycle());
         animator.SetBool("IsAlive", alive);
-
+        drainFinishEvent += () =>
+        {
+            animator.SetTrigger("Death");
+        };
         StartCoroutine(ResetParticle());
     }
 
@@ -480,7 +483,6 @@ public class Maja : Enemy
         }
         else if (hp_Current == 0)
         {
-            print("죽음");
             state = State.Death;
             animator.SetBool("IsAlive", false);
             animator.SetTrigger("Groggy");
@@ -682,13 +684,6 @@ public class Maja : Enemy
         {
             wall = false;
         }
-    }
-
-    public void Finish()
-    {
-        animator.SetTrigger("Death");
-        drainEffect.SetActive(false);
-        StartCoroutine(Scene());
     }
     IEnumerator Scene()
     {

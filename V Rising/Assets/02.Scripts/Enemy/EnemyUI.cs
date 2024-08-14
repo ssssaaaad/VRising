@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyUI : MonoBehaviour
 {
     public Enemy enemy;
-    private Coroutine coroutine_HPAnimation;
     public Image image_HPBar;
     public Image image_DrainIcon;
     public Image image_FindIcon;
+    public GameObject canvas;
+
+    private Coroutine coroutine_FindIcon;
 
     private void Awake()
     {
@@ -18,11 +21,7 @@ public class EnemyUI : MonoBehaviour
 
     public void UpdateHP()
     {
-        if(coroutine_HPAnimation != null)
-        {
-            StopCoroutine(coroutine_HPAnimation);
-        }
-
+       
         if (enemy.Drain())
         {
             image_DrainIcon.gameObject.SetActive(true);
@@ -30,21 +29,37 @@ public class EnemyUI : MonoBehaviour
         else
         {
             image_DrainIcon.gameObject.SetActive(false);
+            if(enemy.hp_Current == 0)
+            {
+                canvas.SetActive(false);
+            }
         }
 
-        coroutine_HPAnimation = StartCoroutine(HPAnimation());
+        HPAnimation();
+    }
+    public void InactiveUI()
+    {
+        canvas.SetActive(false);
     }
 
-    private IEnumerator HPAnimation()
+    private void HPAnimation()
     {
-        float percent = image_HPBar.fillAmount;
-        print(1);
-        for (int i = 0; i < 10; i++)
+        image_HPBar.fillAmount = enemy.hp_Current / enemy.hp_Max;
+    }
+
+    public void ActiveFindIcon()
+    {
+        if (coroutine_FindIcon != null)
         {
-            image_HPBar.fillAmount = Mathf.Lerp(percent, enemy.hp_Current / enemy.hp_Max, (i + 1) / 10);
-            yield return null;
+            StopCoroutine(coroutine_FindIcon);
         }
-        print(2);
-        coroutine_HPAnimation = null;
+        coroutine_FindIcon = StartCoroutine(Coroutine_FindIcon());
+    }
+
+    private IEnumerator Coroutine_FindIcon()
+    {
+        image_FindIcon.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3);
+        image_FindIcon.gameObject.SetActive(false);
     }
 }

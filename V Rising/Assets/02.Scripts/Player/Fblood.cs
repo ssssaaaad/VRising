@@ -134,6 +134,7 @@ public class Fblood : MonoBehaviour
 
         // Damage(Scaner.closeEnemy, 100);     // 적 즉사급 데미지 부여
 
+        Scaner.closeEnemy.GetComponentInParent<Enemy>().FinishDrain();
         if (DrainCount == 0)
         {
             PManager.Drain_1 = true;
@@ -144,7 +145,7 @@ public class Fblood : MonoBehaviour
         }
         else if (DrainCount == 2)
         {
-            Scaner.closeEnemy.GetComponentInParent<Maja>().Finish();
+
         }
 
         PManager.fblooding = false;

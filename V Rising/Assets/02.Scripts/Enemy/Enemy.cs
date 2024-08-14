@@ -46,7 +46,8 @@ public class Enemy : MonoBehaviour
     protected Transform[] patrolPoints;
     protected int patrolIndex = 0;
 
-
+    protected delegate void DrainFinishEvent();
+    protected DrainFinishEvent drainFinishEvent;
     public void InitEnemy()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -78,11 +79,11 @@ public class Enemy : MonoBehaviour
     }
     public bool Drain()
     {
-        if (!alive)
+        if (!alive && !canDrain)
             return false;
         if (drain || !canDrain)
             return false;
-        if (hp_Current / hp_Max > 0.1f)
+        if (hp_Current / hp_Max > 0.5f)
             return false;
 
         return true;
@@ -92,13 +93,22 @@ public class Enemy : MonoBehaviour
     {
         drain = true;
         drainEffect.SetActive(true);
+        if (!boss)
+        {
+            animator.speed = 0;
+            enemyUI.image_DrainIcon.gameObject.SetActive(false);
+        }
     }
     public void FinishDrain()
     {
         animator.speed = 1;
         drainEffect.SetActive(false);
+        enemyUI.InactiveUI();
+        if (drainFinishEvent != null)
+        {
+            drainFinishEvent();
+        }
     }
-
 
     /// <summary>
     /// 음수는 데미지, 양수는 회복
