@@ -7,6 +7,7 @@ using DG.Tweening;
 public class EventManager : MonoBehaviour
 {
     public GameObject Player;
+    public GameObject Swod;
     public GameObject Gate;
     public GameObject Gate1;
     public GameObject Gate2;
@@ -25,7 +26,7 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator GameStarter()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(15f);
 
         Player.SetActive(true);
 
@@ -35,7 +36,22 @@ public class EventManager : MonoBehaviour
     public IEnumerator StartAni()
     {
         PManager.animator.SetTrigger("GameStart");
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.5f);
+
+        float check = 0f;
+        while (check < 3)
+        {
+            Player.transform.position -= new Vector3(0, 0.025f, 0);
+
+
+            check += 0.01f;
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        PManager.animator.SetTrigger("Landing");
+        yield return new WaitForSeconds(0.5f);
+
+        Swod.SetActive(true);
 
         PManager.IsStart = true;
         StartCoroutine(PManager.DUIC.FadeIn(0));

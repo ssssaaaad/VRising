@@ -474,12 +474,12 @@ public class PlayerManager : MonoBehaviour
 
     public void BossFight()
     {
-        StartCoroutine(DUIC.FadeIn(6));
+        StartCoroutine(DUIC.FadeIn(5));
     }
 
-    public void GadiunFight()
+    public void GuardianFight()
     {
-        StartCoroutine(DUIC.FadeIn(5));
+        StartCoroutine(DUIC.FadeIn(4));
     }
 }
 
