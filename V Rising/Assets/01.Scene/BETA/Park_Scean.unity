@@ -15981,7 +15981,7 @@ PrefabInstance:
     - target: {fileID: 3364190822011832284, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: ballmove
-      value: 210
+      value: 179
       objectReference: {fileID: 0}
     - target: {fileID: 3822206715635005769, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
@@ -16028,6 +16028,11 @@ PrefabInstance:
       propertyPath: Gate3
       value: 
       objectReference: {fileID: 582968376}
+    - target: {fileID: 8975475624270569979, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9004534106012792138, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: DUI
@@ -26986,12 +26991,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9516738
+      value: -0.9941613
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.30711082
+      value: 0.10790449
       objectReference: {fileID: 0}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
