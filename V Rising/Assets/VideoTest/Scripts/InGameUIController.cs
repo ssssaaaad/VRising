@@ -136,7 +136,6 @@ public class InGameUIController : MonoBehaviour
 
     private void UpdateHealthBar(float currentHealth, float maxHealth)
     {
-        Debug.Log("currentHealth : " + currentHealth + ", maxHealth : " + maxHealth);
 
         healthBarImage.fillAmount = (float)currentHealth / maxHealth;
         curentHealthText.text = currentHealth.ToString();
