@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
 
 
-    public bool alive { get; protected set; } = true;
+    public bool alive = true;
     public bool drain = false;
     public bool canDrain = true;
     public bool boss = false;

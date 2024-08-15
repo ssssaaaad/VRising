@@ -447,6 +447,8 @@ public class Maja : Enemy
         }
     }
 
+    private bool check = true;
+
     private void PatternCycle()
     {
 
@@ -482,9 +484,10 @@ public class Maja : Enemy
         {
             return;
         }
-        else if (hp_Current == 0)
+        else if (hp_Current == 0 && check)
         {
             state = State.Death;
+            check = false;
             animator.SetBool("IsAlive", false);
             animator.SetTrigger("Groggy");
             SoundManager.instance.FadeOut_BGM();
