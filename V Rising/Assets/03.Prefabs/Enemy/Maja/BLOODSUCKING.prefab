@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4078308800571801372}
   - component: {fileID: 7007855405189841197}
   - component: {fileID: 5133997949640679901}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4862,7 +4862,7 @@ GameObject:
   - component: {fileID: 8379154987496365185}
   - component: {fileID: 3985812277101847163}
   - component: {fileID: 8028040716164267921}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Bird (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9722,7 +9722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 392239612823233448}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Eff9_Left 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9760,7 +9760,7 @@ GameObject:
   - component: {fileID: 392013422205618306}
   - component: {fileID: 558262205251057724}
   - component: {fileID: 556539534916250742}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14661,7 +14661,7 @@ GameObject:
   - component: {fileID: 360122865705247078}
   - component: {fileID: 354114232160818052}
   - component: {fileID: 8434175638114315179}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14858,7 +14858,7 @@ GameObject:
   - component: {fileID: 391817481949653220}
   - component: {fileID: 557690176622216682}
   - component: {fileID: 556911583709555388}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: RedParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19718,7 +19718,7 @@ GameObject:
   - component: {fileID: 391633663892483092}
   - component: {fileID: 558362917606766102}
   - component: {fileID: 556873415113813412}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: ColorRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24618,7 +24618,7 @@ GameObject:
   - component: {fileID: 392262845313436494}
   - component: {fileID: 558443707649358158}
   - component: {fileID: 557237774834123586}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: BlackRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29462,7 +29462,7 @@ GameObject:
   - component: {fileID: 8784239719532563383}
   - component: {fileID: 7789742714422248036}
   - component: {fileID: 5176832270011886594}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Waves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34236,7 +34236,7 @@ GameObject:
   - component: {fileID: 6006595782952204752}
   - component: {fileID: 4144807154840725542}
   - component: {fileID: 601587831639221318}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34354,7 +34354,7 @@ GameObject:
   - component: {fileID: 1024701179513974935}
   - component: {fileID: 2549122484619838636}
   - component: {fileID: 1553114947635614206}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39245,7 +39245,7 @@ GameObject:
   - component: {fileID: 1338500313295764674}
   - component: {fileID: 6516577286648322412}
   - component: {fileID: 3644050896032893201}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44096,7 +44096,7 @@ GameObject:
   - component: {fileID: 6975570640030408525}
   - component: {fileID: 6550774561365178455}
   - component: {fileID: 3773456808795577886}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48947,7 +48947,7 @@ GameObject:
   - component: {fileID: 4716259187267220467}
   - component: {fileID: 3345694283713049291}
   - component: {fileID: 5724086958406418829}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53650,7 +53650,7 @@ GameObject:
   - component: {fileID: 1950401371356926822}
   - component: {fileID: 3392726008492274304}
   - component: {fileID: 5145744686687755222}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53819,7 +53819,7 @@ GameObject:
   - component: {fileID: 9176486976987827033}
   - component: {fileID: 2779029251566473866}
   - component: {fileID: 5560635332185446681}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58624,7 +58624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044110012548274330}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Offset
   m_TagString: Untagged
   m_Icon: {fileID: -3114416830163030229, guid: 0000000000000000d000000000000000, type: 0}
@@ -58663,7 +58663,7 @@ GameObject:
   - component: {fileID: 1930363430592182201}
   - component: {fileID: 4622344619690874404}
   - component: {fileID: 2041682943239775371}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: FireTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63564,7 +63564,7 @@ GameObject:
   - component: {fileID: 6424097515520062353}
   - component: {fileID: 1154828272416215391}
   - component: {fileID: 1724736838255611923}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Skull2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68456,7 +68456,7 @@ GameObject:
   - component: {fileID: 7376035754052371997}
   - component: {fileID: 1771082947397886402}
   - component: {fileID: 3657672001626292723}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: FireTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73359,7 +73359,7 @@ GameObject:
   - component: {fileID: 8175746629648405546}
   - component: {fileID: 8845667395234147118}
   - component: {fileID: 8010090864081763832}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: DecalBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73513,7 +73513,7 @@ GameObject:
   - component: {fileID: 4928199160604125516}
   - component: {fileID: 935448690798631695}
   - component: {fileID: 540652643542506453}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: FireTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78415,7 +78415,7 @@ GameObject:
   - component: {fileID: 2968263045968585331}
   - component: {fileID: 8548343432450274442}
   - component: {fileID: 558884185336035347}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78612,7 +78612,7 @@ GameObject:
   - component: {fileID: 5378386988635051726}
   - component: {fileID: 140269698973625583}
   - component: {fileID: 3487359419036308440}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: FireTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83514,7 +83514,7 @@ GameObject:
   - component: {fileID: 3700803108585928537}
   - component: {fileID: 7223661628664919149}
   - component: {fileID: 9159898523739898705}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Particles (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88297,7 +88297,7 @@ GameObject:
   - component: {fileID: 5875934248576814500}
   - component: {fileID: 8915088209218952081}
   - component: {fileID: 6785061044158135304}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93217,7 +93217,7 @@ GameObject:
   - component: {fileID: 8983373903306204342}
   - component: {fileID: 4204300127179321151}
   - component: {fileID: 2269214332736698404}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93394,7 +93394,7 @@ GameObject:
   - component: {fileID: 1825763110036253199}
   - component: {fileID: 5372578563795164551}
   - component: {fileID: 4346237327318795013}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: SubEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98126,7 +98126,7 @@ GameObject:
   - component: {fileID: 5569699880880376675}
   - component: {fileID: 8169367327686588145}
   - component: {fileID: 4021170740598220530}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102932,7 +102932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7239805238984217404}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: C_Skill_FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102972,7 +102972,7 @@ GameObject:
   - component: {fileID: 5481172563923775741}
   - component: {fileID: 5004310533185686526}
   - component: {fileID: 4060372571982742649}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: PostEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103164,7 +103164,7 @@ GameObject:
   - component: {fileID: 6458490163002835778}
   - component: {fileID: 5221312415741182970}
   - component: {fileID: 2968571304694305832}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: BloodExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107971,7 +107971,7 @@ GameObject:
   - component: {fileID: 4545718150666886268}
   - component: {fileID: 553207924597704824}
   - component: {fileID: 1329620905371564595}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: ColorRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112814,7 +112814,7 @@ GameObject:
   - component: {fileID: 1920001775182006145}
   - component: {fileID: 5613328938005310839}
   - component: {fileID: 3955467790859548987}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: BlackRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117716,7 +117716,7 @@ GameObject:
   - component: {fileID: 6506495630462349784}
   - component: {fileID: 1596439217784891899}
   - component: {fileID: 4565058895053253659}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117878,7 +117878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3919831606837335004}
   - component: {fileID: 2187258476709886320}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: CamShake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117971,7 +117971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7835793563298571771}
   - component: {fileID: 6191731453039734369}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118099,7 +118099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641975581184823239}
   - component: {fileID: 2125887078489129946}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Boss_Exploaion 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118166,7 +118166,7 @@ GameObject:
   - component: {fileID: 6495123206193404322}
   - component: {fileID: 6706397082565536642}
   - component: {fileID: 4402566150248771336}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: BirdLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123086,7 +123086,7 @@ GameObject:
   - component: {fileID: 8081236925343120276}
   - component: {fileID: 5317021120011972000}
   - component: {fileID: 6599659508953356528}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123283,7 +123283,7 @@ GameObject:
   - component: {fileID: 2286300050451846017}
   - component: {fileID: 5635956664586066997}
   - component: {fileID: 3542396159452730272}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128124,7 +128124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482490428755527022}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128159,7 +128159,7 @@ GameObject:
   - component: {fileID: 2310837382673785489}
   - component: {fileID: 4649368018891124050}
   - component: {fileID: 1822086767444081833}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133019,7 +133019,7 @@ GameObject:
   - component: {fileID: 5661054545699383347}
   - component: {fileID: 4197355907181080902}
   - component: {fileID: 7322825664991207618}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137872,7 +137872,7 @@ GameObject:
   - component: {fileID: 1111018747647632707}
   - component: {fileID: 4102475061529418919}
   - component: {fileID: 8136895907032551636}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: DecalBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138025,7 +138025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7425318542226177145}
   - component: {fileID: 776749006487102607}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: BLOODSUCKING
   m_TagString: Untagged
   m_Icon: {fileID: 0}

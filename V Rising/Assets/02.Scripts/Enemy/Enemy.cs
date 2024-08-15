@@ -152,9 +152,9 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator End()
     {
-        yield return new WaitForSeconds(3);
-        FadeManager.instance.FadeIn();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4);
+        FadeManager.instance.FadeIn(7);
+        yield return new WaitForSeconds(8f);
         SceneManager.LoadScene(2);
     }
 

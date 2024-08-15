@@ -180,10 +180,10 @@ public class Eskill : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         check = 0;
-        float attackTime = 0.3f;
+        float attackTime = 0.15f;
         float attackCheck = 0;
         //SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.ESkill_3Combo, transform, Vector3.zero);
-        while (check < 1)
+        while (check < 0.5)
         {
             transform.position = target.transform.position;
             check += 0.01f;

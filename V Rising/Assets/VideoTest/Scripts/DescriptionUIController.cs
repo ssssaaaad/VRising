@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 using UnityEngine.UI;
 
 public class DescriptionUIController : MonoBehaviour
@@ -12,6 +13,7 @@ public class DescriptionUIController : MonoBehaviour
 
     public List<Image> descriptionImages = new List<Image>();
 
+
     private void Start()
     {
         for (int i = 0; i < descriptionImages.Count; i++)
@@ -21,46 +23,23 @@ public class DescriptionUIController : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            StartCoroutine(FadeIn(0));
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            StartCoroutine(FadeIn(1));
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            StartCoroutine(FadeIn(2));
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            StartCoroutine(FadeIn(3));
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            StartCoroutine(FadeIn(4));
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            StartCoroutine(FadeIn(5));
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            StartCoroutine(FadeIn(6));
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            StartCoroutine(FadeIn(7));
-        }
+        StopAllCoroutines();
     }
 
     public IEnumerator FadeIn(int index)
     {
+        for (int i = 0; i < index; i++)
+        {
+            descriptionImages[i].gameObject.SetActive(false);
+        }
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.UI_Sound, null, Vector3.zero, 0);
         descriptionImages[index].DOFade(1f, 1f);
+        if(index == 6)
+        {
+            desctionTime = 20;
+        }
         yield return new WaitForSeconds(desctionTime);
         descriptionImages[index].DOFade(0.0f, 1f);
     }

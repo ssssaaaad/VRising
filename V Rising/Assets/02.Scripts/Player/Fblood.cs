@@ -165,6 +165,7 @@ public class Fblood : MonoBehaviour
         DrainCount++;
 
         PManager.fblooding = false;
+        PManager.animator.SetTrigger("Drain_End");
         OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
 
     }

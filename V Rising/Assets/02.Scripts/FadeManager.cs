@@ -23,16 +23,16 @@ public class FadeManager : MonoBehaviour
         }
         fadeImage.gameObject.SetActive(false);
     }
-    public void FadeOut()
+    public void FadeOut(float time = 2)
     {
         fadeImage.gameObject.SetActive(true);
-        fadeImage.DOColor(new Color(0, 0, 0, 0), 2f);
+        fadeImage.DOColor(new Color(0, 0, 0, 0), time);
     }
 
-    public void FadeIn()
+    public void FadeIn(float time = 2)
     {
         fadeImage.gameObject.SetActive(true);
-        fadeImage.DOColor(new Color(0, 0, 0, 1), 2f);
+        fadeImage.DOColor(new Color(0, 0, 0, 1), time);
     }
 
     public void SetInactiveFade()
