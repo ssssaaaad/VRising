@@ -26,6 +26,7 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator GameStarter()
     {
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.StartCut, null, Vector3.zero, 0);
         yield return new WaitForSeconds(15f);
 
         Player.SetActive(true);
