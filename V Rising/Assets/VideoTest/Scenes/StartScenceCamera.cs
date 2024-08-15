@@ -14,6 +14,8 @@ public class StartScenceCamera : MonoBehaviour
     public Vector3 pos;
     public Quaternion rot;
 
+    public float disance = 150f;
+
     public Vector3 endPos;
     public Vector3 endRot;
 
@@ -31,13 +33,14 @@ public class StartScenceCamera : MonoBehaviour
         */
 
         Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(transform.DOMove(transform.position + new Vector3(0, 0, 175), 5f))
+        mySequence.Append(transform.DOMove(transform.position + new Vector3(0, 0, disance), 5f))
             .Append(coffin.transform.DOShakePosition(2f,new Vector3(Random.Range(-.8f,.8f), Random.Range(-.2f, .2f), Random.Range(-.8f, .8f)), 30, 30, false, false, ShakeRandomnessMode.Harmonic))
             .Join(transform.DOShakePosition(2f,new Vector3(Random.Range(-.8f,.8f), Random.Range(-.2f, .2f), Random.Range(-.8f, .8f)), 30, 30, false, false, ShakeRandomnessMode.Harmonic))
             .Append(coffin.transform.DOMove(coffin.transform.position + new Vector3(0, 10, 0), .5f))
             .Append(coffin.transform.DORotate(new Vector3(90, 180, 0), 5.0f, RotateMode.Fast))
             .Append(coffin.transform.DOShakePosition(2f, new Vector3(Random.Range(-.8f, .8f), Random.Range(-.2f, .2f), Random.Range(-.8f, .8f)), 30, 30, false, false, ShakeRandomnessMode.Harmonic))
             //.Join(transform.DOMove(endPos, 3f)).Join(transform.DORotate(endRot,3f,RotateMode.Fast))
+            .SetDelay(1.5f)
             .OnComplete(() =>
             {
                 coffin.transform.gameObject.SetActive(false);
