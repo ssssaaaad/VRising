@@ -40,6 +40,13 @@ public class Sound
         Door_SFX,
         Enemy_Sword,
         UI_Sound,
+        Bass808,
+        BloodDrain,
+        ESkill_1Combo,
+        ESkill_3Combo,
+        Ending,
+        InplaceBGM,
+        StartCut,
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip
