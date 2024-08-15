@@ -41,12 +41,17 @@ public class Sound
         Enemy_Sword,
         UI_Sound,
         Bass808,
-        BloodDrain,
+        BloodDrain_Start,
         ESkill_1Combo,
         ESkill_3Combo,
         Ending,
         InplaceBGM,
         StartCut,
+        BloodDrain_End,
+        Light,
+        Fire,
+        Rock,
+        Explosion,
     }
     public AudioClipName audioClipName;
     public AudioClip audioClip

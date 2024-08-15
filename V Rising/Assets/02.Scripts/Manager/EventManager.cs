@@ -18,6 +18,10 @@ public class EventManager : MonoBehaviour
     //public PlayerAudioListener playerAudioListener;
 
     public GameObject explosion_Effect;
+    public GameObject fire_Effect;
+    public GameObject rock_Effect1;
+
+    public GameObject jansang_Effect;
 
     private void Start()
     {
@@ -29,8 +33,14 @@ public class EventManager : MonoBehaviour
     public IEnumerator GameStarter()
     {
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.StartCut, null, Vector3.zero, 0);
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(5f);
+        rock_Effect1.SetActive(true);
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Rock, PManager.transform, Vector3.zero);
+
+        yield return new WaitForSeconds(5f);
         explosion_Effect.SetActive(true);
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Explosion, PManager.transform, Vector3.zero);
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Rock, PManager.transform, Vector3.zero);
         Player.SetActive(true);
 
         startAni = StartCoroutine(StartAni());
@@ -42,15 +52,26 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         float check = 0f;
+        bool check_Fire = false;
+        bool check_FireSound = false;
         while (check < 3)
         {
             Player.transform.position -= new Vector3(0, 0.025f, 0);
+            if (!check_FireSound && check > 1.75)
+            {
+                check_FireSound = true;
+                SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Fire, PManager.transform, Vector3.zero);
+            }
 
-
+            if (!check_Fire && check > 2)
+            {
+                check_Fire = true;
+                fire_Effect.SetActive(true);
+            }
             check += 0.01f;
             yield return new WaitForSeconds(0.01f);
         }
-
+        jansang_Effect.SetActive(false);
         PManager.animator.SetTrigger("Landing");
         yield return new WaitForSeconds(0.5f);
 
@@ -69,13 +90,15 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         // 철창 움직임
+
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Door_SFX, Gate1.transform, Vector3.zero);
         float check = 0;
-        while (check < 5)
+        while (check < 8)
         {
-            Gate.transform.position += new Vector3(0, 0.3f,0);
-            Gate1.transform.position += new Vector3(0, 0.3f, 0);
-            Gate2.transform.position += new Vector3(0, 0.3f, 0);
-            Gate3.transform.position += new Vector3(0, 0.3f, 0);
+            Gate.transform.position += new Vector3(0, 0.15f,0);
+            Gate1.transform.position += new Vector3(0, 0.15f, 0);
+            Gate2.transform.position += new Vector3(0, 0.15f, 0);
+            Gate3.transform.position += new Vector3(0, 0.15f, 0);
             check += 0.1f;
             yield return new WaitForSeconds(0.01f);
         }
