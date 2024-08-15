@@ -9,6 +9,7 @@ public class VideoPlayerController : MonoBehaviour
     private VideoPlayer videoPlayer;
     public GameObject menu;
 
+
     private void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
@@ -26,6 +27,7 @@ public class VideoPlayerController : MonoBehaviour
 
     private void OnVideoEnd(VideoPlayer vp)
     {
+        FadeManager.instance.FadeOut();
         menu.SetActive(true);
     }
 

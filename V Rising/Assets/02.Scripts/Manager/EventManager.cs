@@ -44,6 +44,7 @@ public class EventManager : MonoBehaviour
     {
         startAni = StartCoroutine(GameStarter());
 
+        FadeManager.instance.FadeOut();
         PManager = GetComponentInChildren<PlayerManager>(true);
     }
 
@@ -104,10 +105,6 @@ public class EventManager : MonoBehaviour
         SoundManager.instance.ActiveBGM(Sound.AudioClipName.InplaceBGM);
     }
 
-    public void FadeOut()
-    {
-        fadeOut.DOColor(new Color(0, 0, 0, 1), 3);
-    }
 
    public IEnumerator FightStart()
     {

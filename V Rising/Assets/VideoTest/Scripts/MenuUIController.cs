@@ -17,8 +17,6 @@ public class MenuUIController : MonoBehaviour
 
     public Image backOptionSprite;
 
-    public Image fadeOut;
-
     private void Start()
     {
         Button startButton = startSprite.AddComponent<Button>();
@@ -55,15 +53,11 @@ public class MenuUIController : MonoBehaviour
         Application.Quit();
     }
 
-    private void FadeOut()
-    {
-        fadeOut.DOColor(new Color(0, 0, 0, 1), 1.5f);
-    }
 
     IEnumerator SceneLoad(int index)
     {
-        FadeOut();
-        yield return new WaitForSeconds(1.8f);
+        FadeManager.instance.FadeIn();
+        yield return new WaitForSeconds(2.2f);
         SceneManager.LoadScene(index);
     }
 }

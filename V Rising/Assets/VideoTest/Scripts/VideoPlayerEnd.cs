@@ -14,6 +14,7 @@ public class VideoPlayerEnd : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            FadeManager.instance.SetInactiveFade();
         }
         else
         {

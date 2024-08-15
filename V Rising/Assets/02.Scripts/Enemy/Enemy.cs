@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator End()
     {
         yield return new WaitForSeconds(3);
-        EventManager.instance.FadeOut();
+        FadeManager.instance.FadeIn();
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(2);
     }
