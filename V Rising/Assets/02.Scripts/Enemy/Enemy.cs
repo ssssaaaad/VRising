@@ -103,7 +103,33 @@ public class Enemy : MonoBehaviour
             animator.speed = 0;
             enemyUI?.image_DrainIcon.gameObject.SetActive(false);
         }
+
+        StartCoroutine(StartZoom());
     }
+
+    public float zoomDistanceSpeed = 2f;
+    public float zoomDistance = 2;
+
+    public float zoomDistanceTimer = 2f;
+
+    private IEnumerator StartZoom()
+    {
+        
+        while (Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval > Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval - zoomDistance)
+        {
+            Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval -= zoomDistanceSpeed * Time.deltaTime;
+           
+            yield return null; // 다음 프레임까지 대기
+        }
+        yield return new WaitForSeconds(zoomDistanceTimer);
+
+        while (Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval < Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval + zoomDistance)
+        {
+            Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval += zoomDistanceSpeed * Time.deltaTime;
+            yield return null; // 다음 프레임까지 대기
+        }
+    }
+
     public void FinishDrain()
     {
         animator.speed = 1;
