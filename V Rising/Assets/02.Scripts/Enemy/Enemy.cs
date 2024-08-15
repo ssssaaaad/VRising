@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     
@@ -113,6 +114,13 @@ public class Enemy : MonoBehaviour
         {
             drainFinishEvent();
         }
+        StartCoroutine(End());
+    }
+
+    private IEnumerator End()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(2);
     }
 
     /// <summary>
