@@ -125,6 +125,8 @@ public class Enemy : MonoBehaviour
         }
         yield return new WaitForSeconds(zoomDistanceTimer);
 
+        currentInterval = Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval;
+
         while (Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval < currentInterval + zoomDistance)
         {
             Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval += zoomDistanceSpeed * Time.deltaTime;
