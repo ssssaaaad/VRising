@@ -7,6 +7,7 @@ using DG.Tweening;
 public class EventManager : MonoBehaviour
 {
     public GameObject Player;
+    public GameObject Swod;
     public GameObject Gate;
     public GameObject Gate1;
     public GameObject Gate2;
@@ -49,6 +50,8 @@ public class EventManager : MonoBehaviour
 
         PManager.animator.SetTrigger("Landing");
         yield return new WaitForSeconds(0.5f);
+
+        Swod.SetActive(true);
 
         PManager.IsStart = true;
         StartCoroutine(PManager.DUIC.FadeIn(0));

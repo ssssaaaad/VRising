@@ -11,7 +11,7 @@ public class EventTrigger2 : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            player.GadiunFight();
+            player.GuardianFight();
         }
     }
 }
