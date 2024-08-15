@@ -119,7 +119,8 @@ public class Fblood : MonoBehaviour
         dontMove = true;
         head.transform.forward = Scaner.closeEnemy.transform.forward;
         // 흡혈 캐스팅중 흡혈 대상 이동 불가
-
+        SFXAudioSource drainSound = null;
+        drainSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.BloodDrain, transform, Vector3.zero);
         while (cast > Time.time)
         {
             yield return null;

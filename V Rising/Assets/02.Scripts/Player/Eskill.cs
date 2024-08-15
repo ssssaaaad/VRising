@@ -78,9 +78,8 @@ public class Eskill : MonoBehaviour
         yield return new WaitForSeconds(castTime);  // 캐스팅 시간동안 대기
 
         PM.animator.SetTrigger("Active_Skill_E");
-
         Indi.Indi_E_break();
-
+        SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.ESkill_1Combo, transform, Vector3.zero);
         ActivateSkill();     // 투사체 발사
 
         playerMove.SetSpeed(playerSpeed);   // 속도 정상화
@@ -185,6 +184,7 @@ public class Eskill : MonoBehaviour
         check = 0;
         float attackTime = 0.3f;
         float attackCheck = 0;
+        //SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.ESkill_3Combo, transform, Vector3.zero);
         while (check < 1)
         {
             transform.position = target.transform.position;
@@ -194,6 +194,8 @@ public class Eskill : MonoBehaviour
             {
                 Damage(target, EComdodmg);
                 attackCheck = 0;
+                print("c");
+                SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.ESkill_1Combo, transform, Vector3.zero);
             }
             yield return new WaitForSeconds(0.01f);
         }

@@ -15,7 +15,8 @@ public class EventManager : MonoBehaviour
 
     private PlayerManager PManager;
     private Coroutine startAni;
-    
+
+    public GameObject explosion_Effect;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class EventManager : MonoBehaviour
     {
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.StartCut, null, Vector3.zero, 0);
         yield return new WaitForSeconds(15f);
-
+        explosion_Effect.SetActive(true);
         Player.SetActive(true);
 
         startAni = StartCoroutine(StartAni());
@@ -58,6 +59,8 @@ public class EventManager : MonoBehaviour
         StartCoroutine(PManager.DUIC.FadeIn(0));
 
         StartCoroutine(FightStart());
+
+        SoundManager.instance.ActiveBGM(Sound.AudioClipName.InplaceBGM);
     }
 
    public IEnumerator FightStart()

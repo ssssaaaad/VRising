@@ -16165,41 +16165,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1057625431204328656, guid: 5e59e3fe9d25a6d44a337cceee864049,
-        type: 3}
-      propertyPath: image_fill
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1057625431204328656, guid: 5e59e3fe9d25a6d44a337cceee864049,
-        type: 3}
-      propertyPath: text_CoolTime
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1903351724931054907, guid: 5e59e3fe9d25a6d44a337cceee864049,
-        type: 3}
-      propertyPath: radius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2759288695262503053, guid: 5e59e3fe9d25a6d44a337cceee864049,
-        type: 3}
-      propertyPath: image_fill
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2759288695262503053, guid: 5e59e3fe9d25a6d44a337cceee864049,
-        type: 3}
-      propertyPath: text_CoolTime
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3822206715635005769, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: bossHealth
       value: 
       objectReference: {fileID: 1801502298}
-    - target: {fileID: 3822206715635005769, guid: 5e59e3fe9d25a6d44a337cceee864049,
-        type: 3}
-      propertyPath: bloodHealth
-      value: 
-      objectReference: {fileID: 3998330517381045248}
     - target: {fileID: 3822206715635005769, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: bossHealthImage
@@ -16209,16 +16179,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_Group
-      objectReference: {fileID: 0}
-    - target: {fileID: 5401770359445342163, guid: 5e59e3fe9d25a6d44a337cceee864049,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7132920985637654602, guid: 5e59e3fe9d25a6d44a337cceee864049,
-        type: 3}
-      propertyPath: m_StepOffset
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7704376666932227972, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
@@ -27406,12 +27366,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.91843104
+      value: -0.40861478
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.3955812
+      value: -0.9127069
       objectReference: {fileID: 0}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
@@ -70684,18 +70644,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c688b7ff12defb14288b519b99ac3170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3998330517381045248 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2602906714244888806, guid: 5e59e3fe9d25a6d44a337cceee864049,
-    type: 3}
-  m_PrefabInstance: {fileID: 460299387}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b235a4e7db8cde44aa7bf6336d4d192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &3998330517381045258 stripped

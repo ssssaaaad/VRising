@@ -16045,6 +16045,11 @@ PrefabInstance:
       propertyPath: Gate3
       value: 
       objectReference: {fileID: 582968376}
+    - target: {fileID: 7704376666932227972, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: explosion_Effect
+      value: 
+      objectReference: {fileID: 858589789}
     - target: {fileID: 9004534106012792138, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: DUI
@@ -24276,6 +24281,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1183445374}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &858589789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 389972561583142955, guid: 5fc889ea6ad860a4895d73a889136afe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1144673821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &861767641 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9166794296114104719, guid: e83c6f565c74ef8458851acee959904a,
@@ -27052,12 +27063,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.69046384
+      value: 0.9613431
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.723367
+      value: 0.27535346
       objectReference: {fileID: 0}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
@@ -33677,17 +33688,17 @@ PrefabInstance:
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
