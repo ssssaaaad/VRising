@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6077362404906272474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GravityPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3813426807954383982}
   - component: {fileID: 3526405014302043420}
   - component: {fileID: 1657889544413898395}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 7909245642128942473}
   - component: {fileID: 3381246995479792469}
   - component: {fileID: 4040512783782197470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5653224453764740374}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.28990433, z: 0, w: -0.9570557}
+  m_LocalRotation: {x: 0, y: 0.79363036, z: 0, w: 0.6084003}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5032,7 +5032,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: efd99e46c7e2b7846981d1fa4c0c1f61, type: 2}
-  - {fileID: 2100000, guid: 8e36056f9fedf344487cf9077d3c8a90, type: 2}
+  - {fileID: 2100000, guid: efd99e46c7e2b7846981d1fa4c0c1f61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5122,7 +5122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7217421470193305291}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5139,7 +5139,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7295971138370239845}
@@ -5160,7 +5160,7 @@ GameObject:
   - component: {fileID: 9073879235750169640}
   - component: {fileID: 4523186214619645230}
   - component: {fileID: 3280734366620816594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlackEnergy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10096,12 +10096,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 7295971138370239845}
     m_Modifications:
     - target: {fileID: 1085100862789984, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085100862789984, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150354096757892, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175890086577854, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1175890086577854, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206070081499172, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306617396714074, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1306617396714074, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
       propertyPath: m_IsActive
@@ -10112,12 +10132,28 @@ PrefabInstance:
       value: Effect13_Collision
       objectReference: {fileID: 0}
     - target: {fileID: 1369401709340560, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369401709340560, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508149600269592, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514124379164510, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1514124379164510, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768523674010388, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4464392415865986, guid: 9922a3006f27f504a8ad6992ba661791, type: 3}
       propertyPath: m_LocalScale.x
