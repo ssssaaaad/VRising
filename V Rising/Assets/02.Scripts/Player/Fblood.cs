@@ -147,22 +147,23 @@ public class Fblood : MonoBehaviour
 
             StartCoroutine(PManager.DUIC.FadeIn(2));
             InGameUIController.instance.rockRC();
+            hp_BloodCurrent = hp_BloodCurrent + 15;
         }
         else if (DrainCount == 1)
         {
             PManager.Drain_2 = true;
             InGameUIController.instance.rockT();
+            hp_BloodCurrent = hp_BloodCurrent + 25;
         }
         else if (DrainCount == 2)
         {
-
+            hp_BloodCurrent = hp_BloodCurrent + 50;
             StartCoroutine(PManager.DUIC.FadeIn(6));
         }
 
         DrainCount++;
 
         PManager.fblooding = false;
-        hp_BloodCurrent = hp_BloodCurrent + 10;
         OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
 
     }
