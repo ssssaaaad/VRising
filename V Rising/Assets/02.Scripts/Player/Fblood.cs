@@ -39,8 +39,8 @@ public class Fblood : MonoBehaviour
         playerMove = GetComponent<PlayerMove>();
         originalLayer = gameObject.layer;
 
-        hp_BloodCurrent = 0;
-        //OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
+        hp_BloodCurrent = 10;
+        OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
     }
 
     private void Update()
@@ -94,7 +94,7 @@ public class Fblood : MonoBehaviour
 
 
 
-        // HP가 변경되면 이벤트를 호출
+        // HP가 변경되면   피흡 이벤트를 호출
         OnHealthChanged?.Invoke(hp_BloodCurrent, hp_BloodMax);
 
     }
@@ -145,10 +145,12 @@ public class Fblood : MonoBehaviour
             PManager.Drain_1 = true;
 
             StartCoroutine(PManager.DUIC.FadeIn(2));
+            InGameUIController.instance.rockRC();
         }
         else if (DrainCount == 1)
         {
             PManager.Drain_2 = true;
+            InGameUIController.instance.rockT();
         }
         else if (DrainCount == 2)
         {

@@ -37,7 +37,7 @@ public class StartScenceCamera : MonoBehaviour
             .Append(coffin.transform.DOMove(coffin.transform.position + new Vector3(0, 10, 0), .5f))
             .Append(coffin.transform.DORotate(new Vector3(90, 180, 0), 5.0f, RotateMode.Fast))
             .Append(coffin.transform.DOShakePosition(2f, new Vector3(Random.Range(-.8f, .8f), Random.Range(-.2f, .2f), Random.Range(-.8f, .8f)), 30, 30, false, false, ShakeRandomnessMode.Harmonic))
-            .Join(transform.DOMove(endPos, 3f)).Join(transform.DORotate(endRot,3f,RotateMode.Fast))
+            //.Join(transform.DOMove(endPos, 3f)).Join(transform.DORotate(endRot,3f,RotateMode.Fast))
             .OnComplete(() =>
             {
                 coffin.transform.gameObject.SetActive(false);

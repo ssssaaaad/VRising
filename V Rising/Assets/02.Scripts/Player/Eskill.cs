@@ -38,6 +38,7 @@ public class Eskill : MonoBehaviour
     private bool isCoolingDown = false;     // 쿨타임 여부 확인
     private bool comEActive = false;    // ComEskill 활성화 여부
     private int originalLayer;      // 기존 레이어
+    private GameObject hitEffect;
 
     public int cameraShakeTypeIndex = 0;
 
@@ -156,10 +157,7 @@ public class Eskill : MonoBehaviour
 
 
         PM.comeskilling = true;
-        if (E_Skill_Particle2 != null)
-        {
-            E_Skill_Particle2.SetActive(true);
-        }
+        
         StartCoroutine(ComboECoroutine());
 
         Debug.Log("ComdoE 시전");
@@ -193,6 +191,13 @@ public class Eskill : MonoBehaviour
             if(attackCheck > attackTime)
             {
                 Damage(target, EComdodmg);
+
+                hitEffect = Instantiate(E_Skill_Particle2);
+                hitEffect.transform.position = transform.position;
+                hitEffect.SetActive(true);
+
+                Destroy(hitEffect, 1f);
+
                 attackCheck = 0;
             }
             yield return new WaitForSeconds(0.01f);
@@ -200,7 +205,6 @@ public class Eskill : MonoBehaviour
 
         Walking.SetActive(true);
 
-        E_Skill_Particle2.SetActive(false);
         transform.position = target.transform.position - target.transform.forward * 5;
         // 모델 활성화
         gameObject.layer = originalLayer;

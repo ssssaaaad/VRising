@@ -78,7 +78,7 @@ public class InGameUIController : MonoBehaviour
         curentHealthText.transform.localScale = Vector3.one;
 
         currentDisplayHealth = health.hp_Max;
-        bloodHealthBarImage.fillAmount = 0f;
+        //bloodHealthBarImage.fillAmount = 0f;
     }
 
     private void Update()
@@ -125,9 +125,7 @@ public class InGameUIController : MonoBehaviour
 
     private void UpdateBloodHealthBar(float currentHealth, float maxHealth)
     {
-        
         bloodHealthBarImage.fillAmount = (float)currentHealth / maxHealth;
-        //StartCoroutine(AnimateHealthBarBoss(currentHealth, maxHealth));
     }
 
     private void UpdateBossHealthBar(float currentHealth, float maxHealth)
@@ -138,40 +136,9 @@ public class InGameUIController : MonoBehaviour
 
     private void UpdateHealthBar(float currentHealth, float maxHealth)
     {
-        Debug.Log((float)currentHealth / maxHealth);
-
-
         healthBarImage.fillAmount = (float)currentHealth / maxHealth;
-
         curentHealthText.text = currentHealth.ToString();
         maxHealthText.text = " / " + maxHealth.ToString();
-
-        /*
-
-        // 체력바 업데이트 
-        StartCoroutine(AnimateHealthBar(currentHealth, maxHealth));
-        
-        curentHealthText.text = currentDisplayHealth.ToString();
-
-        StartCoroutine(AnimateScaleText());
-
-        int step = currentHealth < maxHealth ? 1 : -1;
-        int currentHealth2 = (int)currentHealth;
-
-
-        while (currentHealth2 != maxHealth)
-        {
-            currentHealth += step;
-            curentHealthText.text = currentHealth.ToString();
-            currentDisplayHealth = currentHealth;
-        }
-
-        currentDisplayHealth = maxHealth;  // 최종 체력 값 업데이트
-    
-        StartCoroutine(AnimateText(currentDisplayHealth, currentHealth));
-        */
-
-
     }
 
     IEnumerator AnimateText(float startHealth, float endHealth)
