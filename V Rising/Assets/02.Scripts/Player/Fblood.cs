@@ -156,6 +156,8 @@ public class Fblood : MonoBehaviour
             StartCoroutine(PManager.DUIC.FadeIn(6));
         }
 
+        DrainCount++;
+
         PManager.fblooding = false;
     }
 

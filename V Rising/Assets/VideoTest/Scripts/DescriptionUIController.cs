@@ -62,7 +62,6 @@ public class DescriptionUIController : MonoBehaviour
         descriptionImages[index].DOFade(1f, 1f);
         yield return new WaitForSeconds(desctionTime);
         descriptionImages[index].DOFade(0.0f, 1f);
-
     }
 
 }
