@@ -44,7 +44,6 @@ public class SFXAudioSource : MonoBehaviour
             StopCoroutine(playCheck);
             playCheck = null;
         }
-
         this.target = target;
         this.sound = sound;
         audioSource.clip = sound.audioClip;

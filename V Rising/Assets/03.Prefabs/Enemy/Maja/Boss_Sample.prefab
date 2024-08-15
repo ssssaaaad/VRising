@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92dfb7e8d3c247342ae1e6ddc9c025d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alive: 1
   drain: 0
   canDrain: 1
   boss: 1
@@ -128,13 +129,17 @@ MonoBehaviour:
   origin: {fileID: 0}
   enemyUI: {fileID: 0}
   effectTrigger: {fileID: 0}
-  hp_Max: 6621
+  hp_Max: 1000
   hp_Current: 0
   rotateSpeed: 200
   forward: {x: 0, y: 0, z: 0}
   animator: {fileID: 161733388955688420}
   effectPosition: {fileID: 3335935865072936366}
   drainEffect: {fileID: 1544035262801600497}
+  zoomDistanceSpeed: 2
+  zoomDistance: 7
+  zoomDistanceTimer: 2
+  currentInterval: 0
   state: 0
   minion_Prefab: {fileID: 7106103959459495280, guid: dc6c4b38481bca4429533f78e58bcd14,
     type: 3}
@@ -22618,12 +22623,12 @@ PrefabInstance:
     - target: {fileID: 8534601073107679804, guid: 383a0dfb3babc0a4393dc3e7911d324a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9320678
+      value: 0.7437606
       objectReference: {fileID: 0}
     - target: {fileID: 8534601073107679804, guid: 383a0dfb3babc0a4393dc3e7911d324a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.36228383
+      value: 0.6684462
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -93,13 +93,20 @@ public class Maja_MainSkillPattern2 : Pattern
         }
 
         minion.ActiveMajaMainSkill2(minionSpeed);
+        SFXAudioSource temp = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_MainSkill2, transform, Vector3.zero);
         while (true)
         {
+            if (!temp.audioSource.isPlaying)
+            {
+                temp = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_MainSkill2, transform, Vector3.zero);
+            }
             if (minion == null || maja.maja_Minions.Count == 0)
             {
                 patterDelay = false;
                 maja.animator.SetTrigger("Cancle");
                 StartCoroutine(InactiveAllVFX(0.5f));
+                temp.StopSound_FadeOut();
+                temp = null;
                 yield break;
             }
             if (minion.state == Maja_Minion.State.Death)
@@ -107,13 +114,22 @@ public class Maja_MainSkillPattern2 : Pattern
                 patterDelay = false;
                 maja.animator.SetTrigger("Cancle");
                 StartCoroutine(InactiveAllVFX(0.5f));
+                temp.StopSound_FadeOut();
+                temp = null;
                 yield break;
             }
             if (Vector3.Distance(new Vector3(minion.transform.position.x, 0, minion.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z)) < 2f)
             {
+                temp.StopSound_FadeOut();
+                temp = null;
                 break;
             }
             yield return new WaitForSeconds(0.1f);
+        }
+
+        if (temp != null)
+        {
+            temp.StopSound_FadeOut();
         }
         minion.UpdateHP(-1000, null, false);
         maja.UpdateHP(maja.hp_Max * 0.1f, null);
