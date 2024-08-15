@@ -155,6 +155,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: C_Skill_FX
       objectReference: {fileID: 0}
+    - target: {fileID: 8575301898104034719, guid: 3bf01c9416ba0144688660b345b92778,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

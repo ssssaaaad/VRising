@@ -17059,6 +17059,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 175
       objectReference: {fileID: 0}
+    - target: {fileID: 1327346455607503741, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 16513
+      objectReference: {fileID: 0}
     - target: {fileID: 1339926310250249313, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -17089,6 +17094,12 @@ PrefabInstance:
       propertyPath: text_CoolTime
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3358338793887673359, guid: 5e59e3fe9d25a6d44a337cceee864049,
+        type: 3}
+      propertyPath: Cboom
+      value: 
+      objectReference: {fileID: 7334235630602265833, guid: 8e848379f88af7e40a86e9bde1006289,
+        type: 3}
     - target: {fileID: 3358338793887673359, guid: 5e59e3fe9d25a6d44a337cceee864049,
         type: 3}
       propertyPath: particle_Skill_C
@@ -31528,12 +31539,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99655396
+      value: -0.5122443
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.08294745
+      value: -0.8588398
       objectReference: {fileID: 0}
     - target: {fileID: 4400247064693308126, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
