@@ -26781,12 +26781,12 @@ PrefabInstance:
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.07472127
+      value: 0.76415867
       objectReference: {fileID: 0}
     - target: {fileID: 1703342319167126697, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9972045
+      value: 0.6450284
       objectReference: {fileID: 0}
     - target: {fileID: 6739573421114516674, guid: 2feeb9b68e1f4ec47a2f974ffd103aa2,
         type: 3}
@@ -33366,7 +33366,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1421241469}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 451812115, guid: 5fc889ea6ad860a4895d73a889136afe, type: 3}
       propertyPath: m_Materials.Array.size
@@ -33375,37 +33375,37 @@ PrefabInstance:
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.818182
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.818182
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.818182
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.010578077
+      value: 0.56306726
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.958
+      value: -1.4864094
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.4650204
+      value: 194.25272
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0012999176
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
@@ -33415,12 +33415,12 @@ PrefabInstance:
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.99999917
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
         type: 3}
@@ -43484,10 +43484,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1112964082}
-    - targetCorrespondingSourceObject: {fileID: 1403311367773474595, guid: 9bca056ba7d744345a13f3985f6fb5d4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1649844372}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bca056ba7d744345a13f3985f6fb5d4, type: 3}
 --- !u!4 &1421241469 stripped
@@ -49941,12 +49937,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!4 &1649844372 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 389972561583142952, guid: 5fc889ea6ad860a4895d73a889136afe,
-    type: 3}
-  m_PrefabInstance: {fileID: 1144673821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1650584156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7777627408899662443, guid: 00f5f1daa12a9f849bed8d98ec7c4cf2,
@@ -75116,3 +75106,4 @@ SceneRoots:
   - {fileID: 1786345703}
   - {fileID: 1157062537}
   - {fileID: 1421241468}
+  - {fileID: 1144673821}
