@@ -112,10 +112,12 @@ public class Enemy : MonoBehaviour
 
     public float zoomDistanceTimer = 2f;
 
+    public float currentInterval = Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval;
+
     private IEnumerator StartZoom()
     {
         
-        while (Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval > Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval - zoomDistance)
+        while (Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval > currentInterval - zoomDistance)
         {
             Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval -= zoomDistanceSpeed * Time.deltaTime;
            
@@ -123,7 +125,7 @@ public class Enemy : MonoBehaviour
         }
         yield return new WaitForSeconds(zoomDistanceTimer);
 
-        while (Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval < Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval + zoomDistance)
+        while (Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval < currentInterval + zoomDistance)
         {
             Camera.main.gameObject.GetComponent<MainCamera>().camcurrentinterval += zoomDistanceSpeed * Time.deltaTime;
             yield return null; // 다음 프레임까지 대기
