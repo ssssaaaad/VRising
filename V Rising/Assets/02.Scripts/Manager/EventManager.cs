@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
+    public static EventManager instance;
     public GameObject Player;
     public GameObject Swod;
     public GameObject Gate;
@@ -22,6 +24,21 @@ public class EventManager : MonoBehaviour
     public GameObject rock_Effect1;
 
     public GameObject jansang_Effect;
+    public Image fadeOut;
+
+    public StartScenceCamera startScenceCamera;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -32,6 +49,8 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator GameStarter()
     {
+        yield return new WaitForSeconds(1);
+        startScenceCamera.StartCutScene();
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.StartCut, null, Vector3.zero, 0);
         yield return new WaitForSeconds(5f);
         rock_Effect1.SetActive(true);
@@ -83,6 +102,11 @@ public class EventManager : MonoBehaviour
         StartCoroutine(FightStart());
 
         SoundManager.instance.ActiveBGM(Sound.AudioClipName.InplaceBGM);
+    }
+
+    public void FadeOut()
+    {
+        fadeOut.DOColor(new Color(0, 0, 0, 1), 3);
     }
 
    public IEnumerator FightStart()

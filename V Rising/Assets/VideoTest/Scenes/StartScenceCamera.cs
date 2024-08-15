@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,7 +25,11 @@ public class StartScenceCamera : MonoBehaviour
         transform.position = pos;
         transform.rotation = rot;
         startCamera.depth = 10f;
+    }
 
+    public void StartCutScene()
+    {
+    
         /*
             DOShakePosition(float duration, float/Vector3 strength, int vibrato, float randomness, bool snapping, bool fadeOut, ShakeRandomnessMode randomnessMode)
 

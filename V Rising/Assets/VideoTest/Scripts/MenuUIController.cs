@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,6 +16,8 @@ public class MenuUIController : MonoBehaviour
     public GameObject menu;
 
     public Image backOptionSprite;
+
+    public Image fadeOut;
 
     private void Start()
     {
@@ -39,7 +42,7 @@ public class MenuUIController : MonoBehaviour
 
     void OnStartButtonClick()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(SceneLoad(1));
     }
 
     void OnOptionButtonClick()
@@ -52,4 +55,15 @@ public class MenuUIController : MonoBehaviour
         Application.Quit();
     }
 
+    private void FadeOut()
+    {
+        fadeOut.DOColor(new Color(0, 0, 0, 1), 1.5f);
+    }
+
+    IEnumerator SceneLoad(int index)
+    {
+        FadeOut();
+        yield return new WaitForSeconds(1.8f);
+        SceneManager.LoadScene(index);
+    }
 }

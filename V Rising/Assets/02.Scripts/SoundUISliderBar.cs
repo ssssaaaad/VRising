@@ -20,4 +20,16 @@ public class SoundUISliderBar : MonoBehaviour
             slider.value = SoundManager.instance.sfxVolume;
         }
     }
+
+    public void SetVolume()
+    {
+        if (bgm)
+        {
+            SoundManager.instance.ChangeBGMVolum(slider.value);
+        }
+        else
+        {
+            SoundManager.instance.ChangeSFXVolum(slider.value);
+        }
+    }
 }

@@ -5412,6 +5412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462b23864bad11d48a0df08e0221b1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alive: 1
   drain: 0
   canDrain: 1
   boss: 0
@@ -5429,6 +5430,10 @@ MonoBehaviour:
   animator: {fileID: 4307315821333632087}
   effectPosition: {fileID: 6241562290615605043}
   drainEffect: {fileID: 7867570234933347486}
+  zoomDistanceSpeed: 2
+  zoomDistance: 6.5
+  zoomDistanceTimer: 2
+  currentInterval: 0
   state: 0
   range: 7
   traceRange: 50

@@ -84,7 +84,7 @@ public class Maja_MainSkillPattern3 : Pattern
 
         SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Explosion, transform, Vector3.zero);
         yield return new WaitForSeconds(2f);
-        if (!maja.alive)
+        if (maja.hp_Current == 0)
         {
             yield break;
         }
@@ -92,7 +92,7 @@ public class Maja_MainSkillPattern3 : Pattern
 
         for (int i = 0; i < bulletCount; i++)
         {
-            if (!maja.alive)
+            if (maja.hp_Current == 0)
             {
                 maja.model.gameObject.SetActive(true);
                 maja.animator.SetTrigger("Groggy");
