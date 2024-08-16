@@ -137,7 +137,7 @@ public class InGameUIController : MonoBehaviour
     {
 
         healthBarImage.fillAmount = (float)currentHealth / maxHealth;
-        curentHealthText.text = currentHealth.ToString();
+        curentHealthText.text = ((int)currentHealth).ToString();
         maxHealthText.text = " / " + maxHealth.ToString();
     }
 
