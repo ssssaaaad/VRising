@@ -66,6 +66,8 @@ public class Maja : Enemy
 
     public State state;
 
+    public FSM fsm;
+
     public Maja_Minion minion_Prefab;
     public List<Pattern> attackPatterns;
     public Pattern teleport;
@@ -139,16 +141,6 @@ public class Maja : Enemy
         InitEnemy();
     }
 
-
-    private void Update()
-    {
-        Rotate();
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            UpdateHP(-hp_Max*0.1f, null);
-        }
-    }
     private void OnDestroy()
     {
         StopAllCoroutines();
@@ -174,7 +166,6 @@ public class Maja : Enemy
         };
         StartCoroutine(ResetParticle());
     }
-
 
     private void InitPattern()
     {
@@ -277,7 +268,7 @@ public class Maja : Enemy
         phase4_Loop.Add(attackPatterns[5]);
     }
     
-    private void CheckHP()
+    private void FadeCheck()
     {
         if (hp_Current / hp_Max > 0.7f)
         {
@@ -442,69 +433,22 @@ public class Maja : Enemy
     {
         while(alive)
         {
-            PatternCycle();
+            StateUpdate();
             yield return new WaitForSeconds(routineTime);
         }
     }
 
     private bool check = true;
 
-    private void PatternCycle()
+    private void StateUpdate()
     {
 
-        if (state == State.Death)
+        if(target == null && hp_Current > 0)
         {
-            if (!drain)
-            {
-                if(talkSound != null)
-                {
-                    if (!talkSound.audioSource.isPlaying)
-                    { 
-                        talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
-                    }
-                }
-                else
-                {
-                    talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
-                }
-            }
-            if (drain)
-            {
-                alive = false;
-                if (talkSound != null)
-                {
-                    talkSound.StopSound();
-                    talkSound = null;
-                }
-                image_F.SetActive(false);
-            }
-            return;
-        }
-        else if(target == null && hp_Current > 0)
-        {
-            return;
-        }
-        else if (hp_Current == 0 && check)
-        {
-            state = State.Death;
-            check = false;
-            animator.SetBool("IsAlive", false);
-            animator.SetTrigger("Groggy");
-            SoundManager.instance.FadeOut_BGM();
-            canDrain = true;
-            for (int i = 0; i < maja_Minions.Count; i++)
-            {
-                maja_Minions[i].UpdateHP(-10000, null, false);
-            }
-
-            if (talkSound != null)
-            {
-                talkSound.StopSound();
-            }
-            talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
+            ChangeState(State.Idle);
         }
 
-        CheckHP();
+        FadeCheck();
 
         if (PatternDelay != null)
         {
@@ -517,141 +461,32 @@ public class Maja : Enemy
 
         attackCooltime_Current += routineTime;
 
-        if (state == State.Idle)
+        switch (state)
         {
-            if(target != null)
-            {
-                state = State.Move;
-            }
-            return;
-        }
-        else if (state == State.Move)
-        {
-            animator.SetBool("Walk", true);
-            Move(Vector3.zero);
-        }
-        else if (state ==State.Runaway)
-        {
-            animator.SetBool("Walk", true);
-            Runaway();
-        }
-        else if(state == State.Teleport)
-        {
-            animator.SetBool("Walk", false);
-            animator.SetTrigger("Teleport");
-            StopMoveTarget();
-            teleport.ActivePattern(Vector3.zero);
-            state = State.Idle;
-        }
-        else if(state == State.Attack)
-        {
-            StopMoveTarget();
-            if (attackCooltime_Current > attackCooltime_Max)
-            {
-                targetDirection = target.position- transform.position;
-                targetDirection.y = 0;
-                targetDirection = targetDirection.normalized;
-
-                forward = new Vector3(target.position.x - model.position.x, model.position.y, target.position.z - model.position.z).normalized;
-                enemy_Cross = Vector3.Cross((target.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
-
-                if(talkSound != null)
+            case State.Idle:
+                if (target != null)
                 {
-                    if (!talkSound.audioSource.isPlaying)
+                    ChangeState(State.Move);
+                }
+                break;
+            case State.Teleport:
+                ChangeState(State.Idle);
+                break;
+            case State.Attack:
+                if (attackCooltime_Current < attackCooltime_Max)
+                {
+                    if (Vector3.Distance(transform.position, target.position) < runawayDistance)
                     {
-                        talkSound = null;
+                        ChangeState(State.Runaway);
+                    }
+                    else
+                    {
+                        ChangeState(State.Move);
                     }
                 }
-
-                if (!startPatternEnd)
-                {
-                    if (index >= phase_Start.Count)
-                    {
-                        index = 0;
-                        startPatternEnd = true;
-                    } 
-
-                    phase_Start[index++].ActivePattern(targetDirection);
-                    attackCooltime_Current = 0;
-
-                }
-                else
-                {
-                    if (index >= phase_Loop.Count)
-                    {
-                        index = 0;
-                    }
-
-                    phase_Loop[index++].ActivePattern(targetDirection);
-                    attackCooltime_Current = 0;
-                }
-                //if (enemy_Cross.y > -0.3f && enemy_Cross.y < 0.2f && attackPatterns[1].CooltimeCheck())
-                //{
-                //    // 직선으로 4개
-                //    attackPatterns[1].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                //else if (attackPatterns[3].CooltimeCheck())
-                //{
-                //    // 옆으로 7개
-                //    animator.SetTrigger("MainSkillPattern1");
-                //    attackPatterns[3].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                //else if (attackPatterns[5].CooltimeCheck())
-                //{
-                //    attackPatterns[5].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                //else if (attackPatterns[4].CooltimeCheck())
-                //{
-                //    attackPatterns[4].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                //else if (attackPatterns[0].CooltimeCheck())
-                //{
-                //    print("기본");
-                //    // 기본공격
-                //    animator.SetTrigger("AttackPattern1");
-                //    attackPatterns[0].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                //else if (attackPatterns[2].CooltimeCheck())
-                //{
-                //    print("기본");
-                //    // 기본공격
-                //    animator.SetTrigger("AttackPattern1");
-                //    attackPatterns[2].ActivePattern(targetDirection);
-                //    attackCooltime_Current = 0;
-                //}
-                //else
-                //        {
-                //    forward = Vector3.zero;
-                //    if (Vector3.Distance(transform.position, target.position) < runawayDistance)
-                //    {
-                //        state = State.Runaway;
-                //    }
-                //    else
-                //    {
-                //        state = State.Move;
-                //    }
-                //}
-
-            }
-            else
-            {
-                if(Vector3.Distance(transform.position, target.position) < runawayDistance)
-                {
-                    state = State.Runaway;
-                }
-                else
-                {
-                    state = State.Move;
-                }
-            }
+                break;
         }
 
-        // 쿨타임 체크 후 스킬을 쓸 수 있다면 사거리 만큼 이동
         if (attackCooltime_Current > attackCooltime_Max)
         {
             enemyDistance = Vector3.Distance(target.position, transform.position);
@@ -662,7 +497,7 @@ public class Maja : Enemy
                 {
                     if (enemyDistance <= attackPatterns[i].range)
                     {
-                        state = State.Attack;
+                        ChangeState(State.Attack);
                         check = false;
                         break;
                     }
@@ -675,20 +510,45 @@ public class Maja : Enemy
 
             if (check)
             {
-                state = State.Move;
                 Move(target.position);
+                ChangeState(State.Move);
             }
         }
 
+        fsm.UpdateState();
+    }
+
+    private void ChangeState(State state)
+    {
         if (state != State.Move)
         {
             setMovePosition = false;
         }
-        else if(state != State.Runaway)
+        else if (state != State.Runaway)
         {
             wall = false;
         }
+
+        switch (state)
+        {
+            case State.Idle:
+                fsm.ChangeState(new IdleState(this));
+                break;
+            case State.Move:
+                fsm.ChangeState(new MoveState(this));
+                break;
+            case State.Runaway:
+                fsm.ChangeState(new RunawayState(this));
+                break;
+            case State.Attack:
+                fsm.ChangeState(new AttackState(this));
+                break;
+            case State.Death:
+                fsm.ChangeState(new DeathtState(this));
+                break;
+        }
     }
+
     IEnumerator Scene()
     {
         yield return new WaitForSeconds(3);
@@ -700,7 +560,7 @@ public class Maja : Enemy
     }
 
 
-    private void Move(Vector3 position)
+    public void Move(Vector3 position)
     {
         if (position == Vector3.zero)
         {
@@ -749,7 +609,7 @@ public class Maja : Enemy
 
     }
 
-    private void Runaway()
+    public void Runaway()
     {
         if (target == null)
             return;
@@ -816,5 +676,99 @@ public class Maja : Enemy
         navMeshAgent.SetDestination(movementPosition);
     }
 
+    public void Attack()
+    {
+        if (attackCooltime_Current > attackCooltime_Max)
+        {
+            targetDirection = target.position - transform.position;
+            targetDirection.y = 0;
+            targetDirection = targetDirection.normalized;
+
+            forward = new Vector3(target.position.x - model.position.x, model.position.y, target.position.z - model.position.z).normalized;
+            enemy_Cross = Vector3.Cross((target.position - transform.position).normalized, new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
+
+            if (talkSound != null)
+            {
+                if (!talkSound.audioSource.isPlaying)
+                {
+                    talkSound = null;
+                }
+            }
+
+            if (!startPatternEnd)
+            {
+                if (index >= phase_Start.Count)
+                {
+                    index = 0;
+                    startPatternEnd = true;
+                }
+
+                phase_Start[index++].ActivePattern(targetDirection);
+                attackCooltime_Current = 0;
+
+            }
+            else
+            {
+                if (index >= phase_Loop.Count)
+                {
+                    index = 0;
+                }
+
+                phase_Loop[index++].ActivePattern(targetDirection);
+                attackCooltime_Current = 0;
+            }
+        }
+    }
+
+    public void ActiveDeathState()
+    {
+        if (hp_Current == 0 && check)
+        {
+            state = State.Death;
+            check = false;
+            animator.SetBool("IsAlive", false);
+            animator.SetTrigger("Groggy");
+            SoundManager.instance.FadeOut_BGM();
+            canDrain = true;
+            for (int i = 0; i < maja_Minions.Count; i++)
+            {
+                maja_Minions[i].UpdateHP(-10000, null, false);
+            }
+
+            if (talkSound != null)
+            {
+                talkSound.StopSound();
+            }
+            talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
+        }
+
+    }
+    public void Death()
+    {
+        if (!drain)
+        {
+            if (talkSound != null)
+            {
+                if (!talkSound.audioSource.isPlaying)
+                {
+                    talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
+                }
+            }
+            else
+            {
+                talkSound = SoundManager.instance.ActiveOnShotSFXSound(Sound.AudioClipName.Boss_Die, transform, Vector3.zero);
+            }
+        }
+        if (drain)
+        {
+            alive = false;
+            if (talkSound != null)
+            {
+                talkSound.StopSound();
+                talkSound = null;
+            }
+            image_F.SetActive(false);
+        }
+    }
 
 }
